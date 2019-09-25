@@ -1,0 +1,12 @@
+@media only screen and (min-width: 420px){
+	.userimage{
+		height: 300px;
+	}
+}
+@media only screen and (max-width: 420px){
+.userimage{
+	height: 250px;
+	margin-left: -15px;
+
+	}
+}
