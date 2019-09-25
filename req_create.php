@@ -54,7 +54,7 @@
                     </ul>
                 </div>
             </div>
-<!-- this is a comment -->
+
             <form class="stepy-validation" action="#">
                 <fieldset title="1">
                     <legend class="text-semibold"> Requesition Details </legend>
