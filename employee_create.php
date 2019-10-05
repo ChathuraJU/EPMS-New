@@ -33,7 +33,7 @@
         <!-- Clickable title -->
         <div class="panel panel-white">
             <div class="panel-heading">
-                <h6 class="panel-title"> Add New Employee </h6>
+                <h6 class="panel-title"><b> Add New Employee </b></h6>
                 <div class="heading-elements">
                     <ul class="icons-list">
                         <li><a data-action="collapse"></a></li>
@@ -43,7 +43,7 @@
                 </div>
             </div>
 
-            <form class="stepy-validation" action="#">
+            <form class="stepy-clickable" action="#">
                 <fieldset title="1">
                     <legend class="text-semibold">Personal data </legend>
                     
@@ -180,7 +180,6 @@
                                     <div class="form-group">
                                         <label>Work ID:<span class="text-danger">*</span></label>
                                         <input type="text" name="workid" placeholder="national work id" class="form-control required">
-
                                     </div>
                                 </div> 
 
@@ -204,7 +203,7 @@
                                 <div class="row">
                                     <div class="form-group">
                                         <label> Unit : <span class="text-danger">*</span></label>
-                                        <select name="unit" data-placeholder="Choose a unit..." class="select-search required">
+                                        <select id="unit" name="unit" data-placeholder="Choose a unit..." class="select-search required">
                                             <option></option> 
                                             <option value="1">Respiratory Unit</option> 
                                             <option value="2">ENT Clinic</option> 
@@ -221,7 +220,7 @@
                                 <div class="row">
                                     <div class="form-group">
                                         <label> Ward : <span class="text-danger">*</span></label>
-                                        <select name="ward" data-placeholder="Choose a ward..." class="select-search required">
+                                        <select id="ward" name="ward" data-placeholder="Choose a ward..." class="select-search required">
                                             <option></option> 
                                             <option value="1"> None </option> 
                                             <option value="2"> WD 01 </option> 
@@ -247,10 +246,16 @@
                         </div>
 
                         <div class="col-md-6">
+                            <div class="row">
+                                <div class="form-group">
+                                    <label>Employee ID :</label>
+                                    <input type="text" id="empid" name="empid" placeholder="Pending.." class="form-control" readonly>
+                                </div>
+                            </div> 
 
                             <div class="row">
                                 <div class="form-group">
-                                    <label> Profile Picture:</label>
+                                    <label> Profile Picture :</label>
                                         <input type="file" class="file-input"data-browse-class="btn btn-primary" data-remove-class="btn btn-default" accept="image/*">
                                 </div>
                             </div>

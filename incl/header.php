@@ -484,7 +484,7 @@
                                         </li>
 
                                         <li>
-                                            <a href="survey_history.php"> Requisition List </a>
+                                            <a href="survey_history.php"> Ward/Unit Survey History </a>
                                         </li>
 									</ul>
 								</li>
@@ -492,7 +492,7 @@
 
 								<!--requisition-->
 								<li>
-									<a href="#"><i class=" icon-pencil7"></i> <span> Requisition </span></a>
+									<a href="#"><i class=" icon-pencil7"></i> <span> Requisitions </span></a>
 									<ul>
 										<li>
                                             <a href="req_create.php"> Create Requisitions </a>
@@ -506,6 +506,10 @@
                                             <a href="req_approved.php">Approved Requisitions</a>
                                         </li>
 
+										<li>
+                                            <a href="req_pending.php"> Pending Requisitions</a>
+										</li>
+										
                                         <li>
                                             <a href="req_rejected.php"> Rejected Requisitions</a>
                                         </li>
@@ -583,7 +587,7 @@
 
 								<!--payments-->
 								<li>
-									<a href="#"><i class="icon-coins"></i> <span> Payments </span></a>
+									<a href="payment.php"><i class="icon-coins"></i> <span> Payments </span></a>
 									<ul>
 										<li>
                                             <a href="pay_fundsalloc.php"> Fund Allocations </a>
@@ -598,7 +602,7 @@
 										</li>
 									</ul>
 								</li>
-								<!--/payment-->
+								<!--/payment--> 
 								
 								<!--inventory-->
 								<li>

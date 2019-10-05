@@ -55,7 +55,7 @@
                 </div>
             </div>
 
-            <form class="stepy-validation" action="#">
+            <form class="stepy-clickable" action="#">
                 <fieldset title="1">
                     <legend class="text-semibold"> Requesition Details </legend>
                     
@@ -68,7 +68,7 @@
                             <div class="col-md-6">
                                 <div class="row">
                                     <div class="form-group">  
-                                        <label> Requesition ID : </label>
+                                        <label> Requisition ID : </label>
                                         <input type="text" name="reqid" class="form-control" readonly/>
                                     </div>
                                 </div> 
@@ -76,7 +76,7 @@
                                 <div class="row">
                                     <div class="form-group">
                                         <label> Request Type : <span class="text-danger">*</span></label>
-                                        <select id="reqse" name="reqtype" data-placeholder="Choose a Request type" class="select-search required" >
+                                        <select id="reqtype" name="reqtype" data-placeholder="Choose a Request type" class="select-search required" >
                                             <option></option> 
                                             <option value="1"> Annual Request </option> 
                                             <option value="2"> Precipitate Request </option> 
@@ -203,17 +203,16 @@
                                     </div>
                                 </div>
 
+                                <div class="col-sm-4"></div>
                                 <div class="col-sm-4">
                                     <button class="btn btn-primary btn-block" id="btn_add">Add</button>
                                 </div>
 
                             </div>
 
-        
-                            <!-- Highlighting rows and columns -->
-
                         </div>
 
+                        <br>
                         <div class="row">
                             <!-- Basic responsive table -->
                             <div class="panel panel-flat">
@@ -264,36 +263,22 @@
                 </fieldset>
 
                 <fieldset title="3">
-                    <legend class="text-semibold">Additional Data</legend>
+                    <legend class="text-semibold"> Confirmation </legend>
 
-                        <div class="col-md-6" style="height: 100%;">
+                        <!-- <div class="col-md-6" style="height: 100%;">
                             <div class="col-sm-4 col-sm-offset-2" style="margin-top: 50px;">
-                                <img src="global_assets/images/done.jpg" height ="300px"  />
+                                <img src="global_assets/images/confirm.jpg" height ="300px"  />
                             </div>
-                        </div>
+                        </div> -->
 
-                        <div class="col-md-6">
-
-                            <div class="row">
-                                <div class="form-group">
-                                    <label> Profile Picture:</label>
-                                        <input type="file" class="file-input"data-browse-class="btn btn-primary" data-remove-class="btn btn-default" accept="image/*">
-                                </div>
-                            </div>
-
-                            <div class="row">
-                                <div class="form-group">
-                                    <label> Aditional Information :</label>
-                                    <textarea name="additional-info" rows="5" cols="5" placeholder="If you want to add any info, do it here." class="form-control"></textarea>
-                                </div>
-                            </div>
-
+                        <div class="col-md-6">Ask someone how to get the previusly entered  details to a form as a summary here
                         </div>
 
                 </fieldset>
 
-                <button type="submit" class="btn btn-primary stepy-finish">Submit <i class="icon-check position-right"></i></button>
 
+                <button type="submit" class="btn btn-primary stepy-finish">Submit <i class="icon-check position-right"></i></button>
+                <button class="btn btn-primary">Print <i class="icon-check position-right"></i></button>
             </form>
         </div> 
         <!-- /clickable title -->

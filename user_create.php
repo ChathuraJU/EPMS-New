@@ -30,7 +30,7 @@
     <div class="content">
         <!-- 2 columns form -->
         <form class="form-horizontal" action="#">
-            <div class="panel panel-flat">
+            <div class="panel panel-white">
                 <div class="panel-heading">
                     <h5 class="panel-title"><b>Create New User</b></h5>
                     <div class="heading-elements">

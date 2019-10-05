@@ -20,9 +20,9 @@
             <div class="breadcrumb-line">
                 <ul class="breadcrumb">
                     <li><a href="dashboard.php"><i class="icon-home2 position-left"></i> Home </a></li>
-                    <li><a href="#"> Requisition </a></li>
-                    <li class="active"> Requisitions List </li>
-                </ul>
+                    <li><a href="#"> Survey  </a></li>
+                    <li class="active"> Survey History </li>
+                </ul>Lis
 
                 <ul class="breadcrumb-elements">
                     <li><a href="#"><i class="icon-comment-discussion position-left"></i> Support</a></li>
@@ -43,7 +43,7 @@
             <!-- Control position -->
             <div class="panel panel-white">
                 <div class="panel-heading">
-                    <h5 class="panel-title"><b> Manage Requisitions </b></h5>
+                    <h5 class="panel-title"><b> Survey History </b></h5>
                     <div class="heading-elements">
                         <ul class="icons-list">
                             <li><a data-action="collapse"></a></li>
@@ -55,84 +55,29 @@
                 <table class="table datatable-responsive-control-right">
                     <thead>
                         <tr>
-                            <th>Requisition ID</th>
-                            <th>Requisition Date</th>
-                            <th>Name of the Consultant</th>
-                            <th>Requisition Type</th>
-                            <th>Unit</th>
-                            <th>Ward</th>
-                            <th class="text-center">Actions</th>
+                            <th> Survey ID </th>
+                            <th> Year </th>
+                            <th> Unit </th>
+                            <th> Ward </th>
+                            <th> Document </th>
+                            <th> Action </th>
                             <th></th>
-
                         
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
-                            <td><a href="reqequip.php"> REQ-000001  </a></td>
-                            <td> 07 Dec 2017</td>
-                            <td> Dr. Dushantha Mahagedara</td>
-                            <td> Annual Request</td>
+                            <td> EQUIP000010  </a></td>
+                            <td> 2017</td>
                             <td> Respiratory Unit </td>
                             <td> None </td>
-
+                            <td> ResUnit2017.pdf </td>
                             <td class="text-center">
                                 <ul class="icons-list">
                                     <li class="dropdown">
                                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                                             <i class="icon-menu9"></i>
                                         </a>
-
-                                        <ul class="dropdown-menu dropdown-menu-right">
-                                            <li><a href="#"><i class="icon-eye"></i> View</a></li>
-                                            <li><a href="#"><i class="icon-bin"></i> Delete</a></li>
-                                            <li></li>
-                                        </ul>
-                                    </li>
-                                </ul>
-                            </td>
-                            <td></td>
-
-                        </tr>
-                        <tr>
-                            <td><a href="reqequip.php"> REQ-000002 </a></td>
-                            <td> 10 Jan 2018</td>
-                            <td> Dr. Dushantha Mahagedara</td>
-                            <td> Annual Request</td>
-                            <td> None </td>
-                            <td> WD 44/45 </td>
-                            <td class="text-center">
-                                <ul class="icons-list">
-                                    <li class="dropdown">
-                                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                                            <i class="icon-menu9"></i>
-                                        </a>
-
-                                        <ul class="dropdown-menu dropdown-menu-right">
-                                            <li><a href="#"><i class="icon-eye"></i> View</a></li>          
-                                            <li><a href="#"><i class="icon-bin"></i> Delete</a></li>
-                                            <li></li>
-                                        </ul>
-                                    </li>
-                                </ul>
-                            </td>
-                            <td></td>
-
-                        </tr>
-                        <tr>
-                            <td><a href="reqequip.php"> REQ-000003 </a></td>
-                            <td> 18 Jan 2018</td>
-                            <td> Dr. A.W.M.Wazil</td>
-                            <td> Annual Request</td>
-                            <td> None </td>
-                            <td> WD 69 </td>
-                            <td class="text-center">
-                                <ul class="icons-list">
-                                    <li class="dropdown">
-                                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                                            <i class="icon-menu9"></i>
-                                        </a>
-
                                         <ul class="dropdown-menu dropdown-menu-right">
                                             <li><a href="#"><i class="icon-eye"></i> View</a></li>
                                             <li><a href="#"><i class="icon-bin"></i> Delete</a></li>
@@ -141,22 +86,19 @@
                                 </ul>
                             </td>
                             <td></td>
-
                         </tr>
                         <tr>
-                            <td><a href="reqequip.php"> REQ-000004 </a></td>
-                            <td> 18 Jan 2018</td>
-                            <td> Dr. S.C.A.Arambepola</td>
-                            <td> Precipitate Request</td>                     
-                            <td> Psyciatry Unit  </td>
+                            <td> EQUIP000010  </a></td>
+                            <td> 2017</td>
+                            <td> Respiratory Unit </td>
                             <td> None </td>
+                            <td> ResUnit2017.pdf </td>
                             <td class="text-center">
                                 <ul class="icons-list">
                                     <li class="dropdown">
                                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                                             <i class="icon-menu9"></i>
                                         </a>
-
                                         <ul class="dropdown-menu dropdown-menu-right">
                                             <li><a href="#"><i class="icon-eye"></i> View</a></li>
                                             <li><a href="#"><i class="icon-bin"></i> Delete</a></li>
@@ -165,7 +107,6 @@
                                 </ul>
                             </td>
                             <td></td>
-
                         </tr>
                     </tbody>
                 </table>
