@@ -84,7 +84,7 @@
                                         </a>
 
                                         <ul class="dropdown-menu dropdown-menu-right">
-                                            <li><a href="#"><i class="icon-eye"></i> View</a></li>
+                                            <li><a href="reqequip.php"><i class="icon-eye"></i> View</a></li>
                                             <li><a href="#"><i class="icon-bin"></i> Delete</a></li>
                                             <li></li>
                                         </ul>
@@ -109,7 +109,7 @@
                                         </a>
 
                                         <ul class="dropdown-menu dropdown-menu-right">
-                                            <li><a href="#"><i class="icon-eye"></i> View</a></li>          
+                                            <li><a href="reqequip.php"><i class="icon-eye"></i> View</a></li>          
                                             <li><a href="#"><i class="icon-bin"></i> Delete</a></li>
                                             <li></li>
                                         </ul>
@@ -134,7 +134,7 @@
                                         </a>
 
                                         <ul class="dropdown-menu dropdown-menu-right">
-                                            <li><a href="#"><i class="icon-eye"></i> View</a></li>
+                                            <li><a href="reqequip.php"><i class="icon-eye"></i> View</a></li>
                                             <li><a href="#"><i class="icon-bin"></i> Delete</a></li>
                                         </ul>
                                     </li>
@@ -158,7 +158,7 @@
                                         </a>
 
                                         <ul class="dropdown-menu dropdown-menu-right">
-                                            <li><a href="#"><i class="icon-eye"></i> View</a></li>
+                                            <li><a href="reqeqip.php"><i class="icon-eye"></i> View</a></li>
                                             <li><a href="#"><i class="icon-bin"></i> Delete</a></li>
                                         </ul>
                                     </li>

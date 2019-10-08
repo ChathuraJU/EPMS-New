@@ -28,10 +28,6 @@
 
 	<!-- /core JS files -->
 
-	
-	
-
-
 	<!-- Theme JS files -->
 	<script src="global_assets/js/plugins/visualization/d3/d3.min.js"></script>          
 	<script src="global_assets/js/plugins/visualization/d3/d3_tooltip.js"></script>
@@ -60,10 +56,12 @@
 	<script src="global_assets/js/plugins/uploaders/fileinput/fileinput.min.js"></script>
 	<script src="global_assets/js/plugins/extensions/contextmenu.js"></script>
 	<script src="global_assets/js/plugins/visualization/sparkline.min.js"></script>
+	<script src="global_assets/js/plugins/notifications/bootbox.min.js"></script>
+	<script src="global_assets/js/plugins/notifications/sweet_alert.min.js"></script>
 	
 	<script src="assets/js/app.js"></script>
 	<script src="global_assets/js/demo_pages/dashboard.js"></script>
-	<!-- /theme JS files -->
+
 
 	<script src="global_assets/js/demo_pages/wizard_stepy.js"></script>
 	<script src="global_assets/js/demo_pages/picker_date.js"></script>
@@ -75,9 +73,10 @@
 	<script src="global_assets/js/demo_pages/datatables_data_sources.js"></script>
 	<script src="global_assets/js/demo_pages/form_input_groups.js"></script>
 	<script src="global_assets/js/demo_pages/table_elements.js"></script>
-    <script src="global_assets/js/demo_pages/form_select2.js"></script>
+	<script src="global_assets/js/demo_pages/form_select2.js"></script>
+	<script src="global_assets/js/demo_pages/components_modals.js"></script>
 
-
+	<!-- /theme JS files -->
 </head>
 
 <body>
@@ -503,11 +502,15 @@
                                         </li>
 
                                         <li>
-                                            <a href="req_approved.php">Approved Requisitions</a>
+                                            <a href="req_primapproved.php">Primal Approved Requisitions</a>
+										</li>
+										
+                                        <li>
+                                            <a href="req_primrejected.php">Primal Rejected Requisitions</a>
                                         </li>
 
 										<li>
-                                            <a href="req_pending.php"> Pending Requisitions</a>
+                                            <a href="req_minapproved.php"> Ministry Approved Requisitions</a>
 										</li>
 										
                                         <li>

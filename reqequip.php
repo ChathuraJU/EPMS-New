@@ -19,8 +19,9 @@
         <div class="breadcrumb-line">
             <ul class="breadcrumb">
                 <li><a href="dashboard.php"><i class="icon-home2 position-left"></i> Home </a></li>
-                <li><a href="#"> Requisition </a></li>
-                <li class="active"> Requested Equipments </li>
+                <li><a href="req_create.php"> Requisitions </a></li>
+                <li><a href="req_list.php"> Requisition List </a></li>
+                <li class="active"> Requested Equipments </li> 
             </ul>
         </div>
     </div>
@@ -104,84 +105,64 @@
                     <fieldset>
                         <legend class="text-semibold">
                             <i class="icon-reading position-left"></i>
-                            Add personal details
+                            Equipment Details
                             <a class="control-arrow" data-toggle="collapse" data-target="#demo2">
                                 <i class="icon-circle-down2"></i>
                             </a>
                         </legend>
 
-                        <div class="collapse in" id="demo2">
-                            <div class="form-group">
-                                <label>Your country:</label>
-                                <select data-placeholder="Select your country" class="select">
-                                    <option value="USA">USA</option> 
-                                    <option value="United Kingdom">United Kingdom</option> 
-                                    <option value="...">...</option> 
-                                    <option value="Australia">Australia</option> 
-                                </select>
+                        <div class="row">
+                            <!-- Basic responsive table -->
+                            <div class="panel panel-flat">
+                                <div class="table-responsive">
+                                    <table class="table" id="tblajx">
+                                        <thead>
+                                            <tr>
+                                                <th> Requisition Equipment No. </th>
+                                                <th> Equipment Name </th>
+                                                <th> Quantity </th>
+                                                <th> Priority </th>
+                                                <th> Primal Approval </th>
+                                                <th> Action </th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td><a href="reqapproval.php"> REQ-000001-01 </a></td>
+                                                <td> Sphygmomanometers </td>
+                                                <td> 05 </td>
+                                                <td> High </td>
+                                                <td> Pending </td>
+                                                <td class="text-center">
+                                                    <ul class="icons-list">
+                                                        <li><a href="reqapproval.php"><i class="icon-pencil7"></i></a></li>
+                                                        <li><a href="reqapproval.php"><i class="icon-eye"></i></a></li>
+                                                    </ul>
+                                                </td>
+                                            </tr>
+
+                                            <tr>
+                                                <td><a href="equipment.php"> REQ-000001-02 </a></td>
+                                                <td> Nebulizer </td>
+                                                <td> 02 </td>
+                                                <td> Critical </td>
+                                                <td> Pending </td>
+                                                <td class="text-center">
+                                                    <ul class="icons-list">
+                                                        <li><a href="reqapproval.php"><i class="icon-pencil7"></i></a></li>
+                                                        <li><a href="reqapproval.php"><i class="icon-eye"></i></a></li>
+                                                    </ul>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
                             </div>
-
-                            <div class="form-group">
-                                <label>Select your state:</label>
-                                <select data-placeholder="Select your state" class="select">
-                                    <option></option>
-                                    <optgroup label="Alaskan/Hawaiian Time Zone">
-                                        <option value="AK">Alaska</option>
-                                        <option value="HI">Hawaii</option>
-                                    </optgroup>
-                                    <optgroup label="Pacific Time Zone">
-                                        <option value="CA">California</option>
-                                        <option value="NV">Nevada</option>
-                                        <option value="WA">Washington</option>
-                                    </optgroup>
-                                    <optgroup label="Mountain Time Zone">
-                                        <option value="AZ">Arizona</option>
-                                        <option value="CO">Colorado</option>
-                                        <option value="WY">Wyoming</option>
-                                    </optgroup>
-                                    <optgroup label="Central Time Zone">
-                                        <option value="AL">Alabama</option>
-                                        <option value="AR">Arkansas</option>
-                                        <option value="KY">Kentucky</option>
-                                    </optgroup>
-                                    <optgroup label="Eastern Time Zone">
-                                        <option value="CT">Connecticut</option>
-                                        <option value="DE">Delaware</option>
-                                        <option value="FL">Florida</option>
-                                    </optgroup>
-                                </select>
-                            </div>
-
-                            <div class="form-group">
-                                <label class="display-block">Gender:</label>
-
-                                <label class="radio-inline">
-                                    <input type="radio" name="gender2" class="styled" checked="checked">
-                                    Male
-                                </label>
-
-                                <label class="radio-inline">
-                                    <input type="radio" name="gender2" class="styled">
-                                    Female
-                                </label>
-                            </div>
-
-                            <div class="form-group">
-                                <label>Your CV:</label>
-                                <input type="file" class="file-styled">
-                                <span class="help-block">Accepted formats: pdf, doc. Max file size 2Mb</span>
-                            </div>
-
-                            <div class="form-group">
-                                <label>About yourself:</label>
-                                <textarea rows="5" cols="5" placeholder="Few words about yourself..." class="form-control"></textarea>
-                            </div>
+                            <!-- /basic responsive table -->
                         </div>
+
                     </fieldset>
 
-                    <div class="text-right">
-                        <button type="submit" class="btn btn-primary">Submit form <i class="icon-arrow-right14 position-right"></i></button>
-                    </div>
                 </div>
             </div>
         </form>

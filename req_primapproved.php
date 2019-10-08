@@ -21,7 +21,7 @@
                 <ul class="breadcrumb">
                     <li><a href="dashboard.php"><i class="icon-home2 position-left"></i> Home </a></li>
                     <li><a href="#"> Requisition </a></li>
-                    <li class="active"> Approved Requisitions </li>
+                    <li class="active"> Primal Approved Requisitions </li>
                 </ul>
 
                 <ul class="breadcrumb-elements">
@@ -43,7 +43,7 @@
             <!-- Control position -->
             <div class="panel panel-white">
                 <div class="panel-heading">
-                    <h5 class="panel-title"><b> Approved Requisitions </b></h5>
+                    <h5 class="panel-title"><b> Primal Approved Requisitions </b></h5>
                     <div class="heading-elements">
                         <ul class="icons-list">
                             <li><a data-action="collapse"></a></li>
@@ -55,68 +55,46 @@
                 <table class="table datatable-responsive-control-right">
                     <thead>
                         <tr>
-                            <th>Requisition ID</th>
-                            <th>Requisition Date</th>
-                            <th>Name of the Consultant</th>
-                            <th>Requisition Type</th>
-                            <th>Equipment</th>
-                            <th>Quantity</th>
-                            <th>Approval</th>
-                            <th>Approved Date</th>
-                            <th></th>
+                            <th>Requisition Equipment No</th>
+                            <th>Primal Approval</th>
+                            <th>Primal Approval Date</th>
+                            <th>Procurement Type</th>
+                            <th>Ministry Approval</th>
+                            <th>Action</th>
                             <th></th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
-                            <td><a href="#"> REQ-000001  </a></td>
-                            <td> 07 Dec 2017</td>
-                            <td> Dr. Dushantha Mahagedara</td>
-                            <td> Annual Request</td>
-                            <td> Oximeter for Sleep Observation Machine </td>
-                            <td> 01 </td>
-                            <td> Approved </td>
-                            <td> 07 Jan 2018</td>
-                            <td><a href="#"><i class="icon-eye"></i> View</a> </td>
+                            <td><a href="#"> REQ-000001-01  </a></td>
+                            <td> Approved</td>
+                            <td> 05.02.2017</td>
+                            <td> Direct Purchase</td>
+                            <td> Pending </td>
+                            <td class="text-center">
+                                <ul class="icons-list">
+                                    <li><a href="minapproval.php"><i class="icon-pencil7"></i></a></li>
+                                    <li><a href="minapproval.php"><i class="icon-eye"></i></a></li>
+                                </ul>
+                            </td>
                             <td></td>
+                        
                         </tr>
                         <tr>
-                            <td><a href="#"> REQ-000002 </a></td>
-                            <td> 10 Jan 2018</td>
-                            <td> Dr. Dushantha Mahagedara</td>
-                            <td> Annual Request</td>
-                            <td> Pulse Oxyeter </td>
-                            <td> 01 </td>
-                            <td> Approved </td>
-                            <td> 07 Jan 2018</td>
-                            <td><a href="#"><i class="icon-eye"></i> View</a> </td>
+                            <td><a href="#"> REQ-000001-02 </a></td>
+                            <td> Approved</td>
+                            <td> 08.02.2017</td>
+                            <td> Indirect Purchase</td>
+                            <td> Pending </td>
+                            <td class="text-center">
+                                <ul class="icons-list">
+                                    <li><a href="minapproval.php"><i class="icon-pencil7"></i></a></li>
+                                    <li><a href="minapproval.php"><i class="icon-eye"></i></a></li>
+                                </ul>
+                            </td>
                             <td></td>
                         </tr>
-                        <tr>
-                            <td><a href="#"> REQ-000003 </a></td>
-                            <td> 18 Jan 2018</td>
-                            <td> Dr. A.W.M.Wazil</td>
-                            <td> Annual Request</td>
-                            <td> Syringe Pump </td>
-                            <td> 02 </td>
-                            <td> Approved </td>
-                            <td> 07 Jan 2018</td>
-                            <td><a href="#"><i class="icon-eye"></i> View</a> </td>
-                            <td></td>
-
-                        </tr>
-                        <tr>
-                            <td><a href="#"> REQ-000004 </a></td>
-                            <td> 18 Jan 2018</td>
-                            <td> Dr. S.C.A.Arambepola</td>
-                            <td> Precipitate Request</td>
-                            <td> Syringe Pump </td>
-                            <td> 02 </td>
-                            <td> Approved </td>
-                            <td> 07 Jan 2018</td>
-                            <td><a href="#"><i class="icon-eye"></i> View</a> </td>
-                            <td></td>
-                        </tr>
+                 
                     </tbody>
                 </table>
             </div>

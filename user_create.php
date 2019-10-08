@@ -66,7 +66,7 @@
                                 <div class="form-group">
                                     <label class="col-lg-3 control-label">Employee Name:</label>
                                     <div class="col-lg-9">
-                                        <input type="text" class="form-control required" placeholder="Sanath Udagedara">  <!-- this should auto fill when the employee Id is selected -->
+                                        <input type="text" id="empname" name="empname" class="form-control required" placeholder="Sanath Udagedara">  <!-- this should auto fill when the employee Id is selected -->
                                     </div>
                                 </div>
                             </div>

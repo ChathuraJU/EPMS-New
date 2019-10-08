@@ -278,7 +278,6 @@
 
 
                 <button type="submit" class="btn btn-primary stepy-finish">Submit <i class="icon-check position-right"></i></button>
-                <button class="btn btn-primary">Print <i class="icon-check position-right"></i></button>
             </form>
         </div> 
         <!-- /clickable title -->
