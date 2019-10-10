@@ -55,43 +55,33 @@
                 <table class="table datatable-responsive-control-right">
                     <thead>
                         <tr>
-                            <th>Requisition Equipment No</th>
+                            <th>Primal Approved Equipment No.</th>
+                            <th>Requisition Equipment No.</th>
                             <th>Primal Approval</th>
                             <th>Primal Approval Date</th>
                             <th>Procurement Type</th>
-                            <th>Ministry Approval</th>
-                            <th>Action</th>
+                            <th>Proceed To Procure </th>
                             <th></th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
-                            <td><a href="#"> REQ-000001-01  </a></td>
+                            <td> PAPP-REQ-000001-01 </td>
+                            <td> REQ-000001-01 </td>
                             <td> Approved</td>
                             <td> 05.02.2017</td>
                             <td> Direct Purchase</td>
-                            <td> Pending </td>
-                            <td class="text-center">
-                                <ul class="icons-list">
-                                    <li><a href="minapproval.php"><i class="icon-pencil7"></i></a></li>
-                                    <li><a href="minapproval.php"><i class="icon-eye"></i></a></li>
-                                </ul>
-                            </td>
+                            <td class="text-center"><a href="directpurch.php"><u> Proceed </u></a> </td>
                             <td></td>
                         
                         </tr>
                         <tr>
-                            <td><a href="#"> REQ-000001-02 </a></td>
+                            <td> PAPP-REQ-000001-02 </td>
+                            <td> REQ-000001-02 </td>
                             <td> Approved</td>
                             <td> 08.02.2017</td>
                             <td> Indirect Purchase</td>
-                            <td> Pending </td>
-                            <td class="text-center">
-                                <ul class="icons-list">
-                                    <li><a href="minapproval.php"><i class="icon-pencil7"></i></a></li>
-                                    <li><a href="minapproval.php"><i class="icon-eye"></i></a></li>
-                                </ul>
-                            </td>
+                            <td class="text-center"><a href="indirectpurch.php"> Proceed </a> </td>
                             <td></td>
                         </tr>
                  

@@ -89,7 +89,7 @@
                                         <label> Request Date : <span class="text-danger">*</span></label>
                                         <div class="input-group">
                                             <span class="input-group-addon"><i class="icon-calendar22"></i></span>
-                                            <input type="text" class="form-control daterange-single" placeholder="06/09/2019">
+                                            <input type="text" id="reqdate" name="reqdate" class="form-control daterange-single" placeholder="06/09/2019">
                                         </div>
                                     </div>
                                 </div>

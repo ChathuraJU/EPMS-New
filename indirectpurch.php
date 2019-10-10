@@ -19,10 +19,9 @@
         <div class="breadcrumb-line">
             <ul class="breadcrumb">
                 <li><a href="dashboard.php"><i class="icon-home2 position-left"></i> Home </a></li>
-                <li><a href="req_create.php"> Requisitions </a></li>
-                <li><a href="req_list.php"> Requisition List </a></li>
-                <li><a href="reqequip.php"> Requisition Equipments </a></li>
-                <li class="active"> Requisition Approval </li> 
+                <li><a href="req_list.php"> Requisition </a></li>
+                <li><a href="req_primapproved.php"> Primal Approved Requisition </a></li>
+                <li class="active"> Indirect Purchases </li>
             </ul>
         </div>
     </div>
@@ -34,7 +33,7 @@
         <form action="#">
             <div class="panel panel-white">
                 <div class="panel-heading">
-                    <h5 class="panel-title"> <b> Requisition Approval </b> </h5>
+                    <h5 class="panel-title"> <b> Ministry Approval </b> </h5>
                     <div class="heading-elements">
                         <ul class="icons-list">
                             <li><a data-action="collapse"></a></li>
@@ -72,7 +71,7 @@
                                 <div class="col-lg-4">
                                     <div class="form-group">
                                         <label> Requisition Date : </label>
-                                        <input type="text"  id="reqdate" name="reqdate" class="form-control" placeholder="02.03.2017" readonly>
+                                        <input type="text" id="reqdate" name="reqdate" class="form-control" placeholder="02.03.2017" readonly>
                                     </div>
                                 </div>
 
@@ -151,69 +150,113 @@
                                         <label> Director Name :</label>
                                         <input type="text" id="empname" class="form-control" placeholder=" Dr. Sanath Gurusinghe" readonly>
                                     </div>
-                                </div>    
-
+                                </div>  
+                                
                                 <div class="col-lg-6">
                                     <div class="form-group">
-                                        <label> Primal Approval Date : </label>
-                                        <div class="input-group">
-                                            <span class="input-group-addon"><i class="icon-calendar22"></i></span>
-                                            <input type="text" id="primappdate" name="primappdate" class="form-control daterange-single" readonly >
-                                        </div>
+                                        <label> Primal Approval Document ID :</label>
+                                        <input type="text" id="primappdoc" class="form-control" placeholder="XXXXX" readonly>
                                     </div>
-                                </div>
+                                </div>   
+
                             </div>
 
                             <div class="row">   
                                 <div class="col-lg-4">
                                     <div class="form-group">
                                         <label> Primal Approval :</label>
-                                        <select id="primapp" name="primapp" data-placeholder="Pending" class="select-search required" >
-                                            <option></option> 
-                                            <option value="1">Approved</option> 
-                                            <option value="2">Rejected</option> 
-                                        </select>
+                                        <input type="text" id="primapp" name="primapp" class="form-control" placeholder="Approved" readonly>
                                     </div>
                                 </div>
 
-                                <div class="col-lg-4" id="prt">
-                                    <div class="form-group">
-                                        <label> Procurement Type :</label>
-                                        <select id="procuretype" name="procuretype" data-placeholder="Direct/Indirect" class="select-search required" >
-                                            <option></option> 
-                                            <option value="1"> Direct Purchase </option> 
-                                            <option value="2"> Indirect Purchase </option> 
-                                        </select>
-                                    </div>
-                                </div>   
-                                
                                 <div class="col-lg-4">
                                     <div class="form-group">
-                                        <label> Primal Approval Document ID :</label>
-                                        <input type="text" id="primappdoc" class="form-control" placeholder="XXXXXX" >
+                                        <label> Primal Approval Date : </label>
+                                        <input type="text" id="primappdate" name="primappdate" class="form-control" placeholder="01/01/2019" readonly >
                                     </div>
-                                </div>  
+                                </div>
+
+                                <div class="col-lg-4">
+                                    <div class="form-group">
+                                        <label> Procurement Type :</label>
+                                        <input type="text" id="procuretype" name="procuretype" class="form-control" placeholder="Indirect Purchase" readonly>
+                                    </div>
+                                </div>    
                             </div>
 
                             <div class="row">
                                 <div class="col-lg-12">
                                     <div class="form-group">
                                         <label> Director Remarks:</label>
-                                        <textarea name="additional-info"  placeholder="Add remarks here." class="form-control"></textarea>
+                                        <textarea name="primremarks"  placeholder="Add remarks here." class="form-control" readonly></textarea>
                                     </div>
                                 </div>   
                             </div>
-<!-- 
-                            <div class="row">
-                                <div class="col-lg-3"></div>
+
+                        </div>
+
+                        <legend class="text-semibold">
+                            <i class="icon-shield-check position-left"></i>
+                            Ministry Approval Details
+                            <a class="control-arrow" data-toggle="collapse" data-target="#demo3">
+                                <i class="icon-circle-down2"></i>
+                            </a>
+                        </legend>
+
+                        <div class="collapse in" id="demo2">
+
+                            <div class="row">  
                                 <div class="col-lg-6">
                                     <div class="form-group">
-                                        <label> Primal Approval Document :</label>
-                                            <input type="file" id="primappdoc" name="primappdoc"class="file-input" data-show-preview="false">
+                                        <label> Ministry Approval :</label>
+                                        <select name="minapp" data-placeholder="Pending" class="select required">
+                                            <option></option> 
+                                            <option value="1"> Approved </option> 
+                                            <option value="2"> Rejected </option> 
+                                        </select>
                                     </div>
                                 </div>
-                                <div class="col-lg-3"></div>
-                            </div> -->
+
+                                <div class="col-lg-6">
+                                    <div class="form-group">
+                                        <label> Ministry Approval Date:</label>
+                                        <div class="input-group">
+                                            <span class="input-group-addon"><i class="icon-calendar22"></i></span>
+                                            <input type="text" class="form-control daterange-single" value="03/18/2013">
+                                        </div>
+                                    </div>
+                                </div>   
+                            </div>
+
+                            <div class="row"> 
+                                <div class="col-lg-6">
+                                    <div class="form-group">
+                                        <label> Ministry Approval Document ID :</label>
+                                        <input type="text" id="minappdoc" class="form-control" placeholder="XXXXX" >
+                                    </div>
+                                </div>   
+
+                                <div class="col-lg-6">
+                                    <div class="form-group">
+                                        <label> Procure From :</label>
+                                        <select name="procuretype" data-placeholder="Ministry/Hospital" class="select required">
+                                            <option></option> 
+                                            <option value="1"> Procure from Ministry </option> 
+                                            <option value="2"> Procure from Hospital</option> 
+                                        </select>
+                                    </div>
+                                </div>  
+                            </div>   
+
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <div class="form-group">
+                                        <label> Ministry Remarks:</label>
+                                        <textarea name="minremarks"  placeholder="Not Added" class="form-control"></textarea>
+                                    </div>
+                                </div>   
+                            </div>
+
                         </div>
                     </fieldset>
 
@@ -227,25 +270,6 @@
 
     </div>
     <!-- /content area -->
-
-
-    <script>    
-        $( "select" ) .change(function () {    
-            var prot = $("#primapp").val();
-
-            if(prot == "1"){
-                // alert("test");
-                // $("#prt").addClass("hidden");
-                $("#prt").removeClass("hidden");
-            }
-            else{
-                // alert("test");
-                $("#prt").addClass("hidden");
-                // $("#prt").removeClass("hidden");
-            }
-        });  
-    </script>  
-
 
 </div>
 <!-- /Main content -->

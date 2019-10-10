@@ -55,6 +55,7 @@
                 <table class="table datatable-responsive-control-right">
                     <thead>
                         <tr>
+                            <th>Requisition ID </th>
                             <th>Requisition Equipment No</th>
                             <th>Primal Approval</th>
                             <th>Primal Approval Date</th>
@@ -64,7 +65,8 @@
                     </thead>
                     <tbody>
                         <tr>
-                            <td><a href="reqequip.php"> REQ-000001-01  </a></td>
+                            <td><a href="reqequip.php"> REQ-000001 </a></td>
+                            <td><a href="reqapproval.php"> REQ-000001-01  </a></td>
                             <td> Rejected</td>
                             <td> 05.02.2017</td>
                             <td>
@@ -76,7 +78,8 @@
                         
                         </tr>
                         <tr>
-                            <td><a href="#"> REQ-000001-02 </a></td>
+                        <td><a href="reqequip.php"> REQ-000002 </a></td>
+                            <td><a href="reqapproval.php"> REQ-000001-02 </a></td>
                             <td> Rejected</td>
                             <td> 08.02.2017</td>
                             <td>

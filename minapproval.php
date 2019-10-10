@@ -134,21 +134,19 @@
                                     <div class="col-lg-4">
                                         <div class="form-group">
                                             <label> Primal Approval :</label>
-                                            <select name="primapp" data-placeholder="Pending" class="select required" readonly>
-                                                <option></option> 
-                                                <option value="1"> Approved </option> 
-                                                <option value="2"> Rejected </option> 
-                                            </select>
+                                            <input type="text" id="primapp" name="primapp" class="form-control" placeholder="Approved" readonly>
                                         </div>
                                     </div>
 
                                     <div class="col-lg-4">
                                         <div class="form-group">
                                             <label> Purchase Type :</label>
+                                            <input type="text" id="purchtype" name="purchtype" class="form-control" placeholder="Indirect Purchase" readonly>
+
                                             <select name="purchtype" data-placeholder="Direct/Indirect" class="select required" readonly>
                                                 <option></option> 
                                                 <option value="1"> Direct Purchase </option> 
-                                                <option value="2"> Indirects Purchase</option> 
+                                                <option value="2"> Indirect Purchase</option> 
                                             </select>
                                         </div>
                                     </div>    

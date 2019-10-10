@@ -81,7 +81,7 @@
                                         <label> Requisition Date : </label>
                                         <div class="input-group">
                                             <span class="input-group-addon"><i class="icon-calendar22"></i></span>
-                                            <input type="text" class="form-control daterange-single" value="03/18/2013" readonly>
+                                            <input type="text" id="reqdate" name="reqdate" class="form-control daterange-single" value="03/18/2013" readonly>
                                         </div>
                                     </div>
                                 </div>

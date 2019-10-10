@@ -501,8 +501,24 @@
                                             <a href="req_list.php"> Requisition List </a>
                                         </li>
 
+										<li>
+											<a href="reqequip_list.php"> Requisitioned Equipment List </a>
+										</li>
+
                                         <li>
-                                            <a href="req_primapproved.php">Primal Approved Requisitions</a>
+											<a href="req_primapproved.php">Primal Approved Requisitions</a>
+										</li>
+
+										<li>
+                                            <a href="req_primrejected.php">Primal Rejected Requisitions</a>
+                                        </li>
+										
+										<li>
+											<a href="directpurch.php">Direct Purchases</a>
+										</li>
+
+										<li>
+											<a href="indirectpurch.php">Indirect Purchases</a>
 										</li>
 										
                                         <li>
