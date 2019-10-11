@@ -158,6 +158,9 @@
                                     </table>
                                 </div>
                             </div>
+                            <div class="text-right">
+                                <button type="submit" class="btn btn-primary"> Save <i class="icon-arrow-right14 position-right"></i></button>
+                            </div>
                             <!-- /basic responsive table -->
                         </div>
 

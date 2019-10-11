@@ -187,12 +187,12 @@
                                     </div>
                                 </div>   
                                 
-                                <div class="col-lg-4">
+                                <!-- <div class="col-lg-4">
                                     <div class="form-group">
                                         <label> Primal Approval Document ID :</label>
                                         <input type="text" id="primappdoc" class="form-control" placeholder="XXXXXX" >
                                     </div>
-                                </div>  
+                                </div>   -->
                             </div>
 
                             <div class="row">

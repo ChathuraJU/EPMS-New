@@ -21,7 +21,7 @@
                 <ul class="breadcrumb">
                     <li><a href="dashboard.php"><i class="icon-home2 position-left"></i> Home </a></li>
                     <li><a href="#"> Requisition </a></li>
-                    <li class="active"> Primal Approved Requisitions </li>
+                    <li class="active"> Ministry Approval Form </li>
                 </ul>
 
                 <ul class="breadcrumb-elements">
@@ -43,7 +43,7 @@
             <!-- Control position -->
             <div class="panel panel-white">
                 <div class="panel-heading">
-                    <h5 class="panel-title"><b> Primal Approved Requisitions </b></h5>
+                    <h5 class="panel-title"><b> Ministry Approval Form </b></h5>
                     <div class="heading-elements">
                         <ul class="icons-list">
                             <li><a data-action="collapse"></a></li>
@@ -52,38 +52,6 @@
                     </div>
                 </div>
 
-                <table class="table datatable-responsive-control-right">
-                    <thead>
-                        <tr>
-                           <th>Requisition Equipment No.</th>
-                            <th>Primal Approval</th>
-                            <th>Primal Approval Date</th>
-                            <th>Procurement Type</th>
-                            <th>Proceed To Procure </th>
-                            <th></th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td> REQ-000001-01 </td>
-                            <td> Approved</td>
-                            <td> 05.02.2017</td>
-                            <td> Direct Purchase</td>
-                            <td class="text-center"><a href="tec_createform.php"><u> Create TEC </u></a> </td>
-                            <td></td>
-                        
-                        </tr>
-                        <tr>
-                            <td> REQ-000001-02 </td>
-                            <td> Approved</td>
-                            <td> 08.02.2017</td>
-                            <td> Indirect Purchase</td>
-                            <td class="text-center"><a href="minapproval_form.php"> Proceed with Ministry Approval </a> </td>
-                            <td></td>
-                        </tr>
-                 
-                    </tbody>
-                </table>
             </div>
             <!-- /control position -->
         </div>

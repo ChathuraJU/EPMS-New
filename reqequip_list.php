@@ -60,22 +60,18 @@
                             <th>Requisition Approval Document ID</th>
                             <th>Requisition Type</th>
                             <th>Primal Approval</th>
-                            <th>Ward</th>
                             <th class="text-center">Actions</th>
                             <th></th>
-
                         
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
-                            <td><a href="reqequip.php"> REQ-000001  </a></td>
-                            <td> 07 Dec 2017</td>
-                            <td> Dr. Dushantha Mahagedara</td>
+                            <td><a> REQ-000001-01  </a></td>
+                            <td> REQ-000001 </td>
+                            <td> XXXXXX</td>
                             <td> Annual Request</td>
-                            <td> Respiratory Unit </td>
-                            <td> None </td>
-
+                            <td> Pending </td>
                             <td class="text-center">
                                 <ul class="icons-list">
                                     <li class="dropdown">
@@ -95,12 +91,11 @@
 
                         </tr>
                         <tr>
-                            <td><a href="reqequip.php"> REQ-000002 </a></td>
-                            <td> 10 Jan 2018</td>
-                            <td> Dr. Dushantha Mahagedara</td>
+                        <td><a> REQ-000001-02  </a></td>
+                            <td> REQ-000001 </td>
+                            <td> XXXXXX</td>
                             <td> Annual Request</td>
-                            <td> None </td>
-                            <td> WD 44/45 </td>
+                            <td> Pending </td>
                             <td class="text-center">
                                 <ul class="icons-list">
                                     <li class="dropdown">
@@ -120,12 +115,11 @@
 
                         </tr>
                         <tr>
-                            <td><a href="reqequip.php"> REQ-000003 </a></td>
-                            <td> 18 Jan 2018</td>
-                            <td> Dr. A.W.M.Wazil</td>
+                        <td><a> REQ-000001-03  </a></td>
+                            <td> REQ-000001 </td>
+                            <td> XXXXXX</td>
                             <td> Annual Request</td>
-                            <td> None </td>
-                            <td> WD 69 </td>
+                            <td> Pending </td>
                             <td class="text-center">
                                 <ul class="icons-list">
                                     <li class="dropdown">
@@ -144,12 +138,11 @@
 
                         </tr>
                         <tr>
-                            <td><a href="reqequip.php"> REQ-000004 </a></td>
-                            <td> 18 Jan 2018</td>
-                            <td> Dr. S.C.A.Arambepola</td>
-                            <td> Precipitate Request</td>                     
-                            <td> Psyciatry Unit  </td>
-                            <td> None </td>
+                        <td><a> REQ-000002-01  </a></td>
+                            <td> REQ-000002 </td>
+                            <td> XXXXXX</td>
+                            <td> Annual Request</td>
+                            <td> Pending </td>
                             <td class="text-center">
                                 <ul class="icons-list">
                                     <li class="dropdown">

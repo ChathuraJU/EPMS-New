@@ -271,7 +271,7 @@
                             </div>
                         </div> -->
 
-                        <div class="col-md-6">Ask someone how to get the previusly entered  details to a form as a summary here
+                        <div class="col-md-6">Ask someone how to get the previusly entered  details to a form as a summary here. also a print button to get the request into a pdf format.
                         </div>
 
                 </fieldset>

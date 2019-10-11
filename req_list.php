@@ -85,7 +85,7 @@
 
                                         <ul class="dropdown-menu dropdown-menu-right">
                                             <li><a href="reqequip.php"><i class="icon-eye"></i> View</a></li>
-                                            <li><a href="#"><i class="icon-bin"></i> Delete</a></li>
+                                            <li><a href="#"><i class="icon-reset"></i> Update </a></li>
                                             <li></li>
                                         </ul>
                                     </li>

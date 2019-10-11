@@ -520,21 +520,38 @@
 										<li>
 											<a href="indirectpurch.php">Indirect Purchases</a>
 										</li>
+
+										<li> 
+											<a href="minapproval_form.php"> Create Ministry Approval Form </a>
+										</li>
 										
                                         <li>
-                                            <a href="req_primrejected.php">Primal Rejected Requisitions</a>
+                                            <a href="req_minrejected.php">Ministry Rejected Requisitions</a>
                                         </li>
 
 										<li>
                                             <a href="req_minapproved.php"> Ministry Approved Requisitions</a>
 										</li>
-										
-                                        <li>
-                                            <a href="req_rejected.php"> Rejected Requisitions</a>
-                                        </li>
+
 									</ul>
 								</li>
 								<!--/requisition-->
+
+								<!--tec-->
+								<li>
+									<a href="#"><i class="icon-users4"></i> <span> Tech Evaluation Committee </span></a>
+									<ul>
+										<li>   
+                                            <a href="tec_createform.php"> Create Technical Evaluation Committee </a> 
+                                        </li>
+                                        
+                                        <li>
+                                            <a href="tec_list.php"> TEC List </a>
+                                        </li>
+
+									</ul>
+								</li>
+
 
 								<!--tender-->
 								<li>
