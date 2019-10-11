@@ -57,7 +57,7 @@
                         <tr>
                             <th>Requisition Equipment ID</th>
                             <th>Requisition ID</th>
-                            <th>Requisition Approval Document ID</th>
+                            <th>Requisition Approval Doc.</th>
                             <th>Requisition Type</th>
                             <th>Primal Approval</th>
                             <th class="text-center">Actions</th>
@@ -67,8 +67,8 @@
                     </thead>
                     <tbody>
                         <tr>
-                            <td><a> REQ-000001-01  </a></td>
-                            <td> REQ-000001 </td>
+                            <td><a href="reqapproval.php"> REQ-000001-01  </a></td>
+                            <td><a href="reqequip.php"> REQ-000001 </a></td>
                             <td> XXXXXX</td>
                             <td> Annual Request</td>
                             <td> Pending </td>
@@ -80,8 +80,8 @@
                                         </a>
 
                                         <ul class="dropdown-menu dropdown-menu-right">
-                                            <li><a href="reqequip.php"><i class="icon-eye"></i> View</a></li>
-                                            <li><a href="#"><i class="icon-bin"></i> Delete</a></li>
+                                            <li><a href="reqapproval.php"><i class="icon-reset"></i> Update</a></li>
+                                            <li><a href="#"><i class="icon-eye"></i> View</a></li>
                                             <li></li>
                                         </ul>
                                     </li>
@@ -91,8 +91,8 @@
 
                         </tr>
                         <tr>
-                        <td><a> REQ-000001-02  </a></td>
-                            <td> REQ-000001 </td>
+                        <td><a href="reqapproval.php"> REQ-000001-02  </a></td>
+                            <td><a href="reqequip.php"> REQ-000001 </a></td>
                             <td> XXXXXX</td>
                             <td> Annual Request</td>
                             <td> Pending </td>
@@ -104,8 +104,8 @@
                                         </a>
 
                                         <ul class="dropdown-menu dropdown-menu-right">
-                                            <li><a href="reqequip.php"><i class="icon-eye"></i> View</a></li>          
-                                            <li><a href="#"><i class="icon-bin"></i> Delete</a></li>
+                                            <li><a href="reqapproval.php"><i class="icon-reset"></i> Update</a></li>
+                                            <li><a href="#"><i class="icon-eye"></i> View</a></li>
                                             <li></li>
                                         </ul>
                                     </li>
@@ -115,8 +115,8 @@
 
                         </tr>
                         <tr>
-                        <td><a> REQ-000001-03  </a></td>
-                            <td> REQ-000001 </td>
+                        <td><a href="reqapproval.php">REQ-000001-03  </a></td>
+                            <td><a href="reqequip.php"> REQ-000001</a> </td>
                             <td> XXXXXX</td>
                             <td> Annual Request</td>
                             <td> Pending </td>
@@ -128,8 +128,8 @@
                                         </a>
 
                                         <ul class="dropdown-menu dropdown-menu-right">
-                                            <li><a href="reqequip.php"><i class="icon-eye"></i> View</a></li>
-                                            <li><a href="#"><i class="icon-bin"></i> Delete</a></li>
+                                            <li><a href="reqapproval.php"><i class="icon-reset"></i> Update</a></li>
+                                            <li><a href="#"><i class="icon-eye"></i> View</a></li>
                                         </ul>
                                     </li>
                                 </ul>
@@ -138,8 +138,8 @@
 
                         </tr>
                         <tr>
-                        <td><a> REQ-000002-01  </a></td>
-                            <td> REQ-000002 </td>
+                        <td><a href="reqapproval.php"> REQ-000002-01  </a></td>
+                            <td><a href="reqequip.php"> REQ-000002</a> </td>
                             <td> XXXXXX</td>
                             <td> Annual Request</td>
                             <td> Pending </td>
@@ -151,8 +151,8 @@
                                         </a>
 
                                         <ul class="dropdown-menu dropdown-menu-right">
-                                            <li><a href="reqeqip.php"><i class="icon-eye"></i> View</a></li>
-                                            <li><a href="#"><i class="icon-bin"></i> Delete</a></li>
+                                            <li><a href="reqapproval.php"><i class="icon-reset"></i> Update</a></li>
+                                            <li><a href="#"><i class="icon-eye"></i> View</a></li>
                                         </ul>
                                     </li>
                                 </ul>

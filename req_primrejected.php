@@ -57,18 +57,19 @@
                         <tr>
                             <th>Requisition ID </th>
                             <th>Requisition Equipment No</th>
-                            <th>Primal Approval</th>
+                            <th>Requisition Date</th>
                             <th>Primal Approval Date</th>
                             <th>Action</th>
+                            <th></th>
 
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
-                            <td><a href="reqequip.php"> REQ-000001 </a></td>
-                            <td><a href="reqapproval.php"> REQ-000001-01  </a></td>
-                            <td> Rejected</td>
-                            <td> 05.02.2017</td>
+                            <td>REQ-000001</td>
+                            <td>REQ-000001-01</td>
+                            <td>28.01.2017
+                            <td>05.02.2017</td>
                             <td>
                                 <ul class="icons-list">
                                     <li><button class="btn btn-default btn-sm" type="button" data-toggle="modal" data-target="#modal_form_vertical">View <i class="icon-eye position-right"></i></button>  </li>
@@ -78,10 +79,10 @@
                         
                         </tr>
                         <tr>
-                        <td><a href="reqequip.php"> REQ-000002 </a></td>
-                            <td><a href="reqapproval.php"> REQ-000001-02 </a></td>
-                            <td> Rejected</td>
-                            <td> 08.02.2017</td>
+                            <td>REQ-000002</td>
+                            <td>REQ-000001-02</td>
+                            <td>29.01.2017
+                            <td>05.02.2017</td>
                             <td>
                                 <ul class="icons-list">
                                     <li><button class="btn btn-default btn-sm" type="button" data-toggle="modal" data-target="#modal_form_vertical">View <i class="icon-eye position-right"></i></button>  </li>
@@ -94,6 +95,7 @@
                 </table>
             </div>
             <!-- /control position -->
+
             <!-- Vertical form modal -->
             <div id="modal_form_vertical" class="modal fade" tabindex="-1">
                 <div class="modal-dialog">

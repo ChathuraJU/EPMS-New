@@ -116,7 +116,7 @@
                                     </div>
                                 </div> 
                                 <div class="col-md-4"></div>
-
+ 
                             </div>
                         </div>
                     </fieldset>
@@ -321,83 +321,6 @@
             </div>
         </form>
         <!-- /a legend -->
-
-                    
-
-        <!-- Highlighting rows and columns -->
-        <div class="panel panel-White">
-            <div class="panel-heading">
-                <h5 class="panel-title"> <b> TEC List </b></h5>
-                <div class="heading-elements">
-                    <ul class="icons-list">
-                        <li><a data-action="collapse"></a></li>
-                        <li><a data-action="reload"></a></li>
-                    </ul>
-                </div>
-            </div>
-
-            <table class="table table-bordered table-hover datatable-highlight">
-                <thead>
-                    <tr>
-                        <th> # </th>
-                        <th>Procurement ID</th>
-                        <th>Procurement Title</th>
-                        <th>Privileges</th>
-                        <th>Additional Information</th>
-                        <th class="text-center">Actions</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td> 01 </td>
-                        <td>UT01</td>
-                        <td>Super Admin</td>
-                        <td>Traffic Court Referee</td>
-                        <td>.......................................</td>
-                        <td class="text-center">
-                            <ul class="icons-list">
-                                <li class="dropdown">
-                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                                        <i class="icon-menu9"></i>
-                                    </a>
-
-                                    <ul class="dropdown-menu dropdown-menu-right">
-                                    <li><a href="#"><i class="icon-eye"></i> View</a></li>
-                                        <li><a href="#"><i class="icon-spinner11"></i> Update</a></li>
-                                        <li><a href="#"><i class="icon-bin"></i> Delete</a></li>
-                                    </ul>
-                                </li>
-                            </ul>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td> 02 </td>
-                        <td>UT02</td>
-                        <td> Admin</td>
-                        <td>privileges in tag form ////ask someone////</td>
-                        <td>.......................................</td>
-                        <td class="text-center">
-                            <ul class="icons-list">
-                                <li class="dropdown">
-                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                                        <i class="icon-menu9"></i>
-                                    </a>
-
-                                    <ul class="dropdown-menu dropdown-menu-right">
-                                        <li><a href="#"><i class="icon-eye"></i> View </a></li>
-                                        <li><a href="#"><i class="icon-spinner11"></i> Update</a></li>
-                                        <li><a href="#"><i class="icon-bin"></i> Delete</a></li>
-
-                                    </ul>
-                                </li>
-                            </ul>
-                        </td>
-                    </tr>
-
-                </tbody>
-            </table>
-        </div>
-        <!-- /highlighting rows and columns -->
 
     </div>
     <!-- /content area -->

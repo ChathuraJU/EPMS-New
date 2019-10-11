@@ -52,15 +52,15 @@
                     </div>
                 </div>
 
-                <table class="table datatable-responsive-control-right">
+                <table  class="table datatable-responsive-control-right" >
                     <thead>
                         <tr>
                             <th>Requisition ID</th>
                             <th>Requisition Date</th>
-                            <th>Name of the Consultant</th>
                             <th>Requisition Type</th>
                             <th>Unit</th>
                             <th>Ward</th>
+                            <th>Primal Approval</th>
                             <th class="text-center">Actions</th>
                             <th></th>
 
@@ -71,11 +71,10 @@
                         <tr>
                             <td><a href="reqequip.php"> REQ-000001  </a></td>
                             <td> 07 Dec 2017</td>
-                            <td> Dr. Dushantha Mahagedara</td>
                             <td> Annual Request</td>
                             <td> Respiratory Unit </td>
                             <td> None </td>
-
+                            <td> Pending</td>
                             <td class="text-center">
                                 <ul class="icons-list">
                                     <li class="dropdown">
@@ -97,10 +96,10 @@
                         <tr>
                             <td><a href="reqequip.php"> REQ-000002 </a></td>
                             <td> 10 Jan 2018</td>
-                            <td> Dr. Dushantha Mahagedara</td>
                             <td> Annual Request</td>
                             <td> None </td>
                             <td> WD 44/45 </td>
+                            <td> Pending</td>
                             <td class="text-center">
                                 <ul class="icons-list">
                                     <li class="dropdown">
@@ -122,10 +121,10 @@
                         <tr>
                             <td><a href="reqequip.php"> REQ-000003 </a></td>
                             <td> 18 Jan 2018</td>
-                            <td> Dr. A.W.M.Wazil</td>
                             <td> Annual Request</td>
                             <td> None </td>
                             <td> WD 69 </td>
+                            <td> Pending</td>
                             <td class="text-center">
                                 <ul class="icons-list">
                                     <li class="dropdown">
@@ -146,10 +145,10 @@
                         <tr>
                             <td><a href="reqequip.php"> REQ-000004 </a></td>
                             <td> 18 Jan 2018</td>
-                            <td> Dr. S.C.A.Arambepola</td>
                             <td> Precipitate Request</td>                     
                             <td> Psyciatry Unit  </td>
                             <td> None </td>
+                            <td> Pending</td>
                             <td class="text-center">
                                 <ul class="icons-list">
                                     <li class="dropdown">

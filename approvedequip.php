@@ -21,7 +21,7 @@
                 <ul class="breadcrumb">
                     <li><a href="dashboard.php"><i class="icon-home2 position-left"></i> Home </a></li>
                     <li><a href="#"> Requisition </a></li>
-                    <li class="active"> Direct Purchases </li>
+                    <li class="active"> Primal Approved Requisitions </li>
                 </ul>
 
                 <ul class="breadcrumb-elements">
@@ -43,7 +43,7 @@
             <!-- Control position -->
             <div class="panel panel-white">
                 <div class="panel-heading">
-                    <h5 class="panel-title"><b> Direct Purchases</b></h5>
+                    <h5 class="panel-title"><b>Approved Equipments </b></h5>
                     <div class="heading-elements">
                         <ul class="icons-list">
                             <li><a data-action="collapse"></a></li>
@@ -55,53 +55,43 @@
                 <table class="table datatable-responsive-control-right">
                     <thead>
                         <tr>
-                            <th>Primal Approved Equipment ID </a>
-                            <th>Requisition Equipment No.</th>
-                            <th>Primal Approval Document ID </th>
-                            <th>Primal Approval Date</th>
-                            <th>Proceed To Procure </th>
-                            <!-- <th></th> -->
-
-                        
+                            <th>Specification No.</th>
+                            <th>Equipment Name</a>
+                            <th>Quantity </th>
+                            <th>View</th>
+                            <th>Action</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
-                            <td>PAPP-REQ-000001-01</td>
-                            <td><a href="reqequip.php"> REQ-000001-01  </a></td>
-                            <td>XXXXXX</td>
-                            <td> 07 Dec 2017</td>
+                            <th>FN-02-2017</th>
+                            <th>Incubator</a>
+                            <td>10</a></td>
+                            <td>                                
+                                <ul class="icons-list">
+                                    <li><button class="btn btn-default btn-sm" type="button" data-toggle="modal" data-target="#modal_form_vertical">View <i class="icon-eye position-right"></i></button>  </li>
+                                </ul>
+                            </td>
                             <td><a href="tec_createform.php"> Create TEC </a></td>
-                            <!-- <td></td> -->
-                        </tr>
-
-                        <tr>
-                        <tr>
-                            <td>PAPP-REQ-000001-02</td>
-                            <td><a href="reqequip.php"> REQ-000001-02  </a></td>
-                            <td>XXXXXX</td>
-                            <td> 07 Dec 2017</td>
-                            <td><a href="tec_createform.php"> Create TEC </a></td>
-                            <!-- <td></td> -->
-                        </tr>
-
                         </tr>
                         <tr>
-                        <tr>
-                            <td>PAPP-REQ-000002-01</td>
-                            <td><a href="reqequip.php"> REQ-000002-01  </a></td>
-                            <td>XXXXXX</td>
-                            <td> 07 Dec 2017</td>
-                            <td><a href="tec_createform.php"> Create TEC </a></td>
-                            <td></td>
+                            <th>PAPP-REQ-000001-02</a>
+                            <td><a href="reqequip.php">REQ-000001</a></td>
+                            <td><a href="reqapproval.php">  REQ-000001-02 </a></td>
+                            <td> 08.02.2017</td>
+                            <td> Indirect Purchase</td>
+                            <td>
+                                <ul class="icons-list">
+                                    <li><button class="btn btn-default btn-sm" type="button" data-toggle="modal" data-target="#modal_form_vertical">View <i class="icon-eye position-right"></i></button>  </li>
+                                </ul>
+                            </td>
                         </tr>
-
-                        </tr>
-
+                 
                     </tbody>
                 </table>
             </div>
             <!-- /control position -->
+
         </div>
         <!-- /content area -->
 

@@ -503,24 +503,32 @@
 
 										<li>
 											<a href="reqequip_list.php"> Requisitioned Equipment List </a>
-										</li>
+										</li> 
 
                                         <li>
-											<a href="req_primapproved.php">Primal Approved Requisitions</a>
+											<a href="#">Primal Approved Requisitions</a>
+											<ul>
+												<li>
+													<a href="req_primapproved.php"> Primal Approved List </a>
+												</li>
+												<li>
+													<a href="directpurch.php">Direct Purchases</a>
+												</li>
+
+												<li>
+													<a href="indirectpurch.php">Indirect Purchases</a>
+												</li>
+											</ul>
 										</li>
 
 										<li>
                                             <a href="req_primrejected.php">Primal Rejected Requisitions</a>
-                                        </li>
+										</li>
 										
 										<li>
-											<a href="directpurch.php">Direct Purchases</a>
+											<a href="approvedequip.php"> Approved Equipments</a>
 										</li>
-
-										<li>
-											<a href="indirectpurch.php">Indirect Purchases</a>
-										</li>
-
+									
 										<li> 
 											<a href="minapproval_form.php"> Create Ministry Approval Form </a>
 										</li>
