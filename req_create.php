@@ -402,10 +402,7 @@
                 });
             });
 
-
-
-         
-                          
+                        
             // touchspin
             $( document ).ready(function() {
 
@@ -430,29 +427,30 @@
 
             });
 
-        function storeTblValues()
-        {
-            var TableData = new Array();
 
-            $('#tblajx tr').each(function(row, tr){
-                TableData[row]={
-                    "equipment" : $(tr).find('td:eq(0)').text()
-                    , "qty" :$(tr).find('td:eq(1)').text()
-                    , "priority" : $(tr).find('td:eq(2)').text()
-                    , "reason" : $(tr).find('td:eq(3)').text()
-                }    
-            }); 
-            TableData.shift();  // first row will be empty - so remove
-            return TableData;
-        }
+            function storeTblValues()
+            {
+                var TableData = new Array();
 
-        $("#btn_add").click(function(){
-            var val1 = $('#equip').val();
-            var val2 =$('#qty').val();
-            var val3 = $('#priority').val();
-            var val4 =$('#reason').val();
-            
-            $("#tblajx tbody").append("<tr><td>"+val1+"</td><td>"+val2+"</td><td>"+val3+"</td><td>"+val4+"</td><td><ul class='icons-list'><li><a href='#'><i class='icon-pencil7'></i></a></li><li><a href='#'><i class='icon-eye'></i></a></li></ul></td></tr>");
+                $('#tblajx tr').each(function(row, tr){
+                    TableData[row]={
+                        "equipment" : $(tr).find('td:eq(0)').text()
+                        , "qty" :$(tr).find('td:eq(1)').text()
+                        , "priority" : $(tr).find('td:eq(2)').text()
+                        , "reason" : $(tr).find('td:eq(3)').text()
+                    }    
+                }); 
+                TableData.shift();  // first row will be empty - so remove
+                return TableData;
+            }
+
+            $("#btn_add").click(function(){
+                var val1 = $('#equip').val();
+                var val2 =$('#qty').val();
+                var val3 = $('#priority').val();
+                var val4 =$('#reason').val();
+                
+                $("#tblajx tbody").append("<tr><td>"+val1+"</td><td>"+val2+"</td><td>"+val3+"</td><td>"+val4+"</td><td><ul class='icons-list'><li><a href='#'><i class='icon-pencil7'></i></a></li><li><a href='#'><i class='icon-eye'></i></a></li></ul></td></tr>");
             });
 
 

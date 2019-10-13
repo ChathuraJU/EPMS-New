@@ -127,13 +127,12 @@
                                     <label  class=> Equipment Code : (equipment codes of the ward/unit items </label>
                                     <select id="equipcode" name="equipcode" data-placeholder="Choose a Equipment..." class="select required">
                                         <option></option> 
-                                        <option value="1"> EQUIP000001 </option> 
-                                        <option value="2"> EQUIP000002 </option> 
-                                        <option value="3"> EQUIP000003 </option> 
-                                        <option value="4"> EQUIP000004 </option> 
-                                        <option value="5"> EQUIP000005 </option> 
-                                        <option value="6"> EQUIP000006 </option> 
-                                        <option value="7">............</option> 
+                                        <option value="EQUIP000001"> EQUIP000001 </option> 
+                                        <option value="EQUIP000002"> EQUIP000002 </option> 
+                                        <option value="EQUIP000003"> EQUIP000003 </option> 
+                                        <option value="EQUIP000004"> EQUIP000004 </option> 
+                                        <option value="EQUIP000005"> EQUIP000005 </option> 
+                                        <option value="EQUIP000006"> EQUIP000006 </option> 
                                     </select>
                                 </div>
                             </div>
@@ -141,7 +140,7 @@
                             <div class="col-md-6">
                                 <div class="form-group">  
                                     <label> Equipment : (auto update the name of the equipment when the code is given) <span class="text-danger">*</span></label>
-                                    <input type="text" id="equipname" name="equipname" class="form-control" readonly />
+                                    <input type="text" id="equipname" name="equipname" class="form-control"  />
                                 </div>
                             </div> 
                         </div>
@@ -150,14 +149,14 @@
                             <div class="col-md-6">
                                 <div class="form-group">  
                                     <label> Equipment Make :(auto update) <span class="text-danger">*</span></label>
-                                    <input type="text" id="equipmake" name="equipmake" class="form-control" readonly />
+                                    <input type="text" id="equipmake" name="equipmake" class="form-control"  />
                                 </div>
                             </div> 
 
                             <div class="col-md-6">
                                 <div class="form-group">  
                                     <label> Equipment Model: (auto update) <span class="text-danger">*</span></label>
-                                    <input type="text" id="equipmodel" name="equipmodel" class="form-control" readonly />
+                                    <input type="text" id="equipmodel" name="equipmodel" class="form-control"  />
                                 </div>
                             </div> 
                         </div>
@@ -352,6 +351,46 @@
                 width: 250
             });
         });
+
+
+
+
+        function storeTblValues()
+            {
+                var TableData = new Array();
+
+                $('#tblajx tr').each(function(row, tr){
+                    TableData[row]={
+                        "equipcode" : $(tr).find('td:eq(0)').text()
+                        , "equip" :$(tr).find('td:eq(1)').text()
+                        , "equipmake" : $(tr).find('td:eq(2)').text()
+                        , "requipmodel" : $(tr).find('td:eq(3)').text()
+                        , "equipsno" : $(tr).find('td:eq(0)').text()
+                        , "status" :$(tr).find('td:eq(1)').text()
+                        , "install" : $(tr).find('td:eq(2)').text()
+                        , "remarks" : $(tr).find('td:eq(3)').text()
+                    }    
+                }); 
+                TableData.shift();  // first row will be empty - so remove
+                return TableData;
+            }
+
+            
+            $("#btn_add").click(function(){
+                var val1 = $('#equipcode').val();
+                var val2 = $('#equip').val();
+                var val3 = $('#equipmake').val();
+                var val4 = $('#equipmodel').val();
+                var val5=$('#equipsno').val();
+                var val6 = $('#status').val();
+                var val7=$('#remakrs').val();
+                
+                $("#tblajx tbody").append("<tr><td>"+val1+"</td><td>"+val2+"</td><td>"+val3+"</td><td>"+val4+"</td><td>"+val5+"</td><td>"+val6+"</t><td>"+val7+"</td><td><ul class='icons-list'><li><a href='#'><i class='icon-pencil7'></i></a></li><li><a href='#'><i class='icon-eye'></i></a></li></ul></td></tr>");
+            });
+
+
+
+
 
     </script> 
 
