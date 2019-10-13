@@ -57,8 +57,8 @@
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label>Primal Approved Equipment ID : </label>
-                                        <input type="text" id="proid" name="proid" placeholder="Pending.." class="form-control" readonly>       
+                                        <label>Specification No. : </label>
+                                        <input type="text" id="specno" name="specno" placeholder="Pending.." class="form-control" readonly>       
                                     </div>
                                 </div> 
 

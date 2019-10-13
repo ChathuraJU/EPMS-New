@@ -39,7 +39,6 @@
 	<script src="global_assets/js/plugins/forms/selects/select2.min.js"></script>	
 	<script src="global_assets/js/plugins/forms/selects/selectboxit.min.js"></script>	
 	<script src="global_assets/js/plugins/forms/styling/uniform.min.js"></script>		<!--form-->
-	<script src="global_assets/js/plugins/forms/validation/validate.min.js"></script>	<!--form-->
 	<script src="global_assets/js/plugins/notifications/jgrowl.min.js"></script>		<!--date picker-->
 	<script src="global_assets/js/plugins/pickers/anytime.min.js"></script>				<!--date picker-->
 	<script src="global_assets/js/plugins/pickers/pickadate/picker.js"></script>		<!--date picker-->
@@ -50,6 +49,7 @@
 	<script src="global_assets/js/plugins/uploaders/fileinput/fileinput.min.js"></script>			<!--image uploader-->
 	<script src="global_assets/js/plugins/tables/datatables/datatables.min.js"></script>			<!--responsive datatable-->
 	<script src="global_assets/js/plugins/tables/datatables/extensions/responsive.min.js"></script> <!--responsive datatable-->
+	<script src="global_assets/js/plugins/tables/footable/footable.min.js"></script>
 	<script src="global_assets/js/plugins/forms/styling/switch.min.js"></script>		<!--radio button -->
 	<script src="global_assets/js/plugins/forms/inputs/touchspin.min.js"></script>
 	<script src="global_assets/js/plugins/forms/selects/bootstrap_multiselect.js"></script>
@@ -58,23 +58,26 @@
 	<script src="global_assets/js/plugins/visualization/sparkline.min.js"></script>
 	<script src="global_assets/js/plugins/notifications/bootbox.min.js"></script>
 	<script src="global_assets/js/plugins/notifications/sweet_alert.min.js"></script>
+	<script src="global_assets/js/plugins/uploaders/dropzone.min.js"></script>
 	
 	<script src="assets/js/app.js"></script>
 	<script src="global_assets/js/demo_pages/dashboard.js"></script>
 
 
-	<script src="global_assets/js/demo_pages/wizard_stepy.js"></script>
-	<script src="global_assets/js/demo_pages/picker_date.js"></script>
-	<script src="global_assets/js/demo_pages/uploader_bootstrap.js"></script>
+	<!-- <script src="global_assets/js/demo_pages/wizard_stepy.js"></script> -->
+	<!-- <script src="global_assets/js/demo_pages/picker_date.js"></script> -->
+	<!-- <script src="global_assets/js/demo_pages/uploader_bootstrap.js"></script> -->
 	<script src="global_assets/js/demo_pages/datatables_responsive.js"></script>
-	<script src="global_assets/js/demo_pages/form_checkboxes_radios.js"></script>
-	<script src="global_assets/js/demo_pages/form_validation.js"></script>
+	<!-- <script src="global_assets/js/demo_pages/form_checkboxes_radios.js"></script> -->
+	<!-- <script src="global_assets/js/demo_pages/form_validation.js"></script> -->
 	<script src="global_assets/js/demo_pages/datatables_advanced.js"></script>
 	<script src="global_assets/js/demo_pages/datatables_data_sources.js"></script>
-	<script src="global_assets/js/demo_pages/form_input_groups.js"></script>
-	<script src="global_assets/js/demo_pages/table_elements.js"></script>
-	<script src="global_assets/js/demo_pages/form_select2.js"></script>
+	<!-- <script src="global_assets/js/demo_pages/form_input_groups.js"></script> -->
+	<!-- <script src="global_assets/js/demo_pages/table_responsive.js"></script> -->
+	<!-- <script src="global_assets/js/demo_pages/table_elements.js"></script> -->
+	<!-- <script src="global_assets/js/demo_pages/form_select2.js"></script> -->
 	<script src="global_assets/js/demo_pages/components_modals.js"></script>
+	<script src="global_assets/js/demo_pages/uploader_dropzone.js"></script>
 
 	<!-- /theme JS files -->
 </head>

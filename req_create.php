@@ -55,7 +55,7 @@
                 </div>
             </div>
 
-            <form class="stepy-clickable" action="#">
+            <form class="stepy-basic" action="#">
                 <fieldset title="1">
                     <legend class="text-semibold"> Requesition Details </legend>
                     
@@ -69,7 +69,7 @@
                                 <div class="row">
                                     <div class="form-group">  
                                         <label> Requisition ID : </label>
-                                        <input type="text" name="reqid" class="form-control" readonly/>
+                                        <input type="text" id="reqid" name="reqid" class="form-control"/>
                                     </div>
                                 </div> 
 
@@ -85,15 +85,19 @@
                                 </div> 
 
                                 <div class="row">
-                                    <div class="form-group">
-                                        <label> Request Date : <span class="text-danger">*</span></label>
-                                        <div class="input-group">
-                                            <span class="input-group-addon"><i class="icon-calendar22"></i></span>
-                                            <input type="text" id="reqdate" name="reqdate" class="form-control daterange-single" placeholder="06/09/2019">
+                                <div class="form-group">
+                                        <div class="content-group-lg">
+                                            <label>Request Date : <span class="text-danger">*</span></label>
+                                            <div class="input-group">
+                                                <span class="input-group-addon"><i class="icon-calendar5"></i></span>
+                                                <input type="text" id="reqdate" name="reqdate" class="form-control pickadate-strings required" placeholder="Try me&hellip;">
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
 
+
+                                
                                 <div class="row">
                                     <div class="form-group">
                                         <label> Employee ID : <span class="text-danger">*</span></label>
@@ -114,7 +118,7 @@
                                 <div class="row">
                                     <div class="form-group">
                                         <label> Unit : <span class="text-danger">*</span></label>
-                                        <select name="unit" data-placeholder="Choose a unit..." class="select-search required">
+                                        <select name="unit" id="unit" data-placeholder="Choose a unit..." class="select-search required">
                                             <option></option> 
                                             <option value="1">Respiratory Unit</option> 
                                             <option value="2">ENT Clinic</option> 
@@ -131,7 +135,7 @@
                                 <div class="row">
                                     <div class="form-group">
                                         <label> Ward : <span class="text-danger">*</span></label>
-                                        <select name="ward" data-placeholder="Choose a ward..." class="select-search required">
+                                        <select id="ward" name="ward" data-placeholder="Choose a ward..." class="select-search required">
                                             <option></option> 
                                             <option value="1"> None </option> 
                                             <option value="2"> WD 01 </option> 
@@ -162,16 +166,12 @@
                                 <div class="row">
                                     <div class="form-group">
                                         <label> Equipment : <span class="text-danger">*</span></label>
-                                        <select id="equip" name="equip" data-placeholder="Choose a Equipment..." class="select required">
+                                        <select id="equip" name="equip" data-placeholder="Choose a Equipment..." class="select-search required">
                                             <option></option> 
-                                            <option value="1"> Multi Para Monitors </option> 
-                                            <option value="2"> Sphygmomanometer </option> 
-                                            <option value="3"> Syringe Pump </option> 
-                                            <option value="4"> Nebulizer </option> 
-                                            <option value="5"> Head Light </option> 
-                                            <option value="6"> Pulse Oxyeter </option> 
-                                            <option value="7"> Air Metress </option> 
-                                            <option value="7">............</option> 
+                                            <option value="Multi Para Monitors "> Multi Para Monitors </option> 
+                                            <option value="Sphygmomanometer"> Sphygmomanometer </option> 
+                                            <option value="Syringe Pump"> Syringe Pump </option> 
+                                            <option value="Nebulizer"> Nebulizer </option> 
                                         </select>
                                     </div>
                                 </div>
@@ -179,19 +179,19 @@
                                 <div class="row">
                                     <div class="form-group">
                                         <label>Quantity : </label>
-                                        <input type="text" value="" class="touchspin-empty">
+                                        <input type="text" id="qty" value="" class="touchspin-empty">
                                     </div>
                                 </div> 
 
                                 <div class="row">
                                     <div class="form-group">
                                         <label> Priority : <span class="text-danger">*</span></label>
-                                        <select name="jobtitle" data-placeholder="Choose a job title..." class="select required">
+                                        <select name="priority" id="priority" data-placeholder="Choose a job title..." class="select required">
                                             <option></option> 
-                                            <option value="1"> Critical </option> 
-                                            <option value="2"> High </option> 
-                                            <option value="3"> Medium </option> 
-                                            <option value="4"> Low </option> 
+                                            <option value="Critical"> Critical </option> 
+                                            <option value="High"> High </option> 
+                                            <option value="Medium"> Medium </option> 
+                                            <option value="Low"> Low </option> 
                                         </select>
                                     </div>
                                 </div>
@@ -199,7 +199,7 @@
                                 <div class="row">
                                     <div class="form-group">
                                         <label> Reason :</label>
-                                        <textarea name="additional-info" rows="5" cols="5" placeholder="If you want to add any info, do it here." class="form-control"></textarea>
+                                        <textarea name="reason" id="reason" rows="5" cols="5" placeholder="If you want to add any info, do it here." class="form-control"></textarea>
                                     </div>
                                 </div>
 
@@ -216,6 +216,15 @@
                         <div class="row">
                             <!-- Basic responsive table -->
                             <div class="panel panel-flat">
+                                <div class="panel-heading">
+                                    <h5 class="panel-title">Equipment List</h5>
+                                    <div class="heading-elements">
+                                        <ul class="icons-list">
+                                            <li><a data-action="collapse"></a></li>
+                                            <li><a data-action="reload"></a></li>
+                                        </ul>
+                                    </div>
+                                </div>
 
                                 <div class="table-responsive">
                                     <table class="table" id="tblajx">
@@ -229,31 +238,7 @@
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <tr>
-                                                <td><a href="equipment.php"> Sphygmomanometer </a></td>
-                                                <td> 05 </td>
-                                                <td> High </td>
-                                                <td> Need to replace mercury Sphygmomanometers and not enough quantity </td>
-                                                <td class="text-center">
-                                                    <ul class="icons-list">
-                                                        <li><a href="#" data-toggle="modal" data-target="#edit_modal"><i class="icon-pencil7"></i></a></li>
-                                                        <li><a href="#" data-toggle="modal" data-target="#remove_modal"><i class="icon-trash"></i></a></li>
-                                                    </ul>
-                                                </td>
-                                            </tr>
 
-                                            <tr>
-                                                <td><a href="equipment.php"> Nebulizer </a></td>
-                                                <td> 02 </td>
-                                                <td> Critical </td>
-                                                <td> Not enough Quantity </td>
-                                                <td class="text-center">
-                                                    <ul class="icons-list">
-                                                        <li><a href="#" data-toggle="modal" data-target="#edit_modal"><i class="icon-pencil7"></i></a></li>
-                                                        <li><a href="#" data-toggle="modal" data-target="#remove_modal"><i class="icon-trash"></i></a></li>
-                                                    </ul>
-                                                </td>
-                                            </tr>
                                         </tbody>
                                     </table>
                                 </div>
@@ -264,15 +249,61 @@
 
                 <fieldset title="3">
                     <legend class="text-semibold"> Confirmation </legend>
-
-                        <!-- <div class="col-md-6" style="height: 100%;">
-                            <div class="col-sm-4 col-sm-offset-2" style="margin-top: 50px;">
-                                <img src="global_assets/images/confirm.jpg" height ="300px"  />
+                        <div class="row">
+                            <div class="form-group">  
+                                <label class="col-lg-3 control-label"> Requisition ID : </label>
+                                <div class="col-lg-9">
+                                    <input type="text" id="reqidf" class="form-control"/>
+                                </div>
                             </div>
-                        </div> -->
+                        </div> 
 
-                        <div class="col-md-6">Ask someone how to get the previusly entered  details to a form as a summary here. also a print button to get the request into a pdf format.
+                        <div class="row">
+                            <div class="form-group">
+                                <label class="col-lg-3 control-label"> Request Type : </label>
+                                <div class="col-lg-9">
+                                    <input type="text" id="reqtypef" class="form-control"/>
+                                </div>
+                            </div> 
+                        </div> 
+
+                        <div class="row">
+                            <div class="form-group">
+                                <label class="col-lg-3 control-label"> Request Date : </label>
+                                <div class="col-lg-9">
+                                    <input type="text" id="reqdatef" class="form-control"/>
+                                </div>
+                            </div>
                         </div>
+
+                        <div class="row">
+                            <div class="form-group">
+                                <label class="col-lg-3 control-label"> Employee ID : </label>
+                                <div class="col-lg-9">
+                                    <input type="text" id="empidf" class="form-control"/>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="form-group">
+                                <label class="col-lg-3 control-label"> Unit : </label>
+                                <div class="col-lg-9">
+                                    <input type="text" id="unitf" class="form-control"/>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="form-group">
+                                <label class="col-lg-3 control-label"> Ward : </label>
+                                <div class="col-lg-9">
+                                    <input type="text" id="wardf" class="form-control"/>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- also a print button to get the request into a pdf format. -->
 
                 </fieldset>
 
@@ -288,6 +319,116 @@
 
     <script>
 
+            function ged_data(){
+                var val1 = $('#reqid').val();
+                $('#reqidf').val(val1);
+                var val2 = $('#reqtype').val();
+                $('#reqtypef').val(val2);
+                var val3 = $('#reqdate').val();
+                $('#reqdatef').val(val3);
+                var val4 = $('#empid').val();
+                $('#empidf').val(val4);
+                var val5 = $('#unitid').val();
+                $('#unitidf').val(val5);
+                var val6 = $('#wardid').val();
+                $('#wardidf').val(val6);
+            }
+
+
+
+            $( document ).ready(function() {
+
+                $.fn.stepy.defaults.legend = false;
+                $.fn.stepy.defaults.transition = 'fade';
+                $.fn.stepy.defaults.duration = 150;
+                $.fn.stepy.defaults.backLabel = '<i class="icon-arrow-left13 position-left"></i> Back';
+                $.fn.stepy.defaults.nextLabel = 'Next <i class="icon-arrow-right14 position-right"></i>';
+
+
+                 // Stepy callbacks
+                $(".stepy-basic").stepy({
+                    next: function(index) {
+                        if(index==3){
+                            ged_data();
+                        }
+                    },
+                    back: function(index) {
+                        
+                    },
+                    finish: function() {
+                        
+                        return false;
+                    }
+                });
+
+                $('.stepy-basic').find('.button-next').addClass('btn btn-primary');
+                $('.stepy-basic').find('.button-back').addClass('btn btn-default');
+
+            });
+
+            $( document ).ready(function(){
+                $('.pickadate-strings').pickadate({
+                    weekdaysShort: ['Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa'],
+                    showMonthsShort: true
+                });
+
+            });
+
+            $( document ).ready(function(){
+                // Bootstrap switch
+                // ------------------------------
+
+                $(".switch").bootstrapSwitch();
+
+            });
+
+            // select2
+            $( document ).ready(function(){
+
+                // Default initialization
+                $('.select').select2({
+                    minimumResultsForSearch: Infinity
+                });
+
+
+                // Select with search
+                $('.select-search').select2();
+
+
+                // Fixed width. Single select
+                $('.select-fixed-single').select2({
+                    minimumResultsForSearch: Infinity,
+                    width: 250
+                });
+            });
+
+
+
+         
+                          
+            // touchspin
+            $( document ).ready(function() {
+
+                // Switchery
+                var elems = Array.prototype.slice.call(document.querySelectorAll('.switchery'));
+                elems.forEach(function(html) {
+                    var switchery = new Switchery(html);
+                });
+
+
+                // Styled checkboxes/radios
+                $(".styled").uniform();
+
+                // Update uniform when select between styled and unstyled
+                $('.input-group-addon input[type=radio]').on('click', function() {
+                    $.uniform.update("[name=addon-radio]");
+                });
+
+                
+                // Init with empty values
+                $(".touchspin-empty").TouchSpin();
+
+            });
 
         function storeTblValues()
         {
@@ -295,7 +436,7 @@
 
             $('#tblajx tr').each(function(row, tr){
                 TableData[row]={
-                    "equipment" : $(tr).  ('td:eq(0)').text()
+                    "equipment" : $(tr).find('td:eq(0)').text()
                     , "qty" :$(tr).find('td:eq(1)').text()
                     , "priority" : $(tr).find('td:eq(2)').text()
                     , "reason" : $(tr).find('td:eq(3)').text()
@@ -306,22 +447,13 @@
         }
 
         $("#btn_add").click(function(){
-
-                TableData = JSON.stringify(storeTblValues());
-                
-                $.ajax({
-                type: "POST",
-                url: "model/rectbldata.php",
-                data: "pTableData=" + TableData,
-                success: function(msg)
-                        {
-                            alert(msg);
-                        }
-                });
+            var val1 = $('#equip').val();
+            var val2 =$('#qty').val();
+            var val3 = $('#priority').val();
+            var val4 =$('#reason').val();
+            
+            $("#tblajx tbody").append("<tr><td>"+val1+"</td><td>"+val2+"</td><td>"+val3+"</td><td>"+val4+"</td><td><ul class='icons-list'><li><a href='#'><i class='icon-pencil7'></i></a></li><li><a href='#'><i class='icon-eye'></i></a></li></ul></td></tr>");
             });
-
-
-
 
 
     </script>

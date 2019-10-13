@@ -95,7 +95,7 @@
                                         <label  class="col-lg-3 control-label"> Year : (should be the year only) <span class="text-danger">*</span></label>
                                         <div class="input-group">
                                             <span class="input-group-addon"><i class="icon-calendar22"></i></span>
-                                            <input type="text" class="form-control daterange-single">
+                                            <input type="text" class="form-control pickadate-strings required" placeholder="Try me&hellip;">
                                         </div>
                                     </div>
                                 </div>
@@ -105,7 +105,7 @@
                                         <label  class="col-lg-3 control-label"> Submission Date : (auto select the submitting date) <span class="text-danger">*</span></label>
                                         <div class="input-group">
                                             <span class="input-group-addon"><i class="icon-calendar22"></i></span>
-                                            <input type="text" class="form-control daterange-single" placeholder ="pending">
+                                            <input type="text" class="form-control pickadate-strings required" placeholder="Try me&hellip;">
                                         </div>
                                     </div>
                                 </div>
@@ -181,10 +181,12 @@
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label> Installed Date : <span class="text-danger">*</span></label>
-                                    <div class="input-group">
-                                        <span class="input-group-addon"><i class="icon-calendar22"></i></span>
-                                        <input type="text" id="equiprecvdate" name="equiprecvdate"class="form-control daterange-single">
+                                    <div class="content-group-lg">
+                                        <label>Join Date : <span class="text-danger">*</span></label>
+                                        <div class="input-group">
+                                            <span class="input-group-addon"><i class="icon-calendar5"></i></span>
+                                            <input type="text"  id="equiprecvdate" name="equiprecvdate" class="form-control pickadate-strings required" placeholder="Try me&hellip;">
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -294,6 +296,65 @@
 
     </div>
     <!-- /content area -->
+
+    <script>
+        // wizard and datepicker
+        $( document ).ready(function() {
+
+            $.fn.stepy.defaults.legend = false;
+            $.fn.stepy.defaults.transition = 'fade';
+            $.fn.stepy.defaults.duration = 150;
+            $.fn.stepy.defaults.backLabel = '<i class="icon-arrow-left13 position-left"></i> Back';
+            $.fn.stepy.defaults.nextLabel = 'Next <i class="icon-arrow-right14 position-right"></i>';
+
+
+            // Stepy basic
+            $(".stepy-clickable").stepy({
+                next: function(index) {
+
+                },
+                back: function(index) {
+                    
+                },
+                finish: function() {
+                    
+                    return false;
+                }
+            });
+
+
+            $('.stepy-clickable').find('.button-next').addClass('btn btn-primary');
+            $('.stepy-clickable ').find('.button-back').addClass('btn btn-default');
+
+            $('.pickadate-strings').pickadate({
+                weekdaysShort: ['Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa'],
+                showMonthsShort: true
+            });
+
+        });
+
+        // select2
+        $( document ).ready(function(){
+
+            // Default initialization
+            $('.select').select2({
+                minimumResultsForSearch: Infinity
+            });
+
+
+            // Select with search
+            $('.select-search').select2();
+
+
+            // Fixed width. Single select
+            $('.select-fixed-single').select2({
+                minimumResultsForSearch: Infinity,
+                width: 250
+            });
+        });
+
+    </script> 
+
 
 </div>
 <!-- /Main content -->
