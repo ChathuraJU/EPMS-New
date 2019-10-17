@@ -55,6 +55,7 @@
                         <th>Status</th>
                         <th class="text-center">Actions</th>
                         <th></th>
+                      
                     </tr>
                 </thead>
                 <tbody>
@@ -81,7 +82,7 @@
                                 </li>
                             </ul>
                         </td>
-                        <td></td>
+
                     </tr>
                     <tr>
                         <td><a href="#"> KGH-000002 </a></td>
@@ -107,6 +108,7 @@
                             </ul>
                         </td>
                         <td></td>
+
                     </tr>
                     <tr>
                         <td><a href="#"> KGH-000003 </a></td>
@@ -156,7 +158,7 @@
                                 </li>
                             </ul>
                         </td>
-                        <td></td> 
+                        <td></td>
                     </tr>
                 </tbody>
             </table>
@@ -164,6 +166,63 @@
         <!-- /control position -->
     </div>
     <!-- /content area -->
+
+    <script>
+        
+        // Table setup
+        // ------------------------------
+
+        // Setting datatable defaults
+        $.extend( $.fn.dataTable.defaults, {
+            autoWidth: false,
+            responsive: true,
+            columnDefs: [{ 
+                orderable: false,
+                width: '100px',
+                targets: [ 5 ]
+            }],
+            dom: '<"datatable-header"fl><"datatable-scroll-wrap"t><"datatable-footer"ip>',
+            language: {
+                search: '<span>Filter:</span> _INPUT_',
+                searchPlaceholder: 'Type to filter...',
+                lengthMenu: '<span>Show:</span> _MENU_',
+                paginate: { 'first': 'First', 'last': 'Last', 'next': $('html').attr('dir') == 'rtl' ? '&larr;' : '&rarr;', 'previous': $('html').attr('dir') == 'rtl' ? '&rarr;' : '&larr;' }
+            },
+            drawCallback: function () {
+                $(this).find('tbody tr').slice(-3).find('.dropdown, .btn-group').addClass('dropup');
+            },
+            preDrawCallback: function() {
+                $(this).find('tbody tr').slice(-3).find('.dropdown, .btn-group').removeClass('dropup');
+            }
+        });
+
+
+        
+        // Control position
+        $('.datatable-responsive-control-right').DataTable({
+            responsive: {
+                details: {
+                    type: 'column',
+                    target: -1
+                }
+            },
+            columnDefs: [
+                {
+                    className: 'control',
+                    orderable: false,
+                    targets: -1
+                },
+                { 
+                    width: "100px",
+                    targets: [5]
+                },
+                { 
+                    orderable: false,
+                    targets: [5]
+                }
+            ]
+        });
+    </script>
 
 </div>
 <!-- /main content -->

@@ -67,17 +67,21 @@
 	<!-- <script src="global_assets/js/demo_pages/wizard_stepy.js"></script> -->
 	<!-- <script src="global_assets/js/demo_pages/picker_date.js"></script> -->
 	<!-- <script src="global_assets/js/demo_pages/uploader_bootstrap.js"></script> -->
-	<script src="global_assets/js/demo_pages/datatables_responsive.js"></script>
+	<!-- <script src="global_assets/js/demo_pages/datatables_responsive.js"></script> -->
 	<!-- <script src="global_assets/js/demo_pages/form_checkboxes_radios.js"></script> -->
 	<!-- <script src="global_assets/js/demo_pages/form_validation.js"></script> -->
-	<script src="global_assets/js/demo_pages/datatables_advanced.js"></script>
-	<script src="global_assets/js/demo_pages/datatables_data_sources.js"></script>
+	<!-- <script src="global_assets/js/demo_pages/datatables_advanced.js"></script> -->
+	<!-- <script src="global_assets/js/demo_pages/datatables_data_sources.js"></script> -->
 	<!-- <script src="global_assets/js/demo_pages/form_input_groups.js"></script> -->
 	<!-- <script src="global_assets/js/demo_pages/table_responsive.js"></script> -->
 	<!-- <script src="global_assets/js/demo_pages/table_elements.js"></script> -->
 	<!-- <script src="global_assets/js/demo_pages/form_select2.js"></script> -->
-	<script src="global_assets/js/demo_pages/components_modals.js"></script>
+	<!-- <script src="global_assets/js/demo_pages/components_modals.js"></script> -->
 	<script src="global_assets/js/demo_pages/uploader_dropzone.js"></script>
+	<!-- <script src="global_assets/js/demo_pages/form_layouts.js"></script> need??? -->
+	<script src="global_assets/js/demo_pages/datatables_api.js"></script>
+
+
 
 	<!-- /theme JS files -->
 </head>
@@ -452,14 +456,14 @@
                                         </li>
 
                                         <li>
-                                            <a href="config_unit.php"> Manage Unit </a>
+                                            <a href="config_unit.php"> Create / Manage Unit </a>
                                         </li>
 
                                         <li>
                                             <a href="config_unitlist.php"> Unit List </a>
                                         </li>
                                         <li>
-                                            <a href="config_ward"> Manage Ward </a>
+                                            <a href="config_ward.php"> Create / Manage Ward </a>
                                         </li>
 
                                         <li>

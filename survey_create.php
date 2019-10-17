@@ -55,25 +55,25 @@
                                 <div class="row">
                                     <div class="form-group">  
                                         <label  class="col-lg-3 control-label"> Survey ID : </label>
-                                        <input type="text" name="surid" class="form-control" readonly/>
+                                        <input type="text" id="surid" name="surid" class="form-control" readonly/>
                                     </div>
                                 </div> 
 
                                 <div class="row">
                                     <div class="form-group">
                                         <label  class="col-lg-3 control-label"> Employee ID : <span class="text-danger">*</span></label>
-                                        <input type="text" name="empid" class="form-control" placeholder="should autofill" readonly/>
+                                        <input type="text" id="empid" name="empid" class="form-control" placeholder="should autofill" readonly/>
                                     </div>
                                 </div>
 
                                 <div class="row">
                                     <div class="form-group">
                                         <label  class="col-lg-3 control-label"> Unit : <span class="text-danger">*</span></label>
-                                        <select name="unit" data-placeholder="Employee's Units only" class="select-search required">
+                                        <select id="unit" name="unit" data-placeholder="Employee's Units only" class="select-search required">
                                             <option></option> 
-                                            <option value="1">None</option> 
-                                            <option value="2">ENT Clinic</option> 
-                                            <option value="3">Cath Lab.</option>  
+                                            <option value="None">None</option> 
+                                            <option value="ENT Clinic">ENT Clinic</option> 
+                                            <option value="Cath Lab.">Cath Lab.</option>  
                                         </select>
                                     </div>
                                 </div>
@@ -81,31 +81,31 @@
                                 <div class="row">
                                     <div class="form-group">
                                         <label  class="col-lg-3 control-label"> Ward : <span class="text-danger">*</span></label>
-                                        <select name="ward" data-placeholder="Employee's wards only" class="select-search required">
+                                        <select id="ward" name="ward" data-placeholder="Employee's wards only" class="select-search required">
                                             <option></option> 
-                                            <option value="1"> None </option> 
-                                            <option value="2"> WD 01 </option> 
-                                            <option value="3"> WD 02 </option>  
+                                            <option value="None"> None </option> 
+                                            <option value="WD 01"> WD 01 </option> 
+                                            <option value="WD 02"> WD 02 </option>  
                                         </select>
                                     </div>
                                 </div>
 
                                 <div class="row">
                                     <div class="form-group">
-                                        <label  class="col-lg-3 control-label"> Year : (should be the year only) <span class="text-danger">*</span></label>
+                                        <label> Year : (should be the year only) <span class="text-danger">*</span></label>
                                         <div class="input-group">
                                             <span class="input-group-addon"><i class="icon-calendar22"></i></span>
-                                            <input type="text" class="form-control pickadate-strings required" placeholder="Try me&hellip;">
+                                            <input type="text" id="year" name="year" class="form-control pickadate-strings required" placeholder="Try me&hellip;">
                                         </div>
                                     </div>
                                 </div>
 
                                 <div class="row">
                                     <div class="form-group">
-                                        <label  class="col-lg-3 control-label"> Submission Date : (auto select the submitting date) <span class="text-danger">*</span></label>
+                                        <label> Submission Date : (auto select the submitting date) <span class="text-danger">*</span></label>
                                         <div class="input-group">
                                             <span class="input-group-addon"><i class="icon-calendar22"></i></span>
-                                            <input type="text" class="form-control pickadate-strings required" placeholder="Try me&hellip;">
+                                            <input type="text" id="subdate" name="subdate" class="form-control pickadate-strings required" placeholder="Try me&hellip;">
                                         </div>
                                     </div>
                                 </div>
@@ -139,7 +139,7 @@
 
                             <div class="col-md-6">
                                 <div class="form-group">  
-                                    <label> Equipment : (auto update the name of the equipment when the code is given) <span class="text-danger">*</span></label>
+                                    <label> Equipment Name : (auto update the name of the equipment when the code is given) <span class="text-danger">*</span></label>
                                     <input type="text" id="equipname" name="equipname" class="form-control"  />
                                 </div>
                             </div> 
@@ -165,7 +165,7 @@
                             <div class="col-md-6">
                                 <div class="form-group">  
                                     <label> Equipment Serial No.: (auto update) <span class="text-danger">*</span></label>
-                                    <input type="text" name="equipcode" class="form-control" readonly />
+                                    <input type="text" name="equipcode" class="form-control"  />
                                 </div>
                             </div> 
 
@@ -181,20 +181,20 @@
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <div class="content-group-lg">
-                                        <label>Join Date : <span class="text-danger">*</span></label>
+                                        <label>Date of Installation : <span class="text-danger">*</span></label>
                                         <div class="input-group">
                                             <span class="input-group-addon"><i class="icon-calendar5"></i></span>
-                                            <input type="text"  id="equiprecvdate" name="equiprecvdate" class="form-control pickadate-strings required" placeholder="Try me&hellip;">
+                                            <input type="text"  id="installdate" name="installdate" class="form-control pickadate-strings required" placeholder="Try me&hellip;">
                                         </div>
                                     </div>
                                 </div>
                             </div>
 
-                            <div class="cil-md-6">
+                            <div class="col-md-6">
                                 <div class="form-group">
                                     <label> Remarks :</label>
                                     <div class="input-group">
-                                        <textarea id="remarks" name="remarks" rows="3" cols="60" placeholder="If you want to add any info, do it here." class="form-control"></textarea>
+                                        <textarea id="remarks" name="remarks" rows="4" cols="60"  placeholder="If you want to add any info, do it here." class="form-control"></textarea>
                                     </div>
                                 </div>
                             </div>
@@ -225,45 +225,13 @@
                                                 <th> Model </th>
                                                 <th> Serial No. </th>
                                                 <th> Present Status </th>
-                                                <th> Installed Date </th>
+                                                <th> Date of Installation </th>
                                                 <th> Remarks </th>
-                                                <th>Action </th>
+                                                <th> Action </th>
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <tr>
-                                                <td><a href="inventory.php"> EQUIP000001 </a></td>
-                                                <td> Sphygmomanometer </td>
-                                                <td> AAA </td>
-                                                <td> sf9sf </td>
-                                                <td> 3256464623 </td>
-                                                <td> Good </td>
-                                                <td> 06/05/2008 </td>
-                                                <td> hello from the other side </td>
-                                                <td class="text-center">
-                                                    <ul class="icons-list">
-                                                        <li><a href="#" data-toggle="modal" data-target="#edit_modal"><i class="icon-pencil7"></i></a></li>
-                                                        <li><a href="#" data-toggle="modal" data-target="#remove_modal"><i class="icon-trash"></i></a></li>
-                                                    </ul>
-                                                </td>
-                                            </tr>
 
-                                            <tr>
-                                                <td><a href="inventory.php"> EQUIP000010 </a></td>
-                                                <td> Incubator </td>
-                                                <td> BBB </td>
-                                                <td> frsd4gd </td>
-                                                <td> 3256464623 </td>
-                                                <td> Medium </td>
-                                                <td> 06/05/2008 </td>
-                                                <td> hello from the other side </td>
-                                                <td class="text-center">
-                                                    <ul class="icons-list">
-                                                        <li><a href="#" data-toggle="modal" data-target="#edit_modal"><i class="icon-pencil7"></i></a></li>
-                                                        <li><a href="#" data-toggle="modal" data-target="#remove_modal"><i class="icon-trash"></i></a></li>
-                                                    </ul>
-                                                </td>
-                                            </tr>
                                         </tbody>
                                     </table>
                                 </div>
@@ -275,14 +243,90 @@
                 <fieldset title="3">
                     <legend class="text-semibold"> Confirmation </legend>
 
-                        <!-- <div class="col-md-6" style="height: 100%;">
-                            <div class="col-sm-4 col-sm-offset-2" style="margin-top: 50px;">
-                                <img src="global_assets/images/confirm.jpg" height ="300px"  />
-                            </div>
-                        </div> -->
+                    <div class="panel-body">
+                    <fieldset>
+                        <legend class="text-semibold">
+                            <i class="icon-file-text2 position-left"></i>
+                            Procurement Details
+                            <a class="control-arrow" data-toggle="collapse" data-target="#demo1">
+                                <i class="icon-circle-down2"></i>
+                            </a>
+                        </legend>
 
-                        <div class="col-md-6">Ask someone how to get the previusly entered  details to a form as a summary here
+                        <div class="collapse in" id="demo1">
+                            <div class="row">
+                                <div class="form-group">  
+                                    <label class="col-lg-3 control-label"> Survey ID : </label>
+                                    <div class="col-lg-9">
+                                        <input type="text" id="suridf" class="form-control" readonly/>
+                                    </div>
+                                </div>
+                            </div> 
+
+                            <div class="row">
+                                <div class="form-group">
+                                    <label class="col-lg-3 control-label"> Emp ID : </label>
+                                    <div class="col-lg-9">
+                                        <input type="text" id="empidf" class="form-control" readonly/>
+                                    </div>
+                                </div> 
+                            </div> 
+
+                            <div class="row">
+                                <div class="form-group">
+                                    <label class="col-lg-3 control-label"> Unit : </label>
+                                    <div class="col-lg-9">
+                                        <input type="text" id="unitf" class="form-control" readonly/>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="form-group">
+                                    <label class="col-lg-3 control-label"> ward : </label>
+                                    <div class="col-lg-9">
+                                        <input type="text" id="wardf" class="form-control" readonly/>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="form-group">
+                                    <label class="col-lg-3 control-label"> Year : </label>
+                                    <div class="col-lg-9">
+                                        <input type="text" id="yearf" class="form-control" readonly/>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="form-group">
+                                    <label class="col-lg-3 control-label"> Submission Date : </label>
+                                    <div class="col-lg-9">
+                                        <input type="text" id="subdatef" class="form-control" readonly/>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
+                    </fieldset>
+
+                    <fieldset>
+                        <legend class="text-semibold">
+                            <i class="icon-reading position-left"></i>
+                            Equipment Details
+                            <a class="control-arrow" data-toggle="collapse" data-target="#demo2">
+                                <i class="icon-circle-down2"></i>
+                            </a>
+                        </legend>
+
+                        <div class="collapse in" id="demo2">
+
+                            Display the table here
+
+                        </div>
+                    </fieldset>
+
+                </div>
 
                 </fieldset>
 
@@ -297,6 +341,24 @@
     <!-- /content area -->
 
     <script>
+
+            function get_data(){
+                var val1 = $('#surid').val();
+                $('#suridf').val(val1);
+                var val2 = $('#empid').val();
+                $('#empidf').val(val2);
+                var val3 = $('#unit').val();
+                $('#unitf').val(val3);
+                var val4 = $('#ward').val();
+                $('#wardf').val(val4);
+                var val5 = $('#year').val();
+                $('#yearf').val(val5);
+                var val6 = $('#subdate').val();
+                $('#subdatef').val(val6);
+
+            }
+
+
         // wizard and datepicker
         $( document ).ready(function() {
 
@@ -310,7 +372,9 @@
             // Stepy basic
             $(".stepy-clickable").stepy({
                 next: function(index) {
-
+                    if(index==3){
+                        get_data();
+                    }
                 },
                 back: function(index) {
                     
@@ -365,10 +429,10 @@
                         , "equip" :$(tr).find('td:eq(1)').text()
                         , "equipmake" : $(tr).find('td:eq(2)').text()
                         , "requipmodel" : $(tr).find('td:eq(3)').text()
-                        , "equipsno" : $(tr).find('td:eq(0)').text()
-                        , "status" :$(tr).find('td:eq(1)').text()
-                        , "install" : $(tr).find('td:eq(2)').text()
-                        , "remarks" : $(tr).find('td:eq(3)').text()
+                        , "equipsno" : $(tr).find('td:eq(4)').text()
+                        , "status" :$(tr).find('td:eq(5)').text()
+                        , "install" : $(tr).find('td:eq(6)').text()
+                        , "remarks" : $(tr).find('td:eq(7)').text()
                     }    
                 }); 
                 TableData.shift();  // first row will be empty - so remove
@@ -383,9 +447,10 @@
                 var val4 = $('#equipmodel').val();
                 var val5=$('#equipsno').val();
                 var val6 = $('#status').val();
-                var val7=$('#remakrs').val();
+                var val7=$('#installdate').val();
+                var val8=$('#remarks').val();
                 
-                $("#tblajx tbody").append("<tr><td>"+val1+"</td><td>"+val2+"</td><td>"+val3+"</td><td>"+val4+"</td><td>"+val5+"</td><td>"+val6+"</t><td>"+val7+"</td><td><ul class='icons-list'><li><a href='#'><i class='icon-pencil7'></i></a></li><li><a href='#'><i class='icon-eye'></i></a></li></ul></td></tr>");
+                $("#tblajx tbody").append("<tr><td>"+val1+"</td><td>"+val2+"</td><td>"+val3+"</td><td>"+val4+"</td><td>"+val5+"</td><td>"+val6+"</t><td>"+val7+"</td><td>"+val8+"</td><td><ul class='icons-list'><li><a href='#'><i class='icon-pencil7'></i></a></li><li><a href='#'><i class='icon-eye'></i></a></li></ul></td></tr>");
             });
 
 

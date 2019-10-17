@@ -325,6 +325,33 @@
     </div>
     <!-- /content area -->
 
+    <script>
+
+        
+        // select2
+        $( document ).ready(function(){
+
+            // Default initialization
+            $('.select').select2({
+                minimumResultsForSearch: Infinity
+            });
+
+
+            // Select with search
+            $('.select-search').select2();
+
+
+            // Fixed width. Single select
+            $('.select-fixed-single').select2({
+                minimumResultsForSearch: Infinity,
+                width: 250
+            });
+        });
+
+
+
+    </script>
+
 </div>
 <!-- /Main content -->
 <?php require_once('incl/footer.php');?>

@@ -6,7 +6,7 @@
         <div class="page-header page-header-default">
             <div class="page-header-content">
                 <div class="page-title">
-                    <h4><i class="icon-arrow-left52 position-left"></i> <span class="text-semibold"> Requisition </span></h4>
+                    <h4><i class="icon-arrow-left52 position-left"></i> <span class="text-semibold"> Survey </span></h4>
                 </div>
 
                 <div class="heading-elements">
@@ -20,9 +20,9 @@
             <div class="breadcrumb-line">
                 <ul class="breadcrumb">
                     <li><a href="dashboard.php"><i class="icon-home2 position-left"></i> Home </a></li>
-                    <li><a href="#"> Survey  </a></li>
+                    <li><a href="survey_create.php"> Survey  </a></li>
                     <li class="active"> Survey History </li>
-                </ul>Lis
+                </ul>
 
                 <ul class="breadcrumb-elements">
                     <li><a href="#"><i class="icon-comment-discussion position-left"></i> Support</a></li>
@@ -60,52 +60,25 @@
                             <th> Unit </th>
                             <th> Ward </th>
                             <th> Document </th>
-                            <th> Action </th>
                             <th></th>
                         
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
-                            <td> EQUIP000010  </a></td>
+                            <td> EQUIP000010 </td>
                             <td> 2017</td>
                             <td> Respiratory Unit </td>
                             <td> None </td>
                             <td> ResUnit2017.pdf </td>
-                            <td class="text-center">
-                                <ul class="icons-list">
-                                    <li class="dropdown">
-                                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                                            <i class="icon-menu9"></i>
-                                        </a>
-                                        <ul class="dropdown-menu dropdown-menu-right">
-                                            <li><a href="#"><i class="icon-eye"></i> View</a></li>
-                                            <li><a href="#"><i class="icon-bin"></i> Delete</a></li>
-                                        </ul>
-                                    </li>
-                                </ul>
-                            </td>
                             <td></td>
                         </tr>
                         <tr>
-                            <td> EQUIP000010  </a></td>
+                            <td> EQUIP000010 </td>
                             <td> 2017</td>
                             <td> Respiratory Unit </td>
                             <td> None </td>
                             <td> ResUnit2017.pdf </td>
-                            <td class="text-center">
-                                <ul class="icons-list">
-                                    <li class="dropdown">
-                                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                                            <i class="icon-menu9"></i>
-                                        </a>
-                                        <ul class="dropdown-menu dropdown-menu-right">
-                                            <li><a href="#"><i class="icon-eye"></i> View</a></li>
-                                            <li><a href="#"><i class="icon-bin"></i> Delete</a></li>
-                                        </ul>
-                                    </li>
-                                </ul>
-                            </td>
                             <td></td>
                         </tr>
                     </tbody>
@@ -114,6 +87,64 @@
             <!-- /control position -->
         </div>
         <!-- /content area -->
+
+        <script>
+                    
+            // Table setup
+            // ------------------------------
+
+            // Setting datatable defaults
+            $.extend( $.fn.dataTable.defaults, {
+                autoWidth: false,
+                responsive: true,
+                columnDefs: [{ 
+                    orderable: false,
+                    width: '100px',
+                    targets: [ 5 ]
+                }],
+                dom: '<"datatable-header"fl><"datatable-scroll-wrap"t><"datatable-footer"ip>',
+                language: {
+                    search: '<span>Filter:</span> _INPUT_',
+                    searchPlaceholder: 'Type to filter...',
+                    lengthMenu: '<span>Show:</span> _MENU_',
+                    paginate: { 'first': 'First', 'last': 'Last', 'next': $('html').attr('dir') == 'rtl' ? '&larr;' : '&rarr;', 'previous': $('html').attr('dir') == 'rtl' ? '&rarr;' : '&larr;' }
+                },
+                drawCallback: function () {
+                    $(this).find('tbody tr').slice(-3).find('.dropdown, .btn-group').addClass('dropup');
+                },
+                preDrawCallback: function() {
+                    $(this).find('tbody tr').slice(-3).find('.dropdown, .btn-group').removeClass('dropup');
+                }
+            });
+
+
+            
+            // Control position
+            $('.datatable-responsive-control-right').DataTable({
+                responsive: {
+                    details: {
+                        type: 'column',
+                        target: -1
+                    }
+                },
+                columnDefs: [
+                    {
+                        className: 'control',
+                        orderable: false,
+                        targets: -1
+                    },
+                    { 
+                        width: "100px",
+                        targets: [5]
+                    },
+                    { 
+                        orderable: false,
+                        targets: [5]
+                    }
+                ]
+            });
+        </script>
+
 
     </div>
     <!-- /main content -->

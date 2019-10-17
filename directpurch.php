@@ -20,7 +20,7 @@
             <div class="breadcrumb-line">
                 <ul class="breadcrumb">
                     <li><a href="dashboard.php"><i class="icon-home2 position-left"></i> Home </a></li>
-                    <li><a href="#"> Requisition </a></li>
+                    <li><a href="#"> Requisition  </a></li>
                     <li class="active"> Direct Purchases </li>
                 </ul>
 
@@ -43,7 +43,7 @@
             <!-- Control position -->
             <div class="panel panel-white">
                 <div class="panel-heading">
-                    <h5 class="panel-title"><b> Direct Purchases</b></h5>
+                    <h5 class="panel-title"><b>Direct Purchases</b></h5>
                     <div class="heading-elements">
                         <ul class="icons-list">
                             <li><a data-action="collapse"></a></li>
@@ -52,16 +52,16 @@
                     </div>
                 </div>
 
+
                 <table class="table datatable-responsive-control-right">
                     <thead>
                         <tr>
-                            <th>Primal Approved Equipment ID </a>
+                            <th>Primal Approved Equipment ID </th>
                             <th>Requisition Equipment No.</th>
                             <th>Primal Approval Document ID </th>
                             <th>Primal Approval Date</th>
                             <th>Proceed To Procure </th>
-                            <!-- <th></th> -->
-
+                            <th></th>
                         
                         </tr>
                     </thead>
@@ -72,21 +72,18 @@
                             <td>XXXXXX</td>
                             <td> 07 Dec 2017</td>
                             <td><a href="tec_createform.php"> Create TEC </a></td>
-                            <!-- <td></td> -->
+                            <td></td>
                         </tr>
 
-                        <tr>
                         <tr>
                             <td>PAPP-REQ-000001-02</td>
                             <td><a href="reqequip.php"> REQ-000001-02  </a></td>
                             <td>XXXXXX</td>
                             <td> 07 Dec 2017</td>
                             <td><a href="tec_createform.php"> Create TEC </a></td>
-                            <!-- <td></td> -->
+                            <td></td>
                         </tr>
 
-                        </tr>
-                        <tr>
                         <tr>
                             <td>PAPP-REQ-000002-01</td>
                             <td><a href="reqequip.php"> REQ-000002-01  </a></td>
@@ -96,7 +93,6 @@
                             <td></td>
                         </tr>
 
-                        </tr>
 
                     </tbody>
                 </table>
@@ -105,7 +101,68 @@
         </div>
         <!-- /content area -->
 
+        <script>
+                    
+            // Table setup
+            // ------------------------------
+
+            // Setting datatable defaults
+            $.extend( $.fn.dataTable.defaults, {
+                autoWidth: false,
+                responsive: true,
+                columnDefs: [{ 
+                    orderable: false,
+                    width: '100px',
+                    targets: [ 5 ]
+                }],
+                dom: '<"datatable-header"fl><"datatable-scroll-wrap"t><"datatable-footer"ip>',
+                language: {
+                    search: '<span>Filter:</span> _INPUT_',
+                    searchPlaceholder: 'Type to filter...',
+                    lengthMenu: '<span>Show:</span> _MENU_',
+                    paginate: { 'first': 'First', 'last': 'Last', 'next': $('html').attr('dir') == 'rtl' ? '&larr;' : '&rarr;', 'previous': $('html').attr('dir') == 'rtl' ? '&rarr;' : '&larr;' }
+                },
+                drawCallback: function () {
+                    $(this).find('tbody tr').slice(-3).find('.dropdown, .btn-group').addClass('dropup');
+                },
+                preDrawCallback: function() {
+                    $(this).find('tbody tr').slice(-3).find('.dropdown, .btn-group').removeClass('dropup');
+                }
+            });
+
+
+            
+            // Control position
+            $('.datatable-responsive-control-right').DataTable({
+                responsive: {
+                    details: {
+                        type: 'column',
+                        target: -1
+                    }
+                },
+                columnDefs: [
+                    {
+                        className: 'control',
+                        orderable: false,
+                        targets: -1
+                    },
+                    { 
+                        width: "100px",
+                        targets: [5]
+                    },
+                    { 
+                        orderable: false,
+                        targets: [5]
+                    }
+                ]
+            });
+        </script>
+
     </div>
     <!-- /main content -->
 
 <?php require_once('incl/footer.php');?>
+
+
+
+

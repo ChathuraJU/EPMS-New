@@ -1,26 +1,29 @@
 <?php require_once('incl/header.php');?>
 <!-- Main content -->
-<div class="content-wrapper" id="content">
-
+<div class="content-wrapper">
     <!-- Page header -->
     <div class="page-header page-header-default">
         <div class="page-header-content">
             <div class="page-title">
-                <h4><i class="icon-arrow-left52 position-left"></i> <span class="text-semibold"> User Control </span> </h4>
+                <h4><i class="icon-arrow-left52 position-left"></i> <span class="text-semibold"> Configuration </span></h4>
             </div>
 
+            <div class="heading-elements">
+                <div class="heading-btn-group">
+                    <a href="#" class="btn btn-link btn-float has-text"><i class="icon-bars-alt text-primary"></i><span>Statistics</span></a>
+                    <a href="#" class="btn btn-link btn-float has-text"><i class="icon-notebook text-primary"></i> <span>Reports</span></a>
+                </div>
+            </div>
         </div>
 
         <div class="breadcrumb-line">
             <ul class="breadcrumb">
-                <li><a href="dashboard.php"><i class="icon-home2 position-left"></i> Home</a></li>
-                <li><a href="user_create.php"> User Control </a></li>
-                <li class="active"> Manage User </li>
-            </ul>
+                <li><a href="dashboard.php"><i class="icon-home2 position-left"></i> Home </a></li>
+                <li><a href="#"> Configuration </a></li>
+                <li class="active"> Ward List
         </div>
     </div>
     <!-- /page header -->
-
 
     <!-- Content area -->
     <div class="content">
@@ -28,7 +31,7 @@
         <!-- Highlighting rows and columns -->
         <div class="panel panel-white">
             <div class="panel-heading">
-                <h5 class="panel-title"> <b> Users List </b></h5>
+                <h5 class="panel-title"> <b> Wards List </b></h5>
                 <div class="heading-elements">
                     <ul class="icons-list">
                         <li><a data-action="collapse"></a></li>
@@ -36,76 +39,33 @@
                     </ul>
                 </div>
             </div>
-            <table  class="table table-bordered table-hover datatable-highlight" >
+
+            <table class="table table-bordered table-hover datatable-highlight" class="table bg-slate-600">
                 <thead>
                     <tr>
-                        <th> # </th>
-                        <th>User No.</th>
-                        <th>User Name</th>
-                        <th>Privileges</th>
-                        <th>Additional Information</th>
+                        <th>Ward No.</th>
+                        <th>Unit Name</th>
+                        <th>Ward e-Mail</th>
+                        <th>Ward Telephone</th>
                         <th class="text-center">Actions</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td> 01 </td>
-                        <td>UT01</td>
-                        <td>Super Admin</td>
-                        <td>Traffic Court Referee</td>
-                        <td>.......................................</td>
-                        <td class="text-center">
-                            <ul class="icons-list">
-                                <li class="dropdown">
-                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                                        <i class="icon-menu9"></i>
-                                    </a>
 
-                                    <ul class="dropdown-menu dropdown-menu-right">
-                                        <li><a href="#"><i class="icon-eye"></i> View</a></li>
-                                        <li><a href="#"><i class="icon-spinner11"></i> Update</a></li>
-                                    </ul>
-                                </li>
-                            </ul>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td> 02 </td>
-                        <td>UT02</td>
-                        <td> Admin</td>
-                        <td>privileges in tag form ////ask someone////</td>
-                        <td>.......................................</td>
-                        <td class="text-center">
-                            <ul class="icons-list">
-                                <li class="dropdown">
-                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                                        <i class="icon-menu9"></i>
-                                    </a>
-
-                                    <ul class="dropdown-menu dropdown-menu-right">
-                                        <li><a href="#"><i class="icon-eye"></i> View </a></li>
-                                        <li><a href="#"><i class="icon-spinner11"></i> Update</a></li>
-
-                                    </ul>
-                                </li>
-                            </ul>
-                        </td>
-                    </tr>
 
                 </tbody>
-
-
             </table>
         </div>
         <!-- /highlighting rows and columns -->
 
-                
     </div>
     <!-- /content area -->
 
     <script>
 
-        
+           
+
+            //table
         $( document ).ready(function(){
 
             // Table setup
@@ -137,7 +97,7 @@
             // Highlighting rows and columns on mouseover
             var lastIdx = null;
             var table = $('.datatable-highlight').DataTable();
-
+            
             $('.datatable-highlight tbody').on('mouseover', 'td', function() {
                 var colIdx = table.cell(this).index().column;
 
@@ -149,12 +109,15 @@
                 $(table.cells().nodes()).removeClass('active');
             });
 
+
         });
+            
 
     </script>
 
+
+
 </div>
-<!-- /main content -->
-
-
+<!-- /Main content -->
 <?php require_once('incl/footer.php');?>
+

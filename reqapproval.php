@@ -153,19 +153,20 @@
                                     </div>
                                 </div>    
 
+
                                 <div class="col-lg-6">
                                     <div class="form-group">
                                         <label> Primal Approval Date : </label>
-                                        <div class="input-group">
-                                            <span class="input-group-addon"><i class="icon-calendar22"></i></span>
-                                            <input type="text" id="primappdate" name="primappdate" class="form-control daterange-single" readonly >
-                                        </div>
+                                            <div class="input-group">
+                                                <span class="input-group-addon"><i class="icon-calendar5"></i></span>
+                                                <input type="text" id="primappdate" name="primappdate" class="form-control pickadate-strings required" placeholder="Try me&hellip;">
+                                            </div>
                                     </div>
                                 </div>
                             </div>
 
                             <div class="row">   
-                                <div class="col-lg-4">
+                                <div class="col-lg-6">
                                     <div class="form-group">
                                         <label> Primal Approval :</label>
                                         <select id="primapp" name="primapp" data-placeholder="Pending" class="select-search required" >
@@ -176,7 +177,7 @@
                                     </div>
                                 </div>
 
-                                <div class="col-lg-4" id="prt">
+                                <div class="col-lg-6">
                                     <div class="form-group">
                                         <label> Procurement Type :</label>
                                         <select id="procuretype" name="procuretype" data-placeholder="Direct/Indirect" class="select-search required" >
@@ -187,12 +188,6 @@
                                     </div>
                                 </div>   
                                 
-                                <!-- <div class="col-lg-4">
-                                    <div class="form-group">
-                                        <label> Primal Approval Document ID :</label>
-                                        <input type="text" id="primappdoc" class="form-control" placeholder="XXXXXX" >
-                                    </div>
-                                </div>   -->
                             </div>
 
                             <div class="row">
@@ -203,17 +198,7 @@
                                     </div>
                                 </div>   
                             </div>
-<!-- 
-                            <div class="row">
-                                <div class="col-lg-3"></div>
-                                <div class="col-lg-6">
-                                    <div class="form-group">
-                                        <label> Primal Approval Document :</label>
-                                            <input type="file" id="primappdoc" name="primappdoc"class="file-input" data-show-preview="false">
-                                    </div>
-                                </div>
-                                <div class="col-lg-3"></div>
-                            </div> -->
+
                         </div>
                     </fieldset>
 
@@ -229,22 +214,36 @@
     <!-- /content area -->
 
 
-    <script>    
-        $( "select" ) .change(function () {    
-            var prot = $("#primapp").val();
+    <script>
 
-            if(prot == "1"){
-                // alert("test");
-                // $("#prt").addClass("hidden");
-                $("#prt").removeClass("hidden");
-            }
-            else{
-                // alert("test");
-                $("#prt").addClass("hidden");
-                // $("#prt").removeClass("hidden");
-            }
-        });  
-    </script>  
+        // select2
+        $( document ).ready(function(){
+
+            // Default initialization
+            $('.select').select2({
+                minimumResultsForSearch: Infinity
+            });
+
+
+            // Select with search
+            $('.select-search').select2();
+
+
+            // Fixed width. Single select
+            $('.select-fixed-single').select2({
+                minimumResultsForSearch: Infinity,
+                width: 250
+            });
+        });
+
+        // pickdate
+        $( document ).ready(function(){
+            $('.pickadate-strings').pickadate({
+                weekdaysShort: ['Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa'],
+                showMonthsShort: true
+            });
+        });
+    </script>
 
 
 </div>

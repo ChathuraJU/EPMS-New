@@ -253,8 +253,86 @@
         <!-- /highlighting rows and columns -->
 
     </div>
-   
     <!-- /content area -->
+
+    <script>
+        
+        $( document ).ready(function(){
+
+            // Table setup
+            // ------------------------------
+
+            // Setting datatable defaults
+            $.extend( $.fn.dataTable.defaults, {
+                autoWidth: false,
+                columnDefs: [{ 
+                    orderable: false,
+                    width: '100px',
+                    targets: [ 5 ]
+                }],
+                dom: '<"datatable-header"fl><"datatable-scroll"t><"datatable-footer"ip>',
+                language: {
+                    search: '<span>Filter:</span> _INPUT_',
+                    searchPlaceholder: 'Type to filter...',
+                    lengthMenu: '<span>Show:</span> _MENU_',
+                    paginate: { 'first': 'First', 'last': 'Last', 'next': $('html').attr('dir') == 'rtl' ? '&larr;' : '&rarr;', 'previous': $('html').attr('dir') == 'rtl' ? '&rarr;' : '&larr;' }
+                },
+                drawCallback: function () {
+                    $(this).find('tbody tr').slice(-3).find('.dropdown, .btn-group').addClass('dropup');
+                },
+                preDrawCallback: function() {
+                    $(this).find('tbody tr').slice(-3).find('.dropdown, .btn-group').removeClass('dropup');
+                }
+            });
+
+            // Highlighting rows and columns on mouseover
+            var lastIdx = null;
+            var table = $('.datatable-highlight').DataTable();
+
+            $('.datatable-highlight tbody').on('mouseover', 'td', function() {
+                var colIdx = table.cell(this).index().column;
+
+                if (colIdx !== lastIdx) {
+                    $(table.cells().nodes()).removeClass('active');
+                    $(table.column(colIdx).nodes()).addClass('active');
+                }
+            }).on('mouseleave', function() {
+                $(table.cells().nodes()).removeClass('active');
+            });
+
+
+        });
+
+
+
+        // Switchery
+        // ------------------------------
+
+        // Initialize multiple switches
+        var elems = Array.prototype.slice.call(document.querySelectorAll('.switchery'));
+        elems.forEach(function(html) {
+            var switchery = new Switchery(html);
+        });
+
+        // Colored switches
+        var primary = document.querySelector('.switchery-primary');
+        var switchery = new Switchery(primary, { color: '#2196F3' });
+
+        var danger = document.querySelector('.switchery-danger');
+        var switchery = new Switchery(danger, { color: '#EF5350' });
+
+        var warning = document.querySelector('.switchery-warning');
+        var switchery = new Switchery(warning, { color: '#FF7043' });
+
+        var info = document.querySelector('.switchery-info');
+        var switchery = new Switchery(info, { color: '#00BCD4'});
+
+
+
+
+    </script>
+
+
 
 </div>
 <!-- /Main content -->

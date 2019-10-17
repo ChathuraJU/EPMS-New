@@ -101,16 +101,15 @@
                                 <div class="row">
                                     <div class="form-group">
                                         <label> Employee ID : <span class="text-danger">*</span></label>
-                                        <select name="empid" data-placeholder="Choose an ID..." class="select-search required">
+                                        <select id="empid" name="empid" data-placeholder="Choose an ID..." class="select-search required">
                                             <option></option> 
-                                            <option value="1"> KGH-000001 </option> 
-                                            <option value="2"> KGH-000002 </option> 
-                                            <option value="3"> KGH-000003 </option> 
-                                            <option value="4"> KGH-000004 </option> 
-                                            <option value="5"> KGH-000005 </option> 
-                                            <option value="6"> KGH-000006 </option> 
-                                            <option value="7"> KGH-000007 </option> 
-                                            <option value="8">............</option> 
+                                            <option value="KGH-000001"> KGH-000001 </option> 
+                                            <option value="KGH-000002"> KGH-000002 </option> 
+                                            <option value="KGH-000003"> KGH-000003 </option> 
+                                            <option value="KGH-000004"> KGH-000004 </option> 
+                                            <option value="KGH-000005"> KGH-000005 </option> 
+                                            <option value="KGH-000006"> KGH-000006 </option> 
+                                            <option value="KGH-000007"> KGH-000007 </option> 
                                         </select>
                                     </div>
                                 </div>
@@ -199,7 +198,7 @@
                                 <div class="row">
                                     <div class="form-group">
                                         <label> Reason :</label>
-                                        <textarea name="reason" id="reason" rows="5" cols="5" placeholder="If you want to add any info, do it here." class="form-control"></textarea>
+                                        <textarea class="form-control" name="reason" id="reason" rows="5" cols="5" placeholder="If you want to add any info, do it here." ></textarea>
                                     </div>
                                 </div>
 
@@ -249,61 +248,92 @@
 
                 <fieldset title="3">
                     <legend class="text-semibold"> Confirmation </legend>
-                        <div class="row">
-                            <div class="form-group">  
-                                <label class="col-lg-3 control-label"> Requisition ID : </label>
-                                <div class="col-lg-9">
-                                    <input type="text" id="reqidf" class="form-control"/>
-                                </div>
-                            </div>
-                        </div> 
 
-                        <div class="row">
-                            <div class="form-group">
-                                <label class="col-lg-3 control-label"> Request Type : </label>
-                                <div class="col-lg-9">
-                                    <input type="text" id="reqtypef" class="form-control"/>
-                                </div>
-                            </div> 
-                        </div> 
+                    <div class="panel-body">
+                    <fieldset>
+                        <legend class="text-semibold">
+                            <i class="icon-file-text2 position-left"></i>
+                            Requisition Details
+                            <a class="control-arrow" data-toggle="collapse" data-target="#demo1">
+                                <i class="icon-circle-down2"></i>
+                            </a>
+                        </legend>
 
-                        <div class="row">
-                            <div class="form-group">
-                                <label class="col-lg-3 control-label"> Request Date : </label>
-                                <div class="col-lg-9">
-                                    <input type="text" id="reqdatef" class="form-control"/>
-                                </div>
+                        <div class="collapse in" id="demo1">
+
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">  
+                                        <label> Requisition ID : </label>
+                                        <input type="text" id="reqidf" class="form-control" readonly/>
+                                    </div>
+                                </div> 
+
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label> Request Type : </label>
+                                        <input type="text" id="reqtypef" class="form-control" readonly/>
+                                    </div> 
+                                </div> 
+                            
                             </div>
+
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label> Request Date : </label>
+                                        <input type="text" id="reqdatef" class="form-control" readonly/>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label> Employee ID : </label>
+                                        <input type="text" id="empidf" class="form-control" readonly/>
+                                    </div>
+                                </div>
+
+                            </div>
+                            
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label> Unit : </label>
+                                        <input type="text" id="unitf" class="form-control" readonly/>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label> Ward : </label>
+                                        <input type="text" id="wardf" class="form-control" readonly/>
+                                    </div>
+                                </div>
+                            
+                            </div>
+
                         </div>
+                    </fieldset>
 
-                        <div class="row">
-                            <div class="form-group">
-                                <label class="col-lg-3 control-label"> Employee ID : </label>
-                                <div class="col-lg-9">
-                                    <input type="text" id="empidf" class="form-control"/>
-                                </div>
-                            </div>
+                    <fieldset>
+                        <legend class="text-semibold">
+                            <i class="icon-stack2"></i>
+                            Equipment Details
+                            <a class="control-arrow" data-toggle="collapse" data-target="#demo2">
+                                <i class="icon-circle-down2"></i>
+                            </a>
+                        </legend>
+
+                        <div class="collapse in" id="demo2">
+
+                            Display the table here
+                        also a print button to get the request into a pdf format.
                         </div>
+                    </fieldset>
 
-                        <div class="row">
-                            <div class="form-group">
-                                <label class="col-lg-3 control-label"> Unit : </label>
-                                <div class="col-lg-9">
-                                    <input type="text" id="unitf" class="form-control"/>
-                                </div>
-                            </div>
-                        </div>
+                    
 
-                        <div class="row">
-                            <div class="form-group">
-                                <label class="col-lg-3 control-label"> Ward : </label>
-                                <div class="col-lg-9">
-                                    <input type="text" id="wardf" class="form-control"/>
-                                </div>
-                            </div>
-                        </div>
 
-                        <!-- also a print button to get the request into a pdf format. -->
 
                 </fieldset>
 
@@ -319,7 +349,7 @@
 
     <script>
 
-            function ged_data(){
+            function get_data(){
                 var val1 = $('#reqid').val();
                 $('#reqidf').val(val1);
                 var val2 = $('#reqtype').val();
@@ -328,10 +358,11 @@
                 $('#reqdatef').val(val3);
                 var val4 = $('#empid').val();
                 $('#empidf').val(val4);
-                var val5 = $('#unitid').val();
-                $('#unitidf').val(val5);
-                var val6 = $('#wardid').val();
-                $('#wardidf').val(val6);
+                var val5 = $('#unit').val();
+                $('#unitf').val(val5);
+                var val6 = $('#ward').val();
+                $('#wardf').val(val6);
+
             }
 
 
@@ -349,7 +380,7 @@
                 $(".stepy-basic").stepy({
                     next: function(index) {
                         if(index==3){
-                            ged_data();
+                            get_data();
                         }
                     },
                     back: function(index) {

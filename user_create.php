@@ -2,7 +2,7 @@
 <!-- Main content -->
 <div class="content-wrapper">
     <!-- Page header -->
-    <div class="page-header page-header-default">
+    <div class="page-header page-header-inverse has-cover" style="border-left: 1px solid #ddd; border-right: 1px solid #ddd;">
         <div class="page-header-content">
             <div class="page-title">
                 <h4><i class="icon-arrow-left52 position-left"></i> <span class="text-semibold"> User Control </span></h4>
@@ -48,16 +48,11 @@
                                 <div class="form-group">
                                     <label  class="col-lg-3 control-label"> Employee ID : <span class="text-danger">*</span></label>
                                     <div class="col-lg-9">
-                                        <select name="empid" data-placeholder="Choose an ID..." class="select required">
+                                        <select name="empid" data-placeholder="Choose an ID..." class="select-search required">
                                             <option></option> 
                                             <option value="1"> KGH-000001 </option> 
                                             <option value="2"> KGH-000002 </option> 
                                             <option value="3"> KGH-000003 </option> 
-                                            <option value="4"> KGH-000004 </option> 
-                                            <option value="5"> KGH-000005 </option> 
-                                            <option value="6"> KGH-000006 </option> 
-                                            <option value="7"> KGH-000007 </option> 
-                                            <option value="8">............</option> 
                                         </select>
                                     </div>
                                 </div>
@@ -76,7 +71,7 @@
                                 <div class="form-group">
                                     <label  class="col-lg-3 control-label"> User Type : <span class="text-danger">*</span></label>
                                     <div class="col-lg-9">
-                                        <select name="utype" data-placeholder="Choose the user type..." class="select required">
+                                        <select name="utype" data-placeholder="Choose the user type..." class="select-search required">
                                             <option></option> 
                                             <option value="1"> Super Admin </option> 
                                             <option value="2"> Admin </option> 
@@ -96,7 +91,7 @@
                             <div class="form-group">
                                     <label  class="col-lg-3 control-label"> User status : <span class="text-danger">*</span></label>
                                     <div class="col-lg-9">
-                                        <select name="ustatus" data-placeholder="Choose the user status..." class="select required">
+                                        <select name="ustatus" data-placeholder="Choose the user status..." class="select-search required">
                                             <option></option> 
                                             <option value="1"> Permanent </option> 
                                             <option value="2"> Temperory </option> 
@@ -129,8 +124,8 @@
                                     <label class="col-lg-3 control-label">User Created On :</label>
                                     <div class="col-lg-9">
                                         <div class="input-group">
-                                            <span class="input-group-addon"><i class="icon-calendar22"></i></span>
-                                            <input type="text" class="form-control daterange-single" value="03/18/2013">
+                                            <span class="input-group-addon"><i class="icon-calendar5"></i></span>
+                                            <input type="text" class="form-control pickadate-strings required" placeholder="Try me&hellip;">
                                         </div>
                                     </div> 
                                 </div>
@@ -138,9 +133,11 @@
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label class="col-lg-3 control-label">User Denied On : </label>
-                                    <div class="input-group">
-                                        <span class="input-group-addon"><i class="icon-calendar22"></i></span>
-                                        <input type="text" class="form-control daterange-single" value="03/18/2013">
+                                    <div class="col-lg-9">
+                                        <div class="input-group">
+                                            <span class="input-group-addon"><i class="icon-calendar5"></i></span>
+                                            <input type="text" class="form-control pickadate-strings required" placeholder="Try me&hellip;">
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -156,9 +153,9 @@
         <!-- /2 columns form -->
 
         <!-- Highlighting rows and columns -->
-        <div class="panel panel-flat">
-            <div class="panel-heading">
-                <h5 class="panel-title"> <b> Users </b></h5>
+        <div class="panel panel-white" >
+            <div class="panel-heading ">
+                <h5 class="panel-title"> <b> Users List </b></h5>
                 <div class="heading-elements">
                     <ul class="icons-list">
                         <li><a data-action="collapse"></a></li>
@@ -167,7 +164,7 @@
                 </div>
             </div>
 
-            <table class="table table-bordered table-hover datatable-highlight">
+            <table class="table table-bordered table-hover datatable-highlight" class="table bg-slate-600">
                 <thead>
                     <tr>
                         <th> # </th>
@@ -224,6 +221,28 @@
                             </ul>
                         </td>
                     </tr>
+                    <tr>
+                        <td> 01 </td>
+                        <td>UT01</td>
+                        <td>Super Admin</td>
+                        <td>Traffic Court Referee</td>
+                        <td>.......................................</td>
+                        <td class="text-center">
+                            <ul class="icons-list">
+                                <li class="dropdown">
+                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                        <i class="icon-menu9"></i>
+                                    </a>
+
+                                    <ul class="dropdown-menu dropdown-menu-right">
+                                    <li><a href="#"><i class="icon-eye"></i> View</a></li>
+                                        <li><a href="#"><i class="icon-spinner11"></i> Update</a></li>
+                                        <li><a href="#"><i class="icon-bin"></i> Delete</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </td>
+                    </tr>
 
                 </tbody>
             </table>
@@ -232,6 +251,85 @@
 
     </div>
     <!-- /content area -->
+
+    <script>
+
+        $( document ).ready(function(){
+
+            // Table setup
+            // ------------------------------
+
+            // Setting datatable defaults
+            $.extend( $.fn.dataTable.defaults, {
+                autoWidth: false,
+                columnDefs: [{ 
+                    orderable: false,
+                    width: '100px',
+                    targets: [ 5 ]
+                }],
+                dom: '<"datatable-header"fl><"datatable-scroll"t><"datatable-footer"ip>',
+                language: {
+                    search: '<span>Filter:</span> _INPUT_',
+                    searchPlaceholder: 'Type to filter...',
+                    lengthMenu: '<span>Show:</span> _MENU_',
+                    paginate: { 'first': 'First', 'last': 'Last', 'next': $('html').attr('dir') == 'rtl' ? '&larr;' : '&rarr;', 'previous': $('html').attr('dir') == 'rtl' ? '&rarr;' : '&larr;' }
+                },
+                drawCallback: function () {
+                    $(this).find('tbody tr').slice(-3).find('.dropdown, .btn-group').addClass('dropup');
+                },
+                preDrawCallback: function() {
+                    $(this).find('tbody tr').slice(-3).find('.dropdown, .btn-group').removeClass('dropup');
+                }
+            });
+
+            // Highlighting rows and columns on mouseover
+            var lastIdx = null;
+            var table = $('.datatable-highlight').DataTable();
+            
+            $('.datatable-highlight tbody').on('mouseover', 'td', function() {
+                var colIdx = table.cell(this).index().column;
+
+                if (colIdx !== lastIdx) {
+                    $(table.cells().nodes()).removeClass('active');
+                    $(table.column(colIdx).nodes()).addClass('active');
+                }
+            }).on('mouseleave', function() {
+                $(table.cells().nodes()).removeClass('active');
+            });
+
+
+        });
+            
+        // pickdate
+        $( document ).ready(function(){
+            $('.pickadate-strings').pickadate({
+                weekdaysShort: ['Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa'],
+                showMonthsShort: true
+            });
+        });
+
+        // select2
+        $( document ).ready(function(){
+
+            // Default initialization
+            $('.select').select2({
+                minimumResultsForSearch: Infinity
+            });
+
+
+            // Select with search
+            $('.select-search').select2();
+
+
+            // Fixed width. Single select
+            $('.select-fixed-single').select2({
+                minimumResultsForSearch: Infinity,
+                width: 250
+            });
+        });
+    </script>
+
+
 
 </div>
 <!-- /Main content -->
