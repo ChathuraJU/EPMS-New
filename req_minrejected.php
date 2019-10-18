@@ -21,7 +21,7 @@
             <ul class="breadcrumb">
                 <li><a href="dashboard.php"><i class="icon-home2 position-left"></i> Home </a></li>
                 <li><a href="req_create.php"> Requisition </a></li>
-                <li class="active"> Primal Rejected Requisitions </li>
+                <li class="active"> Ministry Rejected Requisitions </li>
             </ul>
 
             <ul class="breadcrumb-elements">
@@ -43,7 +43,7 @@
         <!-- Control position -->
         <div class="panel panel-white">
             <div class="panel-heading">
-                <h5 class="panel-title"><b> Primal Rejected Requisitions </b></h5>
+                <h5 class="panel-title"><b> Ministry  Rejected Requisitions </b></h5>
                 <div class="heading-elements">
                     <ul class="icons-list">
                         <li><a data-action="collapse"></a></li>

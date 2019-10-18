@@ -532,9 +532,9 @@
                                             <a href="req_primrejected.php">Primal Rejected Requisitions</a>
 										</li>
 										
-										<li>
+										<!-- <li>
 											<a href="approvedequip.php"> Approved Equipments</a>
-										</li>
+										</li> -->
 									
 										<li> 
 											<a href="minapproval_form.php"> Create Ministry Approval Form </a>

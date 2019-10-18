@@ -61,6 +61,7 @@
                             <th>Primal Approval Date</th>
                             <th>Procurement Type</th>
                             <th>Action</th>
+                            <th></th>
                         </tr>
                     </thead>
                     <tbody>
@@ -72,9 +73,10 @@
                             <td> Direct Purchase</td>
                             <td>                                
                                 <ul class="icons-list">
-                                    <li><button class="btn btn-default btn-sm" type="button" data-toggle="modal" data-target="#modal_form_vertical">View <i class="icon-eye position-right"></i></button>  </li>
+                                    <button type="button" class="btn btn-default btn-sm" data-toggle="modal" data-target="#modal_form_vertical">View <i class="icon-eye position-right"></i></button>
                                 </ul>
                             </td>
+                            <td></td>
                         </tr>
                         <tr>
                             <th>PAPP-REQ-000001-02</a>
@@ -84,9 +86,11 @@
                             <td> Indirect Purchase</td>
                             <td>
                                 <ul class="icons-list">
-                                    <li><button class="btn btn-default btn-sm" type="button" data-toggle="modal" data-target="#modal_form_vertical">View <i class="icon-eye position-right"></i></button>  </li>
+                                    <button type="button" class="btn btn-default btn-sm" data-toggle="modal" data-target="#modal_form_vertical">View <i class="icon-eye position-right"></i></button>
                                 </ul>
                             </td>
+                            <td></td>
+
                         </tr>
                  
                     </tbody>
@@ -97,133 +101,215 @@
             <!-- Vertical form modal -->
             <div id="modal_form_vertical" class="modal fade" tabindex="-1">
                 <div class="modal-dialog">
-                    <fieldset>
-                        <legend class="text-semibold">
-                            <i class="icon-pencil5 position-left"></i>
-                            Basic Details
-                            <a class="control-arrow" data-toggle="collapse" data-target="#demo1">
-                                <i class="icon-circle-down2"></i>
-                            </a>
-                        </legend>
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <fieldset>
+                                <legend class="text-semibold">
+                                    <i class="icon-pencil5 position-left"></i>
+                                    Basic Details
+                                    <a class="control-arrow" data-toggle="collapse" data-target="#demo1">
+                                        <i class="icon-circle-down2"></i>
+                                    </a>
+                                </legend>
 
-                        <div class="collapse in" id="demo1">
-                            <div class="row">
-                                <div class="col-lg-4">
-                                    <div class="form-group">
-                                        <label> Requisition ID :</label>
-                                        <input type="text" id="reqid" class="form-control" placeholder="REQ-000001" readonly>
-                                    </div>
-                                </div>    
+                                <div class="collapse in" id="demo1">
+                                    <div class="row">
+                                        <div class="col-lg-4">
+                                            <div class="form-group">
+                                                <label> Requisition ID :</label>
+                                                <input type="text" id="reqid" class="form-control" placeholder="REQ-000001" readonly>
+                                            </div>
+                                        </div>    
 
-                                <div class="col-lg-4">
-                                    <div class="form-group">
-                                        <label> Requisition Equipment ID :</label>
-                                        <input type="text" id="reqequipid" class="form-control" placeholder="REQ-000001-01" readonly>
-                                    </div>
-                                </div>  
+                                        <div class="col-lg-4">
+                                            <div class="form-group">
+                                                <label> Requisition Equipment ID :</label>
+                                                <input type="text" id="reqequipid" class="form-control" placeholder="REQ-000001-01" readonly>
+                                            </div>
+                                        </div>  
 
-                                <div class="col-lg-4">
-                                    <div class="form-group">
-                                        <label> Requisition Type :</label>
-                                        <input type="text" id="reqtype" class="form-control" placeholder="Type of the Requisition" readonly>
-                                    </div>
-                                </div>  
-                            </div>  
+                                        <div class="col-lg-4">
+                                            <div class="form-group">
+                                                <label> Requisition Type :</label>
+                                                <input type="text" id="reqtype" class="form-control" placeholder="Type of the Requisition" readonly>
+                                            </div>
+                                        </div>  
+                                    </div>  
 
-                            <div class="row">
-                                <div class="col-lg-4">
-                                    <div class="form-group">
-                                        <label> Name of the Consulatant:</label>
-                                        <input type="text" id="empname" class="form-control" placeholder="Consultant Name" readonly>
-                                    </div>
-                                </div>    
+                                    <div class="row">
+                                        <div class="col-lg-4">
+                                            <div class="form-group">
+                                                <label> Name of the Consulatant:</label>
+                                                <input type="text" id="empname" class="form-control" placeholder="Consultant Name" readonly>
+                                            </div>
+                                        </div>    
 
-                                <div class="col-lg-4">
-                                    <div class="form-group">
-                                        <label> Unit :</label>
-                                        <input type="text" id="unit" class="form-control" placeholder="Unit Name" readonly>
+                                        <div class="col-lg-4">
+                                            <div class="form-group">
+                                                <label> Unit :</label>
+                                                <input type="text" id="unit" class="form-control" placeholder="Unit Name" readonly>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-lg-4">
+                                            <div class="form-group">
+                                                <label> Ward :</label>
+                                                <input type="text" id="ward" class="form-control" placeholder="Ward No." readonly>
+                                            </div>
+                                        </div>
                                     </div>
+
+                                    <div class="row">
+                                        <div class="col-lg-4">
+                                            <div class="form-group">
+                                                <label> Equipment Name :</label>
+                                                <input type="text" id="equipname" class="form-control" placeholder=" Name of the Equipment" readonly>
+                                            </div>
+                                        </div>    
+
+                                        <div class="col-lg-4">
+                                            <div class="form-group">
+                                                <label> Quantity :</label>
+                                                <input type="text" id="quantity" class="form-control" placeholder="Amount" readonly>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-lg-4">
+                                            <div class="form-group">
+                                                <label> Reason :</label>
+                                                <input type="text" id="reason" class="form-control" placeholder="Additional Info" readonly>
+                                            </div>
+                                        </div>
+
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-lg-4">
+                                            <div class="form-group">
+                                                <label> Director Name :</label>
+                                                <input type="text" id="empname" class="form-control" placeholder=" Dr. Sanath Gurusinghe" readonly>
+                                            </div>
+                                        </div>    
+
+                                        <div class="col-lg-4">
+                                            <div class="form-group">
+                                                <label> Primal Approval :</label>
+                                                <select name="primapp" data-placeholder="Pending" class="select-search required" disabled>
+                                                    <option></option> 
+                                                    <option value="1"> Approve </option> 
+                                                    <option value="2"> Reject </option> 
+                                                </select>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-lg-4">
+                                            <div class="form-group">
+                                                <label> Procurement Type :</label>
+                                                <select name="procuretype" data-placeholder="Direct/Indirect" class="select-search required" disabled>
+                                                    <option></option> 
+                                                    <option value="1"> Direct Purchase </option> 
+                                                    <option value="2"> Indirect Purchase </option> 
+                                                </select>
+                                            </div>
+                                        </div>    
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-lg-12">
+                                            <div class="form-group">
+                                                <label> Director Remarks:</label>
+                                                <textarea name="additional-info"  placeholder="Add remarks here." class="form-control" disabled></textarea>
+                                            </div>
+                                        </div>    
+                                    </div>
+
                                 </div>
-
-                                <div class="col-lg-4">
-                                    <div class="form-group">
-                                        <label> Ward :</label>
-                                        <input type="text" id="ward" class="form-control" placeholder="Ward No." readonly>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="row">
-                                <div class="col-lg-4">
-                                    <div class="form-group">
-                                        <label> Equipment Name :</label>
-                                        <input type="text" id="equipname" class="form-control" placeholder=" Name of the Equipment" readonly>
-                                    </div>
-                                </div>    
-
-                                <div class="col-lg-4">
-                                    <div class="form-group">
-                                        <label> Quantity :</label>
-                                        <input type="text" id="quantity" class="form-control" placeholder="Amount" readonly>
-                                    </div>
-                                </div>
-
-                                <div class="col-lg-4">
-                                    <div class="form-group">
-                                        <label> Reason :</label>
-                                        <input type="text" id="reason" class="form-control" placeholder="Additional Info" readonly>
-                                    </div>
-                                </div>
-
-                            </div>
-
-                            <div class="row">
-                                <div class="col-lg-4">
-                                    <div class="form-group">
-                                        <label> Director Name :</label>
-                                        <input type="text" id="empname" class="form-control" placeholder=" Dr. Sanath Gurusinghe" readonly>
-                                    </div>
-                                </div>    
-
-                                <div class="col-lg-4">
-                                    <div class="form-group">
-                                        <label> Primal Approval :</label>
-                                        <select name="primapp" data-placeholder="Pending" class="select required">
-                                            <option></option> 
-                                            <option value="1"> Approve </option> 
-                                            <option value="2"> Reject </option> 
-                                        </select>
-                                    </div>
-                                </div>
-
-                                <div class="col-lg-4">
-                                    <div class="form-group">
-                                        <label> Procurement Type :</label>
-                                        <select name="procuretype" data-placeholder="Direct/Indirect" class="select required">
-                                            <option></option> 
-                                            <option value="1"> Direct Purchase </option> 
-                                            <option value="2"> Indirect Purchase </option> 
-                                        </select>
-                                    </div>
-                                </div>    
-                            </div>
-
-                            <div class="row">
-                                <div class="col-lg-12">
-                                    <div class="form-group">
-                                        <label> Director Remarks:</label>
-                                        <textarea name="additional-info"  placeholder="Add remarks here." class="form-control"></textarea>
-                                    </div>
-                                </div>    
-                            </div>
-
+                            </fieldset>
                         </div>
-                    </fieldset>
+                    </div> 
                 </div>
             </div >
             <!-- /vertical form modal -->
         </div>
         <!-- /content area -->
+
+        <script>
+            
+            // Table setup
+            // ------------------------------
+
+            // Setting datatable defaults
+            $.extend( $.fn.dataTable.defaults, {
+                autoWidth: false,
+                responsive: true,
+                columnDefs: [{ 
+                    orderable: false,
+                    width: '100px',
+                    targets: [ 5 ]
+                }],
+                dom: '<"datatable-header"fl><"datatable-scroll-wrap"t><"datatable-footer"ip>',
+                language: {
+                    search: '<span>Filter:</span> _INPUT_',
+                    searchPlaceholder: 'Type to filter...',
+                    lengthMenu: '<span>Show:</span> _MENU_',
+                    paginate: { 'first': 'First', 'last': 'Last', 'next': $('html').attr('dir') == 'rtl' ? '&larr;' : '&rarr;', 'previous': $('html').attr('dir') == 'rtl' ? '&rarr;' : '&larr;' }
+                },
+                drawCallback: function () {
+                    $(this).find('tbody tr').slice(-3).find('.dropdown, .btn-group').addClass('dropup');
+                },
+                preDrawCallback: function() {
+                    $(this).find('tbody tr').slice(-3).find('.dropdown, .btn-group').removeClass('dropup');
+                }
+            });
+
+
+            
+            // Control position
+            $('.datatable-responsive-control-right').DataTable({
+                responsive: {
+                    details: {
+                        type: 'column',
+                        target: -1
+                    }
+                },
+                columnDefs: [
+                    {
+                        className: 'control',
+                        orderable: false,
+                        targets: -1
+                    },
+                    { 
+                        width: "100px",
+                        targets: [5]
+                    },
+                    { 
+                        orderable: false,
+                        targets: [5]
+                    }
+                ]
+            });
+
+            // select2
+            $( document ).ready(function(){
+
+                // Default initialization
+                $('.select').select2({
+                    minimumResultsForSearch: Infinity
+                });
+
+
+                // Select with search
+                $('.select-search').select2();
+
+
+                // Fixed width. Single select
+                $('.select-fixed-single').select2({
+                    minimumResultsForSearch: Infinity,
+                    width: 250
+                });
+            });
+        </script>
+        
 
     </div>
     <!-- /main content -->

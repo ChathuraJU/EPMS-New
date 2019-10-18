@@ -57,39 +57,46 @@
                     <thead>
                         <tr>
                             <th>Primal Approved Equipment ID </th>
+                            <th>Requisition ID</th>
                             <th>Requisition Equipment No.</th>
                             <th>Primal Approval Document ID </th>
                             <th>Primal Approval Date</th>
-                            <th>Proceed To Procure </th>
+                            <!-- <th>Proceed To Procure </th> -->
                             <th></th>
-                        
+                            
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
                             <td>PAPP-REQ-000001-01</td>
-                            <td><a href="reqequip.php"> REQ-000001-01  </a></td>
+                            <td><a href="reqequip.php"> REQ-000001 </a></td>
+                            <td><a href="reqapproval.php"> REQ-000001-01  </a></td>
                             <td>XXXXXX</td>
                             <td> 07 Dec 2017</td>
-                            <td><a href="tec_createform.php"> Create TEC </a></td>
+                            <!-- <td><a href="tec_createform.php"> Proceed </a></td> -->
                             <td></td>
+                           
                         </tr>
 
                         <tr>
                             <td>PAPP-REQ-000001-02</td>
-                            <td><a href="reqequip.php"> REQ-000001-02  </a></td>
+                            <td><a href="reqequip.php"> REQ-000001  </a></td>
+                            <td><a href="reqapproval.php"> REQ-000001-02  </a></td>
                             <td>XXXXXX</td>
                             <td> 07 Dec 2017</td>
-                            <td><a href="tec_createform.php"> Create TEC </a></td>
+                            <!-- <td><a href="tec_createform.php"> Proceed </a></td> -->
+                            <td></td>
                             <td></td>
                         </tr>
 
                         <tr>
                             <td>PAPP-REQ-000002-01</td>
-                            <td><a href="reqequip.php"> REQ-000002-01  </a></td>
+                            <td><a href="reqequip.php"> REQ-000002 </a></td>
+                            <td><a href="reqapproval.php"> REQ-000002-01  </a></td>
                             <td>XXXXXX</td>
                             <td> 07 Dec 2017</td>
-                            <td><a href="tec_createform.php"> Create TEC </a></td>
+                            <!-- <td><a href="tec_createform.php"> Proceed </a></td> -->
+                            <td></td>
                             <td></td>
                         </tr>
 

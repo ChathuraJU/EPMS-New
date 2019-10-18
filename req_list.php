@@ -175,6 +175,14 @@
                 ]
             });
 
+            $( document ).ready(function(){
+                
+                // Styled file input
+                $('.file-styled').uniform({
+                    fileButtonClass: 'action btn bg-primary-400'
+                });
+
+            });
 
 
         </script>

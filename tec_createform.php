@@ -65,7 +65,7 @@
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label>Ministry Approved Equipment ID : </label>
-                                        <input type="text" id="proid" name="proid" placeholder="Not Applicable.." class="form-control" readonly>       
+                                        <input type="text" id="proid" name="proid" placeholder="Not Applicable.." class="form-control" >       
                                     </div>
                                 </div> 
 
@@ -152,7 +152,7 @@
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label> Designation : <span class="text-danger">*</span></label>
-                                            <select name="designation" data-placeholder="Choose the user type..." class="select required">
+                                            <select name="designation" data-placeholder="Choose the user type..." class="select-search required">
                                                 <option></option> 
                                                 <option value="1"> Director </option> 
                                                 <option value="2"> Assistant Director </option> 
@@ -188,7 +188,7 @@
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label> Designation : <span class="text-danger">*</span></label>
-                                            <select name="designation" data-placeholder="Choose the user type..." class="select required">
+                                            <select name="designation" data-placeholder="Choose the user type..." class="select-search required">
                                                 <option></option> 
                                                 <option value="1"> Director </option> 
                                                 <option value="2"> Assistant Director </option> 
@@ -224,7 +224,7 @@
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label> Designation : <span class="text-danger">*</span></label>
-                                            <select name="designation" data-placeholder="Choose the user type..." class="select required">
+                                            <select name="designation" data-placeholder="Choose the user type..." class="select-search required">
                                                 <option></option> 
                                                 <option value="1"> Director </option> 
                                                 <option value="2"> Assistant Director </option> 
@@ -260,7 +260,7 @@
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label> Designation : <span class="text-danger">*</span></label>
-                                            <select name="designation" data-placeholder="Choose the user type..." class="select required">
+                                            <select name="designation" data-placeholder="Choose the user type..." class="select-search required">
                                                 <option></option> 
                                                 <option value="1"> Director </option> 
                                                 <option value="2"> Assistant Director </option> 
@@ -296,7 +296,7 @@
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label> Designation : <span class="text-danger">*</span></label>
-                                            <select name="designation" data-placeholder="Choose the user type..." class="select required">
+                                            <select name="designation" data-placeholder="Choose the user type..." class="select-search required">
                                                 <option></option> 
                                                 <option value="1"> Director </option> 
                                                 <option value="2"> Assistant Director </option> 
