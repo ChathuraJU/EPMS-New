@@ -55,10 +55,10 @@
             <table class="table datatable-responsive-control-right">
                 <thead>
                     <tr>
-                        <th>Requisition ID </th>
-                        <th>Requisition Equipment No</th>
-                        <th>Requisition Date</th>
-                        <th>Primal Approval Date</th>
+                        <th>Primal Approved Equipment ID :  </th>
+                        <th>Requisition Equipment No : </th>
+                        <th>Ministry Approval Document ID : </th>
+                        <th>Ministry Approval Date</th>
                         <th>Action</th>
                         <th></th>
 
@@ -66,9 +66,9 @@
                 </thead>
                 <tbody>
                     <tr>
-                        <td>REQ-000001</td>
-                        <td>REQ-000001-01</td>
-                        <td>28.01.2017
+                        <td>PAPP-REQ-000001-02</td>
+                        <td>REQ-000001-02</td>
+                        <td>YYYYYYY</td>
                         <td>05.02.2017</td>
                         <td>
                             <ul class="icons-list">
@@ -79,9 +79,9 @@
                     
                     </tr>
                     <tr>
-                        <td>REQ-000002</td>
-                        <td>REQ-000001-02</td>
-                        <td>29.01.2017
+                        <td>PAPP-REQ-000002-02</td>
+                        <td>REQ-000002-02</td>
+                        <td>yyyyyyyyyy</td>
                         <td>05.02.2017</td>
                         <td>
                             <ul class="icons-list">

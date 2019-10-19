@@ -68,7 +68,7 @@
                     <tr>
                         <td>REQ-000001</td>
                         <td>REQ-000001-01</td>
-                        <td>28.01.2017
+                        <td>28.01.2017</td>
                         <td>05.02.2017</td>
                         <td>
                             <ul class="icons-list">
@@ -81,7 +81,7 @@
                     <tr>
                         <td>REQ-000002</td>
                         <td>REQ-000001-02</td>
-                        <td>29.01.2017
+                        <td>29.01.2017</td>
                         <td>05.02.2017</td>
                         <td>
                             <ul class="icons-list">
@@ -101,6 +101,11 @@
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    </div>
+
+                    <div class="modal-body">
+
                         <fieldset>
                             <legend class="text-semibold">
                                 <i class="icon-pencil5 position-left"></i>
@@ -224,6 +229,7 @@
                             </div>
                         </fieldset>
                     </div>
+
                 </div>
             </div>
         </div >

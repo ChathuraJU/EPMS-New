@@ -572,20 +572,20 @@
 								<li>
 									<a href="#"><i class="icon-file-text"></i> <span> Tender </span></a>
 									<ul>
+										<li>
+											<a href="tender_create.php"> Create Tender Notice</a>
+										</li>
+
 										<li>   
                                             <a href="tender_track.php"> Tender Tracker </a> 
-                                        </li>
-                                        
+										</li>
+
                                         <li>
                                             <a href="tender_post.php"> Post Tender </a>
-                                        </li>
+										</li>
 
                                         <li>
                                            <a href="tender_doc.php"> Tender Documents </a>
-                                        </li>
-
-                                        <li>
-                                            <a href="tender_pending.php"> Approval Pending Tenders </a>
                                         </li>
 
                                         <li>
