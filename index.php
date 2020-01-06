@@ -1,107 +1,225 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
+
 <head>
-	<meta charset="utf-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Limitless - Responsive Web Application Kit by Eugene Kopyov</title>
 
-	<!-- Global stylesheets -->
-	<link href="https://fonts.googleapis.com/css?family=Roboto:400,300,100,500,700,900" rel="stylesheet" type="text/css">
-	<link href="global_assets/css/icons/icomoon/styles.css" rel="stylesheet" type="text/css">
-	<link href="assets/css/bootstrap.min.css" rel="stylesheet" type="text/css">
-	<link href="assets/css/core.min.css" rel="stylesheet" type="text/css">
-	<link href="assets/css/components.min.css" rel="stylesheet" type="text/css">
-	<link href="assets/css/colors.min.css" rel="stylesheet" type="text/css">
-	<!-- /global stylesheets -->
+  <meta charset="UTF-8">
 
-	<!-- Core JS files -->
-	<script src="global_assets/js/plugins/loaders/pace.min.js"></script>
-	<script src="global_assets/js/core/libraries/jquery.min.js"></script>
-	<script src="global_assets/js/core/libraries/bootstrap.min.js"></script>
-	<script src="global_assets/js/plugins/loaders/blockui.min.js"></script>
-	<!-- /core JS files -->
+  <title>EPMS | KGH</title>
 
-	<!-- Theme JS files -->
-	<script src="global_assets/js/plugins/forms/validation/validate.min.js"></script>
-	<script src="global_assets/js/plugins/forms/styling/uniform.min.js"></script>
+    <style>
+@import url(http://fonts.googleapis.com/css?family=Exo:100,200,400);
+@import url(http://fonts.googleapis.com/css?family=Source+Sans+Pro:700,400,300);
 
-	<script src="assets/js/app.js"></script>
-	<script src="global_assets/js/demo_pages/login_validation.js"></script>
-	<!-- /theme JS files -->
+body{
+	margin: 0;
+	padding: 0;
+	background: #fff;
+
+	color: #fff;
+	font-family: Arial;
+	font-size: 12px;
+}
+
+.body{
+	position: absolute;
+	top: -20px;
+	left: -20px;
+	right: -40px;
+	bottom: -40px;
+	width: auto;
+	height: auto;
+	background-image: url(logimg.png);
+	background-size: cover;
+	-webkit-filter: blur(5px);
+	z-index: 0;
+}
+
+.grad{
+	position: absolute;
+	top: -20px;
+	left: -20px;
+	right: -40px;
+	bottom: -40px;
+	width: auto;
+	height: auto;
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(0,0,0,0)), color-stop(100%,rgba(0,0,0,0.65))); /* Chrome,Safari4+ */
+	z-index: 1;
+	opacity: 0.7;
+}
+
+.header{
+	position: absolute;
+	top: calc(50% - 35px);
+	left: calc(50% - 255px);
+	z-index: 2;
+}
+
+.header div{
+	float: left;
+	color: #fff;
+	font-family: 'Exo', sans-serif;
+	font-size: 35px;
+	font-weight: 200;
+}
+
+.header div span{
+	color: #5379fa !important;
+}
+
+.login{
+	position: absolute;
+	top: calc(50% - 75px);
+	left: calc(50% - 50px);
+	height: 150px;
+	width: 350px;
+	padding: 10px;
+	z-index: 2;
+}
+
+.login input[type=text]{
+	width: 250px;
+	height: 30px;
+	background: transparent;
+	border: 1px solid rgba(255,255,255,0.6);
+	border-radius: 2px;
+	color: #fff;
+	font-family: 'Exo', sans-serif;
+	font-size: 16px;
+	font-weight: 400;
+	padding: 4px;
+}
+
+.login input[type=password]{
+	width: 250px;
+	height: 30px;
+	background: transparent;
+	border: 1px solid rgba(255,255,255,0.6);
+	border-radius: 2px;
+	color: #fff;
+	font-family: 'Exo', sans-serif;
+	font-size: 16px;
+	font-weight: 400;
+	padding: 4px;
+	margin-top: 10px;
+}
+
+.login input[type=button]{
+	width: 260px;
+	height: 35px;
+	background: #fff;
+	border: 1px solid #fff;
+	cursor: pointer;
+	border-radius: 2px;
+	color: #a18d6c;
+	font-family: 'Exo', sans-serif;
+	font-size: 16px;
+	font-weight: 400;
+	padding: 6px;
+	margin-top: 10px;
+}
+
+.login input[type=button]:hover{
+	opacity: 0.8;
+}
+
+.login input[type=button]:active{
+	opacity: 0.6;
+}
+
+.login input[type=text]:focus{
+	outline: none;
+	border: 1px solid rgba(255,255,255,0.9);
+}
+
+.login input[type=password]:focus{
+	outline: none;
+	border: 1px solid rgba(255,255,255,0.9);
+}
+
+.login input[type=button]:focus{
+	outline: none;
+}
+
+::-webkit-input-placeholder{
+   color: rgba(255,255,255,0.6);
+}
+
+::-moz-input-placeholder{
+   color: rgba(255,255,255,0.6);
+}
+</style>
+
+    <script src="login/js/prefixfree.min.js"></script>
 
 </head>
 
-<body class="login-container login-cover">
+<body>
 
-	<!-- Page container -->
-	<div class="page-container">
-
-		<!-- Page content -->
-		<div class="page-content">
-
-			<!-- Main content -->
-			<div class="content-wrapper">
-
-				<!-- Content area -->
-				<div class="content pb-20">
-
-					<!-- Form with validation -->
-					<form action="dashboard.php" class="form-validate">
-						<div class="panel panel-body login-form">
-							<div class="text-center">
-								<div class="icon-object border-slate-300 text-slate-300"><i class="icon-reading"></i></div>
-								<h5 class="content-group">Login to your account <small class="display-block">Your credentials</small></h5>
-							</div>
-
-							<div class="form-group has-feedback has-feedback-left">
-								<input type="text" class="form-control" placeholder="Username" name="username" required="required">
-								<div class="form-control-feedback">
-									<i class="icon-user text-muted"></i>
-								</div>
-							</div>
-
-							<div class="form-group has-feedback has-feedback-left">
-								<input type="password" class="form-control" placeholder="Password" name="password" required="required">
-								<div class="form-control-feedback">
-									<i class="icon-lock2 text-muted"></i>
-								</div>
-							</div>
-
-							<div class="form-group login-options">
-								<div class="row">
-									<div class="col-sm-6">
-										<label class="checkbox-inline">
-											<input type="checkbox" class="styled" checked="checked">
-											Remember
-										</label>
-									</div>
-
-									<div class="col-sm-6 text-right">
-										<a href="login_password_recover.html">Forgot password?</a>
-									</div>
-								</div>
-							</div>
-
-							<div class="form-group">
-								<button type="submit" class="btn bg-blue btn-block">Login <i class="icon-arrow-right14 position-right"></i></button>
-							</div>
-
-						</div>
-					</form>
-					<!-- /form with validation -->
-
-				</div>
-				<!-- /content area -->
-
-			</div>
-			<!-- /main content -->
-
+  <div class="body"></div>
+		<div class="grad"></div>
+		<div class="header">
+			<div>EPMS<span>KGH</span></div>
 		</div>
-		<!-- /page content -->
+		<br>
+		<div class="login">
+				<input type="text" placeholder="username" id="user" name="user"><br>
+				<input type="password" placeholder="password" id="pass" name="pass"><br>
+				<input type="button" id="btnlogin" value="Login">
+		</div>
 
-	</div>
-	<!-- /page container -->
+  <script src='login/js/jquery-2.1.4.min.js'></script>
+		<script type="text/javascript">
+
+			$(document).ready(function(){
+				$(document).keypress(function(e) {
+					if(e.which == 13) {
+						login();
+					}
+				});
+
+				$("#btnlogin").click(function(){
+					login();
+					
+
+				});
+			});
+
+			function login(){
+
+					$("#div_load").css("display","block");
+
+					var uname=$("#user").val();
+					var pass=$("#pass").val();
+
+					if(uname=="" || pass=="")
+					{
+						alert("Please enter both user name and password");
+						$("#div_load").css("display","none");
+					}
+					else{
+
+					$.post("login/login_controller.php",{uname:uname,pass:pass},function(data,status){
+						//alert(data);
+						if(data=="1"){
+							Swal.fire("Invalid username or password");
+						}
+						else if(data=="2"){
+							Swal.fire("Account Blocked, Please Contact Administrator");
+						}
+						else if(data=="3"){
+							//alert("Valid");
+							window.location.href="login/route_class.php";
+						}
+						$("#div_load").css("display","none");
+					});
+					}
+
+
+			}
+		</script>
+
 
 </body>
+
 </html>
