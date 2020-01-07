@@ -25,9 +25,23 @@
                     die("Connection failed: " . mysqli_connect_error());
                 }
 
+                //create eqp id
+                $sql1 ="SELECT Equip_id FROM epms_equipment ORDER BY Equip_sn DESC LIMIT 1 ";
+                $result1=mysqli_query($conn,$sql1);
 
-                $sql = "INSERT INTO `epms_equipment`(`Equip_no`,`Equip_name`)
-            VALUES ('$equipno','$equipname')";
+                $rowcount=mysqli_num_rows($result1);
+
+                if ($rowcount>0) {
+                    $row = mysqli_fetch_assoc($result1);
+                    $last_id = $row["Equip_id"];
+                }
+
+                $eqp_number = substr($last_id,4,11);
+                $neweqp_number = str_pad(intval($eqp_number) + 1, strlen($eqp_number),'0', STR_PAD_LEFT);
+                $new_eqpid = "EQP-".$neweqp_number;
+
+                $sql = "INSERT INTO `epms_equipment`(`Equip_id`,`Equip_name`)
+            VALUES ('$new_eqpid','$equipname')";
 
             $result = mysqli_query($conn, $sql);
 

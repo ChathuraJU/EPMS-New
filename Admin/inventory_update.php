@@ -122,6 +122,14 @@
                             <div class="col-md-6">
                                 <div class="row">
                                     <div class="form-group">
+                                        <label>Procurement Id: <span class="text-danger">*</span></label>
+                                            <select id="eqpname" name="eqpname" data-placeholder="Choose the Equipment..." class="select-search required">
+                                                <option></option> 
+                                            </select>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="form-group">
                                         <label>Price:</label>
                                         <div class="input-group">
                                             <input type="text" name="price" id="price" placeholder="Enter the Price" class="form-control  required" data-mask="999,999,999.99">

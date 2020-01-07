@@ -108,7 +108,7 @@
             <table id="commngtbl" class="table table-bordered table-hover datatable-highlight" class="table bg-slate-600">
                 <thead>
                     <tr>
-                        <th>Complain No.</th>
+                        <th>Complain ID</th>
                         <th>Employee ID</th>
                         <th>Equipment Code</th>
                         <th>Date</th>
@@ -129,7 +129,6 @@
     <!-- /content area -->
 
     <script>
-
             //table
         $( document ).ready(function(){
 
@@ -209,19 +208,19 @@
             $(document).ready(function () {
 
 
-            //to table
-            $.ajax({
-                method: "POST",
-                url: "../DBhandle/complain_con.php?code=get_data",
-                processData: false,
-                contentType: false
-            })
-                .done(function (data) {
-                    $('#commngtbl').DataTable().destroy();
-                    $('#commngtbl tbody').append(data);
-                    mydatatable();
+                //to table
+                $.ajax({
+                    method: "POST",
+                    url: "../DBhandle/complain_con.php?code=get_data",
+                    processData: false,
+                    contentType: false
+                })
+                    .done(function (data) {
+                        $('#commngtbl').DataTable().destroy();
+                        $('#commngtbl tbody').append(data);
+                        mydatatable();
+                    });
                 });
-            });
             
     </script>
 

@@ -17,7 +17,6 @@
         }
 
         function save(){
-            $chicklistno = $_POST["chklstno"];
             $Equipname = $_POST["eqpname"];
 
 
@@ -33,9 +32,24 @@
                     die("Connection failed: " . mysqli_connect_error());
                 }
 
+                $sql1 ="SELECT Bid_checklist_no FROM epms_bid_checklist ORDER BY Checklist_sn DESC LIMIT 1 ";
+                $result1=mysqli_query($conn,$sql1);
+
+                $rowcount=mysqli_num_rows($result1);
+
+                if ($rowcount>0) {
+                    $row = mysqli_fetch_assoc($result1);
+                    $last_id = $row["Bid_checklist_no"];
+                }
+
+                $chkl_number = substr($last_id,5,10);
+                $newchkl_number = str_pad(intval($chkl_number) + 1, strlen($chkl_number),'0', STR_PAD_LEFT);
+                $new_chklid = "CHKL-".$newchkl_number;
+                
+
 
                 $sql = "INSERT INTO `epms_bid_checklist`(`Bid_checklist_no`,`Equip_name`)
-            VALUES ('$chicklistno','$Equipname')";
+            VALUES ('$new_chklid','$Equipname')";
 
             $result = mysqli_query($conn, $sql);
 

@@ -346,7 +346,7 @@
 
                                 <!-- employee-->
 								<li>
-									<a href="#"><i class=" icon-users2"></i> <span> Employee Management </span></a>
+									<a href="#"><i class=" icon-users2"></i><span> Employee Management </span></a>
 									<ul>
                                         <li>
                                             <a href="employee_create.php"> New Employee </a>
@@ -368,18 +368,18 @@
 										</li> -->
 
 										<li>
-											<a href="user_create.php"> Add New User </a>
+											<a href="user_create.php"> Update Users </a>
 										</li>
-
+<!-- 
 										<li>
 											<a href="user_manage.php"> Manage User </a>
-										</li>                                  
+										</li>                                   -->
 									</ul>
 								</li>
 								<!-- /user groups-->
 
 								<!-- utilities-->
-								<li>
+								<!-- <li>
 									<a href="#"><i class="icon-cogs"></i> <span> Utilities </span></a>
 									<ul>                                  
 										<li>
@@ -397,7 +397,7 @@
 											<a href="utility_backups.php"> Back-ups </a>
 										</li>
 									</ul>
-								</li>
+								</li> -->
 								<!-- /utilities-->
 
 								<!-- configuration-->

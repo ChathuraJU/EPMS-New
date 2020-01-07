@@ -75,7 +75,7 @@
         <!-- Highlighting rows and columns -->
         <div class="panel panel-white">
             <div class="panel-heading">
-                <h5 class="panel-title"> <b> Eqipment List </b></h5>
+                <h5 class="panel-title"> <b> Equipment List </b></h5>
                 <div class="heading-elements">
                     <ul class="icons-list">
                         <li><a data-action="collapse"></a></li>

@@ -31,9 +31,23 @@
                     die("Connection failed: " . mysqli_connect_error());
                 }
 
+                $sql1 ="SELECT Complain_id FROM epms_complain ORDER BY Com_sn DESC LIMIT 1 ";
+                    $result1=mysqli_query($conn,$sql1);
 
-                $sql = "INSERT INTO `epms_complain`(`Emp_ID`,`Equip_code`,`Complain_Date`,`Complain`)
-            VALUES ('$Empid','$Eqpcode','$Compdate','$Complain')";
+                    $rowcount=mysqli_num_rows($result1);
+
+                    if ($rowcount>0) {
+                        $row = mysqli_fetch_assoc($result1);
+                        $last_id = $row["Complain_id"];
+                    }
+
+                    $com_number = substr($last_id,4,9);
+                    $newcom_number = str_pad(intval($com_number) + 1, strlen($com_number),'0', STR_PAD_LEFT);
+                    $new_comid = "COM-".$newcom_number;
+
+
+                $sql = "INSERT INTO `epms_complain`(`Complain_id`,`Emp_ID`,`Equip_code`,`Complain_Date`,`Complain`)
+            VALUES ('$new_comid','$Empid','$Eqpcode','$Compdate','$Complain')";
 
             $result = mysqli_query($conn, $sql);
 
@@ -68,7 +82,7 @@
                         // output data of each row
                         while($row = mysqli_fetch_assoc($result)) {
                             echo "<tr>
-                            <td>".$row["Com_sn"]."</td>
+                            <td>".$row["Complain_id"]."</td>
                             <td>" . $row["Emp_id"] . "</td>
                             <td>" . $row["Equip_code"] . "</td>
                             <td>" . $row["Complain_Date"] . "</td>

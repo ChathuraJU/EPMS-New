@@ -6,12 +6,8 @@
                     getdata();
                     break;
 
-            case "get_empidselect_data":
-                get_epmidselect_data();
-                break;
-
-            case "get_utypeselect_data":
-                get_utypeselect_data();
+            case "edit_data":
+                edit_data();
                 break;
             }
         }
@@ -39,15 +35,20 @@
                 if (mysqli_num_rows($result) > 0) {
                     // output data of each row
                     while($row = mysqli_fetch_assoc($result)) {
-                        echo "<tr><td>" . $row["User_sn"] . "</td><td>" . $row["Emp_id"] . "</td>
+                        $stat="";
+                        if ($row["User_status"] ==1)
+                            $stat= "Active";
+                        else 
+                            $stat= "Blocked";
+                        
+                        
+                        echo "<tr id=". $row["User_sn"] ."><td>" . $row["User_sn"] . "</td><td>" . $row["Emp_id"] . "</td>
                         <td>" . $row["Emp_name"]. "</td>
-                        <td>" . $row["User_type_name"] . "</td><td>" . $row["User_username"] . "</td>
-                        <td>" . $row["User_password"] . "</td>
+                        <td>" . $row["User_type_name"] . "</td><td>" . $stat . "</td>
                         <td>
                             <ul class='icons-list'>
-                                <li><a><i class='icon-pencil7'></i></a></li>
-                                <li><a><i class='icon-trash'></i></a></li>
-                            </ul>
+                                <li><a><i class='icon-pencil7 edit'></i></a></li>
+                           </ul>
                         </td>
                         </tr>";
                     }
@@ -58,62 +59,38 @@
 
     }
 
-    function get_epmidselect_data(){
+
+    function edit_data(){
+        $usrsn = $_POST["myData"];
+
         $servername = "localhost";
-            $username = "root";
-            $password = "";
-            $db = "nhk_epms";
+        $username = "root";
+        $password = "";
+        $db = "nhk_epms";
+        
+            // Create connection
+            $conn = mysqli_connect($servername, $username, $password, $db);
+            // Check connection
+            if (!$conn) {
+                die("Connection failed: " . mysqli_connect_error());
+            }
             
-                // Create connection
-                $conn = mysqli_connect($servername, $username, $password, $db);
-                // Check connection
-                if (!$conn) {
-                    die("Connection failed: " . mysqli_connect_error());
-                }
-                
-                
-                $sql = "select * from `epms_employee`";
-                
-                
-                $result = mysqli_query($conn, $sql);
-
-                if (mysqli_num_rows($result) > 0) {
-                    // output data of each row
-                    while($row = mysqli_fetch_assoc($result)) {
-                        echo "<option>" . $row["Emp_id"] . "</option>";
-                    }
-                } else {
-                    echo "0 results";
-                }
-    }
-
-    function get_utypeselect_data(){
-        $servername = "localhost";
-            $username = "root";
-            $password = "";
-            $db = "nhk_epms";
             
-                // Create connection
-                $conn = mysqli_connect($servername, $username, $password, $db);
-                // Check connection
-                if (!$conn) {
-                    die("Connection failed: " . mysqli_connect_error());
-                }
-                
-                
-                $sql = "select * from `epms_user_type`";
-                
-                
-                $result = mysqli_query($conn, $sql);
+            $sql = "select * from `epms_users` where User_sn ='$usrsn'" ;
+            
+            
+            $result = mysqli_query($conn, $sql);
 
-                if (mysqli_num_rows($result) > 0) {
-                    // output data of each row
-                    while($row = mysqli_fetch_assoc($result)) {
-                        echo "<option>" . $row["User_type_name"] . "</option>";
+            if (mysqli_num_rows($result) > 0) {
+                // output data of each row
+                while($row = mysqli_fetch_assoc($result)) {
+                    echo json_encode($row);
                     }
-                } else {
-                    echo "0 results";
-                }
+            }
+             else {
+                echo "0 results";
+            }
+
     }
 
 

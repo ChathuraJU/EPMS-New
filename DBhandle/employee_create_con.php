@@ -45,21 +45,35 @@
                     die("Connection failed: " . mysqli_connect_error());
                 }
 
+                $sql1 ="SELECT Emp_id FROM epms_employee ORDER BY Emp_sn DESC LIMIT 1 ";
+                    $result1=mysqli_query($conn,$sql1);
 
-                $sql = "INSERT INTO `epms_employee`(`Emp_nwi`,`Emp_name`,`Emp_gender`,`Emp_salutation`,
+                    $rowcount=mysqli_num_rows($result1);
+
+                    if ($rowcount>0) {
+                        $row = mysqli_fetch_assoc($result1);
+                        $last_id = $row["Emp_id"];
+                    }
+
+                    $emp_number = substr($last_id,4,9);
+                    $newemp_number = str_pad(intval($emp_number) + 1, strlen($emp_number),'0', STR_PAD_LEFT);
+                    $new_empid = "EMP-".$newemp_number;
+                    
+
+                $sql = "INSERT INTO `epms_employee`(`Emp_id`,`Emp_nwi`,`Emp_name`,`Emp_gender`,`Emp_salutation`,
                 `Emp_dob`,`Emp_nic`,`Emp_add`,`Emp_email`,`Emp_tel_home`,`Emp_tel_mobile`,`Emp_join_date`,`Emp_job_role`,
                 `Emp_workid`,`Emp_assigned_unit`,`Emp_assigned_ward`)
-            VALUES ('$namewi','$namefull','$gender','$salute','$bdate','$nationalid','$Address',
-            '$mail','$Hphone','$Mphone','$jdate','$jtitle','$workingid','$Unit','$Ward')";
+                VALUES ('$new_empid','$namewi','$namefull','$gender','$salute','$bdate','$nationalid','$Address',
+                '$mail','$Hphone','$Mphone','$jdate','$jtitle','$workingid','$Unit','$Ward')";
 
-            $result = mysqli_query($conn, $sql);
+                $result = mysqli_query($conn, $sql);
 
-            if (!$result) {
-                echo mysqli_error($conn);
-            }
-            else{
-                echo "success";
-            }
+                if (!$result) {
+                    echo mysqli_error($conn);
+                }
+                else{
+                    echo "success";
+                }
         }
         
 

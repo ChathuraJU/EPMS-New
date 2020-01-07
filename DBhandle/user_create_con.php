@@ -85,7 +85,7 @@
                 if (mysqli_num_rows($result) > 0) {
                     // output data of each row
                     while($row = mysqli_fetch_assoc($result)) {
-                        echo "<option>" . $row["Emp_id"] . "</option>";
+                        echo("<option value='".$row["Emp_id"]."'>".$row["Emp_id"]."</option>");
                     }
                 } else {
                     echo "0 results";
@@ -114,7 +114,7 @@
                 if (mysqli_num_rows($result) > 0) {
                     // output data of each row
                     while($row = mysqli_fetch_assoc($result)) {
-                        echo "<option>" . $row["Emp_name"] . "</option>";
+                        echo("<option value='".$row["Emp_name"]."'>".$row["Emp_name"]."</option>");
                     }
                 } else {
                     echo "0 results";
@@ -143,7 +143,7 @@
                 if (mysqli_num_rows($result) > 0) {
                     // output data of each row
                     while($row = mysqli_fetch_assoc($result)) {
-                        echo "<option>" . $row["User_type_name"] . "</option>";
+                        echo("<option value='".$row["User_type_name"]."'>".$row["User_type_name"]."</option>");
                     }
                 } else {
                     echo "0 results";

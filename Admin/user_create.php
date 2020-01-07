@@ -21,7 +21,7 @@
             <ul class="breadcrumb">
                 <li><a href="dashboard.php"><i class="icon-home2 position-left"></i> Home </a></li>
                 <li><a href="#"> User Control </a></li>
-                <li class="active"> Add New User </li>
+                <li class="active"> Update Users </li>
             </ul>
         </div>
     </div>
@@ -81,7 +81,7 @@
                             <div class="form-group">
                                     <label  class="col-lg-3 control-label"> User status : <span class="text-danger">*</span></label>
                                     <div class="col-lg-9">
-                                        <select name="ustatus" data-placeholder="Choose the user status..." class="select-search required">
+                                        <select id="ustatus" name="ustatus" data-placeholder="Choose the user status..." class="select-search required">
                                             <option></option> 
                                             <option value="1"> Activated </option> 
                                             <option value="2"> Deactivate </option> 
@@ -132,6 +132,14 @@
                                 </div>
                             </div>
                         </div>
+
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <input type="text" id="usersn" name="usersn" class="form-control hide"> 
+                                </div>                            
+                            </div>
+                        </div>
                     </fieldset>
 
                     <div class="text-right">
@@ -157,12 +165,11 @@
             <table id="usermngtbl"  class="table table-bordered table-hover datatable-highlight" >
                 <thead>
                     <tr>
-                        <th> User no </th>
+                        <th>User no </th>
                         <th>Employee ID</th>
                         <th>Employee Name</th>
                         <th>User Type</th>
-                        <th>Username</th>
-                        <th>Password</th>
+                        <th>Status</th>
                         <th class="text-center">Actions</th>
                     </tr>
                 </thead>
@@ -279,58 +286,96 @@
                 $('#usermngtbl').DataTable();
             }
 
-            //get data 
-            $(document).ready(function () {
+        //get data 
+        $(document).ready(function () {
 
-                //to select box
-                    //employee id
-                $.ajax({
-                    method: "POST",
-                    url: "../DBhandle/user_create_con.php?code=get_empidselect_data",
-                    processData: false,
-                    contentType: false
-                })
-                    .done(function (data) {
-                       $("#empid").append(data);
-                    });
+            //to select box
+                //employee id
+            $.ajax({
+                method: "POST",
+                url: "../DBhandle/user_create_con.php?code=get_empidselect_data",
+                processData: false,
+                contentType: false
+            })
+                .done(function (data) {
+                    $("#empid").append(data);
+                });
 
-                    //employee id
-                $.ajax({
-                    method: "POST",
-                    url: "../DBhandle/user_create_con.php?code=get_empnameselect_data",
-                    processData: false,
-                    contentType: false
-                })
-                    .done(function (data) {
-                       $("#empname").append(data);
-                    });
+                //employee name
+            $.ajax({
+                method: "POST",
+                url: "../DBhandle/user_create_con.php?code=get_empnameselect_data",
+                processData: false,
+                contentType: false
+            })
+                .done(function (data) {
+                    $("#empname").append(data);
+                });
+            
+                //user type
+            $.ajax({
+                method: "POST",
+                url: "../DBhandle/user_create_con.php?code=get_utypeselect_data",
+                processData: false,
+                contentType: false
+            })
+                .done(function (data) {
+                    $("#utype").append(data);
+                });
+
+
+            //to table
+            $.ajax({
+                method: "POST",
+                url: "../DBhandle/user_manage_con.php?code=get_data",
+                processData: false,
+                contentType: false
+            })
+                .done(function (data) {
+                    $('#usermngtbl').DataTable().destroy();
+                    $('#usermngtbl tbody').empty();
+                    $('#usermngtbl tbody').append(data);
+                    mydatatable();
+                });
+
+
+
+            //table click function
+            $(".table tbody").on("click",".edit",function () { //view icon click function
+
+              
+            
+                var cur = $(this).closest("tr");
+                var id = $(this).parent().parent().parent().parent().parent().attr("id");
                 
-                    //user type
                 $.ajax({
                     method: "POST",
-                    url: "../DBhandle/user_create_con.php?code=get_utypeselect_data",
-                    processData: false,
-                    contentType: false
+                    url: "../DBhandle/user_manage_con.php?code=edit_data",
+                    data:{ "myData" : id},
                 })
-                    .done(function (data) {
-                       $("#utype").append(data);
+                    .done(function( data ) {
+
+                        var jdata = jQuery.parseJSON(data);
+
+                        $("#usersn").val(jdata.User_sn);
+                        $("#empid").val(jdata.Emp_id).trigger('change');
+                        $("#empname").val(jdata.Emp_name).trigger('change');
+                        $("#utype").val(jdata.User_type_name).trigger('change');
+                        $("#ucreated").val(jdata.User_access_assigned_date);
+                        $("#udeniedd").val(jdata.User_access_denied_date);
+                        $("#ustatus").val(jdata.User_status).trigger('change');
+                        alert(jdata.User_status);
+                        $("#username").val(jdata.User_username);
+                        $("#userpassword").val(jdata.User_password);
+ 
                     });
 
-
-                //to table
-                $.ajax({
-                    method: "POST",
-                    url: "../DBhandle/user_manage_con.php?code=get_data",
-                    processData: false,
-                    contentType: false
-                })
-                    .done(function (data) {
-                        $('#usermngtbl').DataTable().destroy();
-                        $('#usermngtbl tbody').empty();
-                        $('#usermngtbl tbody').append(data);
-                        mydatatable();
-                    });
+            
             });
+        });
+
+
+
     </script>
 
 
