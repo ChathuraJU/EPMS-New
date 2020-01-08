@@ -68,7 +68,7 @@
                 {
                     $row = mysqli_fetch_assoc($result);
                     $dddd = $row["id"];
-                    move_uploaded_file($_FILES["serveagg"]["tmp_name"],"../Invoice/$dddd.pdf");
+                    move_uploaded_file($_FILES["serveagg"]["tmp_name"],"../ServiceAG/$dddd.pdf");
                 }   
 
                 echo "success";

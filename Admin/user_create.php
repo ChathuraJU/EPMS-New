@@ -188,6 +188,28 @@
 
     <script>
 
+        function mydatatable(){
+            
+            $('#usermngtbl').DataTable();
+        }
+
+        function getdatatotable(){
+            //to table
+            $.ajax({
+                method: "POST",
+                url: "../DBhandle/user_manage_con.php?code=get_data",
+                processData: false,
+                contentType: false
+            })
+                .done(function (data) {
+                    $('#usermngtbl').DataTable().destroy();
+                    $('#usermngtbl tbody').empty();
+                    $('#usermngtbl tbody').append(data);
+                    mydatatable();
+                });
+        }
+
+        //table js
         $( document ).ready(function(){
 
             // Table setup
@@ -268,29 +290,30 @@
         $("#save").click(function(){
             sendData = new FormData($("#usercrfrm")[0]);
         
-                    $.ajax({
-                        method: "POST",
-                        url: "../DBhandle/user_create_con.php?code=save",
-                        data: sendData,
-                        processData: false,
-                        contentType: false
-                    }).done(function (msg) {
-                        alert(msg);
-                    });
+                $.ajax({
+                    method: "POST",
+                    url: "../DBhandle/user_create_con.php?code=save",
+                    data: sendData,
+                    processData: false,
+                    contentType: false
+                }).done(function (msg) {
+                    $("#empid").val("");
+                    $("#empname").val("");
+                    $("#utype").val("");
+                    $("#ustatus").val("");
+                    $("#username").val("");
+                    $("#userpassword").val("");
+                    $("#ucreated").val("");
+                    $("#udeniedd").val("");
+                    
+                    getdatatotable();
+                });
 
-                    // preventDefault();
         });
 
-        function mydatatable(){
-    
-                $('#usermngtbl').DataTable();
-            }
-
-        //get data 
+        //get data to select box
         $(document).ready(function () {
-
-            //to select box
-                //employee id
+            //employee id ajax request
             $.ajax({
                 method: "POST",
                 url: "../DBhandle/user_create_con.php?code=get_empidselect_data",
@@ -301,7 +324,7 @@
                     $("#empid").append(data);
                 });
 
-                //employee name
+            //employee name ajax request
             $.ajax({
                 method: "POST",
                 url: "../DBhandle/user_create_con.php?code=get_empnameselect_data",
@@ -312,7 +335,7 @@
                     $("#empname").append(data);
                 });
             
-                //user type
+            //user type ajax request
             $.ajax({
                 method: "POST",
                 url: "../DBhandle/user_create_con.php?code=get_utypeselect_data",
@@ -322,22 +345,6 @@
                 .done(function (data) {
                     $("#utype").append(data);
                 });
-
-
-            //to table
-            $.ajax({
-                method: "POST",
-                url: "../DBhandle/user_manage_con.php?code=get_data",
-                processData: false,
-                contentType: false
-            })
-                .done(function (data) {
-                    $('#usermngtbl').DataTable().destroy();
-                    $('#usermngtbl tbody').empty();
-                    $('#usermngtbl tbody').append(data);
-                    mydatatable();
-                });
-
 
 
             //table click function
@@ -372,6 +379,12 @@
 
             
             });
+
+        });
+
+        //get data 
+        $(document).ready(function () {
+        getdatatotable();
         });
 
 

@@ -5,7 +5,7 @@
     <div class="page-header page-header-default">
         <div class="page-header-content">
             <div class="page-title">
-                <h4><i class="icon-arrow-left52 position-left"></i> <span class="text-semibold"> Configuration </span></h4>
+                <h4><i class="icon-arrow-left52 position-left"></i> <span class="text-semibold"> Tender </span></h4>
             </div>
 
             <div class="heading-elements">
@@ -19,8 +19,8 @@
         <div class="breadcrumb-line">
             <ul class="breadcrumb">
                 <li><a href="dashboard.php"><i class="icon-home2 position-left"></i> Home </a></li>
-                <li><a href="#"> Configuration </a></li>
-                <li class="active"> Ward List
+                <li><a href="#"> Tender </a></li>
+                <li class="active"> Tender Table</li>
         </div>
     </div>
     <!-- /page header -->
@@ -31,7 +31,7 @@
         <!-- Highlighting rows and columns -->
         <div class="panel panel-white">
             <div class="panel-heading">
-                <h5 class="panel-title"> <b> Wards List </b></h5>
+                <h5 class="panel-title"> <b> Tender List </b></h5>
                 <div class="heading-elements">
                     <ul class="icons-list">
                         <li><a data-action="collapse"></a></li>
@@ -40,20 +40,19 @@
                 </div>
             </div>
 
-            <table class="table table-bordered table-hover datatable-highlight"  id="wardmngtbl" class="table bg-slate-600">
+            <table id="tendermngtbl" class="table table-bordered table-hover datatable-highlight" class="table bg-slate-600">
                 <thead>
                     <tr>
-                        <th>Ward No.</th>
-                        <th>Ward Name</th>
-                        <th>Ward Head ID</th>
-                        <th>Ward Head Name</th>
-                        <th>Ward e-Mail</th>
-                        <th>Ward Telephone</th>
+                        <th>Tender ID</th>
+                        <th>Procurement ID</th>
+                        <th>Procurement Title</th>
+                        <th>Procurement Nature</th>
+                        <th>Tender Openning Date</th>
+                        <th>Tender Closing Date</th>
                         <th class="text-center">Actions</th>
                     </tr>
                 </thead>
                 <tbody>
-
 
                 </tbody>
             </table>
@@ -65,29 +64,31 @@
 
     <script>
 
-        function mydatatable(){
-            
-            $('#wardmngtbl').DataTable();
-        }
 
-        function getdatatotable(){
-            //to table
-            $.ajax({
-                method: "POST",
-                url: "../DBhandle/config_ward_con.php?code=get_data",
-                processData: false,
-                contentType: false
-            })
-                .done(function (data) {
-                    $('#wardmngtbl').DataTable().destroy();
-                    $('#wardmngtbl tbody').empty();
-                    $('#wardmngtbl tbody').append(data);
-                    mydatatable();
-                });
+        
+        // function mydatatable(){
 
-        }
+        //     $('#unitmngtbl').DataTable();
+        // }
 
-        //table
+        // function getdatatotable(){
+        //     //to table
+        //     $.ajax({
+        //         method: "POST",
+        //         url: "../DBhandle/tender_con.php?code=get_data",
+        //         processData: false,
+        //         contentType: false
+        //     })
+        //         .done(function (data) {
+        //             $('#tendermngtbl').DataTable().destroy();
+        //             $('#tendermngtbl tbody').empty();
+        //             $('#tendermngtbl tbody').append(data);
+        //             mydatatable();
+        //         });
+
+        
+
+        //table js
         $( document ).ready(function(){
 
             // Table setup
@@ -132,7 +133,7 @@
             });
 
 
-        });     
+        }); 
 
     </script>
 
@@ -141,4 +142,3 @@
 </div>
 <!-- /Main content -->
 <?php require_once('footer.php');?>
-

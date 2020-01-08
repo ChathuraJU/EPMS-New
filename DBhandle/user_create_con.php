@@ -62,7 +62,7 @@
         }
 
 
-
+        //function to get the employee ids from the db to  Ward Head ID select box
         function  get_empidselect_data(){
             $servername = "localhost";
             $username = "root";
@@ -92,6 +92,7 @@
                 }
         }
 
+        //function to get the employee names from the db to  Ward Head ID select box
         function  get_empnameselect_data(){
             $servername = "localhost";
             $username = "root";
@@ -121,6 +122,7 @@
                 }
         }
  
+        //function to get the user types from the db to  Ward Head ID select box
         function  get_utypeselect_data(){
             $servername = "localhost";
             $username = "root";

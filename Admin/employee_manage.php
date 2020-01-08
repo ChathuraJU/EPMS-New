@@ -67,8 +67,8 @@
     <!-- /content area -->
 
     <script>
-// Setting datatable defaults
-$.extend( $.fn.dataTable.defaults, {
+        // Setting datatable defaults
+        $.extend( $.fn.dataTable.defaults, {
             autoWidth: false,
             responsive: true,
             columnDefs: [{ 
@@ -112,14 +112,7 @@ $.extend( $.fn.dataTable.defaults, {
                     mydatatable();
                 });
         });
-        // Table setup
-        // ------------------------------
 
-        
-
-
-        
-        // Control position
         
     </script>
 

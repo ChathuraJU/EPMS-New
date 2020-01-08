@@ -152,7 +152,29 @@
 
     <script>
 
-            //table
+        function mydatatable(){
+            
+            $('#wardmngtbl').DataTable();
+        }
+
+        function getdatatotable(){
+            //to table
+            $.ajax({
+                method: "POST",
+                url: "../DBhandle/config_ward_con.php?code=get_data",
+                processData: false,
+                contentType: false
+            })
+                .done(function (data) {
+                    $('#wardmngtbl').DataTable().destroy();
+                    $('#wardmngtbl tbody').empty();
+                    $('#wardmngtbl tbody').append(data);
+                    mydatatable();
+                });
+
+        }
+
+        //table js
         $( document ).ready(function(){
 
             // Table setup
@@ -199,7 +221,7 @@
 
         });
             
-        // pickdate
+        // pickdate js
         $( document ).ready(function(){
             $('.pickadate-strings').pickadate({
                 weekdaysShort: ['Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa'],
@@ -207,7 +229,7 @@
             });
         });
 
-        // select2
+        // select2 js
         $( document ).ready(function(){
 
             // Default initialization
@@ -227,84 +249,13 @@
             });
         });
 
+        //get data to select box
+        $(document).ready(function () {
 
-        //save form
-        $("#save").click(function(){
-        sendData = new FormData($("#wardcreateform")[0]);
-    
-                $.ajax({
-                    method: "POST",
-                    url: "../DBhandle/config_ward_con.php?code=save",
-                    data: sendData,
-                    processData: false,
-                    contentType: false
-                }).done(function (msg) {
-                    getdatatotable();
-                    $("#wno").val("");
-                    $("#ward").val("");
-                    $("#wheadid").val("");
-                    $("#wheadname").val("");
-                    $("#wemail").val("");
-                    $("#wtel").val("");
-                
-                    
-                });
-
-                // preventDefault();
-            });
-
-
-            function mydatatable(){
-    
-                $('#wardmngtbl').DataTable();
-            }
-
-            function getdatatotable(){
-                //to table
-                $.ajax({
-                    method: "POST",
-                    url: "../DBhandle/config_wardlist_con.php?code=get_data",
-                    processData: false,
-                    contentType: false
-                })
-                    .done(function (data) {
-                        $('#wardmngtbl').DataTable().destroy();
-                        $('#wardmngtbl tbody').empty();
-                        $('#wardmngtbl tbody').append(data);
-                        mydatatable();
-                    });
-
-            }
-
-            //get data 
-            $(document).ready(function () {
-
-           getdatatotable();
-
-
-            });
-
-
-            //to select box
-
-
-                //unit name
+            //ward head id ajax request
             $.ajax({
                 method: "POST",
-                url: "../DBhandle/config_wardlist_con.php?code=get_unitnameselect_data",
-                processData: false,
-                contentType: false
-            })
-                .done(function (data) {
-                    $("#unit").append(data);
-                });
-
-
-
-                //ward head id
-            $.ajax({
-                method: "POST",
-                url: "../DBhandle/config_wardlist_con.php?code=get_wheadidselect_data",
+                url: "../DBhandle/config_ward_con.php?code=get_wheadidselect_data",
                 processData: false,
                 contentType: false
             })
@@ -312,23 +263,47 @@
                     $("#wheadid").append(data);
                 });
 
-
-
-                //ward head name
+            //ward head name ajax request
             $.ajax({
                 method: "POST",
-                url: "../DBhandle/config_wardlist_con.php?code=get_wheadnameselect_data",
+                url: "../DBhandle/config_ward_con.php?code=get_wheadnameselect_data",
                 processData: false,
                 contentType: false
             })
                 .done(function (data) {
                     $("#wheadname").append(data);
                 });
+        });
 
+        //save form
+        $("#save").click(function(){
+            sendData = new FormData($("#wardcreateform")[0]);
+                $.ajax({
+                    method: "POST",
+                    url: "../DBhandle/config_ward_con.php?code=save",
+                    data: sendData,
+                    processData: false,
+                    contentType: false
+                }).done(function (msg) {
+                    $("#wno").val("");
+                    $("#ward").val("");
+                    $("#wheadid").val("");
+                    $("#wheadname").val("");
+                    $("#wemail").val("");
+                    $("#wtel").val("");
+
+                    getdatatotable();
+                
+                });
+        });
+
+        //get data 
+        $(document).ready(function () {
+
+            getdatatotable();
+        });
 
     </script>
-
-
 
 </div>
 <!-- /Main content -->

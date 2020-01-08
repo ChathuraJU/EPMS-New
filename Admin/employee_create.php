@@ -106,7 +106,7 @@
                                     <label> Date of Birth : </label>
                                         <div class="input-group">
                                             <span class="input-group-addon"><i class="icon-calendar3"></i></span>
-                                            <input type="text" class="form-control" id="anytime-weekday" name="dob" value="Wednesday, 4th of June, 2014">
+                                            <input type="text" class="form-control" id="anytime-weekday" name="dob" placeholder="Wednesday, 4th of June, 2014">
                                         </div>
                                     </label>
                                 </div>

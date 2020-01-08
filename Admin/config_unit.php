@@ -47,7 +47,7 @@
                                 <div class="form-group">
                                     <label class="col-lg-3 control-label">Unit No. :</label>
                                     <div class="col-lg-9">
-                                        <input type="uno" name="uno" class="form-control required" readonly >
+                                        <input type="uno" name="uno" class="form-control required" placeholder="Pending.." readonly >
                                     </div>
                                 </div>
                             </div>
@@ -159,7 +159,29 @@
 
     <script>
 
-            //table
+        function mydatatable(){
+
+            $('#unitmngtbl').DataTable();
+        }
+
+        function getdatatotable(){
+            //to table
+            $.ajax({
+                method: "POST",
+                url: "../DBhandle/config_unit_con.php?code=get_data",
+                processData: false,
+                contentType: false
+            })
+                .done(function (data) {
+                    $('#unitmngtbl').DataTable().destroy();
+                    $('#unitmngtbl tbody').empty();
+                    $('#unitmngtbl tbody').append(data);
+                    mydatatable();
+                });
+
+        }
+
+        //table js
         $( document ).ready(function(){
 
             // Table setup
@@ -206,7 +228,7 @@
 
         });
 
-        // select2
+        // select2 js
         $( document ).ready(function(){
 
             // Default initialization
@@ -225,6 +247,34 @@
                 width: 250
             });
         });
+        
+        //get data to select box
+        $(document).ready(function () {
+
+            //unit head id
+            $.ajax({
+                method: "POST",
+                url: "../DBhandle/config_unit_con.php?code=get_uheadidselect_data",
+                processData: false,
+                contentType: false
+            })
+                .done(function (data) {
+                    $("#uheadid").append(data);
+                });
+
+
+            //unit head name
+            $.ajax({
+                method: "POST",
+                url: "../DBhandle/config_unit_con.php?code=get_uheadnameselect_data",
+                processData: false,
+                contentType: false
+            })
+                .done(function (data) {
+                    $("#uheadname").append(data);
+                });
+
+        });
 
         //save form
         $("#save").click(function(){
@@ -237,58 +287,28 @@
                     processData: false,
                     contentType: false
                 }).done(function (msg) {
-                    alert(msg);
+                    getdatatotable();
+                    $("#uno").val("");
+                    $("#uname").val("");
+                    $("#loc").val("");
+                    $("#uheadid").val("");
+                    $("#uheadname").val("");
+                    $("#uemail").val("");
+                    $("#utel").val("");
+
+                    getdatatotable();
+                
                 });
 
-                // preventDefault();
-            });
-
-        function mydatatable(){
-
-            $('#unitmngtbl').DataTable();
-        }
+        });
 
         //get data 
         $(document).ready(function () {
 
-            //to select box
-                //unit head id
-                $.ajax({
-                    method: "POST",
-                    url: "../DBhandle/config_unit_con.php?code=get_uheadidselect_data",
-                    processData: false,
-                    contentType: false
-                })
-                    .done(function (data) {
-                        $("#uheadid").append(data);
-                    });
+            getdatatotable();
 
+        });
 
-                //unit head name
-                $.ajax({
-                    method: "POST",
-                    url: "../DBhandle/config_unit_con.php?code=get_uheadnameselect_data",
-                    processData: false,
-                    contentType: false
-                })
-                    .done(function (data) {
-                        $("#uheadname").append(data);
-                    });
-
-
-                //to table
-                $.ajax({
-                    method: "POST",
-                    url: "../DBhandle/config_unit_con.php?code=get_data",
-                    processData: false,
-                    contentType: false
-                })
-                    .done(function (data) {
-                        $('#unitmngtbl').DataTable().destroy();
-                        $('#unitmngtbl tbody').append(data);
-                        mydatatable();
-                    });
-                });
     </script>
 
 </div>

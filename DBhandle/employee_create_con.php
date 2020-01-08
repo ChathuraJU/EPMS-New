@@ -57,7 +57,7 @@
 
                     $emp_number = substr($last_id,4,9);
                     $newemp_number = str_pad(intval($emp_number) + 1, strlen($emp_number),'0', STR_PAD_LEFT);
-                    $new_empid = "EMP-".$newemp_number;
+                    $new_empid = "KGH-".$newemp_number;
                     
 
                 $sql = "INSERT INTO `epms_employee`(`Emp_id`,`Emp_nwi`,`Emp_name`,`Emp_gender`,`Emp_salutation`,

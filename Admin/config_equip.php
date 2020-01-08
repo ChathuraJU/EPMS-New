@@ -106,7 +106,7 @@
 
     <script>
 
-            //table
+            //table js
         $( document ).ready(function(){
 
             // Table setup
@@ -169,7 +169,7 @@
                 });
 
                 // preventDefault();
-            });
+        });
 
             function mydatatable(){
     
@@ -180,7 +180,7 @@
                 //to table
                 $.ajax({
                     method: "POST",
-                    url: "../DBhandle/config_equiplist_con.php?code=get_data",
+                    url: "../DBhandle/config_equip_con.php?code=get_data",
                     processData: false,
                     contentType: false
                 })

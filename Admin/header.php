@@ -405,7 +405,11 @@
 									<a href="#"><i class="icon-wrench2"></i> <span> Configuration </span></a>
 									<ul>
 										<li>
-                                            <a href="config_org.php"> Organization Details</a>
+                                            <a href="config_org.php"> Update Organization Details</a>
+										</li>
+										
+										<li>
+                                            <a href="config_uporg.php"> Organization Details</a>
                                         </li>
 
                                         <li>
@@ -532,24 +536,20 @@
 									<a href="#"><i class="icon-file-text"></i> <span> Tender </span></a>
 									<ul>
 										<li>
-											<a href="tender_create.php"> Create Tender Notice</a>
+											<a href="tender_create.php"> Create Tender </a>
 										</li>
 
 										<li>   
-                                            <a href="tender_track.php"> Tender Tracker </a> 
+                                            <a href="tender_table.php"> Tenders table </a> 
 										</li>
 
-                                        <li>
-                                            <a href="tender_post.php"> Post Tender </a>
-										</li>
-
-                                        <li>
+                                        <!-- <li>
                                            <a href="tender_doc.php"> Tender Documents </a>
-                                        </li>
+                                        </li> -->
 
-                                        <li>
+                                        <!-- <li>
                                             <a href="tender_draft.php"> Draft Tenders </a>
-                                        </li>
+                                        </li> -->
 									</ul>
 								</li>
 								<!--/tender-->
@@ -557,9 +557,9 @@
 								<li>
 									<a href="#"><i class="icon-hammer2"></i> <span> Bids </span></a>
 									<ul>
-										<li>
+										<!-- <li>
                                             <a href="bid_checklist.php"> Bid Checklists </a>
-                                        </li>
+                                        </li> -->
 
                                         <li>
                                             <a href="bid_selected.php"> Selected Bids </a>

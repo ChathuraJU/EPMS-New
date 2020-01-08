@@ -66,9 +66,29 @@
 
     <script>
 
-           
+        function mydatatable(){
 
-            //table
+            $('#unitmngtbl').DataTable();
+        }
+
+        function getdatatotable(){
+            //to table
+            $.ajax({
+                method: "POST",
+                url: "../DBhandle/config_unit_con.php?code=get_data",
+                processData: false,
+                contentType: false
+            })
+                .done(function (data) {
+                    $('#unitmngtbl').DataTable().destroy();
+                    $('#unitmngtbl tbody').empty();
+                    $('#unitmngtbl tbody').append(data);
+                    mydatatable();
+                });
+
+        }
+
+        //table js
         $( document ).ready(function(){
 
             // Table setup
@@ -113,31 +133,7 @@
             });
 
 
-        });
-
-
-        function mydatatable(){
-    
-            $('#unitmngtbl').DataTable();
-        }
-
-
-        $(document).ready(function () {
-                mydatatable();
-
-            $.ajax({
-                method: "POST",
-                url: "../DBhandle/config_unit_con.php?code=get_data",
-                processData: false,
-                contentType: false
-            })
-                .done(function (data) {
-                    $('#unitmngtbl').DataTable().destroy();
-                    $('#unitmngtbl tbody').append(data);
-                    mydatatable();
-                });
-        });
-            
+        }); 
 
     </script>
 
