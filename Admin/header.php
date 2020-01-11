@@ -370,10 +370,9 @@
 										<li>
 											<a href="user_create.php"> Update Users </a>
 										</li>
-<!-- 
-										<li>
+										<!--<li>
 											<a href="user_manage.php"> Manage User </a>
-										</li>                                   -->
+										</li>-->
 									</ul>
 								</li>
 								<!-- /user groups-->
@@ -530,7 +529,6 @@
 									</ul>
 								</li>
 
-
 								<!--tender-->
 								<li>
 									<a href="#"><i class="icon-file-text"></i> <span> Tender </span></a>
@@ -540,7 +538,7 @@
 										</li>
 
 										<li>   
-                                            <a href="tender_table.php"> Tenders table </a> 
+                                            <a href="tender_table.php"> Post Tender </a> 
 										</li>
 
                                         <!-- <li>
@@ -630,7 +628,7 @@
 								<!--/inventory-->
 
 								<!--notification-->
-								<li>
+								<!-- <li>
 									<a href="#"><i class="icon-bubble-notification"></i> <span> Notifications </span></a>
 									<ul>
 										<li>
@@ -645,7 +643,7 @@
 											<a href="notifi_all.php"> All </a>
 										</li>
 									</ul>
-								</li>
+								</li> -->
 								<!--/notification-->
 
 								<!--complain-->
@@ -667,10 +665,6 @@
 								<li><a href="profile.php"><i class="icon-profile"></i> <span> Profile </span></a></li>
 								<li><a href="directory.php"><i class="icon-phone"></i> <span> Directory </span></a></li>
 								<!-- /main -->
-
-
-
-
 
 							</ul>
 						</div>

@@ -347,8 +347,8 @@
                 });
 
 
-            //table click function
-            $(".table tbody").on("click",".edit",function () { //view icon click function
+            //table click function(edit)
+            $(".table tbody").on("click",".edit",function () { //
 
               
             
@@ -371,7 +371,6 @@
                         $("#ucreated").val(jdata.User_access_assigned_date);
                         $("#udeniedd").val(jdata.User_access_denied_date);
                         $("#ustatus").val(jdata.User_status).trigger('change');
-                        alert(jdata.User_status);
                         $("#username").val(jdata.User_username);
                         $("#userpassword").val(jdata.User_password);
  

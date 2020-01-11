@@ -257,10 +257,23 @@
                         contentType: false
                     }).done(function (msg) {
                         getdatatotable();
-                        $("#eqpname").val("");
+                        $("#initials").val("");
+                        $("#fname").val("");
+                        $("#morf").val("");
+                        $("#salutation").val("");
+                        $("#dob").val("");
+                        $("#nic").val("");
+                        $("#address").val("");
+                        $("#email").val("");
+                        $("#home_tel").val("");
+                        $("#mob_tel").val("");
+                        $("#djoin").val("");
+                        $("#workid").val("");
+                        $("#jtitle").val("");
+                        $("#unit").val("");
+                        $("#ward").val("");
                     });
-
-
+         
                     preventDefault();
                 }
             });

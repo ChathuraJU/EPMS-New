@@ -85,7 +85,7 @@
                                 </div> 
 
                                 <div class="row">
-                                <div class="form-group">
+                                    <div class="form-group">
                                         <div class="content-group-lg">
                                             <label>Request Date : <span class="text-danger">*</span></label>
                                             <div class="input-group">
@@ -357,21 +357,21 @@
 
     <script>
 
-            function get_data(){
-                var val1 = $('#reqid').val();
-                $('#reqidf').val(val1);
-                var val2 = $('#reqtype').val();
-                $('#reqtypef').val(val2);
-                var val3 = $('#reqdate').val();
-                $('#reqdatef').val(val3);
-                var val4 = $('#empid').val();
-                $('#empidf').val(val4);
-                var val5 = $('#unit').val();
-                $('#unitf').val(val5);
-                var val6 = $('#ward').val();
-                $('#wardf').val(val6);
+            // function get_data(){
+            //     var val1 = $('#reqid').val();
+            //     $('#reqidf').val(val1);
+            //     var val2 = $('#reqtype').val();
+            //     $('#reqtypef').val(val2);
+            //     var val3 = $('#reqdate').val();
+            //     $('#reqdatef').val(val3);
+            //     var val4 = $('#empid').val();
+            //     $('#empidf').val(val4);
+            //     var val5 = $('#unit').val();
+            //     $('#unitf').val(val5);
+            //     var val6 = $('#ward').val();
+            //     $('#wardf').val(val6);
 
-            }
+            // }
 
 
 

@@ -96,7 +96,7 @@
 
                             <div class="col-md-6" style="height: 100%;">
                                 <div class="col-sm-4 col-sm-offset-2" style="margin-top: 50px;">
-                                    <img src="global_assets/images/reqequip.jpg" height ="300px"  />
+                                    <img src="../global_assets/images/reqequip.jpg" height ="300px"  />
                                 </div>
                             </div>
                         </div>

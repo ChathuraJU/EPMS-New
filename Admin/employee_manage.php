@@ -102,12 +102,13 @@
 
             $.ajax({
                 method: "POST",
-                url: "../DBhandle/employee_manage_con.php?code=get_data",
+                url: "../DBhandle/employee_create_con.php?code=get_data",
                 processData: false,
                 contentType: false
             })
                 .done(function (data) {
                     $('#empmangtb').DataTable().destroy();
+                    $('#empmangtb tbody').empty();
                     $('#empmangtb tbody').append(data);
                     mydatatable();
                 });

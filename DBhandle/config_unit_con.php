@@ -79,7 +79,7 @@
                     if (mysqli_num_rows($result) > 0) {
                         // output data of each row
                         while($row = mysqli_fetch_assoc($result)) {
-                            echo "<tr><td>" . $row["Unit_no"] . "</td><td>" . $row["Unit_name"] . "</td>
+                            echo "<tr><td>" . $row["Unit_sn"] . "</td><td>" . $row["Unit_name"] . "</td>
                             <td>" . $row["Location"] . "</td>
                             <td>" . $row["Unit_head_id"] . "</td>
                             <td>" . $row["Unit_head_name"] . "</td><td>" . $row["Unit_email"] . "</td>
