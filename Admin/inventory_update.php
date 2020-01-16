@@ -452,19 +452,19 @@
          //get data 
          $(document).ready(function () {
 
-        //to select box
-            //Equipment name
-        $.ajax({
-            method: "POST",
-            url: "../DBhandle/inventory_update_con.php?code=get_equipselect_data",
-            processData: false,
-            contentType: false
-        })
-            .done(function (data) {
-            $("#eqpname").append(data);
-            });
+            //to select box
+                //Equipment name
+            $.ajax({
+                method: "POST",
+                url: "../DBhandle/inventory_update_con.php?code=get_equipselect_data",
+                processData: false,
+                contentType: false
+            })
+                .done(function (data) {
+                $("#eqpname").append(data);
+                });
 
-            mydatatable();
+                mydatatable();
 
 
         });

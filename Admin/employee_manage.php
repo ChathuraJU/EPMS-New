@@ -49,9 +49,9 @@
                         <th>Employee ID</th>
                         <th>Employee Work ID</th>
                         <th>Employee Name</th>
-                        <th>Job Title</th>
                         <th>Unit</th>
-                        <th> Ward </th>
+                        <th>Ward</th>
+                        <th>Job Title</th>
                         <th>Join Date</th>
                         <th>Actions</th>
                     </tr>

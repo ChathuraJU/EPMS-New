@@ -262,55 +262,58 @@
                         <div class="collapse in" id="demo1">
 
                             <div class="row">
-                                <div class="col-md-6">
-                                    <div class="form-group">  
-                                        <label> Requisition ID : </label>
-                                        <input type="text" id="reqidf" class="form-control" readonly/>
+                                <div class="form-group">  
+                                    <label class="col-lg-3 control-label">  Requisition ID :  </label>
+                                    <div class="col-lg-9">
+                                    <input type="text" id="reqidf" class="form-control" readonly/>
                                     </div>
-                                </div> 
-
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label> Request Type : </label>
-                                        <input type="text" id="reqtypef" class="form-control" readonly/>
-                                    </div> 
-                                </div> 
-                            
-                            </div>
+                                </div>
+                            </div> 
 
                             <div class="row">
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label> Request Date : </label>
-                                        <input type="text" id="reqdatef" class="form-control" readonly/>
+                                <div class="form-group">
+                                    <label class="col-lg-3 control-label"> Request Type :  </label>
+                                    <div class="col-lg-9">
+                                    <input type="text" id="reqtypef" class="form-control" readonly/>
                                     </div>
-                                </div>
+                                </div> 
+                            </div> 
 
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label> Employee ID : </label>
-                                        <input type="text" id="empidf" class="form-control" readonly/>
-                                    </div>
-                                </div>
-
-                            </div>
-                            
                             <div class="row">
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label> Unit : </label>
-                                        <input type="text" id="unitf" class="form-control" readonly/>
+                                <div class="form-group">  
+                                    <label class="col-lg-3 control-label">  Request Date :  </label>
+                                    <div class="col-lg-9">
+                                    <input type="text" id="reqdatef" class="form-control" readonly/>
                                     </div>
                                 </div>
+                            </div> 
 
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label> Ward : </label>
-                                        <input type="text" id="wardf" class="form-control" readonly/>
+                            <div class="row">
+                                <div class="form-group">
+                                    <label class="col-lg-3 control-label">  Employee ID : </label>
+                                    <div class="col-lg-9">
+                                    <input type="text" id="empidf" class="form-control" readonly/>
+                                    </div>
+                                </div> 
+                            </div> 
+
+                            <div class="row">
+                                <div class="form-group">  
+                                    <label class="col-lg-3 control-label"> Unit : </label>
+                                    <div class="col-lg-9">
+                                    <input type="text" id="unitf" class="form-control" readonly/>
                                     </div>
                                 </div>
-                            
-                            </div>
+                            </div> 
+
+                            <div class="row">
+                                <div class="form-group">
+                                    <label class="col-lg-3 control-label">  Ward : </label>
+                                    <div class="col-lg-9">
+                                    <input type="text" id="wardf" class="form-control" readonly/>
+                                    </div>
+                                </div> 
+                            </div> 
 
                         </div>
                     </fieldset>
@@ -325,9 +328,36 @@
                         </legend>
 
                         <div class="collapse in" id="demo2">
+                            <!-- Basic responsive table -->
+                            <div class="panel panel-flat">
+                                <div class="panel-heading">
+                                    <h5 class="panel-title">Equipment List</h5>
+                                    <div class="heading-elements">
+                                        <ul class="icons-list">
+                                            <li><a data-action="collapse"></a></li>
+                                            <li><a data-action="reload"></a></li>
+                                        </ul>
+                                    </div>
+                                </div>
 
-                            Display the table here
-                        also a print button to get the request into a pdf format.
+                                <div class="table-responsive">
+                                    <table class="table" id="tblajx">
+                                        <thead>
+                                            <tr>
+                                                <th> Equipment </th>
+                                                <th> Quantity </th>
+                                                <th> Priority </th>
+                                                <th> Reason </th>
+                                                <th> Action <th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                            <!-- /basic responsive table -->
                         </div>
                     </fieldset>
 
@@ -391,6 +421,9 @@
                             get_data();
                         }
                     },
+                    next: function(index) {
+
+                    },                  
                     back: function(index) {
                         
                     },

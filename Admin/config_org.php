@@ -167,12 +167,17 @@
                         $("#hos_tel").val("");
                         $("#hosfax").val("");
                         $("#hosemail").val("");
+                
                     });
-
-
                     preventDefault();
                 }
             });
+    //get data 
+    $(document).ready(function () {
+
+        getdatatotable();
+
+    });
 
 
             $('.stepy-clickable').find('.button-next').addClass('btn btn-primary');

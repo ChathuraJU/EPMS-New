@@ -41,10 +41,24 @@
                     die("Connection failed: " . mysqli_connect_error());
                 }
 
+                $sql1 ="SELECT Unit_no FROM epms_unit ORDER BY Unit_sn DESC LIMIT 1 ";
+                $result1=mysqli_query($conn,$sql1);
+
+                $rowcount=mysqli_num_rows($result1);
+
+                if ($rowcount>0) {
+                    $row = mysqli_fetch_assoc($result1);
+                    $last_id = $row["Unit_no"];
+                }
+
+                $unt_number = substr($last_id,2,6);
+                $newunt_number = str_pad(intval($unt_number) + 1, strlen($unt_number),'0', STR_PAD_LEFT);
+                $new_untid = "KGH-".$newunt_number;
+
 
                 $sql = "INSERT INTO `epms_unit`(`Unit_no`,`Unit_name`,`Location`,`Unit_head_id`,
                 `Unit_head_name`,`Unit_email`,`Unit_telephone`)
-            VALUES ('$unitno','$unitname','$location','$unitheadid','$unitheadname','$unitemail','$unittel')";
+            VALUES ('$new_untid','$unitname','$location','$unitheadid','$unitheadname','$unitemail','$unittel')";
 
             $result = mysqli_query($conn, $sql);
 

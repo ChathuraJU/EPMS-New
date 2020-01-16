@@ -416,14 +416,7 @@
                                         </li>
 
                                         <li>
-                                            <a href="config_unitlist.php"> Unit List </a>
-                                        </li>
-                                        <li>
                                             <a href="config_ward.php"> Create / Manage Ward </a>
-                                        </li>
-
-                                        <li>
-                                            <a href="config_wardlist.php"> Ward List </a>
                                         </li>
 
                                         <li>
@@ -555,9 +548,9 @@
 								<li>
 									<a href="#"><i class="icon-hammer2"></i> <span> Bids </span></a>
 									<ul>
-										<!-- <li>
+										<li>
                                             <a href="bid_checklist.php"> Bid Checklists </a>
-                                        </li> -->
+                                        </li>
 
                                         <li>
                                             <a href="bid_selected.php"> Selected Bids </a>

@@ -12,7 +12,6 @@
         function save(){
             $HName = $_POST["hosname"];
             $Hadd = $_POST["hosaddress"];
-            $Lttrhd = $_POST["ltrhd"];
             $Hotline = $_POST["hotline"]; 
             $Hos_tel = $_POST["hos_tel"];
             $Hosfax = $_POST["hosfax"]; 
@@ -31,9 +30,9 @@
                 }
 
 
-                $sql = "INSERT INTO `epms_employee`(`Hos_name`,`Hos_add`,`Hos_ltrhd`,`Hos_hotline`,
-                `Hos_tel`,`Hos_fax`,`Hos_email`)
-            VALUES ('$HName','$Hadd','$Lttrhd','$Hotline','$Hos_tel','$Hosfax','$Email' )";
+                $sql = "INSERT INTO `epms_org`(`Hos_name`,`Hos_add`,`Hos_hotline`,
+                `Hos_phone`,`Hos_fax`,`Hos_email`)
+            VALUES ('$HName','$Hadd','$Hotline','$Hos_tel','$Hosfax','$Email' )";
 
             $result = mysqli_query($conn, $sql);
 
@@ -41,7 +40,7 @@
                 echo mysqli_error($conn);
             }
             else{
-                $sql = "SELECT MAX(Bid_checklist_no) AS id FROM `epms_organization`";
+                $sql = "SELECT MAX(Hos_sn) AS id FROM `epms_org`";
 
                 $result = mysqli_query($conn, $sql);
 

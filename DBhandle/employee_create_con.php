@@ -167,13 +167,12 @@
                         // output data of each row
                         while($row = mysqli_fetch_assoc($result)) {
                             echo "<tr><td>" . $row["Emp_id"] . "</td><td>" . $row["Emp_workid"] . "</td>
-                            <td>" . $row["Emp_name"] . "</td><td>" . $row["Emp_job_role"] . "</td>
-                            <td>" . $row["Emp_assigned_unit"] . "</td><td>" . $row["Emp_assigned_ward"] . "</td>
+                            <td>" . $row["Emp_name"] . "</td><td>" . $row["Emp_assigned_unit"] . "</td>
+                            <td>" . $row["Emp_assigned_ward"] . "</td><td>" . $row["Emp_job_role"] . "</td>
                             <td>" . $row["Emp_join_date"] . "</td>
                             <td>
                                 <ul class='icons-list'>
                                     <li><a><i class='icon-pencil7'></i></a></li>
-                                    <li><a><i class='icon-trash'></i></a></li>
                                 </ul>
                             </td>
                             </tr>";
