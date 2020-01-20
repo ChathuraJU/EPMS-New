@@ -43,7 +43,7 @@
         <!-- Control position -->
         <div class="panel panel-info">
             <div class="panel-heading">
-                <h5 class="panel-title"><b> Inventory List </b></h5>
+                <h5 class="panel-title"><b> Manage Inventory </b></h5>
                 <div class="heading-elements">
                     <ul class="icons-list">
                         <li><a data-action="collapse"></a></li>
@@ -52,7 +52,7 @@
                 </div>
             </div>
 
-            <table class="table datatable-responsive-control-right">
+            <table id="mnginventory"  class="table datatable-responsive-control-right">
                 <thead>
                     <tr>
                         <th>Equipment Code </th>
@@ -66,7 +66,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                        <td>Equipment Code </td>
+                        <!-- <td>Equipment Code </td>
                         <td>Equipment Name</td>
                         <td>Recieved Date</td>
                         <td>Recieved Condition</td>
@@ -76,7 +76,7 @@
                                 <li><button class="btn btn-default btn-sm" type="button" data-toggle="modal" data-target="#modal_form_vertical">View <i class="icon-eye position-right"></i></button>  </li>
                             </ul>
                         </td>
-                        <td></td>
+                        <td></td> -->
                 </tbody>
             </table>
         </div>
@@ -205,7 +205,36 @@
     <!-- /content area -->
 
     <script>
-       
+
+        function mydatatable(){
+
+            $('#mnginventory').DataTable();
+        }
+
+        function getdatatotable(){
+            //to table
+            $.ajax({
+                method: "POST",
+                url: "../DBhandle/inventory_con.php?code=get_data",
+                processData: false,
+                contentType: false
+            })
+            .done(function (data) {
+                $('#mnginventory').DataTable().destroy();
+                $('#mnginventory tbody').empty();
+                $('#mnginventory tbody').append(data);
+                mydatatable();
+            });
+
+        }
+
+        //get data 
+        $(document).ready(function () {
+
+            getdatatotable();
+        });
+
+
         // Table setup
         // ------------------------------
 

@@ -503,7 +503,7 @@
 
 								<!--tec-->
 								<li>
-									<a href="#"><i class="icon-users4"></i> <span> Specification </span></a>
+									<a href="#"><i class="icon-users4"></i> <span>Specification </span></a>
 									<ul>
 										<li>   
                                             <a href="tec_create.php"> Create Technical Evaluation Committee </a> 

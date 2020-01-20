@@ -39,7 +39,7 @@
                 </div>
             </div>
 
-            <table id="bidsselect" class="table table-bordered table-hover datatable-highlight" class="table bg-slate-600">
+            <table id="bidsselect" class="table table-bordered table-hover datatable-highlight">
                 <thead>
                     <tr>
                         <th>Procurement ID</th>

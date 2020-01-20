@@ -123,7 +123,7 @@
                                 <div class="row">
                                     <div class="form-group">
                                         <label>Procurement Id: <span class="text-danger">*</span></label>
-                                            <select id="eqpname" name="eqpname" data-placeholder="Choose the Equipment..." class="select-search required">
+                                            <select id="proid" name="proid" data-placeholder="Choose the Procurement ID..." class="select-search required">
                                                 <option></option> 
                                             </select>
                                     </div>
@@ -223,11 +223,7 @@
                             </div>
 
                             <div class="col-md-6">
-                                <div class="form-group">
-                                    <label>Equipment Code</label>
-                                    <input type="text" id="eqpcode" name="eqpcode" class="form-control" readonly/>
 
-                                </div>
                             </div>
 
                         </div>
@@ -269,7 +265,7 @@
 
     <script>
 
-        // uploader
+        // uploader , steppy wizard, date picker
         $( document ).ready(function() {
 
             var modalTemplate = '<div class="modal-dialog modal-lg" role="document">\n' +
@@ -363,7 +359,7 @@
                     sendData = new FormData($("#invntryfrm")[0]);
                     $.ajax({
                         method: "POST",
-                        url: "../DBhandle/inventory_update_con.php?code=save",
+                        url: "../DBhandle/inventory_con.php?code=save",
                         data: sendData,
                         processData: false,
                         contentType: false
@@ -456,7 +452,7 @@
                 //Equipment name
             $.ajax({
                 method: "POST",
-                url: "../DBhandle/inventory_update_con.php?code=get_equipselect_data",
+                url: "../DBhandle/inventory_con.php?code=get_equipselect_data",
                 processData: false,
                 contentType: false
             })

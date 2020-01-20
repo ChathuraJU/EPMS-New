@@ -47,10 +47,26 @@
                 }
 
 
-                $sql = "INSERT INTO `epms_inventory`(`Equip_name`,`Equip_make`,`Equip_power`,`Equip_model`,
+                $sql1 ="SELECT Equip_code FROM epms_inventory ORDER BY Inventory_sn DESC LIMIT 1 ";
+                $result1=mysqli_query($conn,$sql1);
+
+                $rowcount=mysqli_num_rows($result1);
+
+                if ($rowcount>0) {
+                    $row = mysqli_fetch_assoc($result1);
+                    $last_id = $row["Equip_code"];
+                }
+
+                $inv_number = substr($last_id,4,11);
+                $newinv_number = str_pad(intval($inv_number) + 1, strlen($inv_number),'0', STR_PAD_LEFT);
+                $new_invcode = "INV-".$newinv_number;
+                
+
+
+                $sql = "INSERT INTO `epms_inventory`(`Equip_code`,`Equip_name`,`Equip_make`,`Equip_power`,`Equip_model`,
                 `Equip_serial`,`Equip_price`,`Vendor`,`Recieved_via`,`Recieved_date`,`Recieved_cond`,`Warrenty_period`,
                 `Preventive`,`MSP`,`Add_details`)
-            VALUES ('$Equipname','$Equipmake','$Powerreq','$Modelno','$Serialno','$Price',
+            VALUES ('$new_invcode','$Equipname','$Equipmake','$Powerreq','$Modelno','$Serialno','$Price',
             '$Vendor','$Recievedvia','$Recievedate','$Recievecond','$Warrentp','$Preventive','$MSP','$Adddetails')";
 
 
@@ -60,7 +76,7 @@
                 echo mysqli_error($conn);
             }
             else{
-                $sql = "SELECT MAX(Inventory_sn) AS id FROM `epms_inventory`";
+                $sql = "SELECT MAX(Equip_code) AS id FROM `epms_inventory`";
 
                 $result = mysqli_query($conn, $sql);
 
@@ -102,14 +118,15 @@
                             <td>" . $row["Equip_name"] . "</td>
                             <td>" . $row["Recieved_date"] . "</td>
                             <td>" . $row["Recieved_cond"] . "</td>
-                            <td>" . $row["<a href='vendor_profile.php'>Vendor</a>"] . "</td>
+                            <td>" . $row["Vendor"] . "</td>
                             <td>
                                 <ul class='icons-list'>
                                     <li><a><i class='icon-pencil7'></i></a></li>
                                     <li><a><i class='icon-eye'></i></a></li>
-                                    <li><a><i class='icon-trash'></i></a></li>
                                 </ul>
                             </td>
+                            <td></td>
+                            
                             </tr>";
                         }
                     } else {

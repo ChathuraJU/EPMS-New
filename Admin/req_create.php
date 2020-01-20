@@ -55,7 +55,7 @@
                 </div>
             </div>
 
-            <form class="stepy-basic" action="#">
+            <form class="stepy-basic" id="frmdata" enctype="multipart/form-data">
                 <fieldset title="1">
                     <legend class="text-semibold"> Requesition Details </legend>
                     
@@ -178,7 +178,7 @@
                                 <div class="row">
                                     <div class="form-group">
                                         <label>Quantity : </label>
-                                        <input type="text" id="qty" value="" class="touchspin-empty">
+                                        <input type="text" id="qty" name="qty" value="" class="touchspin-empty">
                                     </div>
                                 </div> 
 
@@ -341,7 +341,7 @@
                                 </div>
 
                                 <div class="table-responsive">
-                                    <table class="table" id="tblajx">
+                                    <table class="table" id="tblajx1">
                                         <thead>
                                             <tr>
                                                 <th> Equipment </th>
@@ -375,6 +375,23 @@
 
 
     <script>
+
+
+        function storeTblValues()
+        {
+            var TableData = new Array();
+
+            $("#tblajx tr").each(function(row, tr){
+                TableData[row]={
+                    "equipment" : $(tr).find('td:eq(0)').text()
+                    , "qty" :$(tr).find('td:eq(1)').text()
+                    , "priority" : $(tr).find('td:eq(2)').text()
+                    , "reason" : $(tr).find('td:eq(3)').text()
+                }
+            });
+            TableData.shift();  // first row will be empty - so remove
+            return TableData;
+        }
 
             // function get_data(){
             //     var val1 = $('#reqid').val();
@@ -417,8 +434,23 @@
                         
                     },
                     finish: function() {
-                        
-                        return false;
+                    // alert("test first");
+                        TableData = JSON.stringify(storeTblValues());
+                        formData = new FormData($("#frmdata")[0]);
+                        formData.append('pTableData', TableData);
+                        $.ajax({
+                            type: "POST",
+                            url: "../DBhandle/req_create_con.php?code=submit",
+                            data: formData,
+                            processData: false,
+                            contentType: false,
+                            success: function(data){
+                                alert(data);
+                            }
+                        });
+
+
+                        preventDefault();
                     }
                 });
 
@@ -489,21 +521,7 @@
             });
 
 
-            function storeTblValues()
-            {
-                var TableData = new Array();
 
-                $('#tblajx tr').each(function(row, tr){
-                    TableData[row]={
-                        "equipment" : $(tr).find('td:eq(0)').text()
-                        , "qty" :$(tr).find('td:eq(1)').text()
-                        , "priority" : $(tr).find('td:eq(2)').text()
-                        , "reason" : $(tr).find('td:eq(3)').text()
-                    }    
-                }); 
-                TableData.shift();  // first row will be empty - so remove
-                return TableData;
-            }
 
             $("#btn_add").click(function(){
                 var val1 = $('#equip').val();

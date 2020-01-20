@@ -1,4 +1,52 @@
 <?php require_once('header.php');?>
+
+
+<?php
+
+$id = $_GET["id"];
+
+
+$servername = "localhost";
+$username = "root";
+$password = "";
+$db = "nhk_epms";
+
+// Create connection
+$conn = mysqli_connect($servername, $username, $password, $db);
+// Check connection
+if (!$conn) {
+    die("Connection failed: " . mysqli_connect_error());
+}
+
+
+//$sql = "select * from `epms_requisition`";
+//
+//
+//$result = mysqli_query($conn, $sql);
+
+//if (mysqli_num_rows($result) > 0) {
+//    // output data of each row
+//    while($row = mysqli_fetch_assoc($result)) {
+//        echo "<tr>
+//                <td>" . $row["Req_id"] . "</td>
+//                <td>" . $row["Unit_Name"] . "</td>
+//                <td>" . $row["Ward_Name"] . "</td>
+//                <td>" . $row["Req_date"] . "</td>
+//                <td>" . $row["Req_type"] . "</td>
+//
+//             </tr>";
+//    }
+//} else {
+//    echo "0 results";
+//}
+
+$sql2 = "select * from `epms_req_equip` where `Req_sn` = '$id' ";
+
+
+$result2 = mysqli_query($conn, $sql2);
+
+
+?>
 <!-- Main content -->
 <div class="content-wrapper">
     <!-- Page header -->
@@ -58,7 +106,7 @@
                                 <div class="row">
                                     <div class="form-group">
                                         <label> Request ID :</label>
-                                        <input type="text" id="reqid" class="form-control" placeholder="REQ-000001" readonly>
+                                        <input type="text" id="reqid" value="<?php echo $id ?>" class="form-control" placeholder="REQ-000001" readonly>
                                     </div>
                                 </div>
 
@@ -116,7 +164,7 @@
                                 <!-- Basic responsive table -->
                                 <div class="panel panel-flat">
                                     <div class="table-responsive">
-                                        <table class="table" id="tblajx">
+                                        <table class="table" id="reqdetails">
                                             <thead>
                                                 <tr>
                                                     <th> Requisition Equipment No. </th>
@@ -128,31 +176,32 @@
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                                <tr>
-                                                    <td> REQ-000001-01 </td>
-                                                    <td> Sphygmomanometers </td>
-                                                    <td> 05 </td>
-                                                    <td> High </td>
-                                                    <td> Pending </td>
-                                                    <td class="text-center">
-                                                        <ul class="icons-list">
-                                                            <li><a href="#" data-toggle="modal" data-target="#edit_modal"><i class="icon-pencil7"></i></a></li>
-                                                        </ul>
-                                                    </td>
-                                                </tr>
 
-                                                <tr>
-                                                    <td> REQ-000001-02 </td>
-                                                    <td> Nebulizer </td>
-                                                    <td> 02 </td>
-                                                    <td> Critical </td>
-                                                    <td> Pending </td>
-                                                    <td class="text-center">
-                                                        <ul class="icons-list">
-                                                            <li><a href="#" data-toggle="modal" data-target="#edit_modal"><i class="icon-pencil7"></i></a></li>
-                                                        </ul>
-                                                    </td>
-                                                </tr>
+
+                                            <?php
+
+                                            if (mysqli_num_rows($result2) > 0) {
+                                                // output data of each row
+                                                while($row = mysqli_fetch_assoc($result2)) {
+                                                    $eqid = $row["Req_equip_id"];
+                                                    echo "<tr>
+                                                        <td>" . $row["Req_equip_id"] . "</td>
+                                                        <td>" . $row["Req_eqp_name"] . "</td>
+                                                        <td>" . $row["Req_equip_qty"] . "</td>
+                                                        <td>" . $row["Req_equip_priority"] . "</td>
+                                                        <td>" . $row["Req_equip_approval"] . "</td>
+                                                        <td>
+                                                            <a onclick='getdata("."$eqid".")' data-toggle='modal' data-target='#edit_modal'><i class='icon-pencil7'></i></a>
+                                                        </td>
+                                          
+                                                     </tr>";
+                                                }
+                                            } else {
+                                                echo "0 results";
+                                            }
+
+                                            ?>
+
                                             </tbody>
                                         </table>
                                     </div>
@@ -366,6 +415,33 @@
     <!-- /content area -->
 
     <script>
+
+        function getdatatotable(){
+            //to table
+            $.ajax({
+                method: "POST",
+                url: "../DBhandle/req_details_con.php?code=get_data",
+                processData: false,
+                contentType: false
+            })
+                .done(function (data) {
+
+                });
+
+        }
+
+        //get data
+        $(document).ready(function () {
+
+
+        });
+
+
+        function getdata(val){
+            alert(val);
+        }
+
+
 
         // select2
         $( document ).ready(function(){
