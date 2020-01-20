@@ -106,7 +106,7 @@
 
     <script>
 
-            //table js
+        //table js
         $( document ).ready(function(){
 
             // Table setup
@@ -156,50 +156,47 @@
         //save form
         $("#save").click(function(){
         
-        sendData = new FormData($("#equipcreateform")[0]);
-                $.ajax({
-                    method: "POST",
-                    url: "../DBhandle/config_equip_con.php?code=save",
-                    data: sendData,
-                    processData: false,
-                    contentType: false
-                }).done(function (msg) {
-                    getdatatotable();
-                    $("#eqpname").val("");
-                });
-
-                // preventDefault();
+            sendData = new FormData($("#equipcreateform")[0]);
+                    $.ajax({
+                        method: "POST",
+                        url: "../DBhandle/config_equip_con.php?code=save",
+                        data: sendData,
+                        processData: false,
+                        contentType: false
+                    }).done(function (msg) {
+                        getdatatotable();
+                        $("#eqpname").val("");
+                    });
         });
 
-            function mydatatable(){
-    
-                $('#eqpmngtbl').DataTable();
-            }
-            
-            function getdatatotable(){
-                //to table
-                $.ajax({
-                    method: "POST",
-                    url: "../DBhandle/config_equip_con.php?code=get_data",
-                    processData: false,
-                    contentType: false
-                })
-                    .done(function (data) {
-                        $('#eqpmngtbl').DataTable().destroy();
-                        $('#eqpmngtbl tbody').empty();
-                        $('#eqpmngtbl tbody').append(data);
-                        mydatatable();
-                    });
+        function mydatatable(){
 
-            }
+            $('#eqpmngtbl').DataTable();
+        }
+        
+        function getdatatotable(){
+            //to table
+            $.ajax({
+                method: "POST",
+                url: "../DBhandle/config_equip_con.php?code=get_data",
+                processData: false,
+                contentType: false
+            })
+                .done(function (data) {
+                    $('#eqpmngtbl').DataTable().destroy();
+                    $('#eqpmngtbl tbody').empty();
+                    $('#eqpmngtbl tbody').append(data);
+                    mydatatable();
+                });
 
-            //get data 
-            $(document).ready(function () {
+        }
 
-                getdatatotable();
+        //get data 
+        $(document).ready(function () {
 
-            });
-            
+            getdatatotable();
+        });
+        
     </script>
 
 

@@ -421,6 +421,21 @@
 								</li>
 								<!--/audit-->
 
+								<!--complain-->
+								<li>
+									<a href="#"><i class=" icon-notification2"></i> <span> Complains </span></a>
+									<ul>
+										<li>
+											<a href="complain_create.php"> Make a Complain </a>
+										</li>
+
+										<li>
+											<a href="complain_manage.php"> Manage Complains </a>
+										</li>
+									</ul>
+								</li>
+								<!--/complain-->
+
 								<!--requisition-->
 								<li>
 									<a href="#"><i class=" icon-pencil7"></i> <span> Requisitions </span></a>
@@ -488,7 +503,7 @@
 
 								<!--tec-->
 								<li>
-									<a href="#"><i class="icon-users4"></i> <span> Tech Evaluation Committee </span></a>
+									<a href="#"><i class="icon-users4"></i> <span> Specification </span></a>
 									<ul>
 										<li>   
                                             <a href="tec_create.php"> Create Technical Evaluation Committee </a> 
@@ -513,25 +528,40 @@
                                             <a href="tender_table.php"> Post Tender </a> 
 										</li>
 
-                                        <!-- <li>
-                                           <a href="tender_doc.php"> Tender Documents </a>
-                                        </li> -->
 
 									</ul>
 								</li>
 								<!--/tender-->
+
+								<!--Bidders-->
+								<li>
+									<a href="#"><i class="icon-user-tie"></i> <span> Bidder Management </span></a>
+									<ul>
+										<li>
+                                            <a href="bidders.php"> Bidders List</a>
+										</li>
+										
+                                        <li>
+                                            <a href="bidder_blocked.php"> Blocked Bidders </a>
+                                        </li>
+									</ul>
+								</li>
+								<!--Bidders-->
+
+
 								<!--bids-->
 								<li>
 									<a href="#"><i class="icon-hammer2"></i> <span> Bids </span></a>
 									<ul>
-										<li>
-                                            <a href="bidders.php"> Bidders </a>
-                                        </li>
-
+									<!-- 
 										<li>
                                             <a href="bid_checklist.php"> Bid Checklists </a>
-                                        </li>
+                                        </li> -->
 
+										<li>
+                                            <a href="bid_track.php"> Bids Tracker </a>
+										</li>
+										
                                         <li>
                                             <a href="bid_selected.php"> Selected Bids </a>
                                         </li>
@@ -540,11 +570,6 @@
                                             <a href="bid_rejected.php"> Rejected Bids </a>
                                         </li>
 
-
-
-                                        <li>
-                                            <a href="bidder_blacklist.php"> Blacklisted Bidders </a>
-                                        </li>
 									</ul>
 								</li>
 								<!--/bids-->
@@ -598,40 +623,6 @@
 									</ul>
 								</li>
 								<!--/inventory-->
-
-								<!--notification-->
-								<!-- <li>
-									<a href="#"><i class="icon-bubble-notification"></i> <span> Notifications </span></a>
-									<ul>
-										<li>
-											<a href="notifi_msg.php"> Messages </a>
-										</li>
-
-										<li>
-											<a href="notifi_alert.php"> Alerts </a>
-										</li>
-
-										<li>
-											<a href="notifi_all.php"> All </a>
-										</li>
-									</ul>
-								</li> -->
-								<!--/notification-->
-
-								<!--complain-->
-								<li>
-									<a href="#"><i class=" icon-notification2"></i> <span> Complains </span></a>
-									<ul>
-										<li>
-											<a href="complain_create.php"> Make a Complain </a>
-										</li>
-
-										<li>
-											<a href="complain_manage.php"> Manage Complains </a>
-										</li>
-									</ul>
-								</li>
-								<!--/complain-->
 
 								<li><a href="calender.php"><i class="icon-calendar22"></i> <span> Events </span></a></li>
 								<li><a href="profile.php"><i class="icon-profile"></i> <span> Profile </span></a></li>

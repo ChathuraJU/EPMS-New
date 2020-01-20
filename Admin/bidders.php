@@ -5,7 +5,7 @@
     <div class="page-header page-header-default" style="border-top: 1px solid #ddd; border-left: 1px solid #ddd; border-right: 1px solid #ddd;">
         <div class="page-header-content border-bottom border-bottom-success-300">
             <div class="page-title">
-                <h4><i class="icon-arrow-left52 position-left"></i> <span class="text-semibold"> Specification </span></h4>
+                <h4><i class="icon-arrow-left52 position-left"></i> <span class="text-semibold"> BIDDER MANAGEMENT </span></h4>
             </div>
 
             <div class="heading-elements">
@@ -19,8 +19,8 @@
         <div class="breadcrumb-line">
             <ul class="breadcrumb">
                 <li><a href="dashboard.php"><i class="icon-home2 position-left"></i> Home </a></li>
-                <li><a href="#"> Specification </a></li>
-                <li class="active">TEC List</li>
+                <li><a href="#"> Bidder Management </a></li>
+                <li class="active">Bidders List</li>
         </div>
     </div>
     <!-- /page header -->
@@ -30,7 +30,7 @@
         <!-- Control position -->
         <div class="panel panel-info">
             <div class="panel-heading">
-                <h5 class="panel-title"><b> Technical Evaluation Committee List</b></h5>
+                <h5 class="panel-title"><b> Bidder List</b></h5>
                 <div class="heading-elements">
                     <ul class="icons-list">
                         <li><a data-action="collapse"></a></li>
@@ -39,20 +39,20 @@
                 </div>
             </div>
 
-            <table id="payhistory" class="table table-bordered table-hover datatable-highlight" class="table bg-slate-600">
+            <table id="bidders" class="table table-bordered table-hover datatable-highlight" class="table bg-slate-600">
                 <thead>
                     <tr>
                         <th>#</th>
-                        <th>Procurement ID</th>
-                        <th>TEC ID</th>
-                        <th>Tender Title</th>
-                        <th>Members</th>
+                        <th>Bidder ID</th>
+                        <th>Company Name</th>
+                        <th>Company Phone No.</th>
+                        <th>Agent Name</th>
+                        <th>Status</th>
                         <th>Action</th>
 
                     </tr>
                 </thead>
                 <tbody>
-                   
 
                 </tbody>
             </table>
@@ -63,6 +63,36 @@
     <!-- /content area -->
 
     <script>
+
+        function mydatatable(){
+
+            $('#bidders').DataTable();
+        }
+
+        function getdatatotable(){
+            //to table
+            $.ajax({
+                method: "POST",
+                url: "../DBhandle/bidders_con.php?code=get_data",
+                processData: false,
+                contentType: false
+            })
+            .done(function (data) {
+                $('#bidders').DataTable().destroy();
+                $('#bidders tbody').empty();
+                $('#bidders tbody').append(data);
+                mydatatable();
+            });
+
+        }
+
+        //get data 
+        $(document).ready(function () {
+
+        getdatatotable();
+        });
+
+
         //table
         $( document ).ready(function(){
 
@@ -111,9 +141,8 @@
         });
 
 
+
     </script>
-
-
 
 </div>
 <!-- /Main content -->
