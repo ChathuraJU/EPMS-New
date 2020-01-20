@@ -2,8 +2,8 @@
 <!-- Main content -->
 <div class="content-wrapper">
     <!-- Page header -->
-    <div class="page-header page-header-default">
-        <div class="page-header-content">
+    <div class="page-header page-header-default" style="border-top: 1px solid #ddd; border-left: 1px solid #ddd; border-right: 1px solid #ddd;">
+        <div class="page-header-content border-bottom border-bottom-success-300">
             <div class="page-title">
                 <h4><i class="icon-arrow-left52 position-left"></i> <span class="text-semibold"> Tender </span></h4>
             </div>
@@ -29,7 +29,7 @@
     <div class="content">
         <!-- 2 columns form -->
         <form id="tendercreateform" class="form-horizontal" action="#">
-            <div class="panel panel-white">
+            <div class="panel panel-info">
                 <div class="panel-heading">
                     <h5 class="panel-title"><b>Create a Tender</b></h5>
                     <div class="heading-elements">
@@ -126,8 +126,10 @@
                                         <label class="col-lg-4 control-label">Bid Collection Date (Closing Date) : <span class="text-danger">*</span></label>
                                         <div class="col-lg-8">
                                             <div class="input-group">
-                                                <span class="input-group-addon"><i class="icon-calendar22"></i></span>
-                                                <input type="text"  id="bidcolcls" name="bidcolcls" class="form-control pickadate-strings required" placeholder="Try me&hellip;">
+                                                <span class="input-group-btn">
+                                                    <button type="button" class="btn btn-default btn-icon" id="ButtonCreationDemoButton"><i class="icon-calendar3"></i></button>
+                                                </span>
+                                                <input type="text" class="form-control" id="ButtonCreationDemoInput" placeholder="Select a date">
                                             </div>
                                         </div>
                                     </div>
@@ -138,23 +140,14 @@
                            
 
                         <div class="row">
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <label class="col-lg-3 control-label ">Bid Checklist (General Document): </label>
-                                    <div class="col-lg-9">
-                                        <input type="file" id="rbidchk" name="rbidchk" class="file-input">
-                                    </div>
+                        
+                            <div class="form-group">
+                                <label class="col-lg-3 control-label ">Bid Document (General Document): </label>
+                                <div class="col-lg-9">
+                                    <input type="file" id="rbiddoc" name="rbiddoc" class="file-input">
                                 </div>
                             </div>
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <label class="col-lg-3 control-label ">Bid Document (General Document): </label>
-                                    <div class="col-lg-9">
-                                        <input type="file" id="rbiddoc" name="rbiddoc" class="file-input">
-                                    </div>
-                                </div>
-                            </div>
-                            
+                        
                         </div>
 
                     </fieldset>
@@ -263,9 +256,10 @@
             });
 
 
-            $('.pickadate-strings').pickadate({
-                weekdaysShort: ['Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa'],
-                showMonthsShort: true
+            // On demand picker
+            $('#ButtonCreationDemoButton').on('click', function (e) {
+                $('#ButtonCreationDemoInput').AnyTime_noPicker().AnyTime_picker().focus();
+                e.preventDefault();
             });
         });
 

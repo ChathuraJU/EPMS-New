@@ -2,8 +2,8 @@
 <!-- Main content -->
 <div class="content-wrapper">
     <!-- Page header -->
-    <div class="page-header page-header-default">
-        <div class="page-header-content">
+    <div class="page-header page-header-default" style="border-top: 1px solid #ddd; border-left: 1px solid #ddd; border-right: 1px solid #ddd;">
+        <div class="page-header-content border-bottom border-bottom-success-300">
             <div class="page-title">
                 <h4><i class="icon-arrow-left52 position-left"></i> <span class="text-semibold"> Configuration </span></h4>
             </div>
@@ -20,7 +20,7 @@
             <ul class="breadcrumb">
                 <li><a href="dashboard.php"><i class="icon-home2 position-left"></i> Home </a></li>
                 <li><a href="#"> Configuration </a></li>
-                <li class="active"> Equipment Category</li>
+                <li class="active"> Manage Equipments</li>
         </div>
     </div>
     <!-- /page header -->
@@ -29,7 +29,7 @@
     <div class="content">
         <!-- 2 columns form -->
         <form id="equipcreateform" class="form-horizontal" action="#">
-            <div class="panel panel-white">
+            <div class="panel panel-info">
                 <div class="panel-heading">
                     <h5 class="panel-title"><b>Manage Equipments</b></h5>
                     <div class="heading-elements">
@@ -73,7 +73,7 @@
         <!-- /2 columns form -->
 
         <!-- Highlighting rows and columns -->
-        <div class="panel panel-white">
+        <div class="panel panel-info">
             <div class="panel-heading">
                 <h5 class="panel-title"> <b> Equipment List </b></h5>
                 <div class="heading-elements">

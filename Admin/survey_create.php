@@ -2,8 +2,8 @@
 <!-- Main content -->
 <div class="content-wrapper">
     <!-- Page header -->
-    <div class="page-header page-header-default">
-        <div class="page-header-content">
+    <div class="page-header page-header-default" style="border-top: 1px solid #ddd; border-left: 1px solid #ddd; border-right: 1px solid #ddd;">
+        <div class="page-header-content border-bottom border-bottom-success-300">
             <div class="page-title">
                 <h4><i class="icon-arrow-left52 position-left"></i> <span class="text-semibold"> Survey </span></h4>
             </div>
@@ -30,7 +30,7 @@
     <div class="content">
 
         <!-- Clickable title -->
-        <div class="panel panel-white">
+        <div class="panel panel-info">
             <div class="panel-heading">
                 <h6 class="panel-title"><b> Yearly Survey Form </b></h6>
                 <div class="heading-elements">
@@ -173,21 +173,13 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="content-group-lg">
-                                    <label> Date of Birth : </label>
-                                        <div class="input-group">
-                                            <span class="input-group-addon"><i class="icon-calendar3"></i></span>
-                                            <input type="text" class="form-control" id="anytime-weekday" name="dob" value="Wednesday, 4th of June, 2014">
-                                        </div>
-                                    </label>
-                                </div>
                             </div>
 
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label> Remarks :</label>
                                     <div class="input-group">
-                                        <textarea id="remarks" name="remarks" rows="4" cols="60"  placeholder="If you want to add any info, do it here." class="form-control required"></textarea>
+                                        <textarea id="remarks" name="remarks" rows="4" cols="100"  placeholder="If you want to add any info, do it here." class="form-control required"></textarea>
                                     </div>
                                 </div>
                             </div>

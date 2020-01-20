@@ -2,8 +2,8 @@
 <!-- Main content -->
 <div class="content-wrapper">
     <!-- Page header -->
-    <div class="page-header page-header-default">
-        <div class="page-header-content">
+    <div class="page-header page-header-default" style="border-top: 1px solid #ddd; border-left: 1px solid #ddd; border-right: 1px solid #ddd;">
+        <div class="page-header-content border-bottom border-bottom-success-300">
             <div class="page-title">
                 <h4><i class="icon-arrow-left52 position-left"></i> <span class="text-semibold"> Requisition </span></h4>
             </div>
@@ -31,7 +31,7 @@
     <div class="content">
         <!-- Advanced legend -->
         <form action="#">
-            <div class="panel panel-white">
+            <div class="panel panel-info">
                 <div class="panel-heading">
                     <h5 class="panel-title"> <b> Requisition Details </b> </h5>
                     <div class="heading-elements">

@@ -68,6 +68,7 @@
 	<script src="../global_assets/js/plugins/uploaders/dropzone.min.js"></script>
 	<script src="../global_assets/js/plugins/tables/datatables/extensions/buttons.min.js"></script>
 	<script src="../global_assets/js/plugins/media/fancybox.min.js"></script>
+	<script src="../global_assets/js/plugins/forms/inputs/duallistbox.min.js"></script>
 	
 	<script src="../assets/js/app.js"></script>
 	<script src="../global_assets/js/demo_pages/dashboard.js"></script>
@@ -276,8 +277,8 @@
 		<div class="page-content">
 
 			<!-- Main sidebar -->
-			<div class="sidebar sidebar-main">
-				<div class="sidebar-content">
+			<div class="sidebar sidebar-main bg-slate-800">
+				<div class="sidebar-content ">
 
 					<!-- User menu -->
 					<div class="sidebar-user">
@@ -376,28 +377,6 @@
 									</ul>
 								</li>
 								<!-- /user groups-->
-
-								<!-- utilities-->
-								<!-- <li>
-									<a href="#"><i class="icon-cogs"></i> <span> Utilities </span></a>
-									<ul>                                  
-										<li>
-											<a href="utility_lang.php"> Language </a>
-										</li>
-
-										<li>
-											<a href="utility_color.php"> Color </a>
-										</li>
-										<li>
-											<a href="utility_restore.php"> Restore </a>
-										</li>
-
-										<li>
-											<a href="utility_backups.php"> Back-ups </a>
-										</li>
-									</ul>
-								</li> -->
-								<!-- /utilities-->
 
 								<!-- configuration-->
 								<li>
@@ -512,7 +491,7 @@
 									<a href="#"><i class="icon-users4"></i> <span> Tech Evaluation Committee </span></a>
 									<ul>
 										<li>   
-                                            <a href="tec_createform.php"> Create Technical Evaluation Committee </a> 
+                                            <a href="tec_create.php"> Create Technical Evaluation Committee </a> 
                                         </li>
                                         
                                         <li>
@@ -538,9 +517,6 @@
                                            <a href="tender_doc.php"> Tender Documents </a>
                                         </li> -->
 
-                                        <!-- <li>
-                                            <a href="tender_draft.php"> Draft Tenders </a>
-                                        </li> -->
 									</ul>
 								</li>
 								<!--/tender-->
@@ -548,6 +524,10 @@
 								<li>
 									<a href="#"><i class="icon-hammer2"></i> <span> Bids </span></a>
 									<ul>
+										<li>
+                                            <a href="bidders.php"> Bidders </a>
+                                        </li>
+
 										<li>
                                             <a href="bid_checklist.php"> Bid Checklists </a>
                                         </li>
@@ -560,9 +540,7 @@
                                             <a href="bid_rejected.php"> Rejected Bids </a>
                                         </li>
 
-                                        <li>
-                                            <a href="bidders.php"> Bidders </a>
-                                        </li>
+
 
                                         <li>
                                             <a href="bidder_blacklist.php"> Blacklisted Bidders </a>
@@ -588,19 +566,20 @@
 
 								<!--payments-->
 								<li>
-									<a href="payment.php"><i class="icon-coins"></i> <span> Payments </span></a>
+									<a href="#"><i class="icon-coins"></i> <span> Payments </span></a>
 									<ul>
 										<li>
-                                            <a href="pay_fundsalloc.php"> Fund Allocations </a>
-                                        </li>
+                                            <a href="pay_fundsalloc.php"> Make Payment </a>
+										</li>
+										
+										<li>
+                                            <a href="pay_pend.php"> Pending Payments </a>
+										</li>
 
 										<li>
-											<a href="#">Invoices</a>
-											<ul>
-												<li><a href="pay_invopend.php"> Pending Invoices </a></li>
-												<li><a href="pay_involist.php"> Invoice List </a></li>
-											</ul>
-										</li>
+                                            <a href="pay_history.php"> Payment History </a>
+                                        </li>
+
 									</ul>
 								</li>
 								<!--/payment--> 

@@ -97,7 +97,7 @@ document.addEventListener('DOMContentLoaded', function() {
             icon: '<i class="icon-file-check"></i>',
             modal: modalTemplate
         },
-        initialCaption: "Please select image",
+        initialCaption: "Please select image1",
         mainClass: 'input-group',
         previewZoomButtonClasses: previewZoomButtonClasses,
         previewZoomButtonIcons: previewZoomButtonIcons,

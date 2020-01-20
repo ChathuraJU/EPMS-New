@@ -4,8 +4,8 @@
 <div class="content-wrapper" id="content">
 
     <!-- Page header -->
-    <div class="page-header page-header-default">
-        <div class="page-header-content">
+    <div class="page-header page-header-default" style="border-top: 1px solid #ddd; border-left: 1px solid #ddd; border-right: 1px solid #ddd;">
+            <div class="page-header-content border-bottom border-bottom-success-300">
             <div class="page-title">
                 <h4><i class="icon-arrow-left52 position-left"></i> <span class="text-semibold"> Requisition </span></h4>
             </div>
@@ -44,7 +44,7 @@
     <div class="content">
 
         <!-- Clickable title -->
-        <div class="panel panel-white">
+        <div class="panel panel-info">
             <div class="panel-heading">
                 <h6 class="panel-title"><b> Request An Equipment </b></h6>
                 <div class="heading-elements">
@@ -361,18 +361,7 @@
                         </div>
                     </fieldset>
 
-                    
-
-                    <div class="col-lg-4"></div>
-                    <div class="col-lg-4">
-                        <div class="checkbox checkbox-switchery switchery-lg">
-                            <label>
-                                <input type="checkbox" name="switchery_group" class="switchery">
-                                Send For Approval
-                            </label>
-                        </div>
                     </div>
-                    <div class="col-lg-4"></div>
                 </fieldset>
 
 
