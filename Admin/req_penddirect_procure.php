@@ -40,8 +40,8 @@
 
         <!-- Content area -->
         <div class="content">
-            <!-- Restore column visibility -->
-            <div class="panel panel-flat">
+            <!-- Control position -->
+            <div class="panel panel-info">
                 <div class="panel-heading">
                     <h5 class="panel-title"><b>Pending Direct Procurements</b></h5>
                     <div class="heading-elements">
@@ -52,52 +52,65 @@
                     </div>
                 </div>
 
-                <table class="table datatable-colvis-restore">
+                <div class="panel-body">
+
+                </div>
+
+                <table id="directpurchpend" class="table datatable-responsive-control-right">
                     <thead>
-                        <tr>
-                            <th>No.</th>
-                            <th>Equipment Name</th>
-                            <th>Count </th>
-                            <th>Primal Approval Date </th>
-                            <th>Status</th>
-                            <th></th>
-                        </tr>
+                    <tr>
+                        <th>Equipment Name</th>
+                        <th>Count </th>
+                        <th>Status</th>
+                        <th>Proceed To Procure</th>
+
+                    </tr>
                     </thead>
                     <tbody>
 
-                        <tr>
-                            <td>00001</td>
-                            <td>Incubator</td>
-                            <td>10</td>
-                            <td>11.01.2018-29.12.2018</td>
-                            <td>Not Sent</td>
-                            <td></td>
-                        </tr>
-                        <tr>
-                            <td>00001</td>
-                            <td>Incubator</td>
-                            <td>10</td>
-                            <td>11.01.2019</td>
-                            <td>Not Sent</td>
-                            <td></td>
-                        </tr>
-                        
                     </tbody>
                 </table>
 
-                <div class="text-right">
-                    <button type="button" class="btn btn-primary" onclick="window.location.href='reports/tenderpost.php'"> Print Letter <i class="icon-fax position-right"></i></button>
-                </div>
-
             </div>
-            <!-- /restore column visibility -->
-
+            <!-- Control position -->
 
         </div>
         <!-- /content area -->
 
         <script>
-            document.addEventListener('DOMContentLoaded', function() {
+
+            function mydatatable(){
+
+                $('#directpurchpend').DataTable();
+            }
+
+            function getdata(){
+                $.ajax({
+                    method: "POST",
+                    url: "../DBhandle/req_penddirect_procure_con.php?code=get_data",
+                    processData: false,
+                    contentType: false
+                })
+                    .done(function (data) {
+                        $('#directpurchpend').DataTable().destroy();
+                        $('#directpurchpend tbody').empty();
+                        $('#directpurchpend tbody').append(data);
+                        mydatatable();
+                    });
+
+            }
+
+            //get data
+            $(document).ready(function () {
+                // mydatatable();
+                getdata();
+
+            });
+
+
+
+
+            $( document ).ready(function(){
 
                 // Table setup
                 // ------------------------------
@@ -105,47 +118,52 @@
                 // Setting datatable defaults
                 $.extend( $.fn.dataTable.defaults, {
                     autoWidth: false,
-                    dom: '<"datatable-header"fBl><"datatable-scroll-wrap"t><"datatable-footer"ip>',
+                    responsive: true,
+                    columnDefs: [{
+                        orderable: false,
+                        width: '100px',
+                        targets: [ 2 ]
+                    }],
+                    dom: '<"datatable-header"fl><"datatable-scroll-wrap"t><"datatable-footer"ip>',
                     language: {
                         search: '<span>Filter:</span> _INPUT_',
                         searchPlaceholder: 'Type to filter...',
                         lengthMenu: '<span>Show:</span> _MENU_',
                         paginate: { 'first': 'First', 'last': 'Last', 'next': $('html').attr('dir') == 'rtl' ? '&larr;' : '&rarr;', 'previous': $('html').attr('dir') == 'rtl' ? '&rarr;' : '&larr;' }
+                    },
+                    drawCallback: function () {
+                        $(this).find('tbody tr').slice(-3).find('.dropdown, .btn-group').addClass('dropup');
+                    },
+                    preDrawCallback: function() {
+                        $(this).find('tbody tr').slice(-3).find('.dropdown, .btn-group').removeClass('dropup');
                     }
                 });
 
-                // Restore column visibility
-                $('.datatable-colvis-restore').DataTable({
-                    buttons: [
-                        {
-                            extend: 'colvis',
-                            text: '<i class="icon-grid7"></i> <span class="caret"></span>',
-                            className: 'btn bg-teal-400 btn-icon',
-                            postfixButtons: [ 'colvisRestore' ]
+                // Control position
+                $('.datatable-responsive-control-right').DataTable({
+                    responsive: {
+                        details: {
+                            type: 'column',
+                            target: -1
                         }
-                    ],
+                    },
                     columnDefs: [
                         {
-                            targets: -1,
-                            visible: false
+                            className: 'control',
+                            orderable: false,
+                            targets: -1
+                        },
+                        {
+                            width: "100px",
+                            targets: [5]
+                        },
+                        {
+                            orderable: false,
+                            targets: [5]
                         }
                     ]
                 });
 
-                // External table additions
-                // ------------------------------
-                
-                // Launch Uniform styling for checkboxes
-                $('.ColVis_Button').addClass('btn btn-primary btn-icon').on('click mouseover', function() {
-                    $('.ColVis_collection input').uniform();
-                });
-
-                // Enable Select2 select for the length option
-                $('.dataTables_length select').select2({
-                    minimumResultsForSearch: Infinity,
-                    width: 'auto'
-                });
-                
             });
 
         </script>

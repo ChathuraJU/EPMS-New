@@ -1,24 +1,40 @@
 <?php
-//  function fetch_data()
-// {
-//     $output = '';
-//     $conn = db_con();
-//     $sql = "SELECT *from employees";
-//     $result = mysqli_query($conn, $sql);
-//     while($row = mysqli_fetch_array($result))
-//     {
-//         $output .= '<tr>  
-//                           <td>'.$row["id"].'</td>  
-//                           <td>'.$row["priority"].'</td>  
-//                           <td>'.$row["date"].' '.$row["time"].'</td>
-//                           <td>'.$row["location_name"].'</td>  
-//                           <td>'.$row["name"].'</td>  
-//                           <td>'.$row["first_name"].' '.$row["last_name"].'</td>
-//                      </tr>  
-//                           ';
-//     }
-//     return $output;
-// } 
+  function fetch_data()
+ {
+     $output = '';
+
+     $servername = "localhost";
+     $username = "root";
+     $password = "";
+     $db = "nhk_epms";
+
+     // Create connection
+     $conn = mysqli_connect($servername, $username, $password, $db);
+     // Check connection
+     if (!$conn) {
+         die("Connection failed: " . mysqli_connect_error());
+     }
+
+
+     $sql = "SELECT
+              *,
+              SUM(rapp.`Req_eqp_qty`) AS c
+            FROM
+              `epms_req_prim_app` rapp
+            WHERE rapp.`Status` = 'pending' and `Procurement_type` ='3'
+            GROUP BY rapp.`Req_equip`";
+     $result = mysqli_query($conn, $sql);
+     while($row = mysqli_fetch_array($result))
+     {
+         $output .= '<tr>  
+                           <td>'.$row["Req_equip"].'</td>  
+                           <td>'.$row["c"].'</td>  
+
+                      </tr>  
+                           ';
+     }
+     return $output;
+ }
 
 
 
@@ -59,64 +75,16 @@
     <div style="width: 08px"></div>
     <table border="1" cellspacing="0" cellpadding="3" style="margin-top: 20px;">
         <tr>
-            <th width="15%"><b>No</b></th>
-            <th width="70%"><b>Equipment Name</b></th>
-            <th width="15%"><b>Count</b> </th>
+
+            <th width="80%"><b>Equipment Name</b></th>
+            <th width="20%"><b>Count</b> </th>
                 
            </tr>
       ';
-    $content .= //fetch_data();
-        '           <tr> 
-                          <td style="font-family: Arial">000001</td>  
-                          <td style="font-family: Arial">Incubator</td>  
-                          <td style="font-family: Arial">10</td>                         
+    $content .= fetch_data();
 
 
-                    </tr>
-                    <tr> 
-                          <td style="font-family: Arial">000002</td>  
-                          <td style="font-family: Arial">Respirometer</td>  
-                          <td style="font-family: Arial">04</td>                         
-
-                    </tr>
-                    <tr> 
-                          <td style="font-family: Arial">000003</td>  
-                          <td style="font-family: Arial">DNA EXtractor</td>  
-                          <td style="font-family: Arial">01</td>                         
-
-                    </tr>
-                    <tr> 
-                          <td style="font-family: Arial">000004</td>  
-                          <td style="font-family: Arial">Medical Grade Refrigerator</td>  
-                          <td style="font-family: Arial">02</td>                         
-
-                    </tr>
-                    <tr> 
-                        <td style="font-family: Arial">000005</td>  
-                        <td style="font-family: Arial">Holmium Laser Device</td>  
-                        <td style="font-family: Arial">01</td>                         
-
-                    </tr>
-                    <tr> 
-                        <td style="font-family: Arial">000006</td>  
-                        <td style="font-family: Arial">Pendents</td>  
-                        <td style="font-family: Arial">05</td>                         
-
-                    </tr>
-                    <tr> 
-                        <td style="font-family: Arial">000007</td>  
-                        <td style="font-family: Arial">Foot Ware Items</td>  
-                        <td style="font-family: Arial">200</td>                         
-
-                    </tr>
-                    <tr> 
-                        <td style="font-family: Arial">000008</td>  
-                        <td style="font-family: Arial">Fluid Warmer</td>  
-                        <td style="font-family: Arial">10</td>                         
-
-                    </tr>
-
-                     </table>
+        $content .=       '      </table>
 
                      </br>
                      <h4>
@@ -126,8 +94,6 @@
                      </br>
                      </br>
                      <h4>........................</h4>
-                     <h4></h4>
-                     <h4></h4>
                      <h4></h4>
                      <h4></h4>
                      <h4></h4>

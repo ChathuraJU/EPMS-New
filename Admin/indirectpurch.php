@@ -54,49 +54,20 @@
             </div>
 
 
-            <table class="table datatable-responsive-control-right">
+            <table id="minpurch" class="table datatable-responsive-control-right">
                 <thead>
                     <tr>
                         <th>Primal Approved Equipment ID </th>
-                        <th>Requisition ID</th>
-                        <th>Requisition Equipment No.</th>
+                        <th>Requisition Equipment ID.</th>
+                        <th>Equipment Name</th>
+                        <th>Quantity</th>
                         <th>Primal Approval Date</th>
-                        <th>Proceed </th>
+                        <th>Status</th>
                         <th></th>
                         
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>PAPP-REQ-000001-03</td>
-                        <td><a href="reqequip.php"> REQ-000001 </a></td>
-                        <td><a href="reqapproval.php"> REQ-000001-03  </a></td>
-                        <td> 07 Dec 2017</td>
-                        <td><a href="minapproval.php"> Proceed </a></td>
-                        <td></td>
-                        
-                    </tr>
-
-                    <tr>
-                        <td>PAPP-REQ-000002-02</td>
-                        <td><a href="reqequip.php"> REQ-000002  </a></td>
-                        <td><a href="reqapproval.php"> REQ-000002-02  </a></td>
-                        <td> 07 Dec 2017</td>
-                        <td><a href="tec_createform.php"> Proceed </a></td>
-                        <td></td>
-                    
-                    </tr>
-
-                    <tr>
-                        <td>PAPP-REQ-000002-04</td>
-                        <td><a href="reqequip.php"> REQ-000004 </a></td>
-                        <td><a href="reqapproval.php"> REQ-000002-04  </a></td>
-                        <td> 07 Dec 2017</td>
-                        <td><a href="tec_createform.php"> Proceed </a></td>
-                        <td></td>
-                    
-                    </tr>
-
 
                 </tbody>
             </table>
@@ -106,6 +77,35 @@
     <!-- /content area -->
 
     <script>
+
+        function mydatatable(){
+
+            $('#minpurch').DataTable();
+        }
+
+        //get data
+        $(document).ready(function () {
+            // mydatatable();
+
+            $.ajax({
+                method: "POST",
+                url: "../DBhandle/indirectpurch_con.php?code=get_data",
+                processData: false,
+                contentType: false
+            })
+                .done(function (data) {
+                    $('#minpurch').DataTable().destroy();
+                    $('#minpurch tbody').empty();
+                    $('#minpurch tbody').append(data);
+                    mydatatable();
+                });
+        });
+
+
+
+
+
+
         $( document ).ready(function(){
 
             // Table setup
