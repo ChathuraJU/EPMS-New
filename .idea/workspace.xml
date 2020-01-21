@@ -9,28 +9,21 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ComposerSettings" synchronizationState="SYNCHRONIZE">
+  <component name="ComposerSettings" doNotAsk="true" synchronizationState="SYNCHRONIZE">
     <pharConfigPath>$PROJECT_DIR$/tcpdf/composer.json</pharConfigPath>
   </component>
   <component name="FileEditorManager">
-    <leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file leaf-file-name="header.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Admin/header.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-7855" />
-          </provider>
+          <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
       <file leaf-file-name="req_list.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Admin/req_list.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="36">
-              <caret line="87" lean-forward="true" selection-start-line="87" selection-end-line="114" selection-end-column="15" />
-              <folding>
-                <element signature="e#4146#5248#0#HTML" />
-                <element signature="e#5351#6007#0#HTML" />
-                <element signature="e#6053#6252#0#HTML" />
-              </folding>
+            <state relative-caret-position="1566">
+              <caret line="87" selection-start-line="87" selection-end-line="114" selection-end-column="15" />
             </state>
           </provider>
         </entry>
@@ -38,16 +31,16 @@
       <file leaf-file-name="req_list_con.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/DBhandle/req_list_con.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="70">
-              <caret line="17" column="35" lean-forward="true" selection-start-line="17" selection-start-column="35" selection-end-line="17" selection-end-column="35" />
+            <state relative-caret-position="306">
+              <caret line="17" column="35" selection-start-line="17" selection-start-column="35" selection-end-line="17" selection-end-column="35" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="req_details.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="req_details.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Admin/req_details.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="299">
+            <state relative-caret-position="18">
               <caret line="185" column="78" selection-start-line="185" selection-start-column="66" selection-end-line="185" selection-end-column="78" />
               <folding>
                 <marker date="1579561412103" expanded="true" signature="330:417" ph="..." />
@@ -56,10 +49,19 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="req_create.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Admin/req_create.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-3136">
+              <caret line="343" column="68" selection-start-line="343" selection-start-column="68" selection-end-line="343" selection-end-column="68" />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="req_details_con.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/DBhandle/req_details_con.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="661">
+            <state relative-caret-position="882">
               <caret line="49" column="64" selection-start-line="49" selection-start-column="64" selection-end-line="49" selection-end-column="64" />
             </state>
           </provider>
@@ -160,36 +162,38 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1579546608760</updated>
-      <workItem from="1579546615561" duration="14585000" />
+      <workItem from="1579546615561" duration="14798000" />
+      <workItem from="1579563992637" duration="54000" />
+      <workItem from="1579586367819" duration="302000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="14585000" />
+    <option name="totallyTimeSpent" value="15154000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="754" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="1" visible="true" weight="0.20045386" />
+      <window_info active="true" content_ui="combo" id="Project" order="1" visible="true" weight="0.2065053" />
       <window_info anchor="bottom" id="TODO" order="11" />
       <window_info anchor="bottom" id="Docker" order="0" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="3" side_tool="true" />
       <window_info anchor="right" id="Database" order="0" />
       <window_info anchor="bottom" id="Database Changes" order="1" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Run" order="7" />
       <window_info anchor="bottom" id="Version Control" order="4" />
+      <window_info anchor="bottom" id="Run" order="7" />
       <window_info id="Structure" order="2" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Terminal" order="2" />
-      <window_info anchor="bottom" id="Debug" order="8" weight="0.4" />
       <window_info id="Favorites" order="0" side_tool="true" />
-      <window_info anchor="bottom" id="Find" order="6" />
+      <window_info anchor="bottom" id="Debug" order="8" weight="0.4" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="3" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="10" weight="0.4" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="1" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="2" weight="0.25" />
-      <window_info anchor="bottom" id="Inspection" order="10" weight="0.4" />
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="3" weight="0.25" />
       <window_info anchor="bottom" id="Message" order="5" />
       <window_info anchor="bottom" id="Cvs" order="9" weight="0.25" />
+      <window_info anchor="bottom" id="Find" order="6" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -204,6 +208,74 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/Admin/header.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Admin/req_list.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1566">
+          <caret line="87" selection-start-line="87" selection-end-line="114" selection-end-column="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/DBhandle/req_list_con.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="17" column="35" selection-start-line="17" selection-start-column="35" selection-end-line="17" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/DBhandle/req_details_con.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="882">
+          <caret line="49" column="64" selection-start-line="49" selection-start-column="64" selection-end-line="49" selection-end-column="64" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Admin/req_details.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3330">
+          <caret line="185" column="78" selection-start-line="185" selection-start-column="66" selection-end-line="185" selection-end-column="78" />
+          <folding>
+            <marker date="1579561412103" expanded="true" signature="330:417" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Admin/header.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Admin/req_list.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1566">
+          <caret line="87" lean-forward="true" selection-start-line="87" selection-end-line="114" selection-end-column="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/DBhandle/req_list_con.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="17" column="35" lean-forward="true" selection-start-line="17" selection-start-column="35" selection-end-line="17" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/DBhandle/req_details_con.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="882">
+          <caret line="49" column="64" selection-start-line="49" selection-start-column="64" selection-end-line="49" selection-end-column="64" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Admin/req_details.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3330">
+          <caret line="185" column="78" selection-start-line="185" selection-start-column="66" selection-end-line="185" selection-end-column="78" />
+          <folding>
+            <marker date="1579561412103" expanded="true" signature="330:417" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/index.php">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -235,13 +307,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Admin/req_create.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="97">
-          <caret line="343" column="68" selection-start-line="343" selection-start-column="68" selection-end-line="343" selection-end-column="68" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Admin/inventory_manage.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="54">
@@ -257,9 +322,7 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Admin/header.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-7855" />
-      </provider>
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/DBhandle/req_create_con.php">
       <provider selected="true" editor-type-id="text-editor">
@@ -270,37 +333,39 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/DBhandle/req_list_con.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="70">
-          <caret line="17" column="35" lean-forward="true" selection-start-line="17" selection-start-column="35" selection-end-line="17" selection-end-column="35" />
+        <state relative-caret-position="306">
+          <caret line="17" column="35" selection-start-line="17" selection-start-column="35" selection-end-line="17" selection-end-column="35" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Admin/req_list.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="36">
-          <caret line="87" lean-forward="true" selection-start-line="87" selection-end-line="114" selection-end-column="15" />
-          <folding>
-            <element signature="e#4146#5248#0#HTML" />
-            <element signature="e#5351#6007#0#HTML" />
-            <element signature="e#6053#6252#0#HTML" />
-          </folding>
+        <state relative-caret-position="1566">
+          <caret line="87" selection-start-line="87" selection-end-line="114" selection-end-column="15" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/DBhandle/req_details_con.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="661">
+        <state relative-caret-position="882">
           <caret line="49" column="64" selection-start-line="49" selection-start-column="64" selection-end-line="49" selection-end-column="64" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Admin/req_details.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="299">
+        <state relative-caret-position="18">
           <caret line="185" column="78" selection-start-line="185" selection-start-column="66" selection-end-line="185" selection-end-column="78" />
           <folding>
             <marker date="1579561412103" expanded="true" signature="330:417" ph="..." />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Admin/req_create.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-3136">
+          <caret line="343" column="68" selection-start-line="343" selection-start-column="68" selection-end-line="343" selection-end-column="68" />
         </state>
       </provider>
     </entry>

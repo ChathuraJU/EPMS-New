@@ -40,6 +40,7 @@
                 if (!$conn) {
                     die("Connection failed: " . mysqli_connect_error());
                 }
+                
 
                 $sql1 ="SELECT Unit_no FROM epms_unit ORDER BY Unit_sn DESC LIMIT 1 ";
                 $result1=mysqli_query($conn,$sql1);
@@ -53,7 +54,7 @@
 
                 $unt_number = substr($last_id,2,6);
                 $newunt_number = str_pad(intval($unt_number) + 1, strlen($unt_number),'0', STR_PAD_LEFT);
-                $new_untid = "KGH-".$newunt_number;
+                $new_untid = "UN".$newunt_number;
 
 
                 $sql = "INSERT INTO `epms_unit`(`Unit_no`,`Unit_name`,`Location`,`Unit_head_id`,

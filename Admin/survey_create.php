@@ -29,6 +29,7 @@
     <!-- Content area -->
     <div class="content">
 
+
         <!-- Clickable title -->
         <div class="panel panel-info">
             <div class="panel-heading">
@@ -41,7 +42,7 @@
                 </div>
             </div>
             
-            <form class="stepy-clickable" id="srvcrtfrm" action="#">
+            <form class="stepy-basic" id="srvcrtfrm" enctype="multipart/form-data">
                 <fieldset title="1">
                     <legend class="text-semibold"> Survey Details </legend>
                     
@@ -95,9 +96,10 @@
                                     <div class="form-group">
                                         <label> Submission Date : <span class="text-danger">*</span></label>
                                         <div class="input-group">
-                                            <span class="input-group-addon"><i class="icon-calendar22"></i></span>
-                                            <input type="text" id="subdate" name="subdate" class="form-control pickadate-strings required" placeholder="Try me&hellip;">
+                                            <span class="input-group-addon"><i class="icon-calendar3"></i></span>
+                                            <input type="text" id="anytime-weekdaya" name="subdate" class="form-control pickadate-strings required" placeholder="Try me&hellip;">
                                         </div>
+              
                                     </div>
                                 </div>
 
@@ -132,28 +134,16 @@
 
                         <div class="row">
                             <div class="col-md-6">
-                                <div class="form-group">  
-                                    <label> Equipment Make : <span class="text-danger">*</span></label>
-                                    <input type="text" id="equipmake" name="equipmake" class="form-control required"  />
+                                <div class="form-group">
+                                    <div class="content-group-lg">
+                                        <label>Date of Installation : <span class="text-danger">*</span></label>
+                                        <div class="input-group">
+                                            <span class="input-group-addon"><i class="icon-calendar3"></i></span>
+                                            <input type="text"  class="form-control" id="anytime-weekday" name="installdate" placeholder="Try me&hellip;">
+                                        </div>
+                                    </div>
                                 </div>
-                            </div> 
-
-                            <div class="col-md-6">
-                                <div class="form-group">  
-                                    <label> Equipment Model:  <span class="text-danger">*</span></label>
-                                    <input type="text" id="equipmodel" name="equipmodel" class="form-control required"  />
-                                </div>
-                            </div> 
-                        </div>
-
-                        <div class="row">
-                            <div class="col-md-6">
-                                <div class="form-group">  
-                                    <label> Equipment Serial No.: <span class="text-danger">*</span></label>
-                                    <input type="text" name="equipcode" class="form-control required"  />
-                                </div>
-                            </div> 
-
+                            </div>
                             <div class="col-md-6">
                                 <div class="form-group">  
                                     <label> Present Status : <span class="text-danger">*</span></label>
@@ -163,19 +153,7 @@
                         </div>
 
                         <div class="row">
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <div class="content-group-lg">
-                                        <label>Date of Installation : <span class="text-danger">*</span></label>
-                                        <div class="input-group">
-                                            <span class="input-group-addon"><i class="icon-calendar3"></i></span>
-                                            <input type="text"  class="form-control" id="anytime-weekdaya" name="installdate" placeholder="Try me&hellip;">
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="col-md-6">
+                            <div class="col-md-12">
                                 <div class="form-group">
                                     <label> Remarks :</label>
                                     <div class="input-group">
@@ -190,7 +168,41 @@
                             <div class="col-sm-4">
                                 <button class="btn btn-primary btn-block" id="btn_add">Add</button>
                             </div>
-                            <div class="col-sm-4"></div>
+                        </div>
+
+                        <br>
+
+                        <div class="row">
+                            <!-- Basic responsive table -->
+                            <div class="panel panel-flat">
+                                <div class="panel-heading">
+                                    <h5 class="panel-title">Equipment List</h5>
+                                    <div class="heading-elements">
+                                        <ul class="icons-list">
+                                            <li><a data-action="collapse"></a></li>
+                                            <li><a data-action="reload"></a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+
+                                <div class="table-responsive">
+                                    <table class="table" id="tblajx">
+                                        <thead>
+                                            <tr>
+                                                <th> Equipment Code </th>
+                                                <th> Equipment Name </th>
+                                                <th> Date of Installatiion </th>
+                                                <th> Reason </th>
+                                                <th> Action <th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                            <!-- /basic responsive table -->
                         </div>
 
                 </fieldset>
@@ -281,15 +293,12 @@
                             <!-- Basic responsive table -->
                             <div class="panel panel-flat">
                                 <div class="table-responsive">
-                                    <table class="table" id="tblajx">
+                                    <table class="table" id="tblajx2">
                                         <thead>
                                             <tr>
                                                 
                                                 <th> Equipment Code </th>
                                                 <th> Equipment Name </th>
-                                                <th> Make </th>
-                                                <th> Model </th>
-                                                <th> Serial No. </th>
                                                 <th> Present Status </th>
                                                 <th> Date of Installation </th>
                                                 <th> Remarks </th>
@@ -329,50 +338,16 @@
 
                 $('#tblajx tr').each(function(row, tr){
                     TableData[row]={
-                        "Equipment Code" : $(tr).find('td:eq(0)').text()
-                        , "Equipment Name" :$(tr).find('td:eq(1)').text()
-                        , "Make" : $(tr).find('td:eq(2)').text()
-                        , "Model" : $(tr).find('td:eq(3)').text()
-                        , "Serial No" : $(tr).find('td:eq(4)').text()
-                        , "Present Status" :$(tr).find('td:eq(5)').text()
-                        , "Date of Installation" : $(tr).find('td:eq(6)').text()
-                        , "Remarks" : $(tr).find('td:eq(7)').text()
+                        " equipcode" : $(tr).find('td:eq(0)').text()
+                        , "equipname" :$(tr).find('td:eq(1)').text()
+                        , "presentstat" :$(tr).find('td:eq(2)').text()
+                        , "doi" : $(tr).find('td:eq(3)').text()
+                        , "remarks" : $(tr).find('td:eq(4)').text()
                     }    
                 }); 
                 TableData.shift();  // first row will be empty - so remove
                 return TableData;
             }
-
-
-            function get_data(){
-                var val1 = $('#surid').val();
-                $('#suridf').val(val1);
-                var val2 = $('#empid').val();
-                $('#empidf').val(val2);
-                var val3 = $('#unit').val();
-                $('#unitf').val(val3);
-                var val4 = $('#ward').val();
-                $('#wardf').val(val4);
-                var val5 = $('#year').val();
-                $('#yearf').val(val5);
-                var val6 = $('#subdate').val();
-                $('#subdatef').val(val6);
-
-            }
-
-            $("#btn_add").click(function(){
-                var val1 = $('#equipcode').val();
-                var val2 = $('#equip').val();
-                var val3 = $('#equipmake').val();
-                var val4 = $('#equipmodel').val();
-                var val5=$('#equipsno').val();
-                var val6 = $('#status').val();
-                var val7=$('#installdate').val();
-                var val8=$('#remarks').val();
-                
-                $("#tblajx tbody").append("<tr><td>"+val1+"</td><td>"+val2+"</td><td>"+val3+"</td><td>"+val4+"</td><td>"+val5+"</td><td>"+val6+"</t><td>"+val7+"</td><td>"+val8+"</td><td><ul class='icons-list'><li><a href='#'><i class='icon-pencil7'></i></a></li><li><a href='#'><i class='icon-trash'></i></a></li></ul></td></tr>");
-            });
-
 
 
         // wizard and datepicker
@@ -386,37 +361,40 @@
 
 
             // Stepy basic
-            $(".stepy-clickable").stepy({
+            $(".stepy-basic").stepy({
                 next: function(index) {
                     if(index==3){
                         get_data();
                     }
                 },
+                next: function(index) {
+
+                },                  
                 back: function(index) {
                     
                 },
                 finish: function() {
+                    // alert("test first");
                     TableData = JSON.stringify(storeTblValues());
-                    sendData = new FormData($("#srvcrtfrm")[0]);
-                    sendData.append('pTableData', TableData);
+                    formData = new FormData($("#srvcrtfrm")[0]);
+                    formData.append('pTableData', TableData);
                     $.ajax({
                         type: "POST",
-                        url: "../DBhandle/survey_create_con.php?code=tableData",
-                        data: sendData,
+                        url: "../DBhandle/survey_create_con.php?code=submit",
+                        data: formData,
                         processData: false,
                         contentType: false,
                         success: function(data){
-                           alert(data);
+                            alert(data);
                         }
                     });
-
                     preventDefault();
                 }
             });+
 
 
-            $('.stepy-clickable').find('.button-next').addClass('btn btn-primary');
-            $('.stepy-clickable ').find('.button-back').addClass('btn btn-default');
+            $('.stepy-basic').find('.button-next').addClass('btn btn-primary');
+            $('.stepy-basic').find('.button-back').addClass('btn btn-default');
 
             $("#anytime-weekday").AnyTime_picker({
                 format: "%W, %D of %M, %Z"
@@ -448,41 +426,46 @@
             });
         });
 
+
+        //get data 
+        $(document).ready(function () {
+
+            //to select box
+                //unit name
+            $.ajax({
+                method: "POST",
+                url: "../DBhandle/survey_create_con.php?code=get_unitselect_data",
+                processData: false,
+                contentType: false
+            })
+                .done(function (data) {
+                $("#unit").append(data);
+                });
+
+                
+                //ward name
+            $.ajax({
+                method: "POST",
+                url: "../DBhandle/survey_create_con.php?code=get_wardselect_data",
+                processData: false,
+                contentType: false
+            })
+                .done(function (data) {
+                $("#ward").append(data);
+                });
+
+        });
+
+
+        $("#btn_add").click(function(){
+            var val1 = $('#equipcode').val();
+            var val2 = $('#equip').val();
+            var val3 = $('#status').val();
+            var val4=$('#installdate').val();
+            var val5=$('#remarks').val();
             
-
-        function mydatatable(){
-                // $('#tblajx').DataTable();
-            }
-
-            //get data 
-            $(document).ready(function () {
-
-                //to select box
-                    //unit name
-                $.ajax({
-                    method: "POST",
-                    url: "../DBhandle/survey_create_con.php?code=get_unitselect_data",
-                    processData: false,
-                    contentType: false
-                })
-                    .done(function (data) {
-                    $("#unit").append(data);
-                    });
-
-                    
-                    //ward name
-                $.ajax({
-                    method: "POST",
-                    url: "../DBhandle/survey_create_con.php?code=get_wardselect_data",
-                    processData: false,
-                    contentType: false
-                })
-                    .done(function (data) {
-                    $("#ward").append(data);
-                    });
-
-            });
-
+            $("#tblajx tbody").append("<tr><td>"+val1+"</td><td>"+val2+"</td><td>"+val3+"</td><td>"+val4+"</td><td>"+val5+"</td><td><ul class='icons-list'><li><a href='#'><i class='icon-pencil7'></i></a></li><li><a href='#'><i class='icon-trash'></i></a></li></ul></td></tr>");
+        });
 
 
     </script> 

@@ -77,9 +77,8 @@
                                     <div class="form-group">
                                         <label> Request Type : <span class="text-danger">*</span></label>
                                         <select id="reqtype" name="reqtype" data-placeholder="Choose a Request type" class="select-search required" >
-                                            <option></option> 
-                                            <option value="1"> Annual Request </option> 
-                                            <option value="2"> Precipitate Request </option> 
+                                            <option > Annual Request </option> 
+                                            <option > Precipitate Request </option> 
                                         </select>
                                     </div> 
                                 </div> 
@@ -103,13 +102,6 @@
                                         <label> Employee ID : <span class="text-danger">*</span></label>
                                         <select id="empid" name="empid" data-placeholder="Choose an ID..." class="select-search required">
                                             <option></option> 
-                                            <option value="KGH-000001"> KGH-000001 </option> 
-                                            <option value="KGH-000002"> KGH-000002 </option> 
-                                            <option value="KGH-000003"> KGH-000003 </option> 
-                                            <option value="KGH-000004"> KGH-000004 </option> 
-                                            <option value="KGH-000005"> KGH-000005 </option> 
-                                            <option value="KGH-000006"> KGH-000006 </option> 
-                                            <option value="KGH-000007"> KGH-000007 </option> 
                                         </select>
                                     </div>
                                 </div>
@@ -117,16 +109,8 @@
                                 <div class="row">
                                     <div class="form-group">
                                         <label> Unit : <span class="text-danger">*</span></label>
-                                        <select name="unit" id="unit" data-placeholder="Choose a unit..." class="select-search required">
+                                        <select name="unit" id="unit" Value="None" class="select-search required">
                                             <option></option> 
-                                            <option value="1">Respiratory Unit</option> 
-                                            <option value="2">ENT Clinic</option> 
-                                            <option value="3">Cath Lab.</option> 
-                                            <option value="4">KT OT</option> 
-                                            <option value="5">Skin Clinic</option> 
-                                            <option value="6">Radiology Unit</option> 
-                                            <option value="7">Cardiology Unit</option> 
-                                            <option value="7">............</option> 
                                         </select>
                                     </div>
                                 </div>
@@ -134,14 +118,8 @@
                                 <div class="row">
                                     <div class="form-group">
                                         <label> Ward : <span class="text-danger">*</span></label>
-                                        <select id="ward" name="ward" data-placeholder="Choose a ward..." class="select-search required">
+                                        <select id="ward" name="ward" value="None" class="select-search required">
                                             <option></option> 
-                                            <option value="1"> None </option> 
-                                            <option value="2"> WD 01 </option> 
-                                            <option value="3"> WD 02 </option> 
-                                            <option value="4"> WD 03 </option> 
-                                            <option value="5">........</option> 
-                                            <option value="7">........</option> 
                                         </select>
                                     </div>
                                 </div>
@@ -167,10 +145,6 @@
                                         <label> Equipment : <span class="text-danger">*</span></label>
                                         <select id="equip" name="equip" data-placeholder="Choose a Equipment..." class="select-search required">
                                             <option></option> 
-                                            <option value="Multi Para Monitors "> Multi Para Monitors </option> 
-                                            <option value="Sphygmomanometer"> Sphygmomanometer </option> 
-                                            <option value="Syringe Pump"> Syringe Pump </option> 
-                                            <option value="Nebulizer"> Nebulizer </option> 
                                         </select>
                                     </div>
                                 </div>
@@ -202,13 +176,14 @@
                                     </div>
                                 </div>
 
-                                <div class="col-sm-4"></div>
-                                <div class="col-sm-4">
-                                    <button class="btn btn-primary btn-block" id="btn_add">Add</button>
+                                <div class="row">
+                                    <div class="col-sm-4"></div>
+                                    <div class="col-sm-4">
+                                        <button class="btn btn-primary btn-block" id="btn_add">Add</button>
+                                    </div>
                                 </div>
-
+                          
                             </div>
-
                         </div>
 
                         <br>
@@ -409,116 +384,157 @@
 
             // }
 
+        //get data to select box
+        $(document).ready(function () {
+            //employee id ajax request
+            $.ajax({
+                method: "POST",
+                url: "../DBhandle/req_create_con.php?code=get_empidselect_data",
+                processData: false,
+                contentType: false
+            })
+                .done(function (data) {
+                    $("#empid").append(data);
+                });
+
+            //unit name ajax request
+            $.ajax({
+                method: "POST",
+                url: "../DBhandle/req_create_con.php?code=get_unitselect_data",
+                processData: false,
+                contentType: false
+            })
+                .done(function (data) {
+                    $("#unit").append(data);
+                });
+            
+            //ward name ajax request
+            $.ajax({
+                method: "POST",
+                url: "../DBhandle/req_create_con.php?code=get_wardselect_data",
+                processData: false,
+                contentType: false
+            })
+                .done(function (data) {
+                    $("#ward").append(data);
+                });
+
+            //Equip name ajax request
+            $.ajax({
+                method: "POST",
+                url: "../DBhandle/req_create_con.php?code=get_equipselect_data",
+                processData: false,
+                contentType: false
+            })
+                .done(function (data) {
+                    $("#equip").append(data);
+                });
+
+        });
+
+        //Steppy
+        $( document ).ready(function() {
+
+            $.fn.stepy.defaults.legend = false;
+            $.fn.stepy.defaults.transition = 'fade';
+            $.fn.stepy.defaults.duration = 150;
+            $.fn.stepy.defaults.backLabel = '<i class="icon-arrow-left13 position-left"></i> Back';
+            $.fn.stepy.defaults.nextLabel = 'Next <i class="icon-arrow-right14 position-right"></i>';
 
 
-            $( document ).ready(function() {
-
-                $.fn.stepy.defaults.legend = false;
-                $.fn.stepy.defaults.transition = 'fade';
-                $.fn.stepy.defaults.duration = 150;
-                $.fn.stepy.defaults.backLabel = '<i class="icon-arrow-left13 position-left"></i> Back';
-                $.fn.stepy.defaults.nextLabel = 'Next <i class="icon-arrow-right14 position-right"></i>';
-
-
-                 // Stepy callbacks
-                $(".stepy-basic").stepy({
-                    next: function(index) {
-                        if(index==3){
-                            get_data();
-                        }
-                    },
-                    next: function(index) {
-
-                    },                  
-                    back: function(index) {
-                        
-                    },
-                    finish: function() {
-                    // alert("test first");
-                        TableData = JSON.stringify(storeTblValues());
-                        formData = new FormData($("#frmdata")[0]);
-                        formData.append('pTableData', TableData);
-                        $.ajax({
-                            type: "POST",
-                            url: "../DBhandle/req_create_con.php?code=submit",
-                            data: formData,
-                            processData: false,
-                            contentType: false,
-                            success: function(data){
-                                alert(data);
-                            }
-                        });
-
-
-                        preventDefault();
+                // Stepy callbacks
+            $(".stepy-basic").stepy({
+                next: function(index) {
+                    if(index==3){
+                        get_data();
                     }
-                });
+                },
+                next: function(index) {
 
-                $('.stepy-basic').find('.button-next').addClass('btn btn-primary');
-                $('.stepy-basic').find('.button-back').addClass('btn btn-default');
+                },                  
+                back: function(index) {
+                    
+                },
+                finish: function() {
+                // alert("test first");
+                    TableData = JSON.stringify(storeTblValues());
+                    formData = new FormData($("#frmdata")[0]);
+                    formData.append('pTableData', TableData);
+                    $.ajax({
+                        type: "POST",
+                        url: "../DBhandle/req_create_con.php?code=submit",
+                        data: formData,
+                        processData: false,
+                        contentType: false,
+                        success: function(data){
+                            alert(data);
+                        }
+                    });
 
+
+                    preventDefault();
+                }
             });
 
-            $( document ).ready(function(){
-                $('.pickadate-strings').pickadate({
-                    weekdaysShort: ['Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa'],
-                    showMonthsShort: true
-                });
+            $('.stepy-basic').find('.button-next').addClass('btn btn-primary');
+            $('.stepy-basic').find('.button-back').addClass('btn btn-default');
 
+        });
+
+        //Date Picker
+        $( document ).ready(function(){
+            $('.pickadate-strings').pickadate({
+                weekdaysShort: ['Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa'],
+                showMonthsShort: true
             });
 
-            $( document ).ready(function(){
-                // Bootstrap switch
-                // ------------------------------
+        });
 
-                $(".switch").bootstrapSwitch();
 
+        // select2
+        $( document ).ready(function(){
+
+            // Default initialization
+            $('.select').select2({
+                minimumResultsForSearch: Infinity
             });
 
-            // select2
-            $( document ).ready(function(){
 
-                // Default initialization
-                $('.select').select2({
-                    minimumResultsForSearch: Infinity
-                });
+            // Select with search
+            $('.select-search').select2();
 
 
-                // Select with search
-                $('.select-search').select2();
+            // Fixed width. Single select
+            $('.select-fixed-single').select2({
+                minimumResultsForSearch: Infinity,
+                width: 250
+            });
+        });
 
+                    
+        // touchspin
+        $( document ).ready(function() {
 
-                // Fixed width. Single select
-                $('.select-fixed-single').select2({
-                    minimumResultsForSearch: Infinity,
-                    width: 250
-                });
+            // Switchery
+            var elems = Array.prototype.slice.call(document.querySelectorAll('.switchery'));
+            elems.forEach(function(html) {
+                var switchery = new Switchery(html);
             });
 
-                        
-            // touchspin
-            $( document ).ready(function() {
 
-                // Switchery
-                var elems = Array.prototype.slice.call(document.querySelectorAll('.switchery'));
-                elems.forEach(function(html) {
-                    var switchery = new Switchery(html);
-                });
+            // Styled checkboxes/radios
+            $(".styled").uniform();
 
-
-                // Styled checkboxes/radios
-                $(".styled").uniform();
-
-                // Update uniform when select between styled and unstyled
-                $('.input-group-addon input[type=radio]').on('click', function() {
-                    $.uniform.update("[name=addon-radio]");
-                });
-
-                
-                // Init with empty values
-                $(".touchspin-empty").TouchSpin();
-
+            // Update uniform when select between styled and unstyled
+            $('.input-group-addon input[type=radio]').on('click', function() {
+                $.uniform.update("[name=addon-radio]");
             });
+
+            
+            // Init with empty values
+            $(".touchspin-empty").TouchSpin();
+
+        });
 
 
 

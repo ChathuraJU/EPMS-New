@@ -60,20 +60,9 @@
                             <th>Unit</th>
                             <th>Ward</th>
                             <th>Proceed for Approval </th>
-                            <th></th>
-                        
                         </tr>
                     </thead>
                     <tbody>
-<!--                        <tr>-->
-<!--                            <td> REQ-000002  </a></td>-->
-<!--                            <td> 07 Dec 2017</td>-->
-<!--                            <td> Respiratory Unit </td>-->
-<!--                            <td> None </td>-->
-<!--                            <td><a href="req_details.php"> PROCEED </td>-->
-<!--                            <td></td>-->
-<!---->
-<!--                        </tr>-->
 
                     </tbody>
                 </table>
@@ -85,14 +74,15 @@
 
         <script>
 
-
             function mydatatable(){
 
                 $('#reqlist').DataTable();
             }
 
-            function getdatatotable(){
-                //to table
+            //get data
+            $(document).ready(function () {
+                    mydatatable();
+
                 $.ajax({
                     method: "POST",
                     url: "../DBhandle/req_list_con.php?code=get_data",
@@ -105,14 +95,8 @@
                         $('#reqlist tbody').append(data);
                         mydatatable();
                     });
-
-            }
-
-            //get data
-            $(document).ready(function () {
-
-                getdatatotable();
             });
+
 
 
             

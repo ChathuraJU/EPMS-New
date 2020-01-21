@@ -1,154 +1,130 @@
 <?php 
-    if(isset($_GET["code"])){
-        $code=$_GET["code"];
-        switch($code){
-            case "tableData":
-                    save();
-                    break;
-            case "save1":
-                newsave();
-                break;
 
-            case "get_unitselect_data":
-                get_unitselect_data();
-                break;
+$servername = "localhost";
+$username = "root";
+$password = "";
+$db = "nhk_epms";
 
-            case "get_wardselect_data":
-                get_wardselect_data();
-                break;
+// Create connection
+$conn = mysqli_connect($servername, $username, $password, $db);
+// Check connection
+if (!$conn) {
+    die("Connection failed: " . mysqli_connect_error());
+}
+
+
+if(isset($_GET["code"])){
+    $code=$_GET["code"];
+    switch($code){
+        case "submit":
+            submitt($conn);
+            break;
+
+        case "get_unitselect_data":
+            get_unitselect_data();
+            break;
+
+        case "get_wardselect_data":
+            get_wardselect_data();
+            break;
+        }
+    }
+
+
+    function submitt($conn){
+
+        $tbdata = stripcslashes($_POST['pTableData']);
+
+        $equipmentsarray = json_decode($tbdata,TRUE);
+
+        $surid = $_POST["surid"];
+        $empid = $_POST["empid"];
+        $unit = $_POST["unit"];
+        $ward= $_POST["ward"];
+        $year = $_POST["year"];
+        $subdate = $_POST["subdate"];
+
+        //create req id
+        $sql1 ="SELECT Sur_id FROM epms_survey ORDER BY Sur_sn DESC LIMIT 1 ";
+        $result1=mysqli_query($conn,$sql1);
+
+        $rowcount=mysqli_num_rows($result1);
+
+        if ($rowcount>0) {
+            $row = mysqli_fetch_assoc($result1);
+            $last_id1 = $row["Sur_id"];
+        }
+
+        $sur_number = substr($last_id1,4,10);
+        $newsur_number = str_pad(intval($sur_number) + 1, strlen($sur_number),'0', STR_PAD_LEFT);
+        $new_surid = "SUR-".$newsur_number;
+
+        $sql = "INSERT INTO `epms_survey`(`Sur_id`,`Emp_id`,`Unit_Name`,`Ward_Name`,`Year`,`Submit_date`)
+            VALUES ('$new_surid','$empid','$unit','$ward','$year','$subdate')";
+
+        $result = mysqli_query($conn, $sql);
+
+        if (!$result) {
+            echo mysqli_error($conn);
+        }
+        else{
+            echo "success";
+        }
+
+
+        $sql = "SELECT MAX(`Sur_sn`) AS id FROM `epms_survey`";
+
+        $result = mysqli_query($conn, $sql);
+
+        if(mysqli_num_rows($result) > 0)
+        {
+            $row = mysqli_fetch_assoc($result);
+            $lastid = $row["id"];
+        }
+
+        //create sur_eqp id
+        $sql2 ="SELECT Sur_equip_id FROM epms_survey_equip ORDER BY Sur_eqp_sn DESC LIMIT 1 ";
+        $result2=mysqli_query($conn,$sql2);
+
+        $rowcount=mysqli_num_rows($result2);
+
+        if ($rowcount>0) {
+            $row = mysqli_fetch_assoc($result2);
+            $last_id2 = $row["Sur_equip_id"];
+        }
+
+        $sureqp_number = substr($last_id2,4,11);
+        $newsureqp_number = str_pad(intval($sureqp_number) + 1, strlen($sureqp_number),'0', STR_PAD_LEFT);
+        $new_sureqpid = "SUR-".$newsureqp_number;
+
+
+        foreach($equipmentsarray as $i => $eqname){
+
+            $equipcode =  $equipmentsarray[$i]['equipcode'];
+            $equipname =  $equipmentsarray[$i]['equipname'];
+            $presentstat =  $equipmentsarray[$i]['presentstat'];
+            $doi =  $equipmentsarray[$i]['doi'];
+            $remarks =  $equipmentsarray[$i]['remarks'];
+
+            $sql = "INSERT INTO epms_survey_equip(`Sur_equip_id`,`Equipment_code`,`Equipment_name`,`Present_Status`,`Date_of_installation`,`Remarks`)
+            VALUES ('$new_sureqpid','$equipcode','$equipname','$presentstat','$doi','$remarks')";
+
+            $result = mysqli_query($conn, $sql);
+
+            if (!$result) {
+                echo mysqli_error($conn);
             }
-        }
-
-        function newsave(){
-         
-            $survid = $_POST["suridf"];
-            $emplid = $_POST["empidf"];
-            $Unit = $_POST["unitf"];
-            $Ward = $_POST["wardf"]; 
-            $Year = $_POST["yearf"];
-            $Subdate = $_POST["subdatef"]; 
-
-            $servername = "localhost";
-            $username = "root";
-            $password = "";
-            $db = "nhk_epms";
-            
-                // Create connection
-                $conn = mysqli_connect($servername, $username, $password, $db);
-                // Check connection
-                if (!$conn) {
-                    die("Connection failed: " . mysqli_connect_error());
-                }
-
-                $sql = "INSERT INTO `epms_survey`(`Survey_id`,`Emp_id`,`Unit_name`,`Ward_name`,
-                `Year`,`Submit_date`)
-                VALUES ('$survid','$emplid','$Unit','$Ward','$Year','$Subdate')";
-
-                $result = mysqli_query($conn, $sql);
-
-                if (!$result) {
-                    echo mysqli_error($conn);
-                }
-                else{
-                    echo "success";
-                }
-
+            else{
+                echo "success";
+            }
 
         }
 
-        function save(){
 
-
-            $survid = $_POST["suridf"];
-            $emplid = $_POST["empidf"];
-            $Unit = $_POST["unitf"];
-            $Ward = $_POST["wardf"]; 
-            $Year = $_POST["yearf"];
-            $Subdate = $_POST["subdatef"]; 
-
-            $servername = "localhost";
-                $username = "root";
-                $password = "";
-                $db = "nhk_epms";
-                
-                    // Create connection
-                    $conn = mysqli_connect($servername, $username, $password, $db);
-                    // Check connection
-                    if (!$conn) {
-                        die("Connection failed: " . mysqli_connect_error());
-                    }
+    }
 
 
 
-                    
-
-            // Unescape the string values in the JSON array
-            $tableData = stripcslashes($_POST['pTableData']);
-
-            // Decode the JSON array
-            $tableData = json_decode($tableData,TRUE);
-            $Ward = $_POST["wardf"];
-
-            // now $tableData can be accessed like a PHP array
-
-
-            $sql = "INSERT INTO `epms_survey`(`Survey_id`,`Emp_id`,`Unit_name`,`Ward_name`,
-                `Year`,`Submit_date`)
-                VALUES ('$survid','$emplid','$Unit','$Ward','$Year','$Subdate')";
-
-                $result = mysqli_query($conn, $sql);
-
-                if (!$result) {
-                    echo mysqli_error($conn);
-                }
-                else{
-                    foreach ($tableData as $key => $value) {
-                        $eqpcode =  $value["Equipment Code"];
-                        $empname = $value["Equipment Name"];
-                        $Make = $value["Make"];
-                        $Model = $value["Model"]; 
-                        $Serial_no = $value["Serial No"];
-                        $PresentStat = $value["Present Status"]; 
-                        $doi = $value["Date of Installation"];
-                        $Remarks =$value["Remarks"];
-                    
-                    
-                        echo $eqpcode, $Ward;
-        
-                        $sql = "SELECT MAX(Survey_id) AS id FROM `epms_survey`";
-
-                        $result = mysqli_query($conn, $sql);
-
-                        if(mysqli_num_rows($result) > 0)
-                        {
-                            $row = mysqli_fetch_assoc($result);
-                            $dddd = $row["id"];
-
-                            $sql = "INSERT INTO `epms_survey_equip`(`Survey_id`,`Equipment_code`,`Equipment_name`,`Make`,`Model`,
-                            `Serial_No`,`Present_Status`,`Date_of_installation`, `Remarks`)
-                            VALUES ('$dddd','$eqpcode','$empname','$Make','$Model','$Serial_no','$PresentStat','$doi','$Remarks')";
-            
-                            $result = mysqli_query($conn, $sql);
-                            
-                        } 
-        
-                    }
-        
-                    if (!$result) {
-                        echo mysqli_error($conn);
-                    }
-                    else{
-                        echo "success";
-                        
-                    }
-
-                   
-                }
-
-            
-
-                
-        }
 
         function get_unitselect_data(){
             $servername = "localhost";
