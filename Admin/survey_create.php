@@ -441,7 +441,6 @@
                 .done(function (data) {
                 $("#unit").append(data);
                 });
-
                 
                 //ward name
             $.ajax({
@@ -454,6 +453,16 @@
                 $("#ward").append(data);
                 });
 
+                //equip code
+            $.ajax({
+                method: "POST",
+                url: "../DBhandle/survey_create_con.php?code=get_codeselect_data",
+                processData: false,
+                contentType: false
+            })
+                .done(function (data) {
+                $("#equipcode").append(data);
+                });
         });
 
 

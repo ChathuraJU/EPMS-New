@@ -64,52 +64,52 @@
     <!-- /content area -->
 
     <script>
-        //table
-        $( document ).ready(function(){
+    //table
+    $( document ).ready(function(){
 
-            // Table setup
-            // ------------------------------
+        // Table setup
+        // ------------------------------
 
-            // Setting datatable defaults
-            $.extend( $.fn.dataTable.defaults, {
-                autoWidth: false,
-                columnDefs: [{ 
-                    orderable: false,
-                    width: '100px',
-                    targets: [ 3 ]
-                }],
-                dom: '<"datatable-header"fl><"datatable-scroll"t><"datatable-footer"ip>',
-                language: {
-                    search: '<span>Filter:</span> _INPUT_',
-                    searchPlaceholder: 'Type to filter...',
-                    lengthMenu: '<span>Show:</span> _MENU_',
-                    paginate: { 'first': 'First', 'last': 'Last', 'next': $('html').attr('dir') == 'rtl' ? '&larr;' : '&rarr;', 'previous': $('html').attr('dir') == 'rtl' ? '&rarr;' : '&larr;' }
-                },
-                drawCallback: function () {
-                    $(this).find('tbody tr').slice(-3).find('.dropdown, .btn-group').addClass('dropup');
-                },
-                preDrawCallback: function() {
-                    $(this).find('tbody tr').slice(-3).find('.dropdown, .btn-group').removeClass('dropup');
-                }
-            });
-
-            // Highlighting rows and columns on mouseover
-            var lastIdx = null;
-            var table = $('.datatable-highlight').DataTable();
-
-            $('.datatable-highlight tbody').on('mouseover', 'td', function() {
-                var colIdx = table.cell(this).index().column;
-
-                if (colIdx !== lastIdx) {
-                    $(table.cells().nodes()).removeClass('active');
-                    $(table.column(colIdx).nodes()).addClass('active');
-                }
-            }).on('mouseleave', function() {
-                $(table.cells().nodes()).removeClass('active');
-            });
-
-
+        // Setting datatable defaults
+        $.extend( $.fn.dataTable.defaults, {
+            autoWidth: false,
+            columnDefs: [{ 
+                orderable: false,
+                width: '100px',
+                targets: [ 3 ]
+            }],
+            dom: '<"datatable-header"fl><"datatable-scroll"t><"datatable-footer"ip>',
+            language: {
+                search: '<span>Filter:</span> _INPUT_',
+                searchPlaceholder: 'Type to filter...',
+                lengthMenu: '<span>Show:</span> _MENU_',
+                paginate: { 'first': 'First', 'last': 'Last', 'next': $('html').attr('dir') == 'rtl' ? '&larr;' : '&rarr;', 'previous': $('html').attr('dir') == 'rtl' ? '&rarr;' : '&larr;' }
+            },
+            drawCallback: function () {
+                $(this).find('tbody tr').slice(-3).find('.dropdown, .btn-group').addClass('dropup');
+            },
+            preDrawCallback: function() {
+                $(this).find('tbody tr').slice(-3).find('.dropdown, .btn-group').removeClass('dropup');
+            }
         });
+
+        // Highlighting rows and columns on mouseover
+        var lastIdx = null;
+        var table = $('.datatable-highlight').DataTable();
+
+        $('.datatable-highlight tbody').on('mouseover', 'td', function() {
+            var colIdx = table.cell(this).index().column;
+
+            if (colIdx !== lastIdx) {
+                $(table.cells().nodes()).removeClass('active');
+                $(table.column(colIdx).nodes()).addClass('active');
+            }
+        }).on('mouseleave', function() {
+            $(table.cells().nodes()).removeClass('active');
+        });
+
+
+    });
 
 
     </script>

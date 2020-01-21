@@ -1,6 +1,6 @@
 <?php require_once('header.php');?>
-    <!-- Main content -->
-    <div class="content-wrapper" id="content">
+<!-- Main content -->
+<div class="content-wrapper" id="content">
 
         <!-- Page header -->
         <div class="page-header page-header-default" style="border-top: 1px solid #ddd; border-left: 1px solid #ddd; border-right: 1px solid #ddd;">
@@ -52,35 +52,21 @@
                     </div>
                 </div>
 
-                <table class="table datatable-responsive-control-right">
+                <table id="surveyhis" class="table datatable-responsive-control-right">
                     <thead>
                         <tr>
                             <th> Survey ID </th>
                             <th> Year </th>
                             <th> Unit </th>
                             <th> Ward </th>
-                            <th> Document </th>
+                            <th> Equipment Code </th>
+                            <th> Present Status</th>
                             <th></th>
                         
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td> EQUIP000010 </td>
-                            <td> 2017</td>
-                            <td> Respiratory Unit </td>
-                            <td> None </td>
-                            <td> ResUnit2017.pdf </td>
-                            <td></td>
-                        </tr>
-                        <tr>
-                            <td> EQUIP000010 </td>
-                            <td> 2017</td>
-                            <td> Respiratory Unit </td>
-                            <td> None </td>
-                            <td> ResUnit2017.pdf </td>
-                            <td></td>
-                        </tr>
+
                     </tbody>
                 </table>
             </div>
@@ -88,65 +74,95 @@
         </div>
         <!-- /content area -->
 
-        <script>
-                    
-            // Table setup
-            // ------------------------------
+    <script>
+                
+        // Table setup
+        // ------------------------------
 
-            // Setting datatable defaults
-            $.extend( $.fn.dataTable.defaults, {
-                autoWidth: false,
-                responsive: true,
-                columnDefs: [{ 
-                    orderable: false,
-                    width: '100px',
-                    targets: [ 5 ]
-                }],
-                dom: '<"datatable-header"fl><"datatable-scroll-wrap"t><"datatable-footer"ip>',
-                language: {
-                    search: '<span>Filter:</span> _INPUT_',
-                    searchPlaceholder: 'Type to filter...',
-                    lengthMenu: '<span>Show:</span> _MENU_',
-                    paginate: { 'first': 'First', 'last': 'Last', 'next': $('html').attr('dir') == 'rtl' ? '&larr;' : '&rarr;', 'previous': $('html').attr('dir') == 'rtl' ? '&rarr;' : '&larr;' }
-                },
-                drawCallback: function () {
-                    $(this).find('tbody tr').slice(-3).find('.dropdown, .btn-group').addClass('dropup');
-                },
-                preDrawCallback: function() {
-                    $(this).find('tbody tr').slice(-3).find('.dropdown, .btn-group').removeClass('dropup');
+        // Setting datatable defaults
+        $.extend( $.fn.dataTable.defaults, {
+            autoWidth: false,
+            responsive: true,
+            columnDefs: [{ 
+                orderable: false,
+                width: '100px',
+                targets: [ 5 ]
+            }],
+            dom: '<"datatable-header"fl><"datatable-scroll-wrap"t><"datatable-footer"ip>',
+            language: {
+                search: '<span>Filter:</span> _INPUT_',
+                searchPlaceholder: 'Type to filter...',
+                lengthMenu: '<span>Show:</span> _MENU_',
+                paginate: { 'first': 'First', 'last': 'Last', 'next': $('html').attr('dir') == 'rtl' ? '&larr;' : '&rarr;', 'previous': $('html').attr('dir') == 'rtl' ? '&rarr;' : '&larr;' }
+            },
+            drawCallback: function () {
+                $(this).find('tbody tr').slice(-3).find('.dropdown, .btn-group').addClass('dropup');
+            },
+            preDrawCallback: function() {
+                $(this).find('tbody tr').slice(-3).find('.dropdown, .btn-group').removeClass('dropup');
+            }
+        });
+
+
+        
+        // Control position
+        $('.datatable-responsive-control-right').DataTable({
+            responsive: {
+                details: {
+                    type: 'column',
+                    target: -1
                 }
-            });
-
-
-            
-            // Control position
-            $('.datatable-responsive-control-right').DataTable({
-                responsive: {
-                    details: {
-                        type: 'column',
-                        target: -1
-                    }
+            },
+            columnDefs: [
+                {
+                    className: 'control',
+                    orderable: false,
+                    targets: -1
                 },
-                columnDefs: [
-                    {
-                        className: 'control',
-                        orderable: false,
-                        targets: -1
-                    },
-                    { 
-                        width: "100px",
-                        targets: [5]
-                    },
-                    { 
-                        orderable: false,
-                        targets: [5]
-                    }
-                ]
+                { 
+                    width: "100px",
+                    targets: [5]
+                },
+                { 
+                    orderable: false,
+                    targets: [5]
+                }
+            ]
+        });
+
+
+        function mydatatable(){
+
+            $('#surveyhis').DataTable();
+        }
+
+            function getdatatotable(){
+            //to table
+            $.ajax({
+                method: "POST",
+                url: "../DBhandle/survey_history_con.php?code=get_data",
+                processData: false,
+                contentType: false
+            })
+            .done(function (data) {
+                $('#surveyhis').DataTable().destroy();
+                $('#surveyhis tbody').empty();
+                $('#surveyhis tbody').append(data);
+                mydatatable();
             });
-        </script>
+
+            }
+
+            //get data 
+            $(document).ready(function () {
+
+            getdatatotable();
+            });
+
+    </script>
 
 
-    </div>
-    <!-- /main content -->
+</div>
+<!-- /main content -->
 
 <?php require_once('footer.php');?>

@@ -39,7 +39,7 @@
                 </div>
             </div>
 
-            <table id="payhistory" class="table table-bordered table-hover datatable-highlight" class="table bg-slate-600">
+            <table id="teclist" class="table table-bordered table-hover datatable-highlight" class="table bg-slate-600">
                 <thead>
                     <tr>
                         <th>#</th>

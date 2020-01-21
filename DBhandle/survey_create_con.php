@@ -27,6 +27,10 @@ if(isset($_GET["code"])){
         case "get_wardselect_data":
             get_wardselect_data();
             break;
+
+        case "get_codeselect_data":
+            get_codeselect_data();
+            break;
         }
     }
 
@@ -184,4 +188,32 @@ if(isset($_GET["code"])){
                     }
         }
 
+        function get_codeselect_data(){
+            $servername = "localhost";
+                $username = "root";
+                $password = "";
+                $db = "nhk_epms";
+                
+                    // Create connection
+                    $conn = mysqli_connect($servername, $username, $password, $db);
+                    // Check connection
+                    if (!$conn) {
+                        die("Connection failed: " . mysqli_connect_error());
+                    }
+                    
+                    
+                    $sql = "select * from `epms_inventory`";
+                    
+                    
+                    $result = mysqli_query($conn, $sql);
+    
+                    if (mysqli_num_rows($result) > 0) {
+                        // output data of each row
+                        while($row = mysqli_fetch_assoc($result)) {
+                            echo "<option>" . $row["Equip_code"] . "</option>";
+                        }
+                    } else {
+                        echo "0 results";
+                    }
+        }
 ?>
