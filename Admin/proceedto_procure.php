@@ -21,7 +21,7 @@
                 <ul class="breadcrumb">
                     <li><a href="dashboard.php"><i class="icon-home2 position-left"></i> Home </a></li>
                     <li><a href="req_create.php"> Requisition </a></li>
-                    <li class="active"> Ministry Approved Requisitions </li>
+                    <li class="active"> Proceed to Procure </li>
                 </ul>
 
             </div>
@@ -33,7 +33,7 @@
             <!-- Control position -->
             <div class="panel panel-info">
                 <div class="panel-heading">
-                    <h5 class="panel-title"><b> Ministry  Approved Requisitions </b></h5>
+                    <h5 class="panel-title"><b> Proceed to Procure </b></h5>
                     <div class="heading-elements">
                         <ul class="icons-list">
                             <li><a data-action="collapse"></a></li>
@@ -42,14 +42,15 @@
                     </div>
                 </div>
 
-                <table id="minapprvd" class="table datatable-responsive-control-right">
+                <table id="pendingtec" class="table datatable-responsive-control-right">
                     <thead>
                     <tr>
+                        <th>#</th>
+                        <th>Procurement Type</th>
                         <th>Equipment Name  </th>
                         <th>Count  </th>
-                        <th>Ministry Approval Document ID</th>
-                        <th>Ministry Approval </th>
-                        <th>Proceed to Procure</th>
+                        <th>Status</th>
+
 
                     </tr>
                     </thead>
@@ -68,7 +69,7 @@
 
             function mydatatable(){
 
-                $('#minapprvd').DataTable();
+                $('#pendingtec').DataTable();
             }
 
             //get data
@@ -77,14 +78,14 @@
 
                 $.ajax({
                     method: "POST",
-                    url: "../DBhandle/update_minapp_con.php?code=get_appdata",
+                    url: "../DBhandle/proceedto_procure_con.php?code=get_data",
                     processData: false,
                     contentType: false
                 })
                     .done(function (data) {
-                        $('#minapprvd').DataTable().destroy();
-                        $('#minapprvd tbody').empty();
-                        $('#minapprvd tbody').append(data);
+                        $('#pendingtec').DataTable().destroy();
+                        $('#pendingtec tbody').empty();
+                        $('#pendingtec tbody').append(data);
                         mydatatable();
                     });
             });
@@ -101,7 +102,7 @@
                     columnDefs: [{
                         orderable: false,
                         width: '100px',
-                        targets: [ 3 ]
+                        targets: [ 4 ]
                     }],
                     dom: '<"datatable-header"fl><"datatable-scroll-wrap"t><"datatable-footer"ip>',
                     language: {

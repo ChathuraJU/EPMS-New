@@ -21,6 +21,7 @@ if(isset($_GET["code"])){
             break;
 
 
+
     }
 }
 
@@ -29,13 +30,8 @@ if(isset($_GET["code"])){
 function getdata($conn){
 
 
-    $sql = "SELECT
-              *,
-              SUM(rapp.`Req_eqp_qty`) AS d
-            FROM
-              `epms_req_prim_app` rapp
-            WHERE rapp.`Status` = 'pending' and `Procurement_type` ='2'
-            GROUP BY rapp.`Req_equip`";
+    $sql = "SELECT * FROM `epms_minapp_sent` WHERE `Status` = 'Ready'";
+
 
 
     $result = mysqli_query($conn, $sql);
@@ -43,16 +39,19 @@ function getdata($conn){
     if (mysqli_num_rows($result) > 0) {
         // output data of each row
         while($row = mysqli_fetch_assoc($result)) {
-            $type = "Direct Purchase";
-
             echo "<tr>
-                <td>" . $row["Req_equip"] . "</td>
-                <td>" . $row["d"] . "</td>
-                <td>" . $row["Status"] . "</td>
-                <td><a href='tec_create.php?name=".$row["Req_equip"]."&qty=".$row["d"]."&type=".$type."'> CREATE TEC </a></td>
+                    <td>" . $row["Proceedto_procure_sn"] . "</td>
+                    <td>" . $row["Procurement_type"] . "</td>
+                    <td>" . $row["Equipment_name"] . "</td>
+                    <td>" . $row["Count"] . "</td>
+                    <td>" . $row["Status"] . "</td>
 
-            
-                
+                    <td>
+                        
+                    
+                    </td>
+                    <td></td>
+
                 </tr>";
         }
     } else {
@@ -61,6 +60,7 @@ function getdata($conn){
 
 
 }
+
 
 
 

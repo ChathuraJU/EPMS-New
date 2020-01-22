@@ -45,7 +45,6 @@
                         <th>#</th>
                         <th>Procurement ID</th>
                         <th>TEC ID</th>
-                        <th>Tender Title</th>
                         <th>Members</th>
                         <th>Action</th>
 
@@ -63,6 +62,36 @@
     <!-- /content area -->
 
     <script>
+
+
+        function mydatatable(){
+
+            $('#teclist').DataTable();
+        }
+
+        //get data
+        $(document).ready(function () {
+            mydatatable();
+
+            $.ajax({
+                method: "POST",
+                url: "../DBhandle/tec_list_con.php?code=get_data",
+                processData: false,
+                contentType: false
+            })
+                .done(function (data) {
+                    $('#teclist').DataTable().destroy();
+                    $('#teclist tbody').empty();
+                    $('#teclist tbody').append(data);
+                    mydatatable();
+                });
+        });
+
+
+
+
+
+
         //table
         $( document ).ready(function(){
 
@@ -75,7 +104,7 @@
                 columnDefs: [{ 
                     orderable: false,
                     width: '100px',
-                    targets: [ 3 ]
+                    targets: [ 4 ]
                 }],
                 dom: '<"datatable-header"fl><"datatable-scroll"t><"datatable-footer"ip>',
                 language: {

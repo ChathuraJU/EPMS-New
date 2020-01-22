@@ -1,4 +1,14 @@
-<?php require_once('header.php');?>
+<?php require_once('header.php');
+
+
+$eq_name = $_GET["name"];
+$qty = $_GET["qty"];
+$type = $_GET["type"];
+
+
+?>
+
+
 
 <!-- Main content -->
 <div class="content-wrapper" id="content">
@@ -45,7 +55,7 @@
                 </div>
             </div>
 
-            <form class="stepy-basic" action="#">
+            <form class="stepy-basic" action="#" id="teclist">
                 <fieldset title="1">
                     <legend class="text-semibold"> Procurement Details </legend>
                         <div class="panel-body">
@@ -67,17 +77,24 @@
 
                             </div>
                             <div class="row">
-                                <div class="col-md-6">
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label>Procurement Type:</label>
+                                        <input type="text" id="protype" name="protype" class="form-control" readonly value="<?php echo $type ?>">
+                                    </div>
+
+                                </div>
+                                <div class="col-md-4">
                                     <div class="form-group">
                                         <label>Equipment Name:</label>
-                                        <input type="text" id="eqpname" name="eqoname"  class="form-control" readonly>
+                                        <input type="text" id="eqpname" name="eqpname"  class="form-control" readonly value="<?php echo $eq_name ?>">
                                     </div>
                                 </div> 
 
-                                <div class="col-md-6">
+                                <div class="col-md-4">
                                     <div class="form-group">
                                         <label>Quantity:</label>
-                                        <input type="text" id="qty" name="qty" class="form-control" readonly>
+                                        <input type="text" id="qty" name="qty" class="form-control" readonly value="<?php echo $qty ?>">
                                     </div>
 
                                 </div>
@@ -123,6 +140,29 @@
 
     <script>
 
+
+
+
+
+
+
+
+        //get data to select box
+        $(document).ready(function () {
+            //employee id ajax request
+            $.ajax({
+                method: "POST",
+                url: "../DBhandle/tec_create_con.php?code=get_empnameselect_data",
+                processData: false,
+                contentType: false
+            })
+                .done(function (data) {
+                    $("#select1").append(data);
+                    $('#select1').trigger('bootstrapDualListbox.refresh');
+                });
+        });
+
+
         // steppy js
         $( document ).ready(function() {
 
@@ -143,8 +183,23 @@
                     
                 },
                 finish: function() {
-                    
-                    return false;
+
+                    var names = $("#select1").val();
+
+                    sendData = new FormData($("#teclist")[0]);
+                    sendData.append("names", names);
+                    $.ajax({
+                        method: "POST",
+                        url: "../DBhandle/tec_create_con.php?code=save",
+                        data: sendData,
+                        processData: false,
+                        contentType: false
+                    }).done(function (msg) {
+
+                        alert(msg);
+
+                    });
+                    preventDefault();
                 }
             });
 
@@ -181,20 +236,6 @@
             $('.listbox').bootstrapDualListbox();
         });
 
-        //get data to select box
-        $(document).ready(function () {
-            //employee id ajax request
-            $.ajax({
-                method: "POST",
-                url: "../DBhandle/tec_create_con.php?code=get_empnameselect_data",
-                processData: false,
-                contentType: false
-            })
-                .done(function (data) {
-                    $("#select1").append(data);
-                    $('#select1').trigger('bootstrapDualListbox.refresh');
-                });
-        });
 
 
 

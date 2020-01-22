@@ -107,6 +107,12 @@
 
             });
 
+            function linkpg(val){
+
+                alert(val);
+
+            }
+
 
 
 

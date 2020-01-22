@@ -484,7 +484,7 @@
 
 										<!-- to update the data after recieving the ministry letter -->
 										<li> 
-											<a href="req_minapp_update.php"> Update Ministry Approvals </a> 
+											<a href="update_minapp.php"> Update Ministry Approvals </a>
 										</li>
 										
                                         <li>
@@ -494,6 +494,11 @@
 										<li>
                                             <a href="req_minapproved.php"> Ministry Approved Requisitions</a>
 										</li>
+
+<!--                                        <li>-->
+<!--                                            <a href="proceedto_procure.php"> Proceed to Procure</a>-->
+<!--                                        </li>-->
+
 
 									</ul>
 								</li>

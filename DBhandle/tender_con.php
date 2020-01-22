@@ -1,27 +1,45 @@
-<?php 
+<?php
+$servername = "localhost";
+$username = "root";
+$password = "";
+$db = "nhk_epms";
+
+// Create connection
+$conn = mysqli_connect($servername, $username, $password, $db);
+// Check connection
+if (!$conn) {
+    die("Connection failed: " . mysqli_connect_error());
+}
+
+
+
     if(isset($_GET["code"])){
         $code=$_GET["code"];
         switch($code){
             case "save":
-                    save();
+                    save($conn);
                     break;
 
                 case "get_data":
-                    getdata();
+                    getdata($conn);
+                    break;
+
+                case "geteqpqtydata":
+                    geteqpqtydata($conn);
                     break;
 
             }
         }
 
-        function save(){
-            $procid = $_POST["procid"];
+        function save($conn){
+            $procid = $_POST["proid"];
             $eqpname = $_POST["eqpname"];
             $qty = $_POST["qty"];
             $title = $_POST["proctitle"];
             $nature = $_POST["procnature"];
-            $nrp = $_POST["nrp"]; 
-            $closing = $_POST["bidcolop"];
-            $opening = $_POST["bidcolcls"];
+            $nrp = $_POST["nrp"];
+            $opening = $_POST["bidcolop"];
+            $closing = $_POST["bidcolcls"];
 
             $servername = "localhost";
             $username = "root";
@@ -35,23 +53,10 @@
                     die("Connection failed: " . mysqli_connect_error());
                 }
 
-                $sql1 ="SELECT Tender_id FROM epms_tender ORDER BY Tender_sn DESC LIMIT 1 ";
-                $result1=mysqli_query($conn,$sql1);
 
-                $rowcount=mysqli_num_rows($result1);
-
-                if ($rowcount>0) {
-                    $row = mysqli_fetch_assoc($result1);
-                    $last_id = $row["Tender_id"];
-                }
-
-                $tnd_number = substr($last_id,4,9);
-                $newtnd_number = str_pad(intval($tnd_number) + 1, strlen($tnd_number),'0', STR_PAD_LEFT);
-                $new_tndid = "KGH-".$newtnd_number;
-
-                $sql = "INSERT INTO `epms_unit`(`Tender_id`,`Procurement_id`,`Equip_name`,`Quantity`,`Procure_title`,
+                $sql = "INSERT INTO `epms_tenders`(`Procurement_id`,`Equip_name`,`Quantity`,`Procure_title`,
                 `Procure_nature`,`Procure_nrp`,`Tender_op_date`,`Tender_col_date`)
-                 VALUES ('$new_tndid','$procid','$eqpname','$qty','$title','$nature','$nrp','$closing','$opening')";
+                 VALUES ('$procid','$eqpname','$qty','$title','$nature','$nrp','$opening','$closing')";
 
                  $result = mysqli_query($conn, $sql);
 
@@ -67,23 +72,41 @@
                     {
                         $row = mysqli_fetch_assoc($result);
                         $dddd = $row["id"];
-                        move_uploaded_file($_FILES["rbidchk"]["tmp_name"],"../Bid Documents/$dddd.pdf");
+                        move_uploaded_file($_FILES["rbiddoc"]["tmp_name"],"../Bid_Documents/$dddd.pdf");
                     }   
 
-                    $sql2 = "SELECT MAX(Tender_sn) AS id FROM `epms_tenders`";
-
-                    $result2 = mysqli_query($conn, $sql);
-
-                    if(mysqli_num_rows($result2) > 0)
-                    {
-                        $row = mysqli_fetch_assoc($result2);
-                        $dddd = $row["id"];
-                        move_uploaded_file($_FILES["rbiddoc"]["tmp_name"],"../Bid Checklists/$dddd.pdf");
-                    }   
 
                     echo "success";
                 }
+
+
+
+
         }
+
+
+function geteqpqtydata($conn){
+
+    $id = $_POST["id"];
+
+
+    $sql = "SELECT * FROM `epms_tec` WHERE `Procurement_id` = 'PROC/00001';";
+
+    $result2 = mysqli_query($conn, $sql);
+    if (mysqli_num_rows($result2) > 0) {
+        // output data of each row
+        while ($row = mysqli_fetch_assoc($result2)) {
+            $dataArray[] = $row;
+        }
+    } else {
+        echo "0 results";
+    }
+
+    echo json_encode($dataArray);
+
+
+
+}
 
 
         // function getdata(){

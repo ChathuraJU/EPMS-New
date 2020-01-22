@@ -221,124 +221,6 @@
                         </div>
                 </fieldset>
 
-                <fieldset title="3">
-                    <legend class="text-semibold"> Confirmation </legend>
-
-                    <div class="panel-body">
-                    <fieldset>
-                        <legend class="text-semibold">
-                            <i class="icon-file-text2 position-left"></i>
-                            Requisition Details
-                            <a class="control-arrow" data-toggle="collapse" data-target="#demo1">
-                                <i class="icon-circle-down2"></i>
-                            </a>
-                        </legend>
-
-                        <div class="collapse in" id="demo1">
-
-                            <div class="row">
-                                <div class="form-group">  
-                                    <label class="col-lg-3 control-label">  Requisition ID :  </label>
-                                    <div class="col-lg-9">
-                                    <input type="text" id="reqidf" class="form-control" readonly/>
-                                    </div>
-                                </div>
-                            </div> 
-
-                            <div class="row">
-                                <div class="form-group">
-                                    <label class="col-lg-3 control-label"> Request Type :  </label>
-                                    <div class="col-lg-9">
-                                    <input type="text" id="reqtypef" class="form-control" readonly/>
-                                    </div>
-                                </div> 
-                            </div> 
-
-                            <div class="row">
-                                <div class="form-group">  
-                                    <label class="col-lg-3 control-label">  Request Date :  </label>
-                                    <div class="col-lg-9">
-                                    <input type="text" id="reqdatef" class="form-control" readonly/>
-                                    </div>
-                                </div>
-                            </div> 
-
-                            <div class="row">
-                                <div class="form-group">
-                                    <label class="col-lg-3 control-label">  Employee ID : </label>
-                                    <div class="col-lg-9">
-                                    <input type="text" id="empidf" class="form-control" readonly/>
-                                    </div>
-                                </div> 
-                            </div> 
-
-                            <div class="row">
-                                <div class="form-group">  
-                                    <label class="col-lg-3 control-label"> Unit : </label>
-                                    <div class="col-lg-9">
-                                    <input type="text" id="unitf" class="form-control" readonly/>
-                                    </div>
-                                </div>
-                            </div> 
-
-                            <div class="row">
-                                <div class="form-group">
-                                    <label class="col-lg-3 control-label">  Ward : </label>
-                                    <div class="col-lg-9">
-                                    <input type="text" id="wardf" class="form-control" readonly/>
-                                    </div>
-                                </div> 
-                            </div> 
-
-                        </div>
-                    </fieldset>
-
-                    <fieldset>
-                        <legend class="text-semibold">
-                            <i class="icon-stack2"></i>
-                            Equipment Details
-                            <a class="control-arrow" data-toggle="collapse" data-target="#demo2">
-                                <i class="icon-circle-down2"></i>
-                            </a>
-                        </legend>
-
-                        <div class="collapse in" id="demo2">
-                            <!-- Basic responsive table -->
-                            <div class="panel panel-flat">
-                                <div class="panel-heading">
-                                    <h5 class="panel-title">Equipment List</h5>
-                                    <div class="heading-elements">
-                                        <ul class="icons-list">
-                                            <li><a data-action="collapse"></a></li>
-                                            <li><a data-action="reload"></a></li>
-                                        </ul>
-                                    </div>
-                                </div>
-
-                                <div class="table-responsive">
-                                    <table class="table" id="tblajx1">
-                                        <thead>
-                                            <tr>
-                                                <th> Equipment </th>
-                                                <th> Quantity </th>
-                                                <th> Priority </th>
-                                                <th> Reason </th>
-                                                <th> Action <th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </div>
-                            <!-- /basic responsive table -->
-                        </div>
-                    </fieldset>
-
-                    </div>
-                </fieldset>
-
 
                 <button type="submit" class="btn btn-primary stepy-finish">Save <i class="icon-check position-right"></i></button>
             </form>
@@ -448,9 +330,6 @@
                     if(index==3){
                         get_data();
                     }
-                },
-                next: function(index) {
-
                 },                  
                 back: function(index) {
                     
@@ -538,16 +417,39 @@
 
 
 
+        // var count = 0;
 
             $("#btn_add").click(function(){
                 var val1 = $('#equip').val();
                 var val2 =$('#qty').val();
                 var val3 = $('#priority').val();
                 var val4 =$('#reason').val();
+
+                // count = count++;
                 
-                $("#tblajx tbody").append("<tr><td>"+val1+"</td><td>"+val2+"</td><td>"+val3+"</td><td>"+val4+"</td><td><ul class='icons-list'><li><a href='#'><i class='icon-pencil7'></i></a></li><li><a href='#'><i class='icon-trash'></i></a></li></ul></td></tr>");
+                $("#tblajx tbody").append("<tr ><td>"+val1+"</td><td>"+val2+"</td><td>"+val3+"</td><td>"+val4+"</td><td><ul class='icons-list'><li><a href='#'><i class='icon-pencil7'></i></a></li><li><a href='#'><i class='icon-trash'></i></a></li></ul></td></tr>");
             });
 
+
+            //Remove record from table
+            $("#tblajx tbody").on("click",".icon-trash",function () { //trash icon click function
+                var id = $(this).closest("tr").attr("id");
+                $(this).closest("tr").remove();
+            });//On table Delete function
+
+
+            //edit the record
+            $("#tblajx tbody").on("click",".icon-pencil7",function () {
+
+                var cur = $(this).closest("tr");
+
+                $("#equip").select2().val(cur.find("td:eq(0)").text()).trigger("change");
+                $("#qty").val(cur.find("td:eq(1)").text());
+                $("#priority").select2().val(cur.find("td:eq(2)").text()).trigger("change");
+                $("#reason").val(cur.find("td:eq(3)").text());
+
+
+            });
 
     </script>
 

@@ -127,7 +127,7 @@
                             <div class="col-md-6">
                                 <div class="form-group">  
                                     <label> Equipment Name : <span class="text-danger">*</span></label>
-                                    <input type="text" id="equipname" name="equipname" class="form-control required"  />
+                                    <input type="text" id="equip5" name="equip5" class="form-control">
                                 </div>
                             </div> 
                         </div>
@@ -139,7 +139,7 @@
                                         <label>Date of Installation : <span class="text-danger">*</span></label>
                                         <div class="input-group">
                                             <span class="input-group-addon"><i class="icon-calendar3"></i></span>
-                                            <input type="text"  class="form-control" id="anytime-weekday" name="installdate" placeholder="Try me&hellip;">
+                                            <input type="text" class="form-control" id="anytime-weekday" name="doi5">
                                         </div>
                                     </div>
                                 </div>
@@ -147,7 +147,7 @@
                             <div class="col-md-6">
                                 <div class="form-group">  
                                     <label> Present Status : <span class="text-danger">*</span></label>
-                                    <input type="text" id="equipstatus" name="equipstatus" class="form-control required"  />
+                                    <input type="text" id="pstat" name="pstat" class="form-control">
                                 </div>
                             </div> 
                         </div>
@@ -157,7 +157,7 @@
                                 <div class="form-group">
                                     <label> Remarks :</label>
                                     <div class="input-group">
-                                        <textarea id="remarks" name="remarks" rows="4" cols="100"  placeholder="If you want to add any info, do it here." class="form-control required"></textarea>
+                                        <textarea id="remarks5" name="remarks5" rows="4" cols="100"  placeholder="If you want to add any info, do it here." class="form-control required"></textarea>
                                     </div>
                                 </div>
                             </div>
@@ -192,6 +192,7 @@
                                                 <th> Equipment Code </th>
                                                 <th> Equipment Name </th>
                                                 <th> Date of Installatiion </th>
+                                                <th> Present Status </th>
                                                 <th> Reason </th>
                                                 <th> Action <th>
                                             </tr>
@@ -204,118 +205,6 @@
                             </div>
                             <!-- /basic responsive table -->
                         </div>
-
-                </fieldset>
-
-                <fieldset title="3">
-                    <legend class="text-semibold"> Confirmation </legend>
-
-                    <div class="panel-body">
-                    <fieldset>
-                        <legend class="text-semibold">
-                            <i class="icon-file-text2 position-left"></i>
-                            Survey Details
-                            <a class="control-arrow" data-toggle="collapse" data-target="#demo1">
-                                <i class="icon-circle-down2"></i>
-                            </a>
-                        </legend>
-
-                        <div class="collapse in" id="demo1">
-                            <div class="row">
-                                <div class="form-group">  
-                                    <label class="col-lg-3 control-label"> Survey ID : </label>
-                                    <div class="col-lg-9">
-                                        <input type="text" name="suridf" id="suridf" class="form-control" readonly/>
-                                    </div>
-                                </div>
-                            </div> 
-
-                            <div class="row">
-                                <div class="form-group">
-                                    <label class="col-lg-3 control-label"> Emp ID : </label>
-                                    <div class="col-lg-9">
-                                        <input type="text" name="empidf" id="empidf" class="form-control" readonly/>
-                                    </div>
-                                </div> 
-                            </div> 
-
-                            <div class="row">
-                                <div class="form-group">
-                                    <label class="col-lg-3 control-label"> Unit : </label>
-                                    <div class="col-lg-9">
-                                        <input type="text" name="unitf" id="unitf" class="form-control" readonly/>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="row">
-                                <div class="form-group">
-                                    <label class="col-lg-3 control-label"> ward : </label>
-                                    <div class="col-lg-9">
-                                        <input type="text" name="wardf" id="wardf" class="form-control" readonly/>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="row">
-                                <div class="form-group">
-                                    <label class="col-lg-3 control-label"> Year : </label>
-                                    <div class="col-lg-9">
-                                        <input type="text" name="yearf" id="yearf" class="form-control" readonly/>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="row">
-                                <div class="form-group">
-                                    <label class="col-lg-3 control-label"> Submission Date : </label>
-                                    <div class="col-lg-9">
-                                        <input type="text" name="subdatef" id="subdatef" class="form-control" readonly/>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </fieldset>
-
-                    <fieldset>
-                        <legend class="text-semibold">
-                            <i class="icon-reading position-left"></i>
-                            Equipment Details
-                            <a class="control-arrow" data-toggle="collapse" data-target="#demo2">
-                                <i class="icon-circle-down2"></i>
-                            </a>
-                        </legend>
-
-                        <div class="collapse in" id="demo2">
-
-                            <!-- Display the table here -->
-
-                            <!-- Basic responsive table -->
-                            <div class="panel panel-flat">
-                                <div class="table-responsive">
-                                    <table class="table" id="tblajx2">
-                                        <thead>
-                                            <tr>
-                                                
-                                                <th> Equipment Code </th>
-                                                <th> Equipment Name </th>
-                                                <th> Present Status </th>
-                                                <th> Date of Installation </th>
-                                                <th> Remarks </th>
-                                            
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                           
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </div>
-                            <!-- /basic responsive table -->
-                        </div>
-                    </fieldset>
-
-                </div>
 
                 </fieldset>
 
@@ -338,11 +227,11 @@
 
                 $('#tblajx tr').each(function(row, tr){
                     TableData[row]={
-                        " equipcode" : $(tr).find('td:eq(0)').text()
-                        , "equipname" :$(tr).find('td:eq(1)').text()
-                        , "presentstat" :$(tr).find('td:eq(2)').text()
-                        , "doi" : $(tr).find('td:eq(3)').text()
-                        , "remarks" : $(tr).find('td:eq(4)').text()
+                        "testequip" : $(tr).find('td:eq(0)').text()
+                        , "equip5" :$(tr).find('td:eq(1)').text()
+                        , "anytime-weekday" :$(tr).find('td:eq(2)').text()
+                        , "pstat" : $(tr).find('td:eq(3)').text()
+                        , "remarks5" : $(tr).find('td:eq(4)').text()
                     }    
                 }); 
                 TableData.shift();  // first row will be empty - so remove
@@ -366,9 +255,6 @@
                     if(index==3){
                         get_data();
                     }
-                },
-                next: function(index) {
-
                 },                  
                 back: function(index) {
                     
@@ -465,18 +351,53 @@
                 });
         });
 
+        $("#equipcode").change(function () {
+           var eqcode = $(this).val();
+
+            $.ajax({
+                method: "POST",
+                url: "../DBhandle/survey_create_con.php?code=get_eq_name",
+                data: {"eqcode":eqcode}
+            })
+                .done(function (data) {
+                    $("#equip5").val(data);
+                });
+
+        });
+
 
         $("#btn_add").click(function(){
             var val1 = $('#equipcode').val();
-            var val2 = $('#equip').val();
-            var val3 = $('#status').val();
-            var val4=$('#installdate').val();
-            var val5=$('#remarks').val();
+            var val2 = $('#equip5').val();
+            var val3 = $('#anytime-weekday').val();
+            var val4 = $('#pstat').val();
+            var val5 = $('#remarks5').val();
+
+
             
             $("#tblajx tbody").append("<tr><td>"+val1+"</td><td>"+val2+"</td><td>"+val3+"</td><td>"+val4+"</td><td>"+val5+"</td><td><ul class='icons-list'><li><a href='#'><i class='icon-pencil7'></i></a></li><li><a href='#'><i class='icon-trash'></i></a></li></ul></td></tr>");
         });
 
+        //delete the record from the table
+        $("#tblajx tbody").on("click",".icon-trash",function () { //trash icon click function
+            var id = $(this).closest("tr").attr("id");
+            $(this).closest("tr").remove();
+        });//On table Delete function
 
+
+        //edit the record
+        $("#tblajx tbody").on("click",".icon-pencil7",function () {
+
+            var cur = $(this).closest("tr");
+
+            $("#equipcode").select2().val(cur.find("td:eq(0)").text()).trigger("change");
+            $("#equip5").val(cur.find("td:eq(1)").text());
+            $("#anytime-weekday").val(cur.find("td:eq(2)").text());
+            $("#pstat").val(cur.find("td:eq(3)").text());
+            $("#remarks5").val(cur.find("td:eq(4)").text());
+
+
+        });
     </script> 
 
 

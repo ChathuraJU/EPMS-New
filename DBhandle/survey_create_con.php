@@ -31,6 +31,9 @@ if(isset($_GET["code"])){
         case "get_codeselect_data":
             get_codeselect_data();
             break;
+        case "get_eq_name":
+            get_eq_name();
+            break;
         }
     }
 
@@ -86,32 +89,33 @@ if(isset($_GET["code"])){
             $lastid = $row["id"];
         }
 
-        //create sur_eqp id
-        $sql2 ="SELECT Sur_equip_id FROM epms_survey_equip ORDER BY Sur_eqp_sn DESC LIMIT 1 ";
-        $result2=mysqli_query($conn,$sql2);
-
-        $rowcount=mysqli_num_rows($result2);
-
-        if ($rowcount>0) {
-            $row = mysqli_fetch_assoc($result2);
-            $last_id2 = $row["Sur_equip_id"];
-        }
-
-        $sureqp_number = substr($last_id2,4,11);
-        $newsureqp_number = str_pad(intval($sureqp_number) + 1, strlen($sureqp_number),'0', STR_PAD_LEFT);
-        $new_sureqpid = "SUR-".$newsureqp_number;
-
 
         foreach($equipmentsarray as $i => $eqname){
 
-            $equipcode =  $equipmentsarray[$i]['equipcode'];
-            $equipname =  $equipmentsarray[$i]['equipname'];
-            $presentstat =  $equipmentsarray[$i]['presentstat'];
-            $doi =  $equipmentsarray[$i]['doi'];
-            $remarks =  $equipmentsarray[$i]['remarks'];
+            //create sur_eqp id
+            $sql2 ="SELECT eq.`Sur_equip_id` FROM epms_survey_equip eq ORDER BY eq.`Sur_equip_id` DESC LIMIT 1 ";
+            $result2=mysqli_query($conn,$sql2);
 
-            $sql = "INSERT INTO epms_survey_equip(`Sur_equip_id`,`Equipment_code`,`Equipment_name`,`Present_Status`,`Date_of_installation`,`Remarks`)
-            VALUES ('$new_sureqpid','$equipcode','$equipname','$presentstat','$doi','$remarks')";
+            $rowcount=mysqli_num_rows($result2);
+
+            if ($rowcount>0) {
+                $row = mysqli_fetch_assoc($result2);
+                $last_id2 = $row["Sur_equip_id"];
+            }
+
+            $sureqp_number = substr($last_id2,7,13);
+            $newsureqp_number = str_pad(intval($sureqp_number) + 1, strlen($sureqp_number),'0', STR_PAD_LEFT);
+            $new_sureqpid = "SUREQP-".$newsureqp_number;
+
+
+            $equipcode =  $equipmentsarray[$i]['testequip'];
+            $equipname =  $equipmentsarray[$i]['equip5'];
+            $presentstat =  $equipmentsarray[$i]['pstat'];
+            $doi =  $equipmentsarray[$i]['anytime-weekday'];
+            $remarks =  $equipmentsarray[$i]['remarks5'];
+
+            $sql = "INSERT INTO epms_survey_equip(`Sur_equip_id`,`Equipment_code`,`Sur_sn`,`Equipment_name`,`Present_Status`,`Date_of_installation`,`Remarks`)
+            VALUES ('$new_sureqpid','$equipcode','$last_id1','$equipname','$presentstat','$doi','$remarks')";
 
             $result = mysqli_query($conn, $sql);
 
@@ -188,6 +192,7 @@ if(isset($_GET["code"])){
                     }
         }
 
+        //get equipment code to the select box
         function get_codeselect_data(){
             $servername = "localhost";
                 $username = "root";
@@ -215,5 +220,42 @@ if(isset($_GET["code"])){
                     } else {
                         echo "0 results";
                     }
+        }
+
+        //get equipment name for the relevant equip code
+        function get_eq_name(){
+            $eq_code = $_POST["eqcode"];
+
+
+            $servername = "localhost";
+            $username = "root";
+            $password = "";
+            $db = "nhk_epms";
+
+            // Create connection
+            $conn = mysqli_connect($servername, $username, $password, $db);
+            // Check connection
+            if (!$conn) {
+                die("Connection failed: " . mysqli_connect_error());
+            }
+
+
+            $sql = "SELECT 
+                      * 
+                    FROM
+                      `epms_inventory` eqi
+                      WHERE eqi.`Equip_code`='$eq_code'";
+
+
+            $result = mysqli_query($conn, $sql);
+
+            if (mysqli_num_rows($result) > 0) {
+                // output data of each row
+                while($row = mysqli_fetch_assoc($result)) {
+                    echo $row["Equip_name"];
+                }
+            } else {
+                echo "0 results";
+            }
         }
 ?>

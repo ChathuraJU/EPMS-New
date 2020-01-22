@@ -1,4 +1,9 @@
-<?php require_once('header.php');?>
+<?php require_once('header.php');
+
+$procid = $_GET["proid"];
+
+
+?>
 <!-- Main content -->
 <div class="content-wrapper">
     <!-- Page header -->
@@ -47,13 +52,12 @@
                                 <div class="form-group">
                                     <label class="col-lg-3 control-label">Procurement ID :<span class="text-danger">*</span></label>
                                     <div class="col-lg-9">
-                                        <select id="procid" name="procid" data-placeholder="Select the Procurement ID.." class="select required">
-                                            <option></option>  
-                                        </select>                              
+                                        <input type="text" id="proid" name="proid" class="form-control required"  value="<?php echo $procid ?>">
+
                                     </div>
                                 </div>
                             </div>
-        
+
                            
                         </div>
                         <div class="row">
@@ -111,11 +115,15 @@
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label class="col-lg-4 control-label"> Bid Collection Date (Openning Date) : <span class="text-danger">*</span></label>
-                                    <div class="col-lg-8">
-                                        <div class="input-group">
-                                            <span class="input-group-addon"><i class="icon-calendar22"></i></span>
-                                            <input type="text" id="bidcolop" name="bidcolop" class="form-control pickadate-strings required" placeholder="Try me&hellip;">
+                                    <div class="content-group-lg">
+                                        <label class="col-lg-4 control-label"> Bid Collection Date (Openning Date) : <span class="text-danger">*</span></label>
+                                        <div class="col-lg-8">
+                                            <div class="input-group">
+                                                    <span class="input-group-btn">
+                                                        <button type="button" class="btn btn-default btn-icon" id="ButtonCreationDemoButton"><i class="icon-calendar3"></i></button>
+                                                    </span>
+                                                <input type="text" class="form-control" id="ButtonCreationDemoInput" name="bidcolop" placeholder="Select a date">
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -129,7 +137,7 @@
                                                 <span class="input-group-btn">
                                                     <button type="button" class="btn btn-default btn-icon" id="ButtonCreationDemoButton"><i class="icon-calendar3"></i></button>
                                                 </span>
-                                                <input type="text" class="form-control" id="ButtonCreationDemoInput" placeholder="Select a date">
+                                                <input type="text" class="form-control" id="ButtonCreationDemoInput" name="bidcolcls" placeholder="Select a date">
                                             </div>
                                         </div>
                                     </div>
@@ -165,6 +173,26 @@
     <!-- /content area -->
 
     <script>
+
+
+        //get data
+        $(document).ready(function () {
+            var id = $("#proid").val();
+            //get equip name
+            $.ajax({
+                method: "POST",
+                url: "../DBhandle/tender_con.php?code=geteqpqtydata",
+                data: {"id": id}
+            })
+                .done(function (data) {
+                    var retData = JSON.parse(data);
+                    $("#eqpname").val(retData[0].Equipment_name);
+                    $("#qty").val(retData[0].Quantity);
+                });
+
+        });
+
+
         // select2 js
         $( document ).ready(function(){
 

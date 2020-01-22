@@ -92,20 +92,9 @@ if(isset($_GET["code"])){
             $lastid = $row["id"];
         }
 
-        //create req_eqp id
-        $sql2 ="SELECT Req_equip_id FROM epms_req_equip ORDER BY Req_eqp_sn DESC LIMIT 1 ";
-        $result2=mysqli_query($conn,$sql2);
 
-        $rowcount=mysqli_num_rows($result2);
 
-        if ($rowcount>0) {
-            $row = mysqli_fetch_assoc($result2);
-            $last_id2 = $row["Req_equip_id"];
-        }
 
-        $reqeqp_number = substr($last_id2,7,13);
-        $newreqeqp_number = str_pad(intval($reqeqp_number) + 1, strlen($reqeqp_number),'0', STR_PAD_LEFT);
-        $new_reqeqpid = "REQEQP-".$newreqeqp_number;
 
 
         foreach($equipmentsarray as $i => $eqname){
@@ -114,6 +103,21 @@ if(isset($_GET["code"])){
             $qty =  $equipmentsarray[$i]['qty'];
             $priority =  $equipmentsarray[$i]['priority'];
             $reason =  $equipmentsarray[$i]['reason'];
+
+            //create req_eqp id
+            $sql2 ="SELECT Req_equip_id FROM epms_req_equip ORDER BY Req_eqp_sn DESC LIMIT 1 ";
+            $result2=mysqli_query($conn,$sql2);
+
+            $rowcount=mysqli_num_rows($result2);
+
+            if ($rowcount>0) {
+                $row = mysqli_fetch_assoc($result2);
+                $last_id2 = $row["Req_equip_id"];
+            }
+
+            $reqeqp_number = substr($last_id2,7,13);
+            $newreqeqp_number = str_pad(intval($reqeqp_number) + 1, strlen($reqeqp_number),'0', STR_PAD_LEFT);
+            $new_reqeqpid = "REQEQP-".$newreqeqp_number;
 
             $sql = "INSERT INTO epms_req_equip(`Req_equip_id`,`Req_eqp_name`,`Req_sn`,`Req_equip_priority`,`Req_equip_reason`,`Req_equip_qty`)
             VALUES ('$new_reqeqpid','$equipment','$lastid','$priority','$reason','$qty')";
