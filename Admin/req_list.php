@@ -60,6 +60,7 @@
                             <th>Unit</th>
                             <th>Ward</th>
                             <th>Proceed for Approval </th>
+                            <th></th>
                         </tr>
                     </thead>
                     <tbody>
@@ -110,7 +111,7 @@
                 columnDefs: [{ 
                     orderable: false,
                     width: '100px',
-                    targets: [ 5 ]
+                    targets: [ 4 ]
                 }],
                 dom: '<"datatable-header"fl><"datatable-scroll-wrap"t><"datatable-footer"ip>',
                 language: {

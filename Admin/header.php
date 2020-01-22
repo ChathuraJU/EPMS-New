@@ -69,6 +69,8 @@
 	<script src="../global_assets/js/plugins/tables/datatables/extensions/buttons.min.js"></script>
 	<script src="../global_assets/js/plugins/media/fancybox.min.js"></script>
 	<script src="../global_assets/js/plugins/forms/inputs/duallistbox.min.js"></script>
+	<script src="../global_assets/js/plugins/visualization/d3/d3.min.js"></script>
+	<script src="../global_assets/js/plugins/visualization/d3/d3_tooltip.js"></script>
 	
 	<script src="../assets/js/app.js"></script>
 	<script src="../global_assets/js/demo_pages/dashboard.js"></script>
@@ -259,7 +261,6 @@
 						<li><a href="profile.php"><i class="icon-user-plus"></i> My profile</a></li>
 						<li><a href="calender.php"><i class="icon-coins"></i> Events </a></li>
 						<li class="divider"></li>
-						<li><a href="#"><i class="icon-cog5"></i> Account settings</a></li>
 						<li><a href="#"><i class="icon-eye-blocked"></i> Lockscreen </a></li>
 						<li><a href="../login/logout_class.php"><i class="icon-switch"></i> Logout</a></li>
 					</ul>
@@ -288,7 +289,7 @@
 								<div class="media-body">
 									<span class="media-heading text-semibold"> Admin </span>
 									<div class="text-size-mini text-muted">
-										<i class="icon-office text-size-small"></i> &nbsp;National Hospital Kandy
+										<i class="icon-office text-size-small"></i> &nbsp;IT Unit, National Hospital Kandy
 									</div>
 								</div>
 
@@ -443,17 +444,14 @@
 										<li>
                                             <a href="req_create.php"> Create Requisitions </a>
                                         </li>
-
-                                        <!-- <li>
-                                            <a href="req_manage.php"> Manage Requisitions  </a>
-										</li> -->
 										
 										<li>
-											<a href="req_list.php"> New Requisitions </a>
+											<a href="req_list.php"> All Requisitions </a>
 										</li>
-										<!-- <li>
+										
+										<li>
 											<a href="reqequip_list.php"> Requisitioned Equipment List </a>
-										</li>  -->
+										</li> 
 
                                         <li>
 											<a href="#">Primal Approved Requisitions</a>
@@ -553,7 +551,7 @@
 								<li>
 									<a href="#"><i class="icon-hammer2"></i> <span> Bids </span></a>
 									<ul>
-									<!-- 
+									<!-- FOR FUTURE ENHANCEMENT
 										<li>
                                             <a href="bid_checklist.php"> Bid Checklists </a>
                                         </li> -->

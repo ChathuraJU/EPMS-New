@@ -51,7 +51,7 @@ if (!$conn) {
          style="border-top: 1px solid #ddd; border-left: 1px solid #ddd; border-right: 1px solid #ddd;">
         <div class="page-header-content border-bottom border-bottom-success-300">
             <div class="page-title">
-                <h4><i class="icon-arrow-left52 position-left"></i> <span class="text-semibold"> Requisition </span>
+                <h4><i class="icon-arrow-left52 position-left"></i> <span class="text-semibold"> REQUISITION </span>
                 </h4>
             </div>
 
@@ -193,7 +193,10 @@ if (!$conn) {
                             </div>
                         </div>
 
-
+                    </fieldset>
+                    <fieldset>
+                        <div class="col-lg-10"></div>
+                        <div class="col-lg-2"><button type="button" onclick="location.href='req_list.php'" id="backrqlst" class="btn btn-primary">  <i class="icon-arrow-left16"></i>BACK</button></div>
 
 
                     </fieldset>
@@ -358,8 +361,7 @@ if (!$conn) {
                                         <div class="form-group">
                                             <label> Primal Approval Date : </label>
                                             <div class="input-group">
-                                                                        <span class="input-group-addon"><i
-                                                                                    class="icon-calendar5"></i></span>
+                                                <span class="input-group-addon"><iclass="icon-calendar5"></i></span>
                                                 <input type="text" id="primappdate2"
                                                        name="primappdate2"
                                                        class="form-control pickadate-strings required"

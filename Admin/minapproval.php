@@ -141,11 +141,7 @@
                                     <div class="col-lg-4">
                                         <div class="form-group">
                                             <label> Purchase Type :</label>
-                                            <select name="purchtype" data-placeholder="Direct/Indirect" class="select required" readonly>
-                                                <option></option> 
-                                                <option value="1"> Direct Purchase </option> 
-                                                <option value="2"> Indirect Purchase</option> 
-                                            </select>
+                                            <input type="text" id="purchtype" name="purchtype" class="form-control" placeholder="Approved" readonly>
                                         </div>
                                     </div>    
                                 </div>
@@ -175,8 +171,11 @@
                                         <div class="form-group">
                                             <label> Ministry Approval Date:</label>
                                             <div class="input-group">
-                                                <span class="input-group-addon"><i class="icon-calendar22"></i></span>
-                                                <input type="text" class="form-control daterange-single" value="03/18/2013">
+                                                <span class="input-group-addon"><iclass="icon-calendar5"></i></span>
+                                                <input type="text" id="minapprvdate"
+                                                       name="minapprvdate"
+                                                       class="form-control pickadate-strings required"
+                                                       placeholder="Try me&hellip;">
                                             </div>
                                         </div>
                                     </div>    
@@ -227,12 +226,15 @@
                 width: 250
             });
 
+        });
+
+        // pickdate
+        $(document).ready(function () {
             $('.pickadate-strings').pickadate({
                 weekdaysShort: ['Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa'],
                 showMonthsShort: true
             });
         });
-
 
 
     </script>

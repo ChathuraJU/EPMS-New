@@ -103,9 +103,9 @@ if(isset($_GET["code"])){
             $last_id2 = $row["Req_equip_id"];
         }
 
-        $reqeqp_number = substr($last_id2,4,11);
+        $reqeqp_number = substr($last_id2,7,13);
         $newreqeqp_number = str_pad(intval($reqeqp_number) + 1, strlen($reqeqp_number),'0', STR_PAD_LEFT);
-        $new_reqeqpid = "REQ-".$newreqeqp_number;
+        $new_reqeqpid = "REQEQP-".$newreqeqp_number;
 
 
         foreach($equipmentsarray as $i => $eqname){

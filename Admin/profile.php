@@ -9,7 +9,7 @@
             <div class="page-title">
                 <h4>
                     <i class="icon-arrow-left52 position-left"></i>
-                    <span class="text-semibold">Configuration </span>
+                    <span class="text-semibold">PROFILE </span>
                 </h4>
             </div>
 
@@ -33,7 +33,13 @@
 
     <!-- Content area -->
     <div class="content">
+        <div class="col-lg-12" >
+            <div class="col-lg-2"></div>
+            <div class="col-lg-8">
+                <img src="../global_assets/images/maintenance.jpg" height ="700px"  />
+            </div>
 
+        </div>
  
     </div>
     <!-- /content area -->

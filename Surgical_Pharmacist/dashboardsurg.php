@@ -3,73 +3,126 @@
     <div class="content-wrapper">
 
         <!-- Page header -->
-        <div class="page-header page-header-default">
-            <div class="page-header-content">
-                <div class="page-title">
-                    <h4><i class="icon-arrow-left52 position-left"></i> <span class="text-semibold">Home</span> - Dashboard</h4>
-                </div>
+        <div class="page-header page-header-default" style="border-top: 1px solid #ddd; border-left: 1px solid #ddd; border-right: 1px solid #ddd;">
+            <div class="row">
+                <div class="col-sm-6 col-md-3">
+                    <div class="panel panel-body bg-blue-400 has-bg-image">
+                        <div class="media no-margin">
+                            <div class="media-body">
+                                <h3 class="no-margin">54,390</h3>
+                                <span class="text-uppercase text-size-mini">EMPLOYEE ID</span>
+                            </div>
 
-                <div class="heading-elements">
-                    <div class="heading-btn-group">
-                        <a href="#" class="btn btn-link btn-float has-text"><i class="icon-bars-alt text-primary"></i><span>Statistics</span></a>
-                        <a href="#" class="btn btn-link btn-float has-text"><i class="icon-file-stats2 text-primary"></i> <span>Reports</span></a>
+                            <div class="media-right media-middle">
+                                <i class="icon-vcard icon-3x opacity-75"></i>
+                            </div>
+                        </div>
                     </div>
                 </div>
-            </div>
 
-            <div class="breadcrumb-line">
-                <ul class="breadcrumb">
-                    <li><a href="dashboardsurg.php"><i class="icon-home2 position-left"></i> Home</a></li>
-                    <li class="active">Dashboard</li>
-                </ul>
+                <div class="col-sm-6 col-md-3">
+                    <div class="panel panel-body bg-blue-400 has-bg-image">
+                        <div class="media no-margin">
+                            <div class="media-body">
+                                <h3 class="no-margin">54,390</h3>
+                                <span class="text-uppercase text-size-mini">EMPLOYEE NAME</span>
+                            </div>
 
-                <ul class="breadcrumb-elements">
-                    <li><a href="#"><i class="icon-comment-discussion position-left"></i> Support</a></li>
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                            <i class="icon-gear position-left"></i>
-                            Settings
-                            <span class="caret"></span>
-                        </a>
+                            <div class="media-right media-middle">
+                                <i class="icon-user-tie icon-3x opacity-75"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
-                        <ul class="dropdown-menu dropdown-menu-right">
-                            <li><a href="#"><i class="icon-user-lock"></i> Account security</a></li>
-                            <li><a href="#"><i class="icon-statistics"></i> Analytics</a></li>
-                            <li><a href="#"><i class="icon-accessibility"></i> Accessibility</a></li>
-                            <li class="divider"></li>
-                            <li><a href="#"><i class="icon-gear"></i> All settings</a></li>
-                        </ul>
-                    </li>
-                </ul>
+                <div class="col-sm-6 col-md-3">
+                    <div class="panel panel-body bg-blue-400 has-bg-image">
+                        <div class="media no-margin">
+                            <div class="media-body">
+                                <h3 class="no-margin">54,390</h3>
+                                <span class="text-uppercase text-size-mini">UNIT / WARD</span>
+                            </div>
+
+                            <div class="media-right media-middle">
+                                <i class="icon-location4 icon-3x opacity-75"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-sm-6 col-md-3">
+                    <div class="panel panel-body bg-blue-400 has-bg-image">
+                        <div class="media no-margin">
+                            <div class="media-body">
+                                <h3 class="no-margin">54,390</h3>
+                                <span class="text-uppercase text-size-mini">DATE</span>
+                            </div>
+
+                            <div class="media-right media-middle">
+                                <i class="icon-calendar52 icon-3x opacity-75"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
         <!-- /page header -->
 
-
         <!-- Content area -->
         <div class="content">
-
-            <!-- Main charts -->
             <div class="row">
-                    <p> Lets add the widgets here </p>
-            </div>
-            <!-- /main charts -->
+                
 
-            <!-- Dashboard content -->
+            </div>
+
+
             <div class="row">
-                <div class="col-lg-8">
-                    <p> left Dashboard content </p>
-                </div>
+						<div class="col-lg-9">
 
-                <div class="col-lg-4">
-                    <p> Right dashboard content </P>
-                </div>
+						</div>
+
+						<div class="col-lg-3">
+
+                        	<!-- Calendar widget -->
+							<div class="panel has-scroll">
+								<div class="datepicker no-border"></div>
+							</div>
+							<!-- /calendar widget -->
+
+							<!-- Search -->
+							<div class="panel panel-flat">
+								<div class="panel-heading">
+									<h6 class="panel-title">Search Contact</h6>
+									<div class="heading-elements">
+										<ul class="icons-list">
+					                		<li><a href="#"><i class="icon-stats-bars"></i></a></li>
+					                	</ul>
+				                	</div>
+								</div>
+
+								<div class="panel-body">
+									<form action="#">
+										<div class="input-group content-group">
+												<input type="text" class="form-control input-lg" placeholder="Search our help center">
+
+											<div class="input-group-btn">
+												<button type="submit" class="btn btn-primary btn-lg btn-icon"><i class="icon-search4"></i></button>
+											</div>
+										</div>
+
+									</form>
+								</div>
+							</div>
+                            <!-- /search -->
+						</div>
             </div>
-            <!-- /dashboard content -->
-            
         </div>
         <!-- /content area -->
 
+
+        
+    <script src="../global_assets/js/demo_pages/general_widgets_stats.js"></script>
+    <script src="../global_assets/js/demo_pages/general_widgets_content.js"></script>
     </div>
     <!-- /main content -->
 

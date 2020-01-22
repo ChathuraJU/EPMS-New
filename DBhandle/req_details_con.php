@@ -129,9 +129,23 @@ function approvedsaveform($conn){
     $datyp= $_POST["procuretype2"];
     $dainfo = $_POST["additional-info2"];
 
+    $sql1 ="SELECT Prim_app_eqp_id FROM epms_req_prim_app ORDER BY Prim_app_sn DESC LIMIT 1 ";
+    $result1=mysqli_query($conn,$sql1);
 
-    $sql = "INSERT INTO `epms_req_prim_app`(`Req_equip_id`,`Req_app_emp`,`Req_primapp_date`,`Req_equip`,`Req_eqp_qty`,`Procurement_type`,`Req_primapp_remark`)
-            VALUES ('$dafindrq','$daid','$dadate','$findeqpname','$dafindqty','$datyp','$dainfo')";
+    $rowcount=mysqli_num_rows($result1);
+
+    if ($rowcount>0) {
+        $row = mysqli_fetch_assoc($result1);
+        $last_id = $row["Prim_app_eqp_id"];
+    }
+
+    $papp_number = substr($last_id,8,14);
+    $newpapp_number = str_pad(intval($papp_number) + 1, strlen($papp_number),'0', STR_PAD_LEFT);
+    $new_pappid = "PAPPEQP-".$newpapp_number;
+
+
+    $sql = "INSERT INTO `epms_req_prim_app`(`Prim_app_eqp_id`,`Req_equip_id`,`Req_app_emp`,`Req_primapp_date`,`Req_equip`,`Req_eqp_qty`,`Procurement_type`,`Req_primapp_remark`)
+            VALUES ('$new_pappid','$dafindrq','$daid','$dadate','$findeqpname','$dafindqty','$datyp','$dainfo')";
 
     $sql2 = "UPDATE `epms_req_equip` SET `Req_equip_approval` = 'Approved' WHERE Req_equip_id ='$dafindrq'";
     $result = mysqli_query($conn, $sql);

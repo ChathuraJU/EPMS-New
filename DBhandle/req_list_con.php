@@ -41,6 +41,7 @@
                             <td>" . $row["Unit_Name"] . "</td>
                             <td>" . $row["Ward_Name"] . "</td>
                             <td><a href='req_details.php?id=".$row["Req_sn"]."'> PROCEED </a></td>
+                            <td></td>
 
                             
                             </tr>";

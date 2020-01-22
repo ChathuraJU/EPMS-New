@@ -52,114 +52,21 @@
                     </div>
                 </div>
 
-                <table class="table datatable-responsive-control-right">
+                <table id="alleqplist" class="table datatable-responsive-control-right">
                     <thead>
                         <tr>
-                            <th>Requisition Equipment ID</th>
+                            <th>Requisition Date</th>
+                            <th>Unit/Ward Head</th>
                             <th>Requisition ID</th>
-                            <th>Requisition Approval Doc.</th>
+                            <th>Requisition Equipment ID</th>
                             <th>Requisition Type</th>
                             <th>Primal Approval</th>
-                            <th class="text-center">Actions</th>
                             <th></th>
                         
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td><a href="reqapproval.php"> REQ-000001-01  </a></td>
-                            <td><a href="reqequip.php"> REQ-000001 </a></td>
-                            <td> XXXXXX</td>
-                            <td> Annual Request</td>
-                            <td> Pending </td>
-                            <td class="text-center">
-                                <ul class="icons-list">
-                                    <li class="dropdown">
-                                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                                            <i class="icon-menu9"></i>
-                                        </a>
-
-                                        <ul class="dropdown-menu dropdown-menu-right">
-                                            <li><a href="reqapproval.php"><i class="icon-reset"></i> Update</a></li>
-                                            <li><a href="#"><i class="icon-eye"></i> View</a></li>
-                                            <li></li>
-                                        </ul>
-                                    </li>
-                                </ul>
-                            </td>
-                            <td></td>
-
-                        </tr>
-                        <tr>
-                        <td><a href="reqapproval.php"> REQ-000001-02  </a></td>
-                            <td><a href="reqequip.php"> REQ-000001 </a></td>
-                            <td> XXXXXX</td>
-                            <td> Annual Request</td>
-                            <td> Pending </td>
-                            <td class="text-center">
-                                <ul class="icons-list">
-                                    <li class="dropdown">
-                                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                                            <i class="icon-menu9"></i>
-                                        </a>
-
-                                        <ul class="dropdown-menu dropdown-menu-right">
-                                            <li><a href="reqapproval.php"><i class="icon-reset"></i> Update</a></li>
-                                            <li><a href="#"><i class="icon-eye"></i> View</a></li>
-                                            <li></li>
-                                        </ul>
-                                    </li>
-                                </ul>
-                            </td>
-                            <td></td>
-
-                        </tr>
-                        <tr>
-                        <td><a href="reqapproval.php">REQ-000001-03  </a></td>
-                            <td><a href="reqequip.php"> REQ-000001</a> </td>
-                            <td> XXXXXX</td>
-                            <td> Annual Request</td>
-                            <td> Pending </td>
-                            <td class="text-center">
-                                <ul class="icons-list">
-                                    <li class="dropdown">
-                                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                                            <i class="icon-menu9"></i>
-                                        </a>
-
-                                        <ul class="dropdown-menu dropdown-menu-right">
-                                            <li><a href="reqapproval.php"><i class="icon-reset"></i> Update</a></li>
-                                            <li><a href="#"><i class="icon-eye"></i> View</a></li>
-                                        </ul>
-                                    </li>
-                                </ul>
-                            </td>
-                            <td></td>
-
-                        </tr>
-                        <tr>
-                        <td><a href="reqapproval.php"> REQ-000002-01  </a></td>
-                            <td><a href="reqequip.php"> REQ-000002</a> </td>
-                            <td> XXXXXX</td>
-                            <td> Annual Request</td>
-                            <td> Pending </td>
-                            <td class="text-center">
-                                <ul class="icons-list">
-                                    <li class="dropdown">
-                                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                                            <i class="icon-menu9"></i>
-                                        </a>
-
-                                        <ul class="dropdown-menu dropdown-menu-right">
-                                            <li><a href="reqapproval.php"><i class="icon-reset"></i> Update</a></li>
-                                            <li><a href="#"><i class="icon-eye"></i> View</a></li>
-                                        </ul>
-                                    </li>
-                                </ul>
-                            </td>
-                            <td></td>
-
-                        </tr>
+                       
                     </tbody>
                 </table>
             </div>
@@ -167,7 +74,94 @@
         </div>
         <!-- /content area -->
 
-    </div>
-    <!-- /main content -->
+    <script>
+
+        //get data from the databasse
+        function mydatatable(){
+
+        $('#alleqplist').DataTable();
+        }
+
+        //get data
+        $(document).ready(function () {
+        // mydatatable();
+
+        $.ajax({
+            method: "POST",
+            url: "../DBhandle/reqequip_list_con.php?code=get_data",
+            processData: false,
+            contentType: false
+        })
+            .done(function (data) {
+                $('#alleqplist').DataTable().destroy();
+                $('#alleqplist tbody').empty();
+                $('#alleqplist tbody').append(data);
+                mydatatable();
+            });
+        });
+
+
+        
+        $( document ).ready(function(){
+
+        // Table setup
+        // ------------------------------
+
+        // Setting datatable defaults
+        $.extend( $.fn.dataTable.defaults, {
+            autoWidth: false,
+            responsive: true,
+            columnDefs: [{
+                orderable: false,
+                width: '100px',
+                targets: [ 3 ]
+            }],
+            dom: '<"datatable-header"fl><"datatable-scroll-wrap"t><"datatable-footer"ip>',
+            language: {
+                search: '<span>Filter:</span> _INPUT_',
+                searchPlaceholder: 'Type to filter...',
+                lengthMenu: '<span>Show:</span> _MENU_',
+                paginate: { 'first': 'First', 'last': 'Last', 'next': $('html').attr('dir') == 'rtl' ? '&larr;' : '&rarr;', 'previous': $('html').attr('dir') == 'rtl' ? '&rarr;' : '&larr;' }
+            },
+            drawCallback: function () {
+                $(this).find('tbody tr').slice(-3).find('.dropdown, .btn-group').addClass('dropup');
+            },
+            preDrawCallback: function() {
+                $(this).find('tbody tr').slice(-3).find('.dropdown, .btn-group').removeClass('dropup');
+            }
+        });
+
+        // Control position
+        $('.datatable-responsive-control-right').DataTable({
+            responsive: {
+                details: {
+                    type: 'column',
+                    target: -1
+                }
+            },
+            columnDefs: [
+                {
+                    className: 'control',
+                    orderable: false,
+                    targets: -1
+                },
+                {
+                    width: "100px",
+                    targets: [3]
+                },
+                {
+                    orderable: false,
+                    targets: [3]
+                }
+            ]
+        });
+
+        });
+
+                
+    </script>
+
+</div>
+<!-- /main content -->
 
 <?php require_once('footer.php');?>

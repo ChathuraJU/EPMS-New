@@ -250,7 +250,7 @@
 				<li class="dropdown dropdown-user">
 					<a class="dropdown-toggle" data-toggle="dropdown">
 						<img src="../global_assets/images/placeholders/placeholder.jpg" alt="">
-						<span> Admin </span>
+						<span> Consultant </span>
 						<i class="caret"></i>
 					</a>
 
@@ -258,7 +258,6 @@
 						<li><a href="profile.php"><i class="icon-user-plus"></i> My profile</a></li>
 						<li><a href="calender.php"><i class="icon-coins"></i> Events </a></li>
 						<li class="divider"></li>
-						<li><a href="#"><i class="icon-cog5"></i> Account settings</a></li>
 						<li><a href="#"><i class="icon-eye-blocked"></i> Lockscreen </a></li>
 						<li><a href="../login/logout_class.php"><i class="icon-switch"></i> Logout</a></li>
 					</ul>

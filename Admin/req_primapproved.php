@@ -250,7 +250,7 @@
                 columnDefs: [{ 
                     orderable: false,
                     width: '100px',
-                    targets: [ 5 ]
+                    targets: [ 6 ]
                 }],
                 dom: '<"datatable-header"fl><"datatable-scroll-wrap"t><"datatable-footer"ip>',
                 language: {
@@ -266,8 +266,6 @@
                     $(this).find('tbody tr').slice(-3).find('.dropdown, .btn-group').removeClass('dropup');
                 }
             });
-
-
             
             // Control position
             $('.datatable-responsive-control-right').DataTable({
