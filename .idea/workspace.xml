@@ -39,7 +39,7 @@
             <state relative-caret-position="532">
               <caret line="65" selection-start-line="65" selection-end-line="65" />
               <folding>
-                <marker date="1579645475047" expanded="true" signature="331:418" ph="..." />
+                <marker date="1579647930865" expanded="true" signature="331:418" ph="..." />
               </folding>
             </state>
           </provider>
@@ -49,7 +49,7 @@
         <entry file="file://$PROJECT_DIR$/DBhandle/req_details_con.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="-576">
-              <caret line="22" column="22" lean-forward="true" selection-start-line="22" selection-start-column="22" selection-end-line="22" selection-end-column="22" />
+              <caret line="22" column="22" selection-start-line="22" selection-start-column="22" selection-end-line="22" selection-end-column="22" />
             </state>
           </provider>
         </entry>
@@ -201,7 +201,7 @@
     <option name="totallyTimeSpent" value="47091000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="754" extended-state="7" />
+    <frame x="-8" y="-8" width="1382" height="754" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="1" visible="true" weight="0.18003026" />
@@ -262,7 +262,7 @@
         <state relative-caret-position="1170">
           <caret line="65" lean-forward="true" selection-start-line="65" selection-end-line="65" />
           <folding>
-            <marker date="1579645475047" expanded="true" signature="331:418" ph="..." />
+            <marker date="1579647930865" expanded="true" signature="331:418" ph="..." />
           </folding>
         </state>
       </provider>
@@ -296,7 +296,7 @@
         <state relative-caret-position="3330">
           <caret line="185" column="78" selection-start-line="185" selection-start-column="66" selection-end-line="185" selection-end-column="78" />
           <folding>
-            <marker date="1579645475047" expanded="true" signature="331:418" ph="..." />
+            <marker date="1579647930865" expanded="true" signature="331:418" ph="..." />
           </folding>
         </state>
       </provider>
@@ -330,7 +330,7 @@
         <state relative-caret-position="3330">
           <caret line="185" column="78" selection-start-line="185" selection-start-column="66" selection-end-line="185" selection-end-column="78" />
           <folding>
-            <marker date="1579645475047" expanded="true" signature="331:418" ph="..." />
+            <marker date="1579647930865" expanded="true" signature="331:418" ph="..." />
           </folding>
         </state>
       </provider>
@@ -521,7 +521,7 @@
         <state relative-caret-position="532">
           <caret line="65" selection-start-line="65" selection-end-line="65" />
           <folding>
-            <marker date="1579645475047" expanded="true" signature="331:418" ph="..." />
+            <marker date="1579647930865" expanded="true" signature="331:418" ph="..." />
           </folding>
         </state>
       </provider>
@@ -529,7 +529,7 @@
     <entry file="file://$PROJECT_DIR$/DBhandle/req_details_con.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-576">
-          <caret line="22" column="22" lean-forward="true" selection-start-line="22" selection-start-column="22" selection-end-line="22" selection-end-column="22" />
+          <caret line="22" column="22" selection-start-line="22" selection-start-column="22" selection-end-line="22" selection-end-column="22" />
         </state>
       </provider>
     </entry>

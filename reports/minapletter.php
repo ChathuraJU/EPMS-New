@@ -59,7 +59,7 @@
     $content = '';
     $content .= '
 <div>
-    <img src="../global_assets/images/pdftop1.png" height="100" width="600">
+    <img src="../global_assets/images/pdftop.png" height="100" width="600">
 </div>
 <hr style="color: black">
 

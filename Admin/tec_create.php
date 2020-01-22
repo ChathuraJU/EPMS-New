@@ -7,7 +7,7 @@
     <div class="page-header page-header-default" style="border-top: 1px solid #ddd; border-left: 1px solid #ddd; border-right: 1px solid #ddd;">
         <div class="page-header-content border-bottom border-bottom-success-300">
             <div class="page-title">
-                <h4><i class="icon-arrow-left52 position-left"></i> <span class="text-semibold"> Requisition </span></h4>
+                <h4><i class="icon-arrow-left52 position-left"></i> <span class="text-semibold"> SPECIFICATION </span></h4>
             </div>
 
             <div class="heading-elements">
@@ -21,20 +21,10 @@
         <div class="breadcrumb-line">
             <ul class="breadcrumb">
                 <li><a href="dashboard.php"><i class="icon-home2 position-left"></i> Home</a></li>
-                <li><a href="#"> Requisition </a></li>
-                <li class="active"> Create Requisition </li>
+                <li><a href="#"> Specification </a></li>
+                <li class="active"> Create TEC </li>
             </ul>
 
-            <ul class="breadcrumb-elements">
-                <li><a href="#"><i class="icon-comment-discussion position-left"></i> Support</a></li>
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                        <i class="icon-gear position-left"></i>
-                        Settings
-                        <span class="caret"></span>
-                    </a>
-                </li>
-            </ul>
         </div>
     </div>
     <!-- /page header -->
