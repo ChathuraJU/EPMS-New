@@ -41,17 +41,6 @@ if (!$conn) {
             $opening = $_POST["bidcolop"];
             $closing = $_POST["bidcolcls"];
 
-            $servername = "localhost";
-            $username = "root";
-            $password = "";
-            $db = "nhk_epms";
-            
-                // Create connection
-                $conn = mysqli_connect($servername, $username, $password, $db);
-                // Check connection
-                if (!$conn) {
-                    die("Connection failed: " . mysqli_connect_error());
-                }
 
 
                 $sql = "INSERT INTO `epms_tenders`(`Procurement_id`,`Equip_name`,`Quantity`,`Procure_title`,
@@ -90,7 +79,7 @@ function geteqpqtydata($conn){
     $id = $_POST["id"];
 
 
-    $sql = "SELECT * FROM `epms_tec` WHERE `Procurement_id` = 'PROC/00001';";
+    $sql = "SELECT * FROM `epms_tec` WHERE `Procurement_id` = '$id';";
 
     $result2 = mysqli_query($conn, $sql);
     if (mysqli_num_rows($result2) > 0) {

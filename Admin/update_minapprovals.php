@@ -96,7 +96,6 @@
 
 
 
-
             $( document ).ready(function(){
 
                 // Table setup

@@ -52,7 +52,7 @@ $procid = $_GET["proid"];
                                 <div class="form-group">
                                     <label class="col-lg-3 control-label">Procurement ID :<span class="text-danger">*</span></label>
                                     <div class="col-lg-9">
-                                        <input type="text" id="proid" name="proid" class="form-control required"  value="<?php echo $procid ?>">
+                                        <input type="text" id="proid" name="proid" class="form-control required"  value="<?php echo $procid ?>" readonly>
 
                                     </div>
                                 </div>
@@ -65,7 +65,7 @@ $procid = $_GET["proid"];
                                 <div class="form-group">
                                     <label class="col-lg-3 control-label">Equipment Name :<span class="text-danger">*</span></label>
                                     <div class="col-lg-9">
-                                        <input type="text" id="eqpname" name="eqpname" class="form-control required"  >
+                                        <input type="text" id="eqpname" name="eqpname" class="form-control required" readonly >
                                     </div>
                                 </div>
                             </div>
@@ -73,7 +73,7 @@ $procid = $_GET["proid"];
                                 <div class="form-group">
                                     <label class="col-lg-3 control-label">Quantity :<span class="text-danger">*</span></label>
                                     <div class="col-lg-9">
-                                        <input type="text" id="qty" name="qty" class="form-control required"  >
+                                        <input type="text" id="qty" name="qty" class="form-control required" readonly >
                                     </div>
                                 </div>
                             </div>
@@ -122,7 +122,7 @@ $procid = $_GET["proid"];
                                                     <span class="input-group-btn">
                                                         <button type="button" class="btn btn-default btn-icon" id="ButtonCreationDemoButton"><i class="icon-calendar3"></i></button>
                                                     </span>
-                                                <input type="text" class="form-control" id="ButtonCreationDemoInput" name="bidcolop" placeholder="Select a date">
+                                                <input type="text" class="form-control" id="opening" name="bidcolop" placeholder="Select a date">
                                             </div>
                                         </div>
                                     </div>
@@ -137,7 +137,7 @@ $procid = $_GET["proid"];
                                                 <span class="input-group-btn">
                                                     <button type="button" class="btn btn-default btn-icon" id="ButtonCreationDemoButton"><i class="icon-calendar3"></i></button>
                                                 </span>
-                                                <input type="text" class="form-control" id="ButtonCreationDemoInput" name="bidcolcls" placeholder="Select a date">
+                                                <input type="text" class="form-control" id="closing" name="bidcolcls" placeholder="Select a date">
                                             </div>
                                         </div>
                                     </div>
@@ -285,8 +285,13 @@ $procid = $_GET["proid"];
 
 
             // On demand picker
-            $('#ButtonCreationDemoButton').on('click', function (e) {
-                $('#ButtonCreationDemoInput').AnyTime_noPicker().AnyTime_picker().focus();
+            $('#opening').on('click', function (e) {
+                $('#opening').AnyTime_noPicker().AnyTime_picker().focus();
+                e.preventDefault();
+            });
+            // On demand picker
+            $('#closing').on('click', function (e) {
+                $('#closing').AnyTime_noPicker().AnyTime_picker().focus();
                 e.preventDefault();
             });
         });

@@ -1,29 +1,44 @@
 <?php 
+
+$servername = "localhost";
+$username = "root";
+$password = "";
+$db = "nhk_epms";
+
+// Create connection
+$conn = mysqli_connect($servername, $username, $password, $db);
+// Check connection
+if (!$conn) {
+    die("Connection failed: " . mysqli_connect_error());
+}
+
     if(isset($_GET["code"])){
         $code=$_GET["code"];
         switch($code){
             case "save":
-                save();
+                save($conn);
                 break;
 
             case "get_empidselect_data":
-                get_empidselect_data();
+                get_empidselect_data($conn);
                 break;               
-            case "get_empnameselect_data":
-                get_empnameselect_data();
-                break;
+
             case "get_utypeselect_data":
-                get_utypeselect_data();
+                get_utypeselect_data($conn);
                 break;
             case "get_data":
-                getdata();
+                getdata($conn);
                 break;
+
+            case "get_emp_name":
+                get_emp_name($conn);
+            break;
             }
         }
 
-        function save(){
+        function save($conn){
             $emplid = $_POST["empid"];
-            $emplname = $_POST["empname"];
+            $emplname = $_POST["emp5"];
             $usetyp = $_POST["utype"];
             $usestat = $_POST["ustatus"]; 
             $Uname = $_POST["username"];
@@ -32,19 +47,6 @@
             $Udeny = $_POST["udeniedd"]; 
 
             $md5pass=md5($Upassword);
-
-            $servername = "localhost";
-            $username = "root";
-            $password = "";
-            $db = "nhk_epms";
-            
-                // Create connection
-                $conn = mysqli_connect($servername, $username, $password, $db);
-                // Check connection
-                if (!$conn) {
-                    die("Connection failed: " . mysqli_connect_error());
-                }
-
 
                 $sql = "INSERT INTO `epms_users`(`Emp_id`,`Emp_name`,`User_type_name`,`User_status`,
                 `User_username`,`User_password`,`User_access_assigned_date`,`User_access_denied_date`)
@@ -63,93 +65,63 @@
 
 
         //function to get the employee ids from the db to  Ward Head ID select box
-        function  get_empidselect_data(){
-            $servername = "localhost";
-            $username = "root";
-            $password = "";
-            $db = "nhk_epms";
+        function  get_empidselect_data($conn){
+      
+            $sql = "select * from `epms_employee`";
             
-                // Create connection
-                $conn = mysqli_connect($servername, $username, $password, $db);
-                // Check connection
-                if (!$conn) {
-                    die("Connection failed: " . mysqli_connect_error());
-                }
-                
-                
-                $sql = "select * from `epms_employee`";
-                
-                
-                $result = mysqli_query($conn, $sql);
+            
+            $result = mysqli_query($conn, $sql);
 
-                if (mysqli_num_rows($result) > 0) {
-                    // output data of each row
-                    while($row = mysqli_fetch_assoc($result)) {
-                        echo("<option value='".$row["Emp_id"]."'>".$row["Emp_id"]."</option>");
-                    }
-                } else {
-                    echo "0 results";
+            if (mysqli_num_rows($result) > 0) {
+                // output data of each row
+                while($row = mysqli_fetch_assoc($result)) {
+                    echo("<option value='".$row["Emp_id"]."'>".$row["Emp_id"]."</option>");
                 }
+            } else {
+                echo "0 results";
+            }
         }
 
-        //function to get the employee names from the db to  Ward Head ID select box
-        function  get_empnameselect_data(){
-            $servername = "localhost";
-            $username = "root";
-            $password = "";
-            $db = "nhk_epms";
-            
-                // Create connection
-                $conn = mysqli_connect($servername, $username, $password, $db);
-                // Check connection
-                if (!$conn) {
-                    die("Connection failed: " . mysqli_connect_error());
-                }
-                
-                
-                $sql = "select * from `epms_employee`";
-                
-                
-                $result = mysqli_query($conn, $sql);
+        //get equipment name for the relevant equip code
+        function get_emp_name($conn){
+            $emp_n = $_POST["emp"];
 
-                if (mysqli_num_rows($result) > 0) {
-                    // output data of each row
-                    while($row = mysqli_fetch_assoc($result)) {
-                        echo("<option value='".$row["Emp_name"]."'>".$row["Emp_name"]."</option>");
-                    }
-                } else {
-                    echo "0 results";
+            $sql = "SELECT 
+                        * 
+                    FROM
+                        `epms_employee` e
+                        WHERE e.`Emp_id`='$emp_n'";
+
+
+            $result = mysqli_query($conn, $sql);
+
+            if (mysqli_num_rows($result) > 0) {
+                // output data of each row
+                while($row = mysqli_fetch_assoc($result)) {
+                    echo $row["Emp_name"];
                 }
+            } else {
+                echo "0 results";
+            }
         }
- 
+
+
         //function to get the user types from the db to  Ward Head ID select box
-        function  get_utypeselect_data(){
-            $servername = "localhost";
-            $username = "root";
-            $password = "";
-            $db = "nhk_epms";
+        function  get_utypeselect_data($conn){
+          
+            $sql = "select * from `epms_user_type`";
             
-                // Create connection
-                $conn = mysqli_connect($servername, $username, $password, $db);
-                // Check connection
-                if (!$conn) {
-                    die("Connection failed: " . mysqli_connect_error());
-                }
-                
-                
-                $sql = "select * from `epms_user_type`";
-                
-                
-                $result = mysqli_query($conn, $sql);
+            
+            $result = mysqli_query($conn, $sql);
 
-                if (mysqli_num_rows($result) > 0) {
-                    // output data of each row
-                    while($row = mysqli_fetch_assoc($result)) {
-                        echo("<option value='".$row["User_type_name"]."'>".$row["User_type_name"]."</option>");
-                    }
-                } else {
-                    echo "0 results";
+            if (mysqli_num_rows($result) > 0) {
+                // output data of each row
+                while($row = mysqli_fetch_assoc($result)) {
+                    echo("<option value='".$row["User_type_name"]."'>".$row["User_type_name"]."</option>");
                 }
+            } else {
+                echo "0 results";
+            }
         }
 
 

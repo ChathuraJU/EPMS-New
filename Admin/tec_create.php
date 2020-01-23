@@ -1,10 +1,26 @@
 <?php require_once('header.php');
+$servername = "localhost";
+$username = "root";
+$password = "";
+$db = "nhk_epms";
+
+// Create connection
+$conn = mysqli_connect($servername, $username, $password, $db);
+// Check connection
+if (!$conn) {
+    die("Connection failed: " . mysqli_connect_error());
+}
 
 
 $eq_name = $_GET["name"];
 $qty = $_GET["qty"];
 $type = $_GET["type"];
 
+
+$sql = "UPDATE `epms_req_prim_app` SET `Status`='TEC Created' WHERE `Req_equip`='$eq_name'";
+
+
+$result = mysqli_query($conn, $sql);
 
 ?>
 

@@ -33,7 +33,6 @@ if (!$conn) {
         function  get_empnameselect_data($conn){
 
                 
-                
                 $sql = "select * from `epms_employee`";
                 
                 

@@ -30,6 +30,9 @@ if (isset($_GET["code"])) {
         case "save":
             save_modal($conn);
             break;
+        case "changestatus":
+            changestatus($conn);
+            break;
 
 
     }
@@ -76,17 +79,7 @@ function getdata($conn)
 
 function get_rejdata($conn)
 {
-    $servername = "localhost";
-    $username = "root";
-    $password = "";
-    $db = "nhk_epms";
 
-    // Create connection
-    $conn = mysqli_connect($servername, $username, $password, $db);
-    // Check connection
-    if (!$conn) {
-        die("Connection failed: " . mysqli_connect_error());
-    }
 
 
     $sql = "SELECT * FROM `epms_minapp_sent` WHERE `Min_approval` = 'Rejected'";
@@ -115,20 +108,10 @@ function get_rejdata($conn)
 
 function get_appdata($conn)
 {
-    $servername = "localhost";
-    $username = "root";
-    $password = "";
-    $db = "nhk_epms";
-
-    // Create connection
-    $conn = mysqli_connect($servername, $username, $password, $db);
-    // Check connection
-    if (!$conn) {
-        die("Connection failed: " . mysqli_connect_error());
-    }
 
 
-    $sql = "SELECT * FROM `epms_minapp_sent` WHERE `Min_approval` = 'Approved'";
+//i changed min_approval==approved to status == ready
+    $sql = "SELECT * FROM `epms_minapp_sent` WHERE `Status` = 'Ready'";
 
 
     $result = mysqli_query($conn, $sql);
@@ -137,13 +120,14 @@ function get_appdata($conn)
         // output data of each row
         while ($row = mysqli_fetch_assoc($result)) {
             $type = "Indirect Purchase";
+            $id = $row["Minapp_sent_sn"];
 
             echo "<tr>
                         <td>" . $row["Equipment_name"] . "</td>
                         <td>" . $row["Count"] . "</td>
                         <td>" . $row["Min_app_doc_id"] . "</td>
                         <td>" . $row["Min_approval"] . "</td>
-                        <td><a href='tec_create.php?name=".$row["Equipment_name"]."&qty=".$row["Count"]."&type=".$type."'> CREATE TEC </a></td>
+                        <td><button class='btn' onclick='changestat($id)'> CREATE TEC </button></td>
                     </tr>";
         }
     } else {
@@ -180,6 +164,39 @@ function save_modal($conn)
         } else {
             echo "success";
         }
+    }
+
+}
+
+function changestatus($conn)
+{
+    $id = $_POST["id"];
+
+    $sql = "UPDATE `epms_minapp_sent` SET `Status` = 'TEC Created' WHERE Minapp_sent_sn ='$id'";
+    $result = mysqli_query($conn, $sql);
+
+    if (!$result) {
+        echo mysqli_error($conn);
+    } else {
+
+
+        $sql = "SELECT * FROM `epms_minapp_sent` WHERE `Minapp_sent_sn` ='$id';";
+        $result = mysqli_query($conn, $sql);
+
+        if (!$result) {
+            echo mysqli_error($conn);
+        } else {
+            while ($row = mysqli_fetch_assoc($result)) {
+
+
+                $dataArray[] = $row;
+
+            }
+
+            echo json_encode($dataArray);
+        }
+
+
     }
 
 }

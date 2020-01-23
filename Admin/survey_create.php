@@ -5,7 +5,7 @@
     <div class="page-header page-header-default" style="border-top: 1px solid #ddd; border-left: 1px solid #ddd; border-right: 1px solid #ddd;">
         <div class="page-header-content border-bottom border-bottom-success-300">
             <div class="page-title">
-                <h4><i class="icon-arrow-left52 position-left"></i> <span class="text-semibold"> Survey </span></h4>
+                <h4><i class="icon-arrow-left52 position-left"></i> <span class="text-semibold"> SURVEY </span></h4>
             </div>
 
             <div class="heading-elements">
@@ -239,7 +239,7 @@
             }
 
 
-        // wizard and datepicker
+        // wizard and datepicker js
         $( document ).ready(function() {
 
             $.fn.stepy.defaults.legend = false;
@@ -292,7 +292,7 @@
 
         });
 
-        // select2
+        // select2 js
         $( document ).ready(function(){
 
             // Default initialization
@@ -351,6 +351,7 @@
                 });
         });
 
+            //equip name
         $("#equipcode").change(function () {
            var eqcode = $(this).val();
 
@@ -365,7 +366,7 @@
 
         });
 
-
+        //pass record
         $("#btn_add").click(function(){
             var val1 = $('#equipcode').val();
             var val2 = $('#equip5').val();

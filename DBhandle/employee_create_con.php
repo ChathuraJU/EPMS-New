@@ -1,28 +1,41 @@
 <?php 
+
+$servername = "localhost";
+$username = "root";
+$password = "";
+$db = "nhk_epms";
+
+// Create connection
+$conn = mysqli_connect($servername, $username, $password, $db);
+// Check connection
+if (!$conn) {
+    die("Connection failed: " . mysqli_connect_error());
+}
+
     if(isset($_GET["code"])){
         $code=$_GET["code"];
         switch($code){
             case "save":
-                    save();
+                    save($conn);
                     break;
 
             case "get_data":
-                getdata();
+                getdata($conn);
                 break;
 
             case "get_unitselect_data":
-                get_unitselect_data();
+                get_unitselect_data($conn);
                 break;
                 
             case "get_wardselect_data":
-                get_wardselect_data();
+                get_wardselect_data($conn);
                 break;
-
                 
             }
         }
 
-        function save(){
+        //save the form
+        function save($conn){
             $namewi = $_POST["initials"];
             $namefull = $_POST["fname"];
             $gender = $_POST["morf"];
@@ -39,17 +52,7 @@
             $Unit = $_POST["unit"];
             $Ward = $_POST["ward"]; 
 
-            $servername = "localhost";
-            $username = "root";
-            $password = "";
-            $db = "nhk_epms";
-            
-                // Create connection
-                $conn = mysqli_connect($servername, $username, $password, $db);
-                // Check connection
-                if (!$conn) {
-                    die("Connection failed: " . mysqli_connect_error());
-                }
+
 
                 $sql1 ="SELECT Emp_id FROM epms_employee ORDER BY Emp_sn DESC LIMIT 1 ";
                     $result1=mysqli_query($conn,$sql1);
@@ -84,102 +87,66 @@
         
 
         //get unit list to the unit select box
-        function get_unitselect_data(){
-            $servername = "localhost";
-                $username = "root";
-                $password = "";
-                $db = "nhk_epms";
-                
-                    // Create connection
-                    $conn = mysqli_connect($servername, $username, $password, $db);
-                    // Check connection
-                    if (!$conn) {
-                        die("Connection failed: " . mysqli_connect_error());
-                    }
-                    
-                    
-                    $sql = "select * from `epms_unit`";
-                    
-                    
-                    $result = mysqli_query($conn, $sql);
+        function get_unitselect_data($conn){
+            
+            $sql = "select * from `epms_unit`";
+            
+            
+            $result = mysqli_query($conn, $sql);
 
-                    if (mysqli_num_rows($result) > 0) {
-                        // output data of each row
-                        while($row = mysqli_fetch_assoc($result)) {
-                            echo "<option>" . $row["Unit_name"] . "</option>";
-                        }
-                    } else {
-                        echo "0 results";
-                    }
+            if (mysqli_num_rows($result) > 0) {
+                // output data of each row
+                while($row = mysqli_fetch_assoc($result)) {
+                    echo "<option>" . $row["Unit_name"] . "</option>";
+                }
+            } else {
+                echo "0 results";
+            }
         }
 
         //get ward list to the ward select box
-        function get_wardselect_data(){
-            $servername = "localhost";
-                $username = "root";
-                $password = "";
-                $db = "nhk_epms";
-                
-                    // Create connection
-                    $conn = mysqli_connect($servername, $username, $password, $db);
-                    // Check connection
-                    if (!$conn) {
-                        die("Connection failed: " . mysqli_connect_error());
-                    }
+        function get_wardselect_data($conn){
                     
-                    
-                    $sql = "select * from `epms_ward`";
-                    
-                    
-                    $result = mysqli_query($conn, $sql);
+            $sql = "select * from `epms_ward`";
+            
+            
+            $result = mysqli_query($conn, $sql);
 
-                    if (mysqli_num_rows($result) > 0) {
-                        // output data of each row
-                        while($row = mysqli_fetch_assoc($result)) {
-                            echo "<option>" . $row["Ward_name"] . "</option>";
-                        }
-                    } else {
-                        echo "0 results";
-                    }
+            if (mysqli_num_rows($result) > 0) {
+                // output data of each row
+                while($row = mysqli_fetch_assoc($result)) {
+                    echo "<option>" . $row["Ward_name"] . "</option>";
+                }
+            } else {
+                echo "0 results";
+            }
         }
 
         //get data to the table from the database    
-        function getdata(){
-            $servername = "localhost";
-                $username = "root";
-                $password = "";
-                $db = "nhk_epms";
-                
-                    // Create connection
-                    $conn = mysqli_connect($servername, $username, $password, $db);
-                    // Check connection
-                    if (!$conn) {
-                        die("Connection failed: " . mysqli_connect_error());
-                    }
-                    
-                    
-                    $sql = "select * from `epms_employee`";
-                    
-                    
-                    $result = mysqli_query($conn, $sql);
+        function getdata($conn){
 
-                    if (mysqli_num_rows($result) > 0) {
-                        // output data of each row
-                        while($row = mysqli_fetch_assoc($result)) {
-                            echo "<tr><td>" . $row["Emp_id"] . "</td><td>" . $row["Emp_workid"] . "</td>
-                            <td>" . $row["Emp_name"] . "</td><td>" . $row["Emp_assigned_unit"] . "</td>
-                            <td>" . $row["Emp_assigned_ward"] . "</td><td>" . $row["Emp_job_role"] . "</td>
-                            <td>" . $row["Emp_join_date"] . "</td>
-                            <td>
-                                <ul class='icons-list'>
-                                    <li><a><i class='icon-pencil7'></i></a></li>
-                                </ul>
-                            </td>
-                            </tr>";
-                        }
-                    } else {
-                        echo "0 results";
-                    }
+            $sql = "select * from `epms_employee`";
+            
+            
+            $result = mysqli_query($conn, $sql);
+
+            if (mysqli_num_rows($result) > 0) {
+                // output data of each row
+                while($row = mysqli_fetch_assoc($result)) {
+                    echo "<tr><td>" . $row["Emp_id"] . "</td><td>" . $row["Emp_workid"] . "</td>
+                    <td>" . $row["Emp_name"] . "</td><td>" . $row["Emp_assigned_unit"] . "</td>
+                    <td>" . $row["Emp_assigned_ward"] . "</td><td>" . $row["Emp_job_role"] . "</td>
+                    <td>" . $row["Emp_join_date"] . "</td>
+                    <td>
+                        <ul class='icons-list'>
+                            <li><a><i class='icon-pencil7'></i></a></li>
+                        </ul>
+                    </td>
+                    </tr>";
+                }
+            } else {
+                echo "0 results";
+            }
 
 
         }

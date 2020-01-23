@@ -71,6 +71,25 @@
                 $('#minapprvd').DataTable();
             }
 
+            function changestat(snid){
+
+                $.ajax({
+                    method: "POST",
+                    url: "../DBhandle/update_minapp_con.php?code=changestatus",
+                    data: {"id": snid}
+                })
+                    .done(function (data) {
+
+                        var recdata = JSON.parse(data);
+                        var eq_name = recdata[0].Equipment_name;
+                        var qty = recdata[0].Count;
+
+                        window.location.href ="tec_create.php?name="+eq_name+"&qty="+qty+"&type=Indirect";
+                    });
+
+            }
+
+
             //get data
             $(document).ready(function () {
                 // mydatatable();

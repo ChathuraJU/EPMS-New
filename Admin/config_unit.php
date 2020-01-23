@@ -163,6 +163,15 @@
 
             $('#unitmngtbl').DataTable();
         }
+        
+
+
+        //get data 
+        $(document).ready(function () {
+
+            getdatatotable();
+
+        });
 
         function getdatatotable(){
             //to table

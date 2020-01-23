@@ -6,7 +6,7 @@
         <div class="page-header page-header-default" style="border-top: 1px solid #ddd; border-left: 1px solid #ddd; border-right: 1px solid #ddd;">
             <div class="page-header-content border-bottom border-bottom-success-300">
                 <div class="page-title">
-                    <h4><i class="icon-arrow-left52 position-left"></i> <span class="text-semibold"> Requisition </span></h4>
+                    <h4><i class="icon-arrow-left52 position-left"></i> <span class="text-semibold"> REQUISITION </span></h4>
                 </div>
 
                 <div class="heading-elements">
@@ -24,16 +24,7 @@
                     <li class="active"> Requisitions List </li>
                 </ul>
 
-                <ul class="breadcrumb-elements">
-                    <li><a href="#"><i class="icon-comment-discussion position-left"></i> Support</a></li>
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                            <i class="icon-gear position-left"></i>
-                            Settings
-                            <span class="caret"></span>
-                        </a>
-                    </li>
-                </ul>
+           
             </div>
         </div>
         <!-- /page header -->

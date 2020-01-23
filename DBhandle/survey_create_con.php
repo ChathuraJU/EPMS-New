@@ -21,18 +21,18 @@ if(isset($_GET["code"])){
             break;
 
         case "get_unitselect_data":
-            get_unitselect_data();
+            get_unitselect_data($conn);
             break;
 
         case "get_wardselect_data":
-            get_wardselect_data();
+            get_wardselect_data($conn);
             break;
 
         case "get_codeselect_data":
-            get_codeselect_data();
+            get_codeselect_data($conn);
             break;
         case "get_eq_name":
-            get_eq_name();
+            get_eq_name($conn);
             break;
         }
     }
@@ -86,7 +86,7 @@ if(isset($_GET["code"])){
         if(mysqli_num_rows($result) > 0)
         {
             $row = mysqli_fetch_assoc($result);
-            $lastid = $row["id"];
+            $lastid3 = $row["id"];
         }
 
 
@@ -115,7 +115,7 @@ if(isset($_GET["code"])){
             $remarks =  $equipmentsarray[$i]['remarks5'];
 
             $sql = "INSERT INTO epms_survey_equip(`Sur_equip_id`,`Equipment_code`,`Sur_sn`,`Equipment_name`,`Present_Status`,`Date_of_installation`,`Remarks`)
-            VALUES ('$new_sureqpid','$equipcode','$last_id1','$equipname','$presentstat','$doi','$remarks')";
+            VALUES ('$new_sureqpid','$equipcode','$last_id3','$equipname','$presentstat','$doi','$remarks')";
 
             $result = mysqli_query($conn, $sql);
 
@@ -133,129 +133,81 @@ if(isset($_GET["code"])){
 
 
 
+    //function to get the unit name
+    function get_unitselect_data($conn){
 
-        function get_unitselect_data(){
-            $servername = "localhost";
-                $username = "root";
-                $password = "";
-                $db = "nhk_epms";
                 
-                    // Create connection
-                    $conn = mysqli_connect($servername, $username, $password, $db);
-                    // Check connection
-                    if (!$conn) {
-                        die("Connection failed: " . mysqli_connect_error());
-                    }
-                    
-                    
-                    $sql = "select * from `epms_unit`";
-                    
-                    
-                    $result = mysqli_query($conn, $sql);
-    
-                    if (mysqli_num_rows($result) > 0) {
-                        // output data of each row
-                        while($row = mysqli_fetch_assoc($result)) {
-                            echo "<option>" . $row["Unit_name"] . "</option>";
-                        }
-                    } else {
-                        echo "0 results";
-                    }
-        }
+        $sql = "select * from `epms_unit`";
+        
+        
+        $result = mysqli_query($conn, $sql);
 
-        function get_wardselect_data(){
-            $servername = "localhost";
-                $username = "root";
-                $password = "";
-                $db = "nhk_epms";
-                
-                    // Create connection
-                    $conn = mysqli_connect($servername, $username, $password, $db);
-                    // Check connection
-                    if (!$conn) {
-                        die("Connection failed: " . mysqli_connect_error());
-                    }
-                    
-                    
-                    $sql = "select * from `epms_ward`";
-                    
-                    
-                    $result = mysqli_query($conn, $sql);
-    
-                    if (mysqli_num_rows($result) > 0) {
-                        // output data of each row
-                        while($row = mysqli_fetch_assoc($result)) {
-                            echo "<option>" . $row["Ward_name"] . "</option>";
-                        }
-                    } else {
-                        echo "0 results";
-                    }
-        }
-
-        //get equipment code to the select box
-        function get_codeselect_data(){
-            $servername = "localhost";
-                $username = "root";
-                $password = "";
-                $db = "nhk_epms";
-                
-                    // Create connection
-                    $conn = mysqli_connect($servername, $username, $password, $db);
-                    // Check connection
-                    if (!$conn) {
-                        die("Connection failed: " . mysqli_connect_error());
-                    }
-                    
-                    
-                    $sql = "select * from `epms_inventory`";
-                    
-                    
-                    $result = mysqli_query($conn, $sql);
-    
-                    if (mysqli_num_rows($result) > 0) {
-                        // output data of each row
-                        while($row = mysqli_fetch_assoc($result)) {
-                            echo "<option>" . $row["Equip_code"] . "</option>";
-                        }
-                    } else {
-                        echo "0 results";
-                    }
-        }
-
-        //get equipment name for the relevant equip code
-        function get_eq_name(){
-            $eq_code = $_POST["eqcode"];
-
-
-            $servername = "localhost";
-            $username = "root";
-            $password = "";
-            $db = "nhk_epms";
-
-            // Create connection
-            $conn = mysqli_connect($servername, $username, $password, $db);
-            // Check connection
-            if (!$conn) {
-                die("Connection failed: " . mysqli_connect_error());
+        if (mysqli_num_rows($result) > 0) {
+            // output data of each row
+            while($row = mysqli_fetch_assoc($result)) {
+                echo "<option>" . $row["Unit_name"] . "</option>";
             }
-
-
-            $sql = "SELECT 
-                      * 
-                    FROM
-                      `epms_inventory` eqi
-                      WHERE eqi.`Equip_code`='$eq_code'";
-
-
-            $result = mysqli_query($conn, $sql);
-
-            if (mysqli_num_rows($result) > 0) {
-                // output data of each row
-                while($row = mysqli_fetch_assoc($result)) {
-                    echo $row["Equip_name"];
-                }
-            } else {
-                echo "0 results";
-            }
+        } else {
+            echo "0 results";
         }
+    }
+
+    //function to get the ward name
+    function get_wardselect_data($conn){
+      
+        $sql = "select * from `epms_ward`";
+        
+        
+        $result = mysqli_query($conn, $sql);
+
+        if (mysqli_num_rows($result) > 0) {
+            // output data of each row
+            while($row = mysqli_fetch_assoc($result)) {
+                echo "<option>" . $row["Ward_name"] . "</option>";
+            }
+        } else {
+            echo "0 results";
+        }
+    }
+
+    //get equipment code to the select box
+    function get_codeselect_data($conn){
+                
+        $sql = "select * from `epms_inventory`";
+        
+        
+        $result = mysqli_query($conn, $sql);
+
+        if (mysqli_num_rows($result) > 0) {
+            // output data of each row
+            while($row = mysqli_fetch_assoc($result)) {
+                echo "<option>" . $row["Equip_code"] . "</option>";
+            }
+        } else {
+            echo "0 results";
+        }
+    }
+
+    //get equipment name for the relevant equip code
+    function get_eq_name($conn){
+        $eq_code = $_POST["eqcode"];
+
+        $sql = "SELECT 
+                    * 
+                FROM
+                    `epms_inventory` eqi
+                    WHERE eqi.`Equip_code`='$eq_code'";
+
+
+        $result = mysqli_query($conn, $sql);
+
+        if (mysqli_num_rows($result) > 0) {
+            // output data of each row
+            while($row = mysqli_fetch_assoc($result)) {
+                echo $row["Equip_name"];
+            }
+        } else {
+            echo "0 results";
+        }
+    }
 ?>

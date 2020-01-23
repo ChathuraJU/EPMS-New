@@ -6,7 +6,7 @@
     <div class="page-header page-header-default" style="border-top: 1px solid #ddd; border-left: 1px solid #ddd; border-right: 1px solid #ddd;">
         <div class="page-header-content border-bottom border-bottom-success-300">
             <div class="page-title">
-                <h4><i class="icon-arrow-left52 position-left"></i> <span class="text-semibold"> User Control </span></h4>
+                <h4><i class="icon-arrow-left52 position-left"></i> <span class="text-semibold"> USER CONTROL </span></h4>
             </div>
 
             <div class="heading-elements">
@@ -59,9 +59,8 @@
                                 <div class="form-group">
                                     <label class="col-lg-3 control-label">Employee Name:<span class="text-danger">*</span></label>
                                     <div class="col-lg-9">
-                                        <select  id="empname" name="empname" data-placeholder="Choose Employee Name..." class="select-search required">
-                                            <option></option> 
-                                        </select> 
+                                        <input type="text" id="emp5" name="emp5" class="form-control" readonly>
+ 
                                     </div>
                                 </div>
                             </div>
@@ -298,7 +297,7 @@
                     contentType: false
                 }).done(function (msg) {
                     $("#empid").val("");
-                    $("#empname").val("");
+                    $("#emp5").val("");
                     $("#utype").val("");
                     $("#ustatus").val("");
                     $("#username").val("");
@@ -324,16 +323,21 @@
                     $("#empid").append(data);
                 });
 
-            //employee name ajax request
+            $("#empid").change(function () {
+           var emp = $(this).val();
+
             $.ajax({
                 method: "POST",
-                url: "../DBhandle/user_create_con.php?code=get_empnameselect_data",
-                processData: false,
-                contentType: false
+                url: "../DBhandle/user_create_con.php?code=get_emp_name",
+                data: {"emp":emp}
             })
                 .done(function (data) {
-                    $("#empname").append(data);
+                    $("#emp5").val(data);
                 });
+
+        });
+
+
             
             //user type ajax request
             $.ajax({
@@ -383,7 +387,7 @@
 
         //get data 
         $(document).ready(function () {
-        getdatatotable();
+            getdatatotable();
         });
 
 
