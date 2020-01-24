@@ -1,4 +1,98 @@
-<?php require_once('header.php');?>
+<?php require_once('header.php');
+
+
+date_default_timezone_set("Asia/Colombo");
+$tod = date("Y-m-d");
+
+$id = $_GET["proc"];
+
+function get_user_data(){
+    $servername = "localhost";
+    $username = "root";
+    $password = "";
+    $db = "nhk_epms";
+
+// Create connection
+    $conn = mysqli_connect($servername, $username, $password, $db);
+// Check connection
+    if (!$conn) {
+        die("Connection failed: " . mysqli_connect_error());
+    }
+
+    $user_id = $_SESSION["user"]["uid"];
+    $sql = "SELECT 
+              * 
+            FROM
+              epms_employee emp 
+              INNER JOIN epms_users usr 
+                ON usr.`Emp_id` = emp.`Emp_id` 
+        WHERE usr.`User_sn` = '$user_id' ";
+
+
+    $result = mysqli_query($conn, $sql);
+
+    if (mysqli_num_rows($result) > 0) {
+        // output data of each row
+        while($row = mysqli_fetch_assoc($result)) {
+            return $row;
+        }
+    } else {
+        echo "0 results";
+    }
+
+}
+
+
+$usr = get_user_data();
+
+
+if ($usr["Emp_assigned_unit"]==''){
+    $unit = $usr["Emp_assigned_ward"];
+}
+else{
+    $unit = $usr["Emp_assigned_unit"];
+}
+
+
+function get_data($id){
+
+    $servername = "localhost";
+    $username = "root";
+    $password = "";
+    $db = "nhk_epms";
+
+// Create connection
+    $conn = mysqli_connect($servername, $username, $password, $db);
+// Check connection
+    if (!$conn) {
+        die("Connection failed: " . mysqli_connect_error());
+    }
+
+
+    $sql = "SELECT * FROM epms_tenders ep
+            WHERE ep.`Procurement_id` ='PROC/00001'";
+
+
+    $result = mysqli_query($conn, $sql);
+
+    if (mysqli_num_rows($result) > 0) {
+        // output data of each row
+        while($row = mysqli_fetch_assoc($result)) {
+            return $row;
+        }
+    } else {
+        echo "0 results";
+    }
+
+}
+
+$data = get_data($id);
+
+
+
+
+
+?>
 <!-- Main content -->
 <div class="content-wrapper">
     <!-- Page header -->
@@ -38,7 +132,7 @@
                     </ul>
                 </div>
             </div>
-            
+
             <form class="stepy-clickable" id="paymentform" action="#">
                 <fieldset title="1">
                     <legend class="text-semibold">Fund Allocation Details</legend>
@@ -52,28 +146,28 @@
                             <div class="row">
                                 <div class="form-group">
                                     <label>Procurement ID : <span class="text-danger">*</span></label>
-                                    <input type="text" id="procid" name="procid" class="form-control required"  >
+                                    <input type="text" id="procid" name="procid" value="<?php echo $data["Procurement_id"] ?>" class="form-control required"  >
                                 </div>
                             </div>
 
                             <div class="row">
                                 <div class="form-group">
                                     <label>Equipment Name. : <span class="text-danger">*</span></label>
-                                    <input type="text" id="eqpname" name="eqpname" class="form-control required"  >
+                                    <input type="text" id="eqpname" name="eqpname" value="<?php echo $data["Equip_name"] ?>" class="form-control required"  >
                                 </div>
                             </div>
 
                             <div class="row">
                                 <div class="form-group">
                                     <label>Quantity : <span class="text-danger">*</span></label>
-                                    <input type="text" id="qty" name="qty" class="form-control required" >    
+                                    <input type="text" id="qty" name="qty" value="<?php echo $data["Quantity"] ?>" class="form-control required" >
                                 </div>
                             </div>
 
                             <div class="row">
-                                <label>Price: <span class="text-danger">*</span></label>
+                                <label>Amount: <span class="text-danger">*</span></label>
                                 <div class="input-group">
-                                    <input type="text" name="price" id="price" placeholder="Enter the Price" class="form-control  required" data-mask="999,999,999.99">
+                                    <input type="text" name="amount" id="amount" placeholder="Enter the amount" class="form-control  required" data-mask="999,999,999.99">
                                     <span class="input-group-addon">LKR</span>
                                 </div>
                             </div>
@@ -81,17 +175,17 @@
                             <div class="row">
                                 <div class="form-group">
                                     <label> Funding Entity : <span class="text-danger">*</span></label>
-                                    <input type="text" id="fundentity" name="fundentity" class="form-control required" >    
-                                </div> 
+                                    <input type="text" id="fundentity" name="fundentity" class="form-control required" >
+                                </div>
                             </div>
 
                         </div>
 
                 </fieldset>
 
-                
+
                 <fieldset title="2">
-                    <legend class="text-semibold">Cheque Details</legend> 
+                    <legend class="text-semibold">Cheque Details</legend>
 
                         <div class="col-md-6">
                             <div class="row">
@@ -115,7 +209,7 @@
                                 <div class="form-group">
                                     <label>Copy of the Cheque :<span class="text-danger">*</span> </label>
                                     <input type="file" id="chqcopy" name="chqcopy" class="file-input">
-                                </div>                             
+                                </div>
                             </div>
 
                         </div>
@@ -125,13 +219,13 @@
                                 <img src="../global_assets/images/chq.jpg" height ="300px"  />
                             </div>
                         </div>
-                    
+
                         <div class="row"></div>
 
                 </fieldset>
 
                 <fieldset title="3">
-                    <legend class="text-semibold">Payment Details</legend>   
+                    <legend class="text-semibold">Payment Details</legend>
 
                         <div class="row">
                             <div class="col-md-6" style="height: 100%;">
@@ -141,8 +235,13 @@
                             </div>
                             <div class="col-md-6">
                                 <div class="row">
-                                   Good received yes or no
+                                    <div class="form-group">
+                                        <label>Good Recdeived (YES / NO). : <span class="text-danger">*</span></label>
+                                        <input type="text" id="gr" name="gr" class="form-control required"  >
+                                    </div>
+
                                 </div>
+
 
                                 <div class="row">
                                     <div class="form-group">
@@ -152,17 +251,17 @@
                                             <input type="text" id="pdate" name="pdate" class="form-control pickadate-strings required" placeholder="Try me&hellip;">
                                         </div>
                                     </div>
-                                </div> 
+                                </div>
 
 
                                 <div class="row">
                                     <div class="form-group">
                                         <label> Payment Status : <span class="text-danger">*</span></label>
                                         <select name="pstatus" id="pstatus" data-placeholder="Choose a job title..." class="select required">
-                                            <option></option> 
-                                            <option value="Pending"> Pending </option> 
-                                            <option value="Paid"> Paid </option> 
-                                            <option value="Not Paid"> Not Paid </option> 
+                                            <option></option>
+                                            <option value="Pending"> Pending </option>
+                                            <option value="Paid"> Paid </option>
+                                            <option value="Not Paid"> Not Paid </option>
                                         </select>
                                     </div>
                                 </div>
@@ -171,12 +270,12 @@
                                     <div class="form-group">
                                         <label>Copy of Invoice :<span class="text-danger">*</span> </label>
                                         <input type="file" id="invoicecopy" name="invoicecopy" class="file-input">
-                                    </div>                             
+                                    </div>
                                 </div>
 
                             </div>
                         </div>
-                        
+
                         <div class="row">
                             <div class="form-group">
                                 <label> Remark :</label>
@@ -190,13 +289,17 @@
                 <a id="save" class="btn btn-primary stepy-finish">Submit <i class="icon-check position-right"></i></a>
 
             </form>
-        </div> 
+        </div>
         <!-- /clickable title -->
 
     </div>
     <!-- /content area -->
 
     <script>
+
+
+
+
 
         // select2
         $( document ).ready(function(){
@@ -291,14 +394,16 @@
 
         });
 
+        $.fn.stepy.defaults.legend = false;
+        $.fn.stepy.defaults.transition = 'fade';
+        $.fn.stepy.defaults.duration = 150;
+        $.fn.stepy.defaults.backLabel = '<i class="icon-arrow-left13 position-left"></i> Back';
+        $.fn.stepy.defaults.nextLabel = 'Next <i class="icon-arrow-right14 position-right"></i>';
+
         // wizard and datepicker
         $( document ).ready(function() {
 
-            $.fn.stepy.defaults.legend = false;
-            $.fn.stepy.defaults.transition = 'fade';
-            $.fn.stepy.defaults.duration = 150;
-            $.fn.stepy.defaults.backLabel = '<i class="icon-arrow-left13 position-left"></i> Back';
-            $.fn.stepy.defaults.nextLabel = 'Next <i class="icon-arrow-right14 position-right"></i>';
+
 
 
             // Stepy basic 
@@ -308,53 +413,53 @@
 
                 },
                 back: function(index) {
-                    
+
                 },
                 finish: function() {
-                    
-                    sendData = new FormData($("#empcrtfrm")[0]);
+
+                    sendData = new FormData($("#paymentform")[0]);
                     $.ajax({
                         method: "POST",
-                        url: "../DBhandle/employee_create_con.php?code=save",
+                        url: "../DBhandle/pay_fundalloc_con.php?code=save",
                         data: sendData,
                         processData: false,
                         contentType: false
                     }).done(function (msg) {
+                        swal({
+                                title: "Payment Successfully!",
+                                text: "Click OK to Continue",
+                                confirmButtonColor: "#66BB6A",
+                                type: "success"
+                            },
+                            function(isConfirm){
+                                if (isConfirm) {
+
+                                }
+                            });
+
                         getdatatotable();
-                        $("#initials").val("");
-                        $("#fname").val("");
-                        $("#morf").val("");
-                        $("#salutation").val("");
-                        $("#dob").val("");
-                        $("#nic").val("");
-                        $("#address").val("");
-                        $("#email").val("");
-                        $("#home_tel").val("");
-                        $("#mob_tel").val("");
-                        $("#djoin").val("");
-                        $("#workid").val("");
-                        $("#jtitle").val("");
-                        $("#unit").val("");
-                        $("#ward").val("");
                     });
 
                     preventDefault();
+
                 }
+
             });
-
-
             $('.stepy-clickable').find('.button-next').addClass('btn btn-primary');
             $('.stepy-clickable ').find('.button-back').addClass('btn btn-default');
 
-        });
 
-        // pickdate
-        $( document ).ready(function(){
+
+
+
 
             $('.pickadate-strings').pickadate({
                 weekdaysShort: ['Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa'],
                 showMonthsShort: true
             });
+
+
+
         });
 
     </script>

@@ -209,7 +209,7 @@ body{
 						}
 						else if(data=="3"){
 							//alert("Valid");
-							window.location.href="login/route_class.php";
+							window.location.href="Admin/dashboard.php";
 						}
 						$("#div_load").css("display","none");
 					});

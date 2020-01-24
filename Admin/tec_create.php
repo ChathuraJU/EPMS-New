@@ -211,8 +211,17 @@ $result = mysqli_query($conn, $sql);
                         processData: false,
                         contentType: false
                     }).done(function (msg) {
-
-                        alert(msg);
+                        swal({
+                                title: "TEC Created Successfully!",
+                                text: "Click OK to Continue",
+                                confirmButtonColor: "#66BB6A",
+                                type: "success"
+                            },
+                            function(isConfirm){
+                                if (isConfirm) {
+                                    window.location.href = "tec_list.php";
+                                }
+                            });
 
                     });
                     preventDefault();

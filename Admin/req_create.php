@@ -1,4 +1,58 @@
-<?php require_once('header.php');?>
+<?php require_once('header.php');
+
+
+date_default_timezone_set("Asia/Colombo");
+$tod = date("Y-m-d");
+
+function get_user_data(){
+    $servername = "localhost";
+    $username = "root";
+    $password = "";
+    $db = "nhk_epms";
+
+// Create connection
+    $conn = mysqli_connect($servername, $username, $password, $db);
+// Check connection
+    if (!$conn) {
+        die("Connection failed: " . mysqli_connect_error());
+    }
+
+    $user_id = $_SESSION["user"]["uid"];
+    $sql = "SELECT 
+              * 
+            FROM
+              epms_employee emp 
+              INNER JOIN epms_users usr 
+                ON usr.`Emp_id` = emp.`Emp_id` 
+        WHERE usr.`User_sn` = '$user_id' ";
+
+
+    $result = mysqli_query($conn, $sql);
+
+    if (mysqli_num_rows($result) > 0) {
+        // output data of each row
+        while($row = mysqli_fetch_assoc($result)) {
+            return $row;
+        }
+    } else {
+        echo "0 results";
+    }
+
+}
+
+
+$usr = get_user_data();
+
+
+if ($usr["Emp_assigned_unit"]==''){
+    $unit = $usr["Emp_assigned_ward"];
+}
+else{
+    $unit = $usr["Emp_assigned_unit"];
+}
+
+
+?>
 
 <!-- Main content -->
 <div class="content-wrapper" id="content">
@@ -87,40 +141,34 @@
                                     <div class="form-group">
                                         <div class="content-group-lg">
                                             <label>Request Date : <span class="text-danger">*</span></label>
-                                            <div class="input-group">
-                                                <span class="input-group-addon"><i class="icon-calendar5"></i></span>
-                                                <input type="text" id="reqdate" name="reqdate" class="form-control pickadate-strings required" placeholder="Try me&hellip;">
-                                            </div>
+                                            <input type="text" id="reqdate" name="reqdate" class="form-control" value="<?php echo $tod ?>" readonly/>
+
                                         </div>
                                     </div>
                                 </div>
-
 
                                 
                                 <div class="row">
                                     <div class="form-group">
                                         <label> Employee ID : <span class="text-danger">*</span></label>
-                                        <select id="empid" name="empid" data-placeholder="Choose an ID..." class="select-search required">
-                                            <option></option> 
-                                        </select>
+                                        <input type="text" id="empid" name="empid" class="form-control" value="<?php echo $usr["Emp_id"] ?>" readonly/>
+
                                     </div>
                                 </div>
 
                                 <div class="row">
                                     <div class="form-group">
                                         <label> Unit : <span class="text-danger">*</span></label>
-                                        <select name="unit" id="unit" Value="None" class="select-search required">
-                                            <option></option> 
-                                        </select>
+                                        <input type="text" id="unit" name="unit" class="form-control" value="<?php echo $usr["Emp_assigned_unit"] ?>" readonly/>
+
                                     </div>
                                 </div>
 
                                 <div class="row">
                                     <div class="form-group">
                                         <label> Ward : <span class="text-danger">*</span></label>
-                                        <select id="ward" name="ward" value="None" class="select-search required">
-                                            <option></option> 
-                                        </select>
+                                        <input type="text" id="ward" name="ward" class="form-control" value="<?php echo $usr["Emp_assigned_ward"] ?>" readonly/>
+
                                     </div>
                                 </div>
 
@@ -250,56 +298,10 @@
             return TableData;
         }
 
-            // function get_data(){
-            //     var val1 = $('#reqid').val();
-            //     $('#reqidf').val(val1);
-            //     var val2 = $('#reqtype').val();
-            //     $('#reqtypef').val(val2);
-            //     var val3 = $('#reqdate').val();
-            //     $('#reqdatef').val(val3);
-            //     var val4 = $('#empid').val();
-            //     $('#empidf').val(val4);
-            //     var val5 = $('#unit').val();
-            //     $('#unitf').val(val5);
-            //     var val6 = $('#ward').val();
-            //     $('#wardf').val(val6);
 
-            // }
 
         //get data to select box
         $(document).ready(function () {
-            //employee id ajax request
-            $.ajax({
-                method: "POST",
-                url: "../DBhandle/req_create_con.php?code=get_empidselect_data",
-                processData: false,
-                contentType: false
-            })
-                .done(function (data) {
-                    $("#empid").append(data);
-                });
-
-            //unit name ajax request
-            $.ajax({
-                method: "POST",
-                url: "../DBhandle/req_create_con.php?code=get_unitselect_data",
-                processData: false,
-                contentType: false
-            })
-                .done(function (data) {
-                    $("#unit").append(data);
-                });
-            
-            //ward name ajax request
-            $.ajax({
-                method: "POST",
-                url: "../DBhandle/req_create_con.php?code=get_wardselect_data",
-                processData: false,
-                contentType: false
-            })
-                .done(function (data) {
-                    $("#ward").append(data);
-                });
 
             //Equip name ajax request
             $.ajax({
@@ -326,7 +328,9 @@
 
                 // Stepy callbacks
             $(".stepy-basic").stepy({
-                next: function(index) {
+                next: function(index,e) {
+
+
                     if(index==3){
                         get_data();
                     }
@@ -346,7 +350,17 @@
                         processData: false,
                         contentType: false,
                         success: function(data){
-                            alert(data);
+                            swal({
+                                    title: "Request Submitted Successfully!",
+                                    text: "Click OK to Continue",
+                                    confirmButtonColor: "#66BB6A",
+                                    type: "success"
+                                },
+                                function(isConfirm){
+                                    if (isConfirm) {
+                                        location.reload();
+                                    }
+                                });
                         }
                     });
 
@@ -359,6 +373,61 @@
             $('.stepy-basic').find('.button-back').addClass('btn btn-default');
 
         });
+
+        var validate = {
+            ignore: 'input[type=hidden], .select2-search__field', // ignore hidden fields
+            errorClass: 'validation-error-label',
+            successClass: 'validation-valid-label',
+            highlight: function(element, errorClass) {
+                $(element).removeClass(errorClass);
+            },
+            unhighlight: function(element, errorClass) {
+                $(element).removeClass(errorClass);
+            },
+
+            // Different components require proper error label placement
+            errorPlacement: function(error, element) {
+
+                // Styled checkboxes, radios, bootstrap switch
+                if (element.parents('div').hasClass("checker") || element.parents('div').hasClass("choice") || element.parent().hasClass('bootstrap-switch-container') ) {
+                    if(element.parents('label').hasClass('checkbox-inline') || element.parents('label').hasClass('radio-inline')) {
+                        error.appendTo( element.parent().parent().parent().parent() );
+                    }
+                    else {
+                        error.appendTo( element.parent().parent().parent().parent().parent() );
+                    }
+                }
+
+                // Unstyled checkboxes, radios
+                else if (element.parents('div').hasClass('checkbox') || element.parents('div').hasClass('radio')) {
+                    error.appendTo( element.parent().parent().parent() );
+                }
+
+                // Input with icons and Select2
+                else if (element.parents('div').hasClass('has-feedback') || element.hasClass('select2-hidden-accessible')) {
+                    error.appendTo( element.parent() );
+                }
+
+                // Inline checkboxes, radios
+                else if (element.parents('label').hasClass('checkbox-inline') || element.parents('label').hasClass('radio-inline')) {
+                    error.appendTo( element.parent().parent() );
+                }
+
+                // Input group, styled file input
+                else if (element.parent().hasClass('uploader') || element.parents().hasClass('input-group')) {
+                    error.appendTo( element.parent().parent() );
+                }
+
+                else {
+                    error.insertAfter(element);
+                }
+            },
+            rules: {
+                email: {
+                    email: true
+                }
+            }
+        }
 
         //Date Picker
         $( document ).ready(function(){

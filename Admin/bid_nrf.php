@@ -234,21 +234,33 @@ $tod = date("Y-m-d");
 
             });
 
-                $("#reqsubmit").click(function(){
-                    f= new FormData($("#modal-form")[0]);
-                        $.ajax({
-                            method: "POST",
-                            url: "../DBhandle/nrfs_con.php?code=apprvnrf",
-                            data: f,
-                            processData: false,
-                            contentType: false
-                        })
-                            .done(function(msg) {
 
-                              
+            //modal submit nrf approval
+            $("#reqsubmit").click(function(){
+                f= new FormData($("#modal-form")[0]);
+                    $.ajax({
+                        method: "POST",
+                        url: "../DBhandle/nrfs_con.php?code=apprvnrf",
+                        data: f,
+                        processData: false,
+                        contentType: false
+                    })
+                        .done(function(msg) {
+                            swal({
+                                    title: "Updated Successfully!",
+                                    text: "Click OK to Continue",
+                                    confirmButtonColor: "#66BB6A",
+                                    type: "success"
+                                },
+                                function(isConfirm){
+                                    if (isConfirm) {
+                                        location.reload();
+                                    }
+                                });
 
-                            });
-                });
+
+                        });
+            });
 
 
 

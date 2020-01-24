@@ -176,6 +176,19 @@
                         contentType: false
                     })
                         .done(function (data) {
+                            swal({
+                                    title: "Updated Successfully!",
+                                    text: "Click OK to Continue",
+                                    confirmButtonColor: "#66BB6A",
+                                    type: "success"
+                                },
+                                function(isConfirm){
+                                    if (isConfirm) {
+
+
+                                    }
+                                });
+
                             $('#upminapp').DataTable().destroy();
                             $('#upminapp tbody').empty();
                             $('#upminapp tbody').append(data);

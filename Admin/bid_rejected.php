@@ -30,7 +30,7 @@
         <!-- Control position -->
         <div class="panel panel-info">
             <div class="panel-heading">
-                <h5 class="panel-title"><b> Selected Bid List</b></h5>
+                <h5 class="panel-title"><b> Rejected Bid List</b></h5>
                 <div class="heading-elements">
                     <ul class="icons-list">
                         <li><a data-action="collapse"></a></li>
@@ -44,9 +44,10 @@
                     <tr>
                         <th>Procurement ID</th>
                         <th>Bidder ID</th>
+                        <th>Bid ID</th>
                         <th>Status</th>
                         <th>Remark</th>
-                        <th>Action</th>
+
                     </tr>
                 </thead>
                 <tbody>
@@ -70,7 +71,7 @@
             //to table
             $.ajax({
                 method: "POST",
-                url: "../DBhandle/bid_select_con.php?code=get_data",
+                url: "../DBhandle/bid_rejected_con.php?code=get_data",
                 processData: false,
                 contentType: false
             })

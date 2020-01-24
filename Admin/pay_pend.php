@@ -42,10 +42,9 @@
             <table id="paypnd" class="table table-bordered table-hover datatable-highlight" class="table bg-slate-600">
                 <thead>
                     <tr>
-                        <th>#</th>
                         <th>Procurement ID</th>
                         <th>Vendor Name</th>
-                        <th>Amount</th>
+                        <th>Bid Status</th>
                         <th>Action</th>
 
                     </tr>
@@ -62,6 +61,44 @@
     <!-- /content area -->
 
     <script>
+
+        function mydatatable(){
+
+            $('#paypnd').DataTable();
+        }
+
+        function getdatatotable(){
+            //to table
+            $.ajax({
+                method: "POST",
+                url: "../DBhandle/pay_pend_con.php?code=get_data",
+                processData: false,
+                contentType: false
+            })
+                .done(function (data) {
+                    $('#paypnd').DataTable().destroy();
+                    $('#paypnd tbody').empty();
+                    $('#paypnd tbody').append(data);
+                    mydatatable();
+                });
+
+        }
+
+        //get data
+        $(document).ready(function () {
+
+            getdatatotable();
+        });
+
+
+
+
+
+
+
+
+
+
         //table
         $( document ).ready(function(){
 

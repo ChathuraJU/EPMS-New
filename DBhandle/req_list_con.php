@@ -27,7 +27,7 @@
                     }
 
 
-                    $sql = "select * from `epms_requisition`";
+                    $sql = "select * from `epms_requisition` where Req_status = 'Pending'";
 
 
                     $result = mysqli_query($conn, $sql);
@@ -40,6 +40,7 @@
                             <td>" . $row["Req_date"] . "</td>
                             <td>" . $row["Unit_Name"] . "</td>
                             <td>" . $row["Ward_Name"] . "</td>
+                            <td>" . $row["Req_status"] . "</td>
                             <td><a href='req_details.php?id=".$row["Req_sn"]."'> PROCEED </a></td>
                             <td></td>
 

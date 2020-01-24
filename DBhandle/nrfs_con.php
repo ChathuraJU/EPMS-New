@@ -42,13 +42,16 @@ if(isset($_GET["code"])){
 
                     $nrf_id = $row["NRF_id"];
 
+
+
                     echo "<tr>
                     <td>" . $row["Procurement_id"] . "</td>
                     <td>" . $row["Bidder_id"] . "</td>
                     <td><a href='../../Medicio/NRFs/$nrf_id.jpg'>NRF</a></td>
                     <td>" . $row["NRF_submitted_date"] . "</td>
-                    <td>" . $row["NRF_approved_date"] . "</td>
+                    
                     <td>" . $row["NRF_approval"] . "</td>
+                    <td>" . $row["NRF_approved_date"] . "</td>
                     <td>
                         <button onclick='modalpop(" . $row["NRF_sn"] . ")' class='btn btn-default btn-sm'>APPROVE</button>
                     </td>

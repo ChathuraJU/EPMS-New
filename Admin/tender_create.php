@@ -307,6 +307,18 @@ $procid = $_GET["proid"];
                     processData: false,
                     contentType: false
                 }).done(function (msg) {
+                    swal({
+                            title: "Tender Created Successfully!",
+                            text: "Click OK to Continue",
+                            confirmButtonColor: "#66BB6A",
+                            type: "success"
+                        },
+                        function(isConfirm){
+                            if (isConfirm) {
+
+                            }
+                        });
+
                     getdatatotable();
                     $("#procid").val("");
                     $("#eqpname").val("");
@@ -318,7 +330,6 @@ $procid = $_GET["proid"];
                     $("#bidcolcls").val("");
 
 
-                    getdatatotable();
                 
                 });
 

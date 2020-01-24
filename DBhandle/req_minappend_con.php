@@ -64,15 +64,52 @@ function getdata($conn){
 }
 
 function sent($conn){
-    $sql2 = "UPDATE `epms_req_prim_app` SET `Status` = 'Sent' WHERE `Status` ='pending' and `Procurement_type` ='3'";
-    $result2 = mysqli_query($conn, $sql2);
 
-    if (!$result2) {
+    $sql = "SELECT *,
+              SUM(rapp.`Req_eqp_qty`) AS c
+            FROM
+              `epms_req_prim_app` rapp
+            WHERE rapp.`Status` = 'pending' and `Procurement_type` ='3'
+            GROUP BY rapp.`Req_equip`";
+    $result = mysqli_query($conn, $sql);
+
+
+    if (!$result) {
         echo mysqli_error($conn);
     }
     else{
-        echo "success";
+
+        while($row = mysqli_fetch_assoc($result)) {
+
+            $nameeqp = $row["Req_equip"];
+            $counteqp = $row["c"];
+
+            $sql1 = "INSERT INTO epms_minapp_sent(`Equipment_name`,`Count`,`Status`)
+            VALUES ('$nameeqp','$counteqp','sent')";
+
+            $result1 = mysqli_query($conn, $sql1);
+
+            if (!$result1) {
+                echo mysqli_error($conn);
+            }
+            else{
+                echo "success";
+            }
+        }
+
+        $sql2 = "UPDATE `epms_req_prim_app` SET `Status` = 'Sent' WHERE `Status` ='pending' and `Procurement_type` ='3'";
+        $result2 = mysqli_query($conn, $sql2);
+
+        if (!$result2) {
+            echo mysqli_error($conn);
+        }
+        else{
+            echo "success";
+        }
+
     }
+
+
 
 
 }

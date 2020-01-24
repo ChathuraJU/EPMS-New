@@ -1,10 +1,7 @@
 <?php
-
 if(isset($_GET["code"])){
     $code=$_GET["code"];
     switch($code){
-
-
         case "get_data":
             getdata();
             break;
@@ -27,7 +24,7 @@ function getdata(){
     }
 
 
-    $sql = "select * from `epms_tec`";
+    $sql =  "SELECT * FROM epms_bids WHERE Order_status ='Order Placed'";
 
 
     $result = mysqli_query($conn, $sql);
@@ -36,12 +33,11 @@ function getdata(){
         // output data of each row
         while($row = mysqli_fetch_assoc($result)) {
             echo "<tr>
-                            <td>" . $row["Tec_sn"] . "</td>
                             <td>" . $row["Procurement_id"] . "</td>
-                            <td>" . $row["Tec_id"] . "</td>
-                            <td>" . $row["Backside_ok"] . "</td>
-                            <td><a href='tender_create.php?proid=".$row["Procurement_id"]."'> CREATE TENDER </a></td>
-
+                            <td>" . $row["Bidder_id"] . "</td>
+                            <td>" . $row["Bid_status"] . "</td>
+                            <td><a href='../Admin/pay_fundsalloc.php?proc=".$row["Procurement_id"]."'>MAKE PAYMENT</a></td>
+                            
                             </tr>";
         }
     } else {
@@ -52,6 +48,3 @@ function getdata(){
 
 
 ?>
-
-
-

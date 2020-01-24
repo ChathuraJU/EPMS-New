@@ -3,44 +3,91 @@
 
 <?php
 
+date_default_timezone_set("Asia/Colombo");
+$tod = date("Y-m-d");
+
 $id = $_GET["id"];
 
-
-$servername = "localhost";
-$username = "root";
-$password = "";
-$db = "nhk_epms";
+function get_user_data(){
+    $servername = "localhost";
+    $username = "root";
+    $password = "";
+    $db = "nhk_epms";
 
 // Create connection
-$conn = mysqli_connect($servername, $username, $password, $db);
+    $conn = mysqli_connect($servername, $username, $password, $db);
 // Check connection
-if (!$conn) {
-    die("Connection failed: " . mysqli_connect_error());
+    if (!$conn) {
+        die("Connection failed: " . mysqli_connect_error());
+    }
+
+    $user_id = $_SESSION["user"]["uid"];
+    $sql = "SELECT 
+              * 
+            FROM
+              epms_employee emp 
+              INNER JOIN epms_users usr 
+                ON usr.`Emp_id` = emp.`Emp_id` 
+        WHERE usr.`User_sn` = '$user_id' ";
+
+
+    $result = mysqli_query($conn, $sql);
+
+    if (mysqli_num_rows($result) > 0) {
+        // output data of each row
+        while($row = mysqli_fetch_assoc($result)) {
+            return $row;
+        }
+    } else {
+        echo "0 results";
+    }
+
 }
 
 
-//$sql = "select * from `epms_requisition`";
-//
-//
-//$result = mysqli_query($conn, $sql);
-
-//if (mysqli_num_rows($result) > 0) {
-//    // output data of each row
-//    while($row = mysqli_fetch_assoc($result)) {
-//        echo "<tr>
-//                <td>" . $row["Req_id"] . "</td>
-//                <td>" . $row["Unit_Name"] . "</td>
-//                <td>" . $row["Ward_Name"] . "</td>
-//                <td>" . $row["Req_date"] . "</td>
-//                <td>" . $row["Req_type"] . "</td>
-//
-//             </tr>";
-//    }
-//} else {
-//    echo "0 results";
-//}
+$usr = get_user_data();
 
 
+if ($usr["Emp_assigned_unit"]==''){
+    $unit = $usr["Emp_assigned_ward"];
+}
+else{
+    $unit = $usr["Emp_assigned_unit"];
+}
+
+
+function get_data($id){
+
+    $servername = "localhost";
+    $username = "root";
+    $password = "";
+    $db = "nhk_epms";
+
+// Create connection
+    $conn = mysqli_connect($servername, $username, $password, $db);
+// Check connection
+    if (!$conn) {
+        die("Connection failed: " . mysqli_connect_error());
+    }
+
+
+    $sql = "SELECT * FROM `epms_requisition` ep WHERE ep.`Req_sn`='$id'";
+
+
+    $result = mysqli_query($conn, $sql);
+
+    if (mysqli_num_rows($result) > 0) {
+        // output data of each row
+        while($row = mysqli_fetch_assoc($result)) {
+            return $row;
+        }
+    } else {
+        echo "0 results";
+    }
+
+}
+
+$data = get_data($id);
 
 
 ?>
@@ -106,7 +153,7 @@ if (!$conn) {
                                 <div class="row">
                                     <div class="form-group">
                                         <label> Request ID :</label>
-                                        <input type="text" id="reqid" value="<?php echo $id ?>" class="form-control"
+                                        <input type="text" id="reqid" value="<?php echo $data["Req_id"] ?>" class="form-control"
                                                placeholder="REQ-000001" readonly>
                                     </div>
                                 </div>
@@ -114,7 +161,7 @@ if (!$conn) {
                                 <div class="row">
                                     <div class="form-group">
                                         <label> Unit :</label>
-                                        <input type="text" id="unit" class="form-control" placeholder="Unit Name"
+                                        <input type="text" id="unit" class="form-control" value="<?php echo $data["Unit_Name"] ?>" placeholder="Unit Name"
                                                readonly>
                                     </div>
                                 </div>
@@ -122,7 +169,7 @@ if (!$conn) {
                                 <div class="row">
                                     <div class="form-group">
                                         <label> Ward :</label>
-                                        <input type="text" id="ward" class="form-control" placeholder="Word No."
+                                        <input type="text" id="ward" class="form-control" value="<?php echo $data["Ward_Name"] ?>" placeholder="Word No."
                                                readonly>
                                     </div>
                                 </div>
@@ -133,7 +180,7 @@ if (!$conn) {
                                         <div class="input-group">
                                             <span class="input-group-addon"><i class="icon-calendar22"></i></span>
                                             <input type="text" id="reqdate" name="reqdate"
-                                                   class="form-control daterange-single" value="03/18/2013" readonly>
+                                                   class="form-control daterange-single" value="<?php echo $data["Req_date"] ?>" readonly>
                                         </div>
                                     </div>
                                 </div>
@@ -142,7 +189,7 @@ if (!$conn) {
                                     <div class="form-group">
                                         <label> Requisition type : </label>
                                         <input type="text" id="reqtype" class="form-control"
-                                               placeholder="Annual Procurement" readonly>
+                                               value="<?php echo $data["Req_type"] ?>" placeholder="Annual Procurement" readonly>
                                     </div>
                                 </div>
                             </div>
@@ -240,7 +287,7 @@ if (!$conn) {
                                             <input id="empname2" name="empname2" type="hidden">
                                             <label> Requisition ID :</label>
                                             <input type="text" id="reqid1" class="form-control"
-                                                   placeholder="REQ-000001" readonly>
+                                                    readonly>
 
                                         </div>
                                     </div>
@@ -350,10 +397,7 @@ if (!$conn) {
                                     <div class="col-lg-6">
                                         <div class="form-group">
                                             <label> Director Name :</label>
-                                            <input type="text" id="empname2"
-                                                   class="form-control"
-                                                   placeholder=" Dr. Sanath Gurusinghe"
-                                                   readonly>
+                                            <input type="text" id="empname2" name="empname2" class="form-control" value="<?php echo $usr["Emp_id"] ?>"  readonly>
                                         </div>
                                     </div>
 
@@ -362,10 +406,8 @@ if (!$conn) {
                                             <label> Primal Approval Date : </label>
                                             <div class="input-group">
                                                 <span class="input-group-addon"><iclass="icon-calendar5"></i></span>
-                                                <input type="text" id="primappdate2"
-                                                       name="primappdate2"
-                                                       class="form-control pickadate-strings required"
-                                                       placeholder="Try me&hellip;">
+                                                <input type="text" id="primappdate2" name="primappdate2" class="form-control" value="<?php echo $tod ?>"   readonly>
+
                                             </div>
                                         </div>
                                     </div>
@@ -475,14 +517,11 @@ if (!$conn) {
                     $("#unit1").val(retData[0].Unit_Name);
                     $("#ward1").val(retData[0].Ward_Name);
                     $("#reqtype1").val(retData[0].Req_type);
+                    $("#equipname1").val(retData[0].Req_eqp_name);
                     $("#findeqpname").val(retData[0].Req_eqp_name);
+                    $("#quantity1").val(retData[0].Req_equip_qty);
                     $("#findqty").val(retData[0].Req_equip_qty);
                     $("#reason1").val(retData[0].Req_equip_reason);
-                    // $("#empname2").val(retData[0].);
-                    // $("#primappdate2").val(retData[0].);
-                    // $("#primapp2").val(retData[0].);
-                    // $("#procuretype2").val(retData[0].);
-                    // $("#additional-info2").val(retData[0].);
 
 
                 });
@@ -503,8 +542,18 @@ if (!$conn) {
                     contentType: false
                 })
                     .done(function (data) {
-                        alert(data);
-                        getdatatotable();
+                        swal({
+                                title: "Request Approved Successfully!",
+                                text: "Click OK to Continue",
+                                confirmButtonColor: "#66BB6A",
+                                type: "success"
+                            },
+                            function(isConfirm){
+                                if (isConfirm) {
+                                    getdatatotable();
+                                }
+                            });
+
                     });
             }
             else if (status == 2) {
@@ -516,8 +565,17 @@ if (!$conn) {
                     contentType: false
                 })
                     .done(function (data) {
-                        alert(data);
-                        getdatatotable();
+                        swal({
+                                title: "Request Rejected Successfully!",
+                                text: "Click OK to Continue",
+                                confirmButtonColor: "#66BB6A",
+                                type: "success"
+                            },
+                            function(isConfirm){
+                                if (isConfirm) {
+                                    getdatatotable();
+                                }
+                            });
                     });
             }
 

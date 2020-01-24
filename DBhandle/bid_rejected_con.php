@@ -32,15 +32,12 @@
                     if (mysqli_num_rows($result) > 0) {
                         // output data of each row
                         while($row = mysqli_fetch_assoc($result)) {
-                            echo "<tr><td>" . $row["Procurement_id"] . "</td><td>" . $row["Bidder_id"] . "</td>
+                            echo "<tr>
+                            <td>" . $row["Procurement_id"] . "</td>
+                            <td>" . $row["Bidder_id"] . "</td>
+                            <td>" . $row["Bid_id"] . "</td>
                             <td>" . $row["Bid_status"] . "</td>
-                            <td>" . $row["Remarks"] . "</td>
-                            <td>
-                                <ul class='icons-list'>
-                                    <li><a><i class='icon-pencil7'></i></a></li>
-                                
-                                </ul>
-                            </td>
+                            <td>" . $row["Remark"] . "</td>
                             </tr>";
                         } 
                     } else {
