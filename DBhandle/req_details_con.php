@@ -30,6 +30,9 @@ if (!$conn) {
             case "table":
                 tabledata($conn);
                 break;
+            case "saveresponses":
+                saveresponses($conn);
+                break;
 
         }
     }
@@ -159,6 +162,21 @@ function approvedsaveform($conn){
     }
 
 
+}
+
+function saveresponses($conn){
+
+    $id =$_POST['reqid'];
+
+    $sql = "UPDATE `epms_requisition` SET `Req_status` = 'Responded' WHERE Req_id ='$id'";
+    $result = mysqli_query($conn, $sql);
+
+    if (!$result) {
+        echo mysqli_error($conn);
+    }
+    else{
+        echo "success";
+    }
 }
 
 function rejectedsaveform($conn){

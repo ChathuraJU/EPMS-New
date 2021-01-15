@@ -84,9 +84,7 @@
                                 <div class="form-group">
                                     <label class="col-lg-3 control-label">Unit Head Name :</label>
                                     <div class="col-lg-9">
-                                        <select id="uheadname" name="uheadname" data-placeholder="Choose an ID..." class="select-search required">
-                                            <option></option> 
-                                        </select>              
+                                        <input type="text" id="uheadname" name="uheadname" class="form-control" readonly>             
                                     </div>
                                 </div>
                             </div>
@@ -257,10 +255,8 @@
             });
         });
         
-        //get data to select box
         $(document).ready(function () {
-
-            //unit head id
+            //employee id ajax request
             $.ajax({
                 method: "POST",
                 url: "../DBhandle/config_unit_con.php?code=get_uheadidselect_data",
@@ -271,19 +267,22 @@
                     $("#uheadid").append(data);
                 });
 
+            $("#uheadid").change(function () {
+           var emp = $(this).val();
 
-            //unit head name
             $.ajax({
                 method: "POST",
                 url: "../DBhandle/config_unit_con.php?code=get_uheadnameselect_data",
-                processData: false,
-                contentType: false
+                data: {"emp":emp}
             })
                 .done(function (data) {
-                    $("#uheadname").append(data);
+                    $("#uheadname").val(data);
                 });
 
         });
+
+        });
+
 
         //save form
         $("#save").click(function(){
@@ -296,16 +295,17 @@
                     processData: false,
                     contentType: false
                 }).done(function (msg) {
-                    getdatatotable();
-                    $("#uno").val("");
-                    $("#uname").val("");
-                    $("#loc").val("");
-                    $("#uheadid").val("");
-                    $("#uheadname").val("");
-                    $("#uemail").val("");
-                    $("#utel").val("");
-
-                    getdatatotable();
+                    swal({
+                            title: "Unit Created Successfully!",
+                            text: "Click OK to Continue",
+                            confirmButtonColor: "#66BB6A",
+                            type: "success"
+                        },
+                        function(isConfirm){
+                            if (isConfirm) {
+                                location.reload();
+                            }
+                        });
                 
                 });
 

@@ -104,9 +104,7 @@ $data = get_data($id);
 
             <div class="heading-elements">
                 <div class="heading-btn-group">
-                    <a href="#" class="btn btn-link btn-float has-text"><i class="icon-bars-alt text-primary"></i><span>Statistics</span></a>
-                    <a href="#" class="btn btn-link btn-float has-text"><i class="icon-notebook text-primary"></i>
-                        <span>Reports</span></a>
+                   
                 </div>
             </div>
         </div>
@@ -125,7 +123,7 @@ $data = get_data($id);
     <!-- Content area -->
     <div class="content">
         <!-- Advanced legend -->
-        <form action="#">
+        <form action="#" id="frm_req_details" method="POST" enctype="multipart/form-data">
             <div class="panel panel-info">
                 <div class="panel-heading">
                     <h5 class="panel-title"><b> Requisition Details </b></h5>
@@ -153,7 +151,7 @@ $data = get_data($id);
                                 <div class="row">
                                     <div class="form-group">
                                         <label> Request ID :</label>
-                                        <input type="text" id="reqid" value="<?php echo $data["Req_id"] ?>" class="form-control"
+                                        <input type="text" id="reqid" name="reqid" value="<?php echo $data["Req_id"] ?>" class="form-control"
                                                placeholder="REQ-000001" readonly>
                                     </div>
                                 </div>
@@ -242,9 +240,10 @@ $data = get_data($id);
 
                     </fieldset>
                     <fieldset>
-                        <div class="col-lg-10"></div>
-                        <div class="col-lg-2"><button type="button" onclick="location.href='req_list.php'" id="backrqlst" class="btn btn-primary">  <i class="icon-arrow-left16"></i>BACK</button></div>
-
+                        <div class="col-lg-3"></div>
+                        <div class="col-lg-3"><button type="button" onclick="location.href='req_list.php'" id="backrqlst" class="btn btn-primary">  <i class="icon-arrow-left16"></i>BACK</button></div>
+                        <div class="col-lg-3"><button type="button" id="saveapp1" class="btn btn-primary">  SAVE</button></div>
+                        <div class="col-lg-3"></div>
 
                     </fieldset>
 
@@ -527,6 +526,32 @@ $data = get_data($id);
                 });
         }
 
+        $("#saveapp1").click(function(){
+
+            f = new FormData($("#frm_req_details")[0]);
+
+            $.ajax({
+                    method: "POST",
+                    url: "../DBhandle/req_details_con.php?code=saveresponses",
+                    data: f,
+                    processData: false,
+                    contentType: false
+                })
+                    .done(function (data) {
+                        swal({
+                                title: "Successfully Responded!",
+                                text: "Click OK to Continue",
+                                confirmButtonColor: "#66BB6A",
+                                type: "success"
+                            },
+                            function(isConfirm){
+                                if (isConfirm) {
+                                    getdatatotable();
+                                }
+                            });
+
+                    });
+        });
 
         $("#reqsubmit").click(function () {
             var status = $("#primapp2").val();
@@ -543,7 +568,7 @@ $data = get_data($id);
                 })
                     .done(function (data) {
                         swal({
-                                title: "Request Approved Successfully!",
+                                title: "Equipment Request Approved!!",
                                 text: "Click OK to Continue",
                                 confirmButtonColor: "#66BB6A",
                                 type: "success"
@@ -566,7 +591,7 @@ $data = get_data($id);
                 })
                     .done(function (data) {
                         swal({
-                                title: "Request Rejected Successfully!",
+                                title: "Equpment Request Rejected!!",
                                 text: "Click OK to Continue",
                                 confirmButtonColor: "#66BB6A",
                                 type: "success"

@@ -82,7 +82,7 @@ if (!$conn) {
             }
         }
 
-        //get equipment name for the relevant equip code
+        //get employee name for the relevant employee id
         function get_emp_name($conn){
             $emp_n = $_POST["emp"];
 

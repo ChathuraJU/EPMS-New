@@ -11,8 +11,7 @@
 
                 <div class="heading-elements">
                     <div class="heading-btn-group">
-                        <a href="#" class="btn btn-link btn-float has-text"><i class="icon-bars-alt text-primary"></i><span>Statistics</span></a>
-                        <a href="#" class="btn btn-link btn-float has-text"><i class="icon-notebook text-primary"></i> <span>Reports</span></a>
+                        
                     </div>
                 </div>
             </div>
@@ -52,7 +51,7 @@
                     </div>
                 </div>
 
-                <table id="surveyhis" class="table datatable-responsive-control-right">
+                <table id="surveyhis" class="table datatable-button-html5-basic">
                     <thead>
                         <tr>
                             <th> Survey ID </th>
@@ -76,64 +75,119 @@
 
     <script>
                 
-        // Table setup
-        // ------------------------------
-
-        // Setting datatable defaults
-        $.extend( $.fn.dataTable.defaults, {
-            autoWidth: false,
-            responsive: true,
-            columnDefs: [{ 
-                orderable: false,
-                width: '100px',
-                targets: [ 5 ]
-            }],
-            dom: '<"datatable-header"fl><"datatable-scroll-wrap"t><"datatable-footer"ip>',
-            language: {
-                search: '<span>Filter:</span> _INPUT_',
-                searchPlaceholder: 'Type to filter...',
-                lengthMenu: '<span>Show:</span> _MENU_',
-                paginate: { 'first': 'First', 'last': 'Last', 'next': $('html').attr('dir') == 'rtl' ? '&larr;' : '&rarr;', 'previous': $('html').attr('dir') == 'rtl' ? '&rarr;' : '&larr;' }
-            },
-            drawCallback: function () {
-                $(this).find('tbody tr').slice(-3).find('.dropdown, .btn-group').addClass('dropup');
-            },
-            preDrawCallback: function() {
-                $(this).find('tbody tr').slice(-3).find('.dropdown, .btn-group').removeClass('dropup');
-            }
-        });
-
-
-        
-        // Control position
-        $('.datatable-responsive-control-right').DataTable({
-            responsive: {
-                details: {
-                    type: 'column',
-                    target: -1
-                }
-            },
-            columnDefs: [
-                {
-                    className: 'control',
-                    orderable: false,
-                    targets: -1
-                },
-                { 
-                    width: "100px",
-                    targets: [5]
-                },
-                { 
-                    orderable: false,
-                    targets: [5]
-                }
-            ]
-        });
+        // // Table setup
+        // // ------------------------------
+        //
+        // // Setting datatable defaults
+        // $.extend( $.fn.dataTable.defaults, {
+        //     autoWidth: false,
+        //     responsive: true,
+        //     columnDefs: [{
+        //         orderable: false,
+        //         width: '100px',
+        //         targets: [ 5 ]
+        //     }],
+        //     dom: '<"datatable-header"fl><"datatable-scroll-wrap"t><"datatable-footer"ip>',
+        //     language: {
+        //         search: '<span>Filter:</span> _INPUT_',
+        //         searchPlaceholder: 'Type to filter...',
+        //         lengthMenu: '<span>Show:</span> _MENU_',
+        //         paginate: { 'first': 'First', 'last': 'Last', 'next': $('html').attr('dir') == 'rtl' ? '&larr;' : '&rarr;', 'previous': $('html').attr('dir') == 'rtl' ? '&rarr;' : '&larr;' }
+        //     },
+        //     drawCallback: function () {
+        //         $(this).find('tbody tr').slice(-3).find('.dropdown, .btn-group').addClass('dropup');
+        //     },
+        //     preDrawCallback: function() {
+        //         $(this).find('tbody tr').slice(-3).find('.dropdown, .btn-group').removeClass('dropup');
+        //     }
+        // });
+        //
+        //
+        //
+        // // Control position
+        // $('.datatable-responsive-control-right').DataTable({
+        //     responsive: {
+        //         details: {
+        //             type: 'column',
+        //             target: -1
+        //         }
+        //     },
+        //     columnDefs: [
+        //         {
+        //             className: 'control',
+        //             orderable: false,
+        //             targets: -1
+        //         },
+        //         {
+        //             width: "100px",
+        //             targets: [5]
+        //         },
+        //         {
+        //             orderable: false,
+        //             targets: [5]
+        //         }
+        //     ]
+        // });
 
 
         function mydatatable(){
 
-            $('#surveyhis').DataTable();
+            $.extend($.fn.dataTable.defaults, {
+                autoWidth: false,
+                dom: '<"datatable-header"fB><"datatable-scroll-wrap"t><"datatable-footer"lip>',
+                language: {
+                    search: '<span>Find:</span> _INPUT_',
+                    searchPlaceholder: 'Type the keyword...',
+                    lengthMenu: '<span>Show:</span> _MENU_',
+                    paginate: {
+                        'first': 'First',
+                        'last': 'Last',
+                        'next': $('html').attr('dir') == 'rtl' ? '&larr;' : '&rarr;',
+                        'previous': $('html').attr('dir') == 'rtl' ? '&rarr;' : '&larr;'
+                    }
+                }
+            });
+
+            $('.datatable-button-html5-basic').DataTable({
+                responsive: {
+                    details: {
+                        type: 'column',
+                        target: -1
+                    }
+                },
+                columnDefs: [
+                    {
+                        className: 'control',
+                        orderable: false,
+                        targets: -1
+                    },
+                    {
+                        width: "100px",
+                        targets: [6]
+                    },
+                    {
+                        orderable: false,
+                        targets: [6]
+                    }
+                ],
+                buttons: {
+                    dom: {
+                        button: {
+                            className: 'btn bg-blue-400'
+                        }
+                    },
+                    buttons: [
+                        {
+                            extend: 'pdfHtml5',
+                            text: 'Export to PDF <i class="icon-file-pdf position-right"></i>',
+                            exportOptions: {
+                                columns: ':visible:not(.not-export-col)'
+                            },
+                            title: "Survey HISTORY REPORT"
+                        }
+                    ]
+                },
+            });
         }
 
             function getdatatotable(){

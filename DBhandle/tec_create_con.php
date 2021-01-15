@@ -54,12 +54,13 @@ if (!$conn) {
             $eqpname = $_POST["eqpname"];
             $qty = $_POST["qty"];
             $names = $_POST["names"];
+            
 
 
 
 
             //create procurement id
-            $sql1 ="SELECT Procurement_id FROM epms_tec ORDER BY Tec_sn DESC LIMIT 1 ";
+            $sql1 ="SELECT Procurement_id FROM epms_tec ORDER BY Tec_sn DESC LIMIT 1";
                 $result1=mysqli_query($conn,$sql1);
 
                 $rowcount=mysqli_num_rows($result1);
@@ -74,7 +75,7 @@ if (!$conn) {
                 $new_proid = "PROC/".$newpro_number;
 
 
-                //create procurement id
+                //create tec id
             $sql2 ="SELECT Tec_id FROM epms_tec ORDER BY Tec_sn DESC LIMIT 1 ";
                 $result2=mysqli_query($conn,$sql2);
 

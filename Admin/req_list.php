@@ -11,8 +11,7 @@
 
                 <div class="heading-elements">
                     <div class="heading-btn-group">
-                        <a href="#" class="btn btn-link btn-float has-text"><i class="icon-bars-alt text-primary"></i><span>Statistics</span></a>
-                        <a href="#" class="btn btn-link btn-float has-text"><i class="icon-notebook text-primary"></i> <span>Reports</span></a>
+                        
                     </div>
                 </div>
             </div>
@@ -121,7 +120,7 @@
                                 exportOptions: {
                                     columns: ':visible:not(.not-export-col)'
                                 },
-                                title: "RQUEST LIST REPORT"
+                                title: "REQUEST LIST REPORT"
                             }
                         ]
                     },

@@ -26,6 +26,7 @@
 			{
 				$_SESSION["user"]["uname"]=$uname;
 				$_SESSION["user"]["uid"]=$rec["User_sn"];
+				$_SESSION["user"]["emp_id"]=$rec["Emp_id"];
 				$_SESSION["user"]["utype"]=$rec["User_type_name"];
 				echo("3");
 			}

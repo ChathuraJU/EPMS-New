@@ -1,4 +1,57 @@
-<?php require_once('header.php');?>
+<?php require_once('header.php');
+date_default_timezone_set("Asia/Colombo");
+$tod = date("Y-m-d");
+
+function get_user_data(){
+    $servername = "localhost";
+    $username = "root";
+    $password = "";
+    $db = "nhk_epms";
+
+// Create connection
+    $conn = mysqli_connect($servername, $username, $password, $db);
+// Check connection
+    if (!$conn) {
+        die("Connection failed: " . mysqli_connect_error());
+    }
+
+    $user_id = $_SESSION["user"]["uid"];
+    $sql = "SELECT 
+              * 
+            FROM
+              epms_employee emp 
+              INNER JOIN epms_users usr 
+                ON usr.`Emp_id` = emp.`Emp_id` 
+        WHERE usr.`User_sn` = '$user_id' ";
+
+
+    $result = mysqli_query($conn, $sql);
+
+    if (mysqli_num_rows($result) > 0) {
+        // output data of each row
+        while($row = mysqli_fetch_assoc($result)) {
+            return $row;
+        }
+    } else {
+        echo "0 results";
+    }
+
+}
+
+
+$usr = get_user_data();
+
+
+if ($usr["Emp_assigned_unit"]==''){
+    $unit = $usr["Emp_assigned_ward"];
+}
+else{
+    $unit = $usr["Emp_assigned_unit"];
+}
+
+
+
+?>
 <!-- Main content -->
 <div class="content-wrapper">
     <!-- Page header -->
@@ -44,10 +97,12 @@
                     <fieldset>
                         <div class="row">
                             <div class="form-group">
-                                <label class="col-lg-3 control-label">Employee ID :<span class="text-danger">*</span></label>
+                                <label class="col-lg-3 control-label"> Employee ID : <span class="text-danger">*</span></label>
                                 <div class="col-lg-9">
-                                    <input type="text" id="empid" name="empid" class="form-control required"  >
+                                    <input type="text" id="empid" name="empid" class="form-control" value="<?php echo $usr["Emp_id"] ?>" readonly/>
+
                                 </div>
+
                             </div>
                         </div>
                         <div class="row">
@@ -193,7 +248,17 @@
                     processData: false,
                     contentType: false
                 }).done(function (msg) {
-                    alert(msg);
+                    swal({
+                            title: "Complain Recorded Successfully!",
+                            text: "Click OK to Continue",
+                            confirmButtonColor: "#66BB6A",
+                            type: "success"
+                        },
+                        function(isConfirm){
+                            if (isConfirm) {
+
+                            }
+                        });
                 });
 
                 // preventDefault();

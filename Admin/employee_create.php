@@ -256,22 +256,19 @@
                         processData: false,
                         contentType: false
                     }).done(function (msg) {
-                        getdatatotable();
-                        $("#initials").val("");
-                        $("#fname").val("");
-                        $("#morf").val("");
-                        $("#salutation").val("");
-                        $("#dob").val("");
-                        $("#nic").val("");
-                        $("#address").val("");
-                        $("#email").val("");
-                        $("#home_tel").val("");
-                        $("#mob_tel").val("");
-                        $("#djoin").val("");
-                        $("#workid").val("");
-                        $("#jtitle").val("");
-                        $("#unit").val("");
-                        $("#ward").val("");
+
+                        
+                        swal({
+                                    title: "Employee Created Successfully!",
+                                    text: "Click OK to Continue",
+                                    confirmButtonColor: "#66BB6A",
+                                    type: "success"
+                                },
+                                function(isConfirm){
+                                    if (isConfirm) {
+                                        location.reload();
+                                    }
+                                });
                     });
          
                     preventDefault();

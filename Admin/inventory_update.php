@@ -364,7 +364,17 @@
                         processData: false,
                         contentType: false
                     }).done(function (msg) {
-                        alert(msg);
+                        swal({
+                                title: "Inventory Updated Successfully!",
+                                text: "Click OK to Continue",
+                                confirmButtonColor: "#66BB6A",
+                                type: "success"
+                            },
+                            function(isConfirm){
+                                if (isConfirm) {
+
+                                }
+                            });
                     });
 
                     preventDefault();
@@ -465,6 +475,26 @@
 
         });
 
+
+         //get data 
+         $(document).ready(function () {
+
+            //to select box
+                //procurement id
+            $.ajax({
+                method: "POST",
+                url: "../DBhandle/inventory_con.php?code=get_proidselect_data",
+                processData: false,
+                contentType: false
+            })
+                .done(function (data) {
+                $("#proid").append(data);
+                });
+
+                mydatatable();
+
+
+            });
 
 
     </script>

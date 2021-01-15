@@ -164,8 +164,17 @@
                         processData: false,
                         contentType: false
                     }).done(function (msg) {
-                        getdatatotable();
-                        $("#eqpname").val("");
+                        swal({
+                            title: "Equipment Created Successfully!",
+                            text: "Click OK to Continue",
+                            confirmButtonColor: "#66BB6A",
+                            type: "success"
+                        },
+                        function(isConfirm){
+                            if (isConfirm) {
+                                location.reload();
+                            }
+                        });
                     });
         });
 

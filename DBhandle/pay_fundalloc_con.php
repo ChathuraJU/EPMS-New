@@ -46,6 +46,10 @@ function save($conn){
 
     $result = mysqli_query($conn, $sql);
 
+    $sql1 ="UPDATE nhk_epms.`epms_bids` SET `Order_status` = 'Finished'  WHERE `Procurement_id` = '$pay1'";
+
+    $result1 = mysqli_query($conn, $sql1);
+
     if (!$result) {
         echo mysqli_error($conn);
     }

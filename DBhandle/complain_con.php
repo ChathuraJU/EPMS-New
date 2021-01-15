@@ -1,4 +1,5 @@
 <?php 
+session_start();
     if(isset($_GET["code"])){
         $code=$_GET["code"];
         switch($code){
@@ -72,8 +73,9 @@
                         die("Connection failed: " . mysqli_connect_error());
                     }
                     
-                    
-                    $sql = "select * from `epms_complain`";
+                    $emp_id = $_SESSION["user"]["emp_id"];
+
+                    $sql = "select * from `epms_complain` where epms_complain.Emp_id= '$emp_id'";
                     
                     
                     $result = mysqli_query($conn, $sql);

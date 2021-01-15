@@ -28,6 +28,10 @@ if (!$conn) {
                     geteqpqtydata($conn);
                     break;
 
+                case "get_nrf":
+                    get_nrf($conn);
+                    break;
+
             }
         }
 
@@ -40,8 +44,6 @@ if (!$conn) {
             $nrp = $_POST["nrp"];
             $opening = $_POST["bidcolop"];
             $closing = $_POST["bidcolcls"];
-
-
 
                 $sql = "INSERT INTO `epms_tenders`(`Procurement_id`,`Equip_name`,`Quantity`,`Procure_title`,
                 `Procure_nature`,`Procure_nrp`,`Tender_op_date`,`Tender_col_date`)
@@ -97,6 +99,32 @@ function geteqpqtydata($conn){
 
 }
 
+function get_nrf($conn){
+    $sql = "Select `*` from `epms_tec`";
+    $result = mysqli_query($conn, $sql);
+         if (mysqli_num_rows($result) > 0) {
+             // output data of each row
+             while($row = mysqli_fetch_assoc($result)) {
+
+                 $tec_sn = $row["Tec_sn"];
+
+                 $status = $row["Bid_status"];
+                 $clr = "";
+
+                 switch($status){
+                     case "Approved":
+                         $clr = "#65eb89";
+                         break;
+                     case "Rejected":
+                         $clr = "#d67272";
+                         break;
+}
+
+             }
+            }
+        }
+
+
 
         // function getdata(){
         //     $servername = "localhost";
@@ -133,12 +161,11 @@ function geteqpqtydata($conn){
         //             } else {
         //                 echo "0 results";
         //             }
-    
-    
+
+
         // }
-    
 
-
-        
 
 ?>
+        
+

@@ -114,8 +114,8 @@ if(isset($_GET["code"])){
             $doi =  $equipmentsarray[$i]['anytime-weekday'];
             $remarks =  $equipmentsarray[$i]['remarks5'];
 
-            $sql = "INSERT INTO epms_survey_equip(`Sur_equip_id`,`Equipment_code`,`Sur_sn`,`Equipment_name`,`Present_Status`,`Date_of_installation`,`Remarks`)
-            VALUES ('$new_sureqpid','$equipcode','$last_id3','$equipname','$presentstat','$doi','$remarks')";
+            $sql = "INSERT INTO epms_survey_equip(`Sur_equip_id`,`Equipment_code`,`Sur_id`,`Equipment_name`,`Present_Status`,`Date_of_installation`,`Remarks`)
+            VALUES ('$new_sureqpid','$equipcode','$new_surid','$equipname','$presentstat','$doi','$remarks')";
 
             $result = mysqli_query($conn, $sql);
 

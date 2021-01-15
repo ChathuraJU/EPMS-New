@@ -17,12 +17,12 @@
 
 
      $sql = "SELECT
-              *,
-              SUM(rapp.`Req_eqp_qty`) AS c
-            FROM
-              `epms_req_prim_app` rapp
-            WHERE rapp.`Status` = 'pending' and `Procurement_type` ='3'
-            GROUP BY rapp.`Req_equip`";
+                    *,
+                    SUM(rapp.`Req_eqp_qty`) AS c
+                FROM
+                    `epms_req_prim_app` rapp
+                WHERE rapp.`Status` = 'pending' and `Procurement_type` ='3'
+                GROUP BY rapp.`Req_equip`";
      $result = mysqli_query($conn, $sql);
      while($row = mysqli_fetch_array($result))
      {

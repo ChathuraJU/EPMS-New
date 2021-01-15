@@ -77,9 +77,10 @@ $procid = $_GET["proid"];
                                     </div>
                                 </div>
                             </div>
+        
                         </div>
                         <div class="row">
-                            <div class="col-md-6">
+                            <div class="col-md-4">
                                 <div class="form-group">  
                                     <label class="col-lg-3 control-label" > Title of the Procurement : <span class="text-danger">*</span></label>
                                     <div class="col-lg-9">
@@ -87,7 +88,7 @@ $procid = $_GET["proid"];
                                     </div>                           
                                 </div>
                             </div>
-                            <div class="col-md-6">
+                            <div class="col-md-4">
                                 <div class="form-group">  
                                     <label class="col-lg-3 control-label"> Nature of the Procurement : <span class="text-danger">*</span></label>
                                     <div class="col-lg-9">
@@ -95,22 +96,30 @@ $procid = $_GET["proid"];
                                     </div>
                                 </div>
                             </div>
-                        </div>
-
-                        <div class="row">
-                            <div class="col-md-6">
+                            <div class="col-md-4">
                                 <div class="form-group">
-                                    <label class="col-lg-3 control-label">Non Refundable Payment:</label>
+                                    <label class="col-lg-3 control-label"> Non Refundable Payment : <span class="text-danger">*</span></label>
                                     <div class="col-lg-9">
-                                        <div class="input-group">
-                                            <input type="text" name="nrp" id="nrp" placeholder="Enter the NRP amount" class="form-control  required" data-mask="999,999,999.99">
-                                            <span class="input-group-addon">LKR</span>
-                                        </div>
+                                        <input type="text" id="nrp" name="nrp" class="form-control required"  />
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-md-6"></div>
                         </div>
+
+<!--                        <div class="row">-->
+<!--                            <div class="col-md-6">-->
+<!--                                <div class="form-group">-->
+<!--                                    <label class="col-lg-3 control-label">Non Refundable Payment:</label>-->
+<!--                                    <div class="col-lg-9">-->
+<!--                                        <div class="input-group">-->
+<!--                                            <input type="text" name="nrp" id="nrp" placeholder="Enter the NRP amount" class="form-control  required" data-mask="999,999,999.99">-->
+<!--                                            <span class="input-group-addon">LKR</span>-->
+<!--                                        </div>-->
+<!--                                    </div>-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                            <div class="col-md-6"></div>-->
+<!--                        </div>-->
 
                         <div class="row">
                             <div class="col-md-6">
@@ -175,6 +184,23 @@ $procid = $_GET["proid"];
     <script>
 
 
+        //get nrf
+        $(document).ready(function () {
+
+
+            //unit name
+            $.ajax({
+                method: "POST",
+                url: "../DBhandle/tender_con.php?code=get_nrf",
+                processData: false,
+                contentType: false
+            })
+                .done(function (data) {
+                    $("#nrp").append(data);
+                });
+
+        });
+
         //get data
         $(document).ready(function () {
             var id = $("#proid").val();
@@ -188,6 +214,7 @@ $procid = $_GET["proid"];
                     var retData = JSON.parse(data);
                     $("#eqpname").val(retData[0].Equipment_name);
                     $("#qty").val(retData[0].Quantity);
+
                 });
 
         });
@@ -315,19 +342,9 @@ $procid = $_GET["proid"];
                         },
                         function(isConfirm){
                             if (isConfirm) {
-
+                                window.location.href = "./req_penddirect_procure.php";
                             }
                         });
-
-                    getdatatotable();
-                    $("#procid").val("");
-                    $("#eqpname").val("");
-                    $("#qty").val("");
-                    $("#proctitle").val("");
-                    $("#procnature").val("");
-                    $("#nrp").val("");
-                    $("#bidcolop").val("");
-                    $("#bidcolcls").val("");
 
 
                 

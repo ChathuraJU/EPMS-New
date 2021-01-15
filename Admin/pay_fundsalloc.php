@@ -70,7 +70,7 @@ function get_data($id){
 
 
     $sql = "SELECT * FROM epms_tenders ep
-            WHERE ep.`Procurement_id` ='PROC/00001'";
+            WHERE ep.`Procurement_id` ='$id'";
 
 
     $result = mysqli_query($conn, $sql);
@@ -433,7 +433,7 @@ $data = get_data($id);
                             },
                             function(isConfirm){
                                 if (isConfirm) {
-
+                                    window.location.href=""
                                 }
                             });
 

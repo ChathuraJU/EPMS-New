@@ -1,4 +1,26 @@
-<?php require_once('header.php');?>
+<?php require_once('header.php');
+
+$servername = "localhost";
+    $username = "root";
+    $password = "";
+    $db = "nhk_epms";
+
+    // Create connection
+    $conn = mysqli_connect($servername, $username, $password, $db);
+    // Check connection
+    if (!$conn) {
+        die("Connection failed: " . mysqli_connect_error());
+    }
+
+
+    $sql =  "SELECT * FROM `epms_payment` WHERE `Payment_status` = 'paid'";
+
+
+    $result = mysqli_query($conn, $sql);
+
+    
+
+?>
 <!-- Main content -->
 <div class="content-wrapper">
     <!-- Page header -->
@@ -53,7 +75,26 @@
                     </tr>
                 </thead>
                 <tbody>
+                   <?php 
                    
+                   if (mysqli_num_rows($result) > 0) {
+                    // output data of each row
+                    while($row = mysqli_fetch_assoc($result)) {
+                        echo "<tr>
+                                        <td>" . $row["Payment_sn"] . "</td>
+                                        <td>" . $row["Procurement_id"] . "</td>
+                                        <td>" . $row["Cheque_no"] . "</td>
+                                        <td>" . $row["Date_of_payment"] . "</td>
+                                        <td>" . $row["Amount"] . "</td>
+                                        <td><a href='../Invoice/".$row["Payment_sn"].".jpg'>Invoice</a></td>
+                                        <td><a href='../Cheque/".$row["Payment_sn"].".jpg'>Cheque</a></td>
+                                        
+                                        </tr>";
+                    }
+                } else {
+                    echo "0 results";
+                }
+                   ?>
 
                 </tbody>
             </table>

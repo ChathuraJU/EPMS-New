@@ -76,23 +76,20 @@ $result = mysqli_query($conn, $sql);
                     <legend class="text-semibold"> Procurement Details </legend>
                         <div class="panel-body">
                             <div class="row">
-                                <div class="col-md-6">
+                                <div class="col-md-4">
                                     <div class="form-group">
                                         <label>Procurement ID:</label>
                                         <input type="text" id="proid" name="proid" placeholder="Pending.." class="form-control" readonly>
                                     </div>
                                 </div> 
 
-                                <div class="col-md-6">
+                                <div class="col-md-4">
                                     <div class="form-group">
                                         <label>Tec ID:</label>
                                         <input type="text" id="tecid" name="tecid" placeholder="Pending.." class="form-control" readonly>
                                     </div>
 
                                 </div>
-
-                            </div>
-                            <div class="row">
                                 <div class="col-md-4">
                                     <div class="form-group">
                                         <label>Procurement Type:</label>
@@ -100,20 +97,25 @@ $result = mysqli_query($conn, $sql);
                                     </div>
 
                                 </div>
-                                <div class="col-md-4">
+
+                            </div>
+                            <div class="row">
+
+                                <div class="col-md-6">
                                     <div class="form-group">
                                         <label>Equipment Name:</label>
                                         <input type="text" id="eqpname" name="eqpname"  class="form-control" readonly value="<?php echo $eq_name ?>">
                                     </div>
                                 </div> 
 
-                                <div class="col-md-4">
+                                <div class="col-md-6">
                                     <div class="form-group">
                                         <label>Quantity:</label>
                                         <input type="text" id="qty" name="qty" class="form-control" readonly value="<?php echo $qty ?>">
                                     </div>
 
                                 </div>
+
 
                             </div>
                         </div>
@@ -140,6 +142,15 @@ $result = mysqli_query($conn, $sql);
                                 <!-- /basic example -->
 
                             </div>
+
+<!-- 
+                    <div class="row">
+                        <div class="form-group">
+                            <label>Max Bid Value:</label>
+                            <input type="text" id="bdval" name="bdval"  class="form-control" ">
+                        </div>
+                    </div> -->
+
 
                 </fieldset>
 

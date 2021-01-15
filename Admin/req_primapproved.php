@@ -240,77 +240,62 @@
 
 
             
-            // Table setup
-            // ------------------------------
-
-            // Setting datatable defaults
-            $.extend( $.fn.dataTable.defaults, {
-                autoWidth: false,
-                responsive: true,
-                columnDefs: [{ 
-                    orderable: false,
-                    width: '100px',
-                    targets: [ 6 ]
-                }],
-                dom: '<"datatable-header"fl><"datatable-scroll-wrap"t><"datatable-footer"ip>',
-                language: {
-                    search: '<span>Filter:</span> _INPUT_',
-                    searchPlaceholder: 'Type to filter...',
-                    lengthMenu: '<span>Show:</span> _MENU_',
-                    paginate: { 'first': 'First', 'last': 'Last', 'next': $('html').attr('dir') == 'rtl' ? '&larr;' : '&rarr;', 'previous': $('html').attr('dir') == 'rtl' ? '&rarr;' : '&larr;' }
-                },
-                drawCallback: function () {
-                    $(this).find('tbody tr').slice(-3).find('.dropdown, .btn-group').addClass('dropup');
-                },
-                preDrawCallback: function() {
-                    $(this).find('tbody tr').slice(-3).find('.dropdown, .btn-group').removeClass('dropup');
-                }
-            });
-            
-            // Control position
-            $('.datatable-responsive-control-right').DataTable({
-                responsive: {
-                    details: {
-                        type: 'column',
-                        target: -1
-                    }
-                },
-                columnDefs: [
-                    {
-                        className: 'control',
-                        orderable: false,
-                        targets: -1
-                    },
-                    { 
-                        width: "100px",
-                        targets: [5]
-                    },
-                    { 
-                        orderable: false,
-                        targets: [5]
-                    }
-                ]
-            });
-
-            // select2
             $( document ).ready(function(){
 
-                // Default initialization
-                $('.select').select2({
-                    minimumResultsForSearch: Infinity
-                });
+// Table setup
+// ------------------------------
 
+// Setting datatable defaults
+$.extend( $.fn.dataTable.defaults, {
+    autoWidth: false,
+    responsive: true,
+    columnDefs: [{
+        orderable: false,
+        width: '100px',
+        targets: [ 5 ]
+    }],
+    dom: '<"datatable-header"fl><"datatable-scroll-wrap"t><"datatable-footer"ip>',
+    language: {
+        search: '<span>Filter:</span> _INPUT_',
+        searchPlaceholder: 'Type to filter...',
+        lengthMenu: '<span>Show:</span> _MENU_',
+        paginate: { 'first': 'First', 'last': 'Last', 'next': $('html').attr('dir') == 'rtl' ? '&larr;' : '&rarr;', 'previous': $('html').attr('dir') == 'rtl' ? '&rarr;' : '&larr;' }
+    },
+    drawCallback: function () {
+        $(this).find('tbody tr').slice(-3).find('.dropdown, .btn-group').addClass('dropup');
+    },
+    preDrawCallback: function() {
+        $(this).find('tbody tr').slice(-3).find('.dropdown, .btn-group').removeClass('dropup');
+    }
+});
 
-                // Select with search
-                $('.select-search').select2();
+// Control position
+$('.datatable-responsive-control-right').DataTable({
+    responsive: {
+        details: {
+            type: 'column',
+            target: -1
+        }
+    },
+    columnDefs: [
+        {
+            className: 'control',
+            orderable: false,
+            targets: -1
+        },
+        {
+            width: "100px",
+            targets: [5]
+        },
+        {
+            orderable: false,
+            targets: [5]
+        }
+    ]
+});
 
+});
 
-                // Fixed width. Single select
-                $('.select-fixed-single').select2({
-                    minimumResultsForSearch: Infinity,
-                    width: 250
-                });
-            });
         </script>
         
 

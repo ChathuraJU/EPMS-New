@@ -11,8 +11,7 @@
 
             <div class="heading-elements">
                 <div class="heading-btn-group">
-                    <button class="btn btn-default btn-sm" type="button" data-toggle="modal" data-target="#modal_form_vertical">Statistics <i class="icon-bars-alt text-primary"></i></button>
-                    <button class="btn btn-default btn-sm" type="button" data-toggle="modal" data-target="#modal_form_vertical">Reports <i class="icon-notebook text-primary"></i></button>
+                 
                 </div>
             </div>
         </div>
@@ -286,6 +285,29 @@
                 }
             ]
         });
+
+        function dataModal(id) {
+            $.ajax({
+                method: "POST",
+                url: "../DBhandle/inventory_con.php?code=get_modal_data",
+                data: {snid: id}
+            })
+            .done(function (data) {
+                $("#modal_form_vertical").modal("show");
+                data = JSON.parse(data);
+                $("#warrenty").val(data.Warrenty_period);
+                $("#prevent").val(data.Preventive);
+                $("#vendor").val(data.Vendor);
+                $("#msp").val(data.MSP);
+                $("#eqpcode").val(data.Equip_code);
+                $("#equipname").val(data.Equip_name);
+                $("#power").val(data.Equip_power);
+                $("#equipmake").val(data.Equip_make);
+                $("#equipmodel").val(data.Equip_model);
+                $("#serial").val(data.Equip_serial);
+            });
+           
+        }
 
         // select2
         $( document ).ready(function(){

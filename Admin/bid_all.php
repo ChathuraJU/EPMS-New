@@ -90,7 +90,7 @@ $tod = date("Y-m-d");
 
                         <div class="collapse in" id="demo1">
                             <form id="modal-form" enctype="multipart/form-data" method="POST">
-                                <input type="text" id="bidappmodal" name="bidappmodal"  >
+                                <input type="hidden" id="bidappmodal" name="bidappmodal"  >
 
                                 <div class="row">
                                     <div class="col-lg-12">

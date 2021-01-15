@@ -77,9 +77,7 @@
                                 <div class="form-group">
                                     <label class="col-lg-3 control-label">Ward Head Name :</label>
                                     <div class="col-lg-9">
-                                        <select id="wheadname" name="wheadname" data-placeholder="Choose an ID..." class="select-search required">
-                                            <option></option> 
-                                        </select>              
+                                        <input type="text" id="emp5" name="emp5" class="form-control" readonly>          
                                     </div>
                                 </div>
                             </div>
@@ -249,10 +247,9 @@
             });
         });
 
-        //get data to select box
-        $(document).ready(function () {
 
-            //ward head id ajax request
+        $(document).ready(function () {
+            //employee id ajax request
             $.ajax({
                 method: "POST",
                 url: "../DBhandle/config_ward_con.php?code=get_wheadidselect_data",
@@ -263,17 +260,25 @@
                     $("#wheadid").append(data);
                 });
 
-            //ward head name ajax request
+            $("#wheadid").change(function () {
+           var emp = $(this).val();
+
             $.ajax({
                 method: "POST",
-                url: "../DBhandle/config_ward_con.php?code=get_wheadnameselect_data",
-                processData: false,
-                contentType: false
+                url: "../DBhandle/config_ward_con.php?code=get_emp_name",
+                data: {"emp":emp}
             })
                 .done(function (data) {
-                    $("#wheadname").append(data);
+                    $("#emp5").val(data);
                 });
+
         });
+
+        });
+
+
+
+
 
         //save form
         $("#save").click(function(){
@@ -285,15 +290,17 @@
                     processData: false,
                     contentType: false
                 }).done(function (msg) {
-                    $("#wno").val("");
-                    $("#ward").val("");
-                    $("#wheadid").val("");
-                    $("#wheadname").val("");
-                    $("#wemail").val("");
-                    $("#wtel").val("");
-
-                    getdatatotable();
-                
+                    swal({
+                            title: "Ward Created Successfully!",
+                            text: "Click OK to Continue",
+                            confirmButtonColor: "#66BB6A",
+                            type: "success"
+                        },
+                        function(isConfirm){
+                            if (isConfirm) {
+                                location.reload();
+                            }
+                        });
                 });
         });
 
@@ -308,4 +315,3 @@
 </div>
 <!-- /Main content -->
 <?php require_once('footer.php');?>
-

@@ -14,8 +14,8 @@
                 get_wheadidselect_data();
                 break;
 
-            case "get_wheadnameselect_data":
-                get_wheadnameselect_data();
+            case "get_emp_name":
+                get_emp_name();
                 break;
             }
         }
@@ -25,7 +25,7 @@
             $wardno = $_POST["wno"];
             $wardname = $_POST["ward"];
             $wardheadid = $_POST["wheadid"];
-            $wardheadname = $_POST["wheadname"];
+            $wardheadname = $_POST["emp5"];
             $wardemail = $_POST["wemail"]; 
             $wardtel = $_POST["wtel"];
 
@@ -129,34 +129,42 @@
                     }
         }
     
-        //function to get the Employee names from the db to the Ward Head name select box
-        function get_wheadnameselect_data(){
+ 
+        //get employee name for the relevant employee id
+        function get_emp_name(){
+
+
             $servername = "localhost";
-                $username = "root";
-                $password = "";
-                $db = "nhk_epms";
-                
-                    // Create connection
-                    $conn = mysqli_connect($servername, $username, $password, $db);
-                    // Check connection
-                    if (!$conn) {
-                        die("Connection failed: " . mysqli_connect_error());
-                    }
-                    
-                    
-                    $sql = "select * from `epms_employee`";
-                    
-                    
-                    $result = mysqli_query($conn, $sql);
-    
-                    if (mysqli_num_rows($result) > 0) {
-                        // output data of each row
-                        while($row = mysqli_fetch_assoc($result)) {
-                            echo "<option>" . $row["Emp_name"] . "</option>";
-                        }
-                    } else {
-                        echo "0 results";
-                    }
+            $username = "root";
+            $password = "";
+            $db = "nhk_epms";
+            
+                // Create connection
+                $conn = mysqli_connect($servername, $username, $password, $db);
+                // Check connection
+                if (!$conn) {
+                    die("Connection failed: " . mysqli_connect_error());
+                }
+
+            $emp_n = $_POST["emp"];
+
+            $sql = "SELECT 
+                        * 
+                    FROM
+                        `epms_employee` e
+                        WHERE e.`Emp_id`='$emp_n'";
+
+
+            $result = mysqli_query($conn, $sql);
+
+            if (mysqli_num_rows($result) > 0) {
+                // output data of each row
+                while($row = mysqli_fetch_assoc($result)) {
+                    echo $row["Emp_name"];
+                }
+            } else {
+                echo "0 results";
+            }
         }
     
       

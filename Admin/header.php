@@ -298,12 +298,8 @@ session_start();
                                     </li>
 
                                     <li>
-                                        <a href="req_list.php"> All Requisitions </a>
+                                        <a href="req_list3.php"> All Requisitions </a>
                                     </li>
-
-                                    <!--										<li>-->
-                                    <!--											<a href="reqequip_list.php"> Requisitioned Equipment List </a>-->
-                                    <!--										</li> -->
 
                                     <li>
                                         <a href="#">Primal Approved Requisitions</a>
@@ -983,7 +979,7 @@ session_start();
                                     </li>
 
                                     <li>
-                                        <a href="req_list.php"> All Requisitions </a>
+                                        <a href="req_list2.php"> All Requisitions </a>
                                     </li>
 
 
@@ -1532,9 +1528,6 @@ session_start();
                                         <a href="req_list.php"> All Requisitions </a>
                                     </li>
 
-                                    <!--										<li>-->
-                                    <!--											<a href="reqequip_list.php"> Requisitioned Equipment List </a>-->
-                                    <!--										</li> -->
 
                                     <li>
                                         <a href="#">Primal Approved Requisitions</a>

@@ -296,16 +296,17 @@
                     processData: false,
                     contentType: false
                 }).done(function (msg) {
-                    $("#empid").val("");
-                    $("#emp5").val("");
-                    $("#utype").val("");
-                    $("#ustatus").val("");
-                    $("#username").val("");
-                    $("#userpassword").val("");
-                    $("#ucreated").val("");
-                    $("#udeniedd").val("");
-                    
-                    getdatatotable();
+                    swal({
+                            title: "User Created Successfully!",
+                            text: "Click OK to Continue",
+                            confirmButtonColor: "#66BB6A",
+                            type: "success"
+                        },
+                        function(isConfirm){
+                            if (isConfirm) {
+                                location.reload();
+                            }
+                        });
                 });
 
         });

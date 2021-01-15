@@ -13,7 +13,17 @@
             case "get_equipselect_data":
                 get_equipselect_data();
                 break;
+
+            case "get_proidselect_data":
+                get_proidselect_data();
+                break;
+            
+            case "get_modal_data":
+                get_modal_data();
+                break;
             }
+
+            
         }
 
         function save(){
@@ -22,6 +32,7 @@
             $Powerreq = $_POST["power"];
             $Modelno = $_POST["eqpmodel"]; 
             $Serialno = $_POST["serial"];
+            $Proid = $_POST["proid"];
             $Price = $_POST["price"]; 
             $Vendor = $_POST["vendor"];
             $Recievedvia = $_POST["recvia"];
@@ -65,9 +76,9 @@
 
                 $sql = "INSERT INTO `epms_inventory`(`Equip_code`,`Equip_name`,`Equip_make`,`Equip_power`,`Equip_model`,
                 `Equip_serial`,`Equip_price`,`Vendor`,`Recieved_via`,`Recieved_date`,`Recieved_cond`,`Warrenty_period`,
-                `Preventive`,`MSP`,`Add_details`)
+                `Preventive`,`MSP`,`Add_details`,`Procurement_id`)
             VALUES ('$new_invcode','$Equipname','$Equipmake','$Powerreq','$Modelno','$Serialno','$Price',
-            '$Vendor','$Recievedvia','$Recievedate','$Recievecond','$Warrentp','$Preventive','$MSP','$Adddetails')";
+            '$Vendor','$Recievedvia','$Recievedate','$Recievecond','$Warrentp','$Preventive','$MSP','$Adddetails','$Proid')";
 
 
             $result = mysqli_query($conn, $sql);
@@ -121,8 +132,7 @@
                             <td>" . $row["Vendor"] . "</td>
                             <td>
                                 <ul class='icons-list'>
-                                    <li><a><i class='icon-pencil7'></i></a></li>
-                                    <li><a><i class='icon-eye'></i></a></li>
+                                    <li><a onclick='dataModal(". $row["Inventory_sn"].")'><i class='icon-eye'></i></a></li>
                                 </ul>
                             </td>
                             <td></td>
@@ -160,6 +170,66 @@
                         // output data of each row
                         while($row = mysqli_fetch_assoc($result)) {
                             echo "<option>" . $row["Equip_name"] . "</option>";
+                        }
+                    } else {
+                        echo "0 results";
+                    }
+        }
+
+        function get_proidselect_data(){
+            $servername = "localhost";
+                $username = "root";
+                $password = "";
+                $db = "nhk_epms";
+                
+                    // Create connection
+                    $conn = mysqli_connect($servername, $username, $password, $db);
+                    // Check connection
+                    if (!$conn) {
+                        die("Connection failed: " . mysqli_connect_error());
+                    }
+                    
+                    
+                    $sql = "select * from `epms_tenders`";
+                    
+                    
+                    $result = mysqli_query($conn, $sql);
+    
+                    if (mysqli_num_rows($result) > 0) {
+                        // output data of each row
+                        while($row = mysqli_fetch_assoc($result)) {
+                            echo "<option>" . $row["Procurement_id"] . "</option>";
+                        }
+                    } else {
+                        echo "0 results";
+                    }
+        }
+
+        function get_modal_data(){
+            $servername = "localhost";
+                $username = "root";
+                $password = "";
+                $db = "nhk_epms";
+                
+                    // Create connection
+                    $conn = mysqli_connect($servername, $username, $password, $db);
+                    // Check connection
+                    if (!$conn) {
+                        die("Connection failed: " . mysqli_connect_error());
+                    }
+
+                    $snID = $_POST["snid"];
+                    
+                    
+                    $sql = "select * from `epms_inventory` WHERE Inventory_sn = '$snID'";
+                    
+                    
+                    $result = mysqli_query($conn, $sql);
+    
+                    if (mysqli_num_rows($result) > 0) {
+                        // output data of each row
+                        while($row = mysqli_fetch_assoc($result)) {
+                            echo json_encode($row);
                         }
                     } else {
                         echo "0 results";

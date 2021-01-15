@@ -195,6 +195,7 @@ body{
 					if(uname=="" || pass=="")
 					{
 						alert("Please enter both user name and password");
+
 						$("#div_load").css("display","none");
 					}
 					else{
